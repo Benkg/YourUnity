@@ -1,28 +1,40 @@
 <div class="col-12">
+
+                    <!-- Stats Bar -->
     <div class="card">
+
+                        <!-- Header -->
         <div class="card-header card-inverse" style="background-color: #6bbaa7; color: #fff;">
             <h5>Your Statistics</h5>
         </div>
+
+                        <!-- Main Content -->
         <div class="card-block">
             <div class="card-deck">
+
+                            <!-- Events Created -->
               <div class="card card-small">
                   <table class="size-5 full-table">
                       <tr class="text-center">
-                          <td class="pt-3 pb-3 blue"><span class="lnr lnr-bullhorn"></span></td>
+                          <td class="pt-3 pb-3 blue"><a href="/events"><span class="lnr lnr-bullhorn"></span></a></td>
                           <td class="stat">{{ Auth::user()->num_events }}</td>
                       </tr>
                   </table>
-                <div class="card-block m-0">
-                  <h4 class="card-title text-center">Events Created</h4>
-                </div>
+                  <div class="card-block m-0">
+                      <h4 class="card-title text-center">Events Created</h4>
+                  </div>
               </div>
+
+                            <!-- Days Until Next Event -->
               <div class="card card-small">
                   <table class="size-5 full-table">
                       <tr class="text-center">
                           <td class="pt-3 pb-3 blue"><span class="lnr lnr-calendar-full"></span></td>
                           <td class="stat">
                               <?php
+                                    // If the org has any events
                                     if(Auth::user()->num_events > 0) {
+                                        //Save the date of the
                                         $date = DB::table('events')->orderBy('date', 'ASC')->first();
                                         if(strtotime($date->date) <= strtotime(date('m/d/Y'))) {
                                             $id = $date->id;
@@ -52,6 +64,8 @@
                     <h4 class="card-title text-center">Days Until Next Event</h4>
                   </div>
               </div>
+
+                            <!-- Number of People Attended -->
               <div class="card card-small">
                   <table class="size-5 full-table">
                       <tr class="text-center">
@@ -67,11 +81,13 @@
                     <h4 class="card-title text-center">Number of People Attended</h4>
                   </div>
               </div>
+
             </div>
         </div>
     </div>
 </div>
 
+                    <!-- Custom Styles -->
 <style>
     .full-table {
         width: 100%;

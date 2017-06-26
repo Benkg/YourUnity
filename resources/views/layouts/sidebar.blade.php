@@ -1,12 +1,21 @@
+                    <!-- Profile Picture, Name, Logout, Event Table, New Event Button -->
 <div class="col-3 pt-3 sidebar">
+
+                        <!-- Profile Picture -->
     <div class="text-center">
         <img src="/images/avatars/{{ Auth::user()->avatar }}" class="avatar-sm">
     </div>
+
+                        <!-- Name and Logout Button -->
     <div class="text-center mt-3">
         <div class="btn-group">
+
+                            <!-- Name -->
             <a class="btn btn-secondary dropdown-toggle" href="/dashboard" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ Auth::user()->name }}
             </a>
+
+                            <!-- Logout Dropdown and Button -->
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li class="pl-3">
                     <a href="{{ route('logout') }}"
@@ -14,7 +23,6 @@
                                  document.getElementById('logout-form').submit();">
                         Logout
                     </a>
-
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
@@ -22,20 +30,29 @@
             </ul>
         </div>
     </div>
+
+                        <!-- Table of Dates Of Events -->
     <div class="calendar mt-4">
         <h3 class="text-center mb-3 mt-5">Your Events</h3>
         <div class="list-group line-stop">
             @foreach($events as $event)
                 @if($event->user->id == Auth::user()->id)
-                    <a href="/events/{{ $event->id }}" class="list-group-item list-group-item-action"><div class="col-6 p-0"><b>{{ $event->date }}</b></div><div class="col-6 "><span class="text-right">{{ $event->event_name }}</span></div></a>
+                    <a href="/events/{{ $event->id }}" class="list-group-item list-group-item-action">
+                        <div class="col-6 p-0"><b>{{ $event->date }}</b></div>
+                        <div class="col-6 ">
+                            <span class="text-right">{{ $event->event_name }}</span>
+                          </div>
+                    </a>
                 @endif
             @endforeach
         </div>
     </div>
 
+                        <!-- Create New Event Button -->
     <a href="/events/create" class="btn btn-success btn-lg btn-block mt-4" role="button" aria-disabled="true">Create Event</a>
-</div>
 
+</div>
+                    <!-- Custom Styles -->
 <style type="text/css">
 h3 {
     color: #fff;
@@ -72,6 +89,7 @@ h3 {
 
 </style>
 
+                    <!-- Script for Active Hover on Event Table -->
 <script>
     $( ".list-group-item:first" ).addClass("active");
 

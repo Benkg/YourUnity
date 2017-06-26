@@ -1,3 +1,4 @@
+                    <!-- Top Bar With YourUnity Logo and Settings -->
 <header>
         <div class="container-fluid black-background">
             <div class="row bottom-border pt-3 pb-3">
@@ -12,6 +13,7 @@
         </div>
 </header>
 
+                    <!-- Styles For Settings Button  -->
 <style>
     .lnr-cog {
         color: #fff;

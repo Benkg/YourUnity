@@ -8,9 +8,12 @@
                 <h1>Register</h1>
                 <br />
                 <div class="panel-body">
+
+                      <!-- Registration Form, POST's to Register Route -->
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
+                      <!-- Name Input -->
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
 
@@ -25,6 +28,7 @@
                             </div>
                         </div>
 
+                      <!-- Company/Organization Name Input -->
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="company" class="col-md-4 control-label">Company or Organization</label>
 
@@ -39,6 +43,7 @@
                             </div>
                         </div>
 
+                      <!-- E-Mail Address Input -->
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
@@ -53,6 +58,7 @@
                             </div>
                         </div>
 
+                      <!-- Password Input -->
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
@@ -67,6 +73,7 @@
                             </div>
                         </div>
 
+                      <!-- Confirm Password Input -->
                         <div class="form-group">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
@@ -75,6 +82,7 @@
                             </div>
                         </div>
 
+                      <!-- Submit Button -->
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -82,6 +90,7 @@
                                 </button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

@@ -1,48 +1,25 @@
 @extends('layouts.master')
-
 @section('page_title')
 {{ $event->event_name }}
 @endsection
 
 @section('content')
-<!--
-<div class="event">
-    <h3>{{ $event->event_name }}</h3>
-    <p>Created By: {{ $event->user->name }}</p>
-    <p>{{ $event->date }}</p>
-    <p>{{ $event->time_start }}</p>
-    <p>{{ $event->duration }} hours</p>
-    <p>{{ $event->location }}</p>
-    <p>{{ $event->event_description }}</p>
-    <p>{{ $event->recurring }}</p>
-</div>
--->
 @include('layouts.header')
 
+                    <!-- Event Card -->
 <div class="full-content">
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8 pl-5 pr-5 pt-4">
-            <div class="row">
-                <div class="event mb-4 p-3">
-                    <h3>{{ $event->event_name }}</h3>
-                    <p>Created By: {{ $event->user->name }}</p>
-                    <p>{{ $event->date }}</p>
-                    <p>{{ $event->time_start }}</p>
-                    <p>{{ $event->duration }} hours</p>
-                    <p>{{ $event->location }}</p>
-                    <p>{{ $event->event_description }}</p>
-                    <p>{{ $event->recurring }}</p>
+    <div class="container-fluid">
+        <div class="row">
+            @include('layouts.sidebar')
+            <div class="col-9 pl-5 pr-5 pt-4">
+                <div class="mb-4 p-3">
+                        @include('events.event')
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
-</div>
 @endsection
 
 <style>

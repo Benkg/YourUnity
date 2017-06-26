@@ -1,33 +1,37 @@
 @extends('layouts.master')
-
 @section('page_title')
-Dashboard @endsection
+Dashboard
+@endsection
 
 @section('content')
+
+                    <!-- Header (top bar with logo and settings) -->
 @include('layouts.header')
 
 <div class="container-fluid">
     <div class="row">
+
+                    <!-- Sidebar -->
         @include('layouts.sidebar')
+
+                    <!-- Stats Bar and Events List -->
         <div class="col-9 pl-5 pr-5 pt-4 dashboard">
             <div class="row">
+
+                        <!-- Stats Bar -->
                 @include('cards.stats')
 
+                        <!-- Event List -->
                 <div class="col-12">
                     <br />
                     <br />
                     <br />
-                <center><h2>{{ Auth::user()->company }}'s Events &#8226; <a href="/events" class="no-highlight">All Events</a></h2></center>
-                <hr />
-                @foreach($events as $event)
-                    @if($event->user->id == Auth::user()->id)
-                        @include('events.event')
-                    @endif
-                @endforeach
+                    <h2 class="text-center">{{ Auth::user()->company }} &#8226; <a href="/events" class="no-highlight">View All Events</a></h2>
+                    <hr />
                 </div>
+
             </div>
         </div>
     </div>
-
 </div>
 @endsection

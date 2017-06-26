@@ -14,11 +14,13 @@
                         </div>
                     @endif
 
+                    <!-- Reset Passowrd Form -->
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('password.request') }}">
                         {{ csrf_field() }}
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
+                        <!-- Email Validation -->
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
@@ -33,6 +35,7 @@
                             </div>
                         </div>
 
+                        <!-- New Password -->
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
@@ -47,6 +50,7 @@
                             </div>
                         </div>
 
+                        <!-- Confirm New Password -->
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
                             <div class="col-md-6">
@@ -60,6 +64,7 @@
                             </div>
                         </div>
 
+                        <!-- Reset Passowrd Submit Button -->
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -67,6 +72,7 @@
                                 </button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

@@ -13,11 +13,13 @@ class SettingsController extends Controller
         $this->middleware('auth');
     }
 
+                    /* Displays Settings Page */
     public function index() {
         $events = Event::latest()->get();
         return view('settings.index', array('user' => Auth::user()));
     }
 
+                    /* Saves New Profile Picture to User */
     public function store(Request $request) {
         if($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
