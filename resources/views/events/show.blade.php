@@ -11,6 +11,7 @@
     <div class="container-fluid">
         <div class="row">
             @include('layouts.sidebar')
+            <div class="col-3"></div>
             <div class="col-9 pl-5 pr-5 pt-4">
                 <div class="mb-4 p-3">
                         @include('events.event')

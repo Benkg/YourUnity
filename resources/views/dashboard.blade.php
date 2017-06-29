@@ -14,6 +14,9 @@ Dashboard
                     <!-- Sidebar -->
         @include('layouts.sidebar')
 
+        <!-- Padding for fixed sidebar -->
+        <div class="col-3"></div>
+
                     <!-- Stats Bar and Events List -->
         <div class="col-9 pl-5 pr-5 pt-4 dashboard">
             <div class="row">
