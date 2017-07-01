@@ -10,8 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-                      /* Index Route */
+                      /* Main Index, Login, Register Routes */
 Route::get('/', 'MainController@index');
+Route::get('/login', 'MainController@login');
+Route::get('/register', 'MainController@register');
 
                       /* Event Routes */
 Route::get('/events', 'EventsController@index');
@@ -23,10 +25,6 @@ Route::get('/events/{event}/edit', 'EventsController@edit');
 Route::post('/events/{event}/edit', 'EventsController@patch');
 Route::post('/events/{event}/delete', 'EventsController@delete');
 
-                      /* Login/Register Routes */
-Route::get('/login', 'MainController@login');
-Route::get('/register', 'MainController@register');
-
                       /* Login and Register Routes ??? */
 Auth::routes();
 
@@ -35,4 +33,5 @@ Route::get('/dashboard', 'HomeController@index');
 
                       /* Settings Routes */
 Route::get('/settings', 'SettingsController@index');
+Route::get('/settings/edit', 'SettingsController@edit');
 Route::post('/settings', 'SettingsController@store');
