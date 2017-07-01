@@ -13,7 +13,10 @@ All Events
                         <!-- SideBar -->
             @include('layouts.sidebar')
 
-                        <!-- Event Listing -->            
+            <!-- Padding for fixed sidebar -->
+            <div class="col-3"></div>
+
+                        <!-- Event Listing -->
             <div class="col-9 pl-5 pr-5 pt-4">
                 @foreach($events as $event)
                     @include('events.event')

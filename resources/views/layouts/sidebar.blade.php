@@ -49,7 +49,7 @@
     </div>
 
                         <!-- Create New Event Button -->
-    <a href="/events/create" class="btn btn-success btn-lg btn-block mt-4" role="button" aria-disabled="true">Create Event</a>
+    <a href="/events/create" class="btn btn-success btn-lg btn-block mt-4 new-event-sidebar" role="button" aria-disabled="true">Create Event</a>
 
 </div>
                     <!-- Custom Styles -->

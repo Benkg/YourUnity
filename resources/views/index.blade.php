@@ -30,6 +30,10 @@ YourUnity
                       <!-- Style for Background Image and Logo -->
 <style>
 
+	.content {
+		margin-top: 0 !important;
+	}
+
 	.splash-image {
   	background-image: url("/images/splash-background.jpg");
   	background-size: cover;
