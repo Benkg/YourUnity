@@ -4,7 +4,7 @@ Settings
 @endsection
 
 @section('content')
-                    <!-- Script for updating value of... Where is id = uploadFile ??  -->
+                    <!-- Script for updating value of... Where is id = uploadFile ?  -->
 <script type="text/javascript">
 document.getElementById("uploadBtn").onchange = function () {
     document.getElementById("uploadFile").value = this.value;
