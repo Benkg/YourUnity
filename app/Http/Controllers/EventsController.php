@@ -55,10 +55,13 @@ class EventsController extends Controller
             'event_description' => 'required|min:5'
         ]);
 
+        $time = strtotime(request('date'));
+        $date_time = date('Y-m-d H:i:s', $time);
+
                         // Create new event using request data
         Event::create([
             'event_name' => request('event_name'),
-            'date' => request('date'),
+            'date' => $date_time,
             'time_start' => request('time_start'),
             'duration' => request('duration'),
             'location' => request('location'),
@@ -81,6 +84,9 @@ class EventsController extends Controller
 
                     /* Edit an Existing Event */
     public function patch(Request $request, Event $event) {
+
+        $time = strtotime(request('date'));
+        $date_time = date('Y-m-d H:i:s', $time);
 
                         // Validate form before submit
         $this->validate(request(), [
@@ -106,7 +112,7 @@ class EventsController extends Controller
             where id = :id', [
                 'id' => $id,
                 'event_name' => request('event_name'),
-                'date' => request('date'),
+                'date' => $date_time,
                 'time_start' => request('time_start'),
                 'duration' => request('duration'),
                 'location' => request('location'),

@@ -38,7 +38,15 @@
             @foreach($events as $event)
                 @if($event->user->id == Auth::user()->id)
                     <a href="/events/{{ $event->id }}" class="list-group-item list-group-item-action">
-                        <div class="col-6 p-0"><b>{{ $event->date }}</b></div>
+                        <div class="col-6 p-0"><b>
+                            <?php
+                                $print_date = $event->date
+                            ?>
+                            <?php
+                                $print_date = DateTime::createFromFormat('Y-m-d H:i:s', $print_date);
+                                echo($print_date->format('m/d/Y'));
+                            ?>
+                        </b></div>
                         <div class="col-6 ">
                             <span class="text-right">{{ $event->event_name }}</span>
                           </div>

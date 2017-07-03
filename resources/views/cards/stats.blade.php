@@ -34,8 +34,9 @@
                               <?php
                                     // If the org has any events
                                     if(Auth::user()->num_events > 0) {
-                                        //Save the date of the
+                                        // Save the date of the event
                                         $date = DB::table('events')->orderBy('date', 'ASC')->first();
+
                                         if(strtotime($date->date) <= strtotime(date('m/d/Y'))) {
                                             $id = $date->id;
                                             DB::table('events')->where('id', $id)->delete();

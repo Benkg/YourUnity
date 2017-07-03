@@ -16,9 +16,9 @@
                                 <td>
                                     <!-- Name Input -->
                                       <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                          <label for="name" class="col-md-4 control-label">Name</label>
+                                          <label for="name" class="col-12 control-label">Name</label>
 
-                                          <div class="col-md-6">
+                                          <div class="col-11">
                                               <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
                                               @if ($errors->has('name'))
@@ -32,9 +32,9 @@
                                 <td>
                                     <!-- Company/Organization Name Input -->
                                       <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                          <label for="company" class="col-md-4 control-label">Company or Organization</label>
+                                          <label for="company" class="col-12 control-label">Company or Organization</label>
 
-                                          <div class="col-md-6">
+                                          <div class="col-11">
                                               <input id="company" type="text" class="form-control" name="company" value="{{ old('company') }}" required autofocus>
 
                                               @if ($errors->has('company'))
@@ -50,9 +50,9 @@
                                 <td>
                                     <!-- Password Input -->
                                       <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                          <label for="password" class="col-md-4 control-label">Password</label>
+                                          <label for="password" class="col-12 control-label">Password</label>
 
-                                          <div class="col-md-6">
+                                          <div class="col-11">
                                               <input id="password" type="password" class="form-control" name="password" required>
 
                                               @if ($errors->has('password'))
@@ -66,9 +66,9 @@
                                 <td>
                                     <!-- Confirm Password Input -->
                                       <div class="form-group">
-                                          <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                                          <label for="password-confirm" class="col-12 control-label">Confirm Password</label>
 
-                                          <div class="col-md-6">
+                                          <div class="col-11">
                                               <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                           </div>
                                       </div>
@@ -78,9 +78,9 @@
                                 <td>
                                     <!-- E-Mail Address Input -->
                                       <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                          <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                                          <label for="email" class="col-12 control-label">E-Mail Address</label>
 
-                                          <div class="col-md-6">
+                                          <div class="col-11">
                                               <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
                                               @if ($errors->has('email'))
@@ -96,7 +96,7 @@
 
                       <!-- Submit Button -->
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="col-md-6 col-md-offset-4 mt-4">
                                 <button type="submit" class="btn btn-primary">
                                     Register
                                 </button>
