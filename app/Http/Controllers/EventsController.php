@@ -50,7 +50,7 @@ class EventsController extends Controller
             'event_name' => 'required|min:3|max:255',
             'date' => 'required',
             'time_start' => 'required',
-            'duration' => 'required|integer|digits_between:0,23',
+            'time_end' => 'required',
             'location' => 'required|min:4|max:255',
             'event_description' => 'required|min:5'
         ]);
@@ -63,10 +63,10 @@ class EventsController extends Controller
             'event_name' => request('event_name'),
             'date' => $date_time,
             'time_start' => request('time_start'),
-            'duration' => request('duration'),
+            'time_end' => request('time_end'),
             'location' => request('location'),
             'event_description' => request('event_description'),
-            'recurring' => request('recurring'),
+            'event_requirements' => request('event_requirements'),
             'user_id' => auth()->user()->id
         ]);
 
@@ -93,7 +93,7 @@ class EventsController extends Controller
             'event_name' => 'required|min:3|max:255',
             'date' => 'required',
             'time_start' => 'required',
-            'duration' => 'required|integer|digits_between:0,23',
+            'time_end' => 'required',
             'location' => 'required|min:4|max:255',
             'event_description' => 'required|min:5'
         ]);
@@ -104,20 +104,20 @@ class EventsController extends Controller
             event_name = :event_name,
             date = :date,
             time_start = :time_start,
-            duration = :duration,
+            time_end = :time_end,
             location = :location,
             event_description = :event_description,
-            recurring = :recurring,
+            event_requirements = :event_requirements,
             user_id = :user_id
             where id = :id', [
                 'id' => $id,
                 'event_name' => request('event_name'),
                 'date' => $date_time,
                 'time_start' => request('time_start'),
-                'duration' => request('duration'),
+                'time_end' => request('time_end'),
                 'location' => request('location'),
                 'event_description' => request('event_description'),
-                'recurring' => request('recurring'),
+                'event_requirements' => request('event_requirements'),
                 'user_id' => auth()->user()->id
         ]);
 

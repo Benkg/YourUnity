@@ -10,10 +10,10 @@ class Event extends Model
         'event_name',
         'date',
         'time_start',
-        'duration',
+        'time_end',
         'location',
         'event_description',
-        'recurring',
+        'event_requirements',
         'user_id'
     ];
 

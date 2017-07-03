@@ -97,8 +97,8 @@ Create Event
                         <div class="col-4">
                             <!-- Event End Time Input -->
                             <div class="form-group">
-                                <label for="time_start">End Time</label>
-                                <select class="form-control" id="time_start" name="time_start">
+                                <label for="time_end">End Time</label>
+                                <select class="form-control" id="time_end" name="time_end">
                                   <option>12:00 AM</option>
                                   <option>1:00 AM</option>
                                   <option>2:00 AM</option>
@@ -137,8 +137,8 @@ Create Event
 
                           <!-- Event Requirements Input -->
                     <div class="form-group">
-                        <label for="event_description">Requirements</label>
-                        <textarea class="form-control" id="event_description" name="event_description" rows="3"></textarea>
+                        <label for="event_requirements">Requirements</label>
+                        <textarea class="form-control" id="event_requirements" name="event_requirements" rows="3"></textarea>
                     </div>
 
                     <!--

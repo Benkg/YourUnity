@@ -19,10 +19,10 @@ class CreateEventsTable extends Migration
             $table->string('event_name');
             $table->dateTime('date');
             $table->string('time_start');
-            $table->integer('duration')->unsigned();
+            $table->string('time_end');
             $table->string('location');
             $table->text('event_description');
-            $table->boolean('recurring')->nullable();
+            $table->text('event_requirements')->nullable();
             $table->timestamps();
         });
     }

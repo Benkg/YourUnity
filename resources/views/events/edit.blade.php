@@ -29,146 +29,139 @@ Edit Event
 
     <!-- Form -->
 <div class="row">
-<div class="col-8 col-centered">
+    <div class="col-8 col-centered">
 
-<h1 class="white">Edit Event</h1>
-<br />
+        <h1 class="white">Edit Event</h1>
+        <br />
 
-<form method="POST" action="/events">
-    {{ csrf_field() }}
+        <form method="POST" action="/events/{{ $event->id }}/edit">
+            {{ csrf_field() }}
 
-    <div class="row">
+            <div class="row">
 
-        <div class="col-6">
-            <!-- Event Name -->
-            <div class="form-group">
-                <label for="event_name">Event name</label>
-                <input type="text" class="form-control" id="event_name" aria-describedby="emailHelp" value="{{$event->event_name}}" name="event_name">
+                <div class="col-6">
+                    <!-- Event Name -->
+                    <div class="form-group">
+                        <label for="event_name">Event name</label>
+                        <input type="text" class="form-control" id="event_name" aria-describedby="emailHelp" value="{{$event->event_name}}" name="event_name">
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <!-- Event Location -->
+                    <div class="form-group">
+                        <label for="location">Location of Event</label>
+                        <input type="text" class="form-control" id="location" aria-describedby="locationHelp" value="{{$event->location}}" name="location">
+                    </div>
+                </div>
+
             </div>
-        </div>
 
-        <div class="col-6">
-            <!-- Event Location -->
-            <div class="form-group">
-                <label for="location">Location of Event</label>
-                <input type="text" class="form-control" id="location" aria-describedby="locationHelp" value="{{$event->location}}" name="location">
+            <div class="row">
+
+                <div class="col-4">
+                    <!-- Event Date -->
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="text" class="form-control" id="date" value="{{$event->date}}" name="date">
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <!-- Event Start Time -->
+                    <div class="form-group">
+                        <label for="time_start">Start Time</label>
+
+                        <select class="form-control" id="time_start" name="time_start">
+                            <?php
+                            $time = $event->time_start;
+                            ?>
+                            <option<?php if($time=='12:00 AM')echo ' selected="selected"';?>>12:00 AM</option>
+                            <option<?php if($time=='1:00 AM')echo ' selected="selected"';?>>1:00 AM</option>
+                            <option<?php if($time=='2:00 AM')echo ' selected="selected"';?>>2:00 AM</option>
+                            <option<?php if($time=='3:00 AM')echo ' selected="selected"';?>>3:00 AM</option>
+                            <option<?php if($time=='4:00 AM')echo ' selected="selected"';?>>4:00 AM</option>
+                            <option<?php if($time=='5:00 AM')echo ' selected="selected"';?>>5:00 AM</option>
+                            <option<?php if($time=='6:00 AM')echo ' selected="selected"';?>>6:00 AM</option>
+                            <option<?php if($time=='7:00 AM')echo ' selected="selected"';?>>7:00 AM</option>
+                            <option<?php if($time=='8:00 AM')echo ' selected="selected"';?>>8:00 AM</option>
+                            <option<?php if($time=='9:00 AM')echo ' selected="selected"';?>>9:00 AM</option>
+                            <option<?php if($time=='10:00 AM')echo ' selected="selected"';?>>10:00 AM</option>
+                            <option<?php if($time=='11:00 AM')echo ' selected="selected"';?>>11:00 AM</option>
+                            <option<?php if($time=='12:00 PM')echo ' selected="selected"';?>>12:00 PM</option>
+                            <option<?php if($time=='1:00 PM')echo ' selected="selected"';?>>1:00 PM</option>
+                            <option<?php if($time=='2:00 PM')echo ' selected="selected"';?>>2:00 PM</option>
+                            <option<?php if($time=='3:00 PM')echo ' selected="selected"';?>>3:00 PM</option>
+                            <option<?php if($time=='4:00 PM')echo ' selected="selected"';?>>4:00 PM</option>
+                            <option<?php if($time=='5:00 PM')echo ' selected="selected"';?>>5:00 PM</option>
+                            <option<?php if($time=='6:00 PM')echo ' selected="selected"';?>>6:00 PM</option>
+                            <option<?php if($time=='7:00 PM')echo ' selected="selected"';?>>7:00 PM</option>
+                            <option<?php if($time=='8:00 PM')echo ' selected="selected"';?>>8:00 PM</option>
+                            <option<?php if($time=='9:00 PM')echo ' selected="selected"';?>>9:00 PM</option>
+                            <option<?php if($time=='10:00 PM')echo ' selected="selected"';?>>10:00 PM</option>
+                            <option<?php if($time=='11:00 PM')echo ' selected="selected"';?>>11:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                              <!-- Event Start Time -->
+                    <div class="form-group">
+                        <label for="time_start">End Time</label>
+
+                        <select class="form-control" id="time_end" name="time_end">
+                            <?php
+                                $time = $event->time_end;
+                            ?>
+                            <option<?php if($time=='12:00 AM')echo ' selected="selected"';?>>12:00 AM</option>
+                            <option<?php if($time=='1:00 AM')echo ' selected="selected"';?>>1:00 AM</option>
+                            <option<?php if($time=='2:00 AM')echo ' selected="selected"';?>>2:00 AM</option>
+                            <option<?php if($time=='3:00 AM')echo ' selected="selected"';?>>3:00 AM</option>
+                            <option<?php if($time=='4:00 AM')echo ' selected="selected"';?>>4:00 AM</option>
+                            <option<?php if($time=='5:00 AM')echo ' selected="selected"';?>>5:00 AM</option>
+                            <option<?php if($time=='6:00 AM')echo ' selected="selected"';?>>6:00 AM</option>
+                            <option<?php if($time=='7:00 AM')echo ' selected="selected"';?>>7:00 AM</option>
+                            <option<?php if($time=='8:00 AM')echo ' selected="selected"';?>>8:00 AM</option>
+                            <option<?php if($time=='9:00 AM')echo ' selected="selected"';?>>9:00 AM</option>
+                            <option<?php if($time=='10:00 AM')echo ' selected="selected"';?>>10:00 AM</option>
+                            <option<?php if($time=='11:00 AM')echo ' selected="selected"';?>>11:00 AM</option>
+                            <option<?php if($time=='12:00 PM')echo ' selected="selected"';?>>12:00 PM</option>
+                            <option<?php if($time=='1:00 PM')echo ' selected="selected"';?>>1:00 PM</option>
+                            <option<?php if($time=='2:00 PM')echo ' selected="selected"';?>>2:00 PM</option>
+                            <option<?php if($time=='3:00 PM')echo ' selected="selected"';?>>3:00 PM</option>
+                            <option<?php if($time=='4:00 PM')echo ' selected="selected"';?>>4:00 PM</option>
+                            <option<?php if($time=='5:00 PM')echo ' selected="selected"';?>>5:00 PM</option>
+                            <option<?php if($time=='6:00 PM')echo ' selected="selected"';?>>6:00 PM</option>
+                            <option<?php if($time=='7:00 PM')echo ' selected="selected"';?>>7:00 PM</option>
+                            <option<?php if($time=='8:00 PM')echo ' selected="selected"';?>>8:00 PM</option>
+                            <option<?php if($time=='9:00 PM')echo ' selected="selected"';?>>9:00 PM</option>
+                            <option<?php if($time=='10:00 PM')echo ' selected="selected"';?>>10:00 PM</option>
+                            <option<?php if($time=='11:00 PM')echo ' selected="selected"';?>>11:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+
             </div>
-        </div>
 
-    </div>
-
-    <div class="row">
-
-        <div class="col-4">
-            <!-- Event Date -->
+            <!-- Event Description -->
             <div class="form-group">
-                <label for="date">Date</label>
-                <input type="text" class="form-control" id="date" value="{{$event->date}}" name="date">
+                <label for="event_description">Event Description</label>
+                <textarea class="form-control text-left" id="event_description" name="event_description" rows="3"><?php echo "$event->event_description"; ?></textarea>
             </div>
-        </div>
 
-        <div class="col-4">
-            <!-- Event Start Time -->
+            <!-- Event Requirements Input -->
             <div class="form-group">
-                <label for="time_start">Start Time</label>
-
-                <select class="form-control" id="time_start" name="time_start">
-                    <?php
-                    $time = $event->time_start;
-                    ?>
-                    <option<?php if($time=='12:00 AM')echo ' selected="selected"';?>>12:00 AM</option>
-                    <option<?php if($time=='1:00 AM')echo ' selected="selected"';?>>1:00 AM</option>
-                    <option<?php if($time=='2:00 AM')echo ' selected="selected"';?>>2:00 AM</option>
-                    <option<?php if($time=='3:00 AM')echo ' selected="selected"';?>>3:00 AM</option>
-                    <option<?php if($time=='4:00 AM')echo ' selected="selected"';?>>4:00 AM</option>
-                    <option<?php if($time=='5:00 AM')echo ' selected="selected"';?>>5:00 AM</option>
-                    <option<?php if($time=='6:00 AM')echo ' selected="selected"';?>>6:00 AM</option>
-                    <option<?php if($time=='7:00 AM')echo ' selected="selected"';?>>7:00 AM</option>
-                    <option<?php if($time=='8:00 AM')echo ' selected="selected"';?>>8:00 AM</option>
-                    <option<?php if($time=='9:00 AM')echo ' selected="selected"';?>>9:00 AM</option>
-                    <option<?php if($time=='10:00 AM')echo ' selected="selected"';?>>10:00 AM</option>
-                    <option<?php if($time=='11:00 AM')echo ' selected="selected"';?>>11:00 AM</option>
-                    <option<?php if($time=='12:00 PM')echo ' selected="selected"';?>>12:00 PM</option>
-                    <option<?php if($time=='1:00 PM')echo ' selected="selected"';?>>1:00 PM</option>
-                    <option<?php if($time=='2:00 PM')echo ' selected="selected"';?>>2:00 PM</option>
-                    <option<?php if($time=='3:00 PM')echo ' selected="selected"';?>>3:00 PM</option>
-                    <option<?php if($time=='4:00 PM')echo ' selected="selected"';?>>4:00 PM</option>
-                    <option<?php if($time=='5:00 PM')echo ' selected="selected"';?>>5:00 PM</option>
-                    <option<?php if($time=='6:00 PM')echo ' selected="selected"';?>>6:00 PM</option>
-                    <option<?php if($time=='7:00 PM')echo ' selected="selected"';?>>7:00 PM</option>
-                    <option<?php if($time=='8:00 PM')echo ' selected="selected"';?>>8:00 PM</option>
-                    <option<?php if($time=='9:00 PM')echo ' selected="selected"';?>>9:00 PM</option>
-                    <option<?php if($time=='10:00 PM')echo ' selected="selected"';?>>10:00 PM</option>
-                    <option<?php if($time=='11:00 PM')echo ' selected="selected"';?>>11:00 PM</option>
-                </select>
+                <label for="event_description">Requirements</label>
+                <textarea class="form-control" id="event_requirements" name="event_requirements" rows="3"><?php echo "$event->event_requirements"; ?></textarea>
             </div>
-        </div>
 
-        <div class="col-4">
-                      <!-- Event Start Time -->
-            <div class="form-group">
-                <label for="time_start">End Time</label>
+            <!-- Cancle Submit and Delete Buttons -->
+            <a href="/events/{{ $event->id }}">Cancel</a>
+            <button type="submit" class="btn btn-primary float-right ml-3">Submit</button>
+            <a href="/events/{{ $event->id }}/delete" class="text-white btn btn-danger float-right">Delete</a>
 
-                <select class="form-control" id="time_start" name="time_start">
-                    <?php
-                        $time = $event->time_start;
-                    ?>
-                    <option<?php if($time=='12:00 AM')echo ' selected="selected"';?>>12:00 AM</option>
-                    <option<?php if($time=='1:00 AM')echo ' selected="selected"';?>>1:00 AM</option>
-                    <option<?php if($time=='2:00 AM')echo ' selected="selected"';?>>2:00 AM</option>
-                    <option<?php if($time=='3:00 AM')echo ' selected="selected"';?>>3:00 AM</option>
-                    <option<?php if($time=='4:00 AM')echo ' selected="selected"';?>>4:00 AM</option>
-                    <option<?php if($time=='5:00 AM')echo ' selected="selected"';?>>5:00 AM</option>
-                    <option<?php if($time=='6:00 AM')echo ' selected="selected"';?>>6:00 AM</option>
-                    <option<?php if($time=='7:00 AM')echo ' selected="selected"';?>>7:00 AM</option>
-                    <option<?php if($time=='8:00 AM')echo ' selected="selected"';?>>8:00 AM</option>
-                    <option<?php if($time=='9:00 AM')echo ' selected="selected"';?>>9:00 AM</option>
-                    <option<?php if($time=='10:00 AM')echo ' selected="selected"';?>>10:00 AM</option>
-                    <option<?php if($time=='11:00 AM')echo ' selected="selected"';?>>11:00 AM</option>
-                    <option<?php if($time=='12:00 PM')echo ' selected="selected"';?>>12:00 PM</option>
-                    <option<?php if($time=='1:00 PM')echo ' selected="selected"';?>>1:00 PM</option>
-                    <option<?php if($time=='2:00 PM')echo ' selected="selected"';?>>2:00 PM</option>
-                    <option<?php if($time=='3:00 PM')echo ' selected="selected"';?>>3:00 PM</option>
-                    <option<?php if($time=='4:00 PM')echo ' selected="selected"';?>>4:00 PM</option>
-                    <option<?php if($time=='5:00 PM')echo ' selected="selected"';?>>5:00 PM</option>
-                    <option<?php if($time=='6:00 PM')echo ' selected="selected"';?>>6:00 PM</option>
-                    <option<?php if($time=='7:00 PM')echo ' selected="selected"';?>>7:00 PM</option>
-                    <option<?php if($time=='8:00 PM')echo ' selected="selected"';?>>8:00 PM</option>
-                    <option<?php if($time=='9:00 PM')echo ' selected="selected"';?>>9:00 PM</option>
-                    <option<?php if($time=='10:00 PM')echo ' selected="selected"';?>>10:00 PM</option>
-                    <option<?php if($time=='11:00 PM')echo ' selected="selected"';?>>11:00 PM</option>
-                </select>
-            </div>
-        </div>
-
+        </form>
     </div>
-
-    <!-- Event Description -->
-    <div class="form-group">
-        <label for="event_description">Event Description</label>
-        <textarea class="form-control text-left" id="event_description" name="event_description" rows="3"><?php echo "$event->event_description"; ?></textarea>
-    </div>
-
-    <!-- Event Requirements Input -->
-    <div class="form-group">
-        <label for="event_description">Requirements</label>
-        <textarea class="form-control" id="event_requirements" name="event_requirements" rows="3"><?php echo "$event->event_requirements"; ?></textarea>
-    </div>
-
-    <!--
-    <div class="form-group">
-      <label for="exampleInputFile">File input</label>
-      <input type="file" class="form-control-file" id="file" name="file" aria-describedby="fileHelp">
-      <small id="fileHelp" class="form-text text-muted">Attach any files needed for the event</small>
-    </div>
-    -->
-          <!-- Cancle Submit and Delete Buttons -->
-        <a href="/events/{{ $event->id }}">Cancel</a>
-        <button type="submit" class="btn btn-primary float-right ml-3">Submit</button>
-        <a href="/events/{{ $event->id }}/delete" class="text-white btn btn-danger float-right">Delete</a>
-
-</form>
-</div>
 </div>
 
 </div>
