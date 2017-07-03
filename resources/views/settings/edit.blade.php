@@ -79,7 +79,7 @@ document.getElementById("uploadBtn").onchange = function () {
                                             <h4>Event Coordinator: </h4>
                                         </td>
                                         <td>
-                                            <input type="text" value="{{ Auth::user()->name }}">
+                                            <input class="form-control" type="text" value="{{ Auth::user()->name }}">
                                         </td>
                                     </tr>
 
@@ -89,7 +89,7 @@ document.getElementById("uploadBtn").onchange = function () {
                                             <h4>Email: </h4>
                                         </td>
                                         <td>
-                                            <input type="text" value="{{ Auth::user()->email }}">
+                                            <input class="form-control" type="text" value="{{ Auth::user()->email }}">
                                         </td>
                                     </tr>
 

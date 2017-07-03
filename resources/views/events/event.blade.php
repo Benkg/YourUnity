@@ -14,9 +14,9 @@
                 <div class="row">
 
                     <!-- Logistics -->
-                    <h6 class="card-subtitle mb-2 text-muted col-2"><span class="lnr lnr-calendar-full"></span> {{ $event->date }}</h6>
-                    <h6 class="card-subtitle mb-2 text-muted col-4"><span class="lnr lnr-clock"></span></span> {{ $event->time_start }} - ##:## PM</h6>
-                    <h6 class="card-subtitle mb-2 text-muted col-6"><span class="lnr lnr-map-marker"></span>{{ $event->location }}</h6>
+                    <h6 class="card-subtitle text-muted col-2"><span class="lnr lnr-calendar-full"></span> {{ $event->date }}</h6>
+                    <h6 class="card-subtitle text-muted col-4"><span class="lnr lnr-clock"></span></span> {{ $event->time_start }} - ##:## PM</h6>
+                    <h6 class="card-subtitle text-muted col-6"><span class="lnr lnr-map-marker"></span>{{ $event->location }}</h6>
 
                 </div>
             </div>

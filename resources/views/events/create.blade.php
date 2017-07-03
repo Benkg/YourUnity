@@ -8,8 +8,6 @@ Create Event
 
                     <!-- Main Content -->
     <div class="container">
-        <h1 class="white">Create Event</h1>
-        <br />
 
                     <!-- Errors Banner -->
         <div class="row">
@@ -28,90 +26,131 @@ Create Event
 
                     <!-- Form -->
         <div class="row">
-            <div class="col-8">
+            <div class="col-8 col-centered">
+
+                <h1 class="white">Create Event</h1>
+                <br />
+
                 <form method="POST" action="/events">
                     {{ csrf_field() }}
 
-                        <!-- Even Name Input -->
-                  <div class="form-group">
-                    <label for="event_name">Event name</label>
-                    <input type="text" class="form-control" id="event_name" aria-describedby="emailHelp" placeholder="Enter event name" name="event_name">
-                  </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <!-- Even Name Input -->
+                            <div class="form-group">
+                                <label for="event_name">Event name</label>
+                                <input type="text" class="form-control" id="event_name" aria-describedby="emailHelp" placeholder="Enter event name" name="event_name">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <!-- Event Location Input -->
+                            <div class="form-group">
+                                <label for="location">Location of Event</label>
+                                <input type="text" class="form-control" id="location" aria-describedby="locationHelp" placeholder="Enter event location" name="location">
+                            </div>
+                        </div>
+                    </div>
 
-                        <!-- Event Date Input -->
-                  <div class="form-group">
-                    <label for="date">Date</label>
-                    <input type="text" class="form-control" id="date" placeholder="MM/DD/YY" name="date">
-                  </div>
+                    <div class="row">
 
-                        <!-- Event Start Time Input -->
-                  <div class="form-group">
-                      <label for="time_start">Start Time</label>
-                      <select class="form-control" id="time_start" name="time_start">
-                        <option>12:00 AM</option>
-                        <option>1:00 AM</option>
-                        <option>2:00 AM</option>
-                        <option>3:00 AM</option>
-                        <option>4:00 AM</option>
-                        <option>5:00 AM</option>
-                        <option>6:00 AM</option>
-                        <option>7:00 AM</option>
-                        <option>8:00 AM</option>
-                        <option>9:00 AM</option>
-                        <option>10:00 AM</option>
-                        <option>11:00 AM</option>
-                        <option>12:00 PM</option>
-                        <option>1:00 PM</option>
-                        <option>2:00 PM</option>
-                        <option>3:00 PM</option>
-                        <option>4:00 PM</option>
-                        <option>5:00 PM</option>
-                        <option>6:00 PM</option>
-                        <option>7:00 PM</option>
-                        <option>8:00 PM</option>
-                        <option>9:00 PM</option>
-                        <option>10:00 PM</option>
-                        <option>11:00 PM</option>
-                      </select>
-                  </div>
+                        <div class="col-4">
+                            <!-- Event Date Input -->
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input type="text" class="form-control" id="date" placeholder="MM/DD/YY" name="date">
+                            </div>
+                        </div>
 
-                        <!-- Event Duration Input -->
-                  <div class="form-group">
-                    <label for="duration">Duration (Hours)</label>
-                    <input type="text" class="form-control" id="duration" aria-describedby="durationHelp" placeholder="Hours" name="duration">
-                  </div>
+                        <div class="col-4">
+                            <!-- Event Start Time Input -->
+                            <div class="form-group">
+                                <label for="time_start">Start Time</label>
+                                <select class="form-control" id="time_start" name="time_start">
+                                  <option>12:00 AM</option>
+                                  <option>1:00 AM</option>
+                                  <option>2:00 AM</option>
+                                  <option>3:00 AM</option>
+                                  <option>4:00 AM</option>
+                                  <option>5:00 AM</option>
+                                  <option>6:00 AM</option>
+                                  <option>7:00 AM</option>
+                                  <option>8:00 AM</option>
+                                  <option>9:00 AM</option>
+                                  <option>10:00 AM</option>
+                                  <option>11:00 AM</option>
+                                  <option>12:00 PM</option>
+                                  <option>1:00 PM</option>
+                                  <option>2:00 PM</option>
+                                  <option>3:00 PM</option>
+                                  <option>4:00 PM</option>
+                                  <option>5:00 PM</option>
+                                  <option>6:00 PM</option>
+                                  <option>7:00 PM</option>
+                                  <option>8:00 PM</option>
+                                  <option>9:00 PM</option>
+                                  <option>10:00 PM</option>
+                                  <option>11:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
 
-                        <!-- Event Location Input -->
-                  <div class="form-group">
-                    <label for="location">Location of Event</label>
-                    <input type="text" class="form-control" id="location" aria-describedby="locationHelp" placeholder="Enter event location" name="location">
-                  </div>
+                        <div class="col-4">
+                            <!-- Event End Time Input -->
+                            <div class="form-group">
+                                <label for="time_start">End Time</label>
+                                <select class="form-control" id="time_start" name="time_start">
+                                  <option>12:00 AM</option>
+                                  <option>1:00 AM</option>
+                                  <option>2:00 AM</option>
+                                  <option>3:00 AM</option>
+                                  <option>4:00 AM</option>
+                                  <option>5:00 AM</option>
+                                  <option>6:00 AM</option>
+                                  <option>7:00 AM</option>
+                                  <option>8:00 AM</option>
+                                  <option>9:00 AM</option>
+                                  <option>10:00 AM</option>
+                                  <option>11:00 AM</option>
+                                  <option>12:00 PM</option>
+                                  <option>1:00 PM</option>
+                                  <option>2:00 PM</option>
+                                  <option>3:00 PM</option>
+                                  <option>4:00 PM</option>
+                                  <option>5:00 PM</option>
+                                  <option>6:00 PM</option>
+                                  <option>7:00 PM</option>
+                                  <option>8:00 PM</option>
+                                  <option>9:00 PM</option>
+                                  <option>10:00 PM</option>
+                                  <option>11:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
 
-                        <!-- Event Description Input -->
-                  <div class="form-group">
-                    <label for="event_description">Event Description</label>
-                    <textarea class="form-control" id="event_description" name="event_description" rows="3"></textarea>
-                  </div>
+                    </div>
 
-                        <!-- Recurring Event Checkbox -->
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input type="checkbox" class="form-check-input" id="recurring" name="recurring" value="1">
-                      Recurring Event
-                    </label>
-                  </div>
+                          <!-- Event Description Input -->
+                    <div class="form-group">
+                        <label for="event_description">Description</label>
+                        <textarea class="form-control" id="event_description" name="event_description" rows="3"></textarea>
+                    </div>
 
-                  <br />
+                          <!-- Event Requirements Input -->
+                    <div class="form-group">
+                        <label for="event_description">Requirements</label>
+                        <textarea class="form-control" id="event_description" name="event_description" rows="3"></textarea>
+                    </div>
 
-                  <!--
-                  <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
-                    <input type="file" class="form-control-file" id="file" name="file" aria-describedby="fileHelp">
-                    <small id="fileHelp" class="form-text text-muted">Attach any files needed for the event</small>
-                  </div>
-                  -->
-                        <!-- Submit Button -->
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                    <!--
+                    <div class="form-group">
+                      <label for="exampleInputFile">File input</label>
+                      <input type="file" class="form-control-file" id="file" name="file" aria-describedby="fileHelp">
+                      <small id="fileHelp" class="form-text text-muted">Attach any files needed for the event</small>
+                    </div>
+                    -->
+                          <!-- Cancle and Submit Button -->
+                    <a href="/">Cancel</a>
+                    <button type="submit" class="btn btn-primary float-right">Submit</button>
 
                 </form>
             </div>
@@ -144,6 +183,10 @@ body {
 
 label {
     color: #fff;
+}
+
+.col-centered {
+    margin: 0 auto;
 }
 
 .white {
