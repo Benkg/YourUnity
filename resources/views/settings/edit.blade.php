@@ -5,27 +5,6 @@ Settings
 
 @section('content')
                     <!-- Script for updating value of... Where is id = uploadFile ?  -->
-<script type="text/javascript">
-document.getElementById("uploadBtn").onchange = function () {
-    document.getElementById("uploadFile").value = this.value;
-};
-</script>
-
-                    <!-- Script for Profile Picture Form -->
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('.avatar').mouseenter(function() {
-            $('.fileUpload').removeClass('hide');
-        });
-        $('.fileUpload').mouseleave(function() {
-            $('.fileUpload').addClass('hide');
-        });
-
-        $('#uploadBtn').change(function() {
-            $('#fileUpload').submit();
-        });
-    });
-</script>
 
 @include('layouts.header')
 
@@ -45,17 +24,8 @@ document.getElementById("uploadBtn").onchange = function () {
                             <td class="pr-4 right-border">
                                 <div class="avatar"><img src="/images/avatars/{{ $user->avatar }}"></div>
 
-                                    <!-- Change Profile Picture Form -->
 
-                                    <div class="fileUpload hide">
-                                        <span class="custom-span">+</span>
-                                        <p class="custom-para">Change Image</p>
-                                        <input id="uploadBtn" type="file" class="upload" name="avatar"/>
-                                    </div>
-                                    <!-- <input type="file" class="upload" name="avatar"> -->
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <br />
-                                    <!-- <input id="submit" type="submit" class="btn btn-small btn-primary"> -->
+                                
 
                             </td>
 

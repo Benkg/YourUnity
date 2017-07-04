@@ -6,7 +6,7 @@ Dashboard
 @section('content')
 
                     <!-- Header (top bar with logo and settings) -->
-@include('layouts.header')
+
 
 <div class="container-fluid">
     <div class="row">

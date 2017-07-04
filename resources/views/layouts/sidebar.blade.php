@@ -1,21 +1,40 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.avatar-sm').mouseenter(function() {
+            $('.sidebar-setting').removeClass('hide');
+        });
+        $('.sidebar-setting').mouseleave(function() {
+            $('.sidebar-setting').addClass('hide');
+        });
+    });
+</script>
+
                     <!-- Profile Picture, Name, Logout, Event Table, New Event Button -->
 <div class="col-3 pt-3 sidebar">
 
+    <!-- Logo -->
+    <div class="center"><a href="/dashboard"><img src="{{ url('/images/logo_white.png') }}" class="logo" alt="YourUnity"></a></div>
+    <hr class="side-hr mb-4"/>
                         <!-- Profile Picture -->
     <div class="text-center">
         <img src="/images/avatars/{{ Auth::user()->avatar }}" class="avatar-sm">
     </div>
+    <div class="text-center">
+        <div class="sidebar-setting text-center hide">
+            <a href="/settings"><span class="lnr lnr-cog sidebar-setting-icon"></span></a>
+        </div>
+    </div>
 
                         <!-- Name and Logout Button -->
-    <div class="text-center mt-3">
+    <!-- <div class="text-center mt-3">
         <div class="btn-group">
 
-                            <!-- Name -->
+
             <a class="btn btn-secondary dropdown-toggle" href="/dashboard" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ Auth::user()->name }}
             </a>
 
-                            <!-- Logout Dropdown and Button -->
+
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li class="pl-3">
                     <a href="{{ route('logout') }}"
@@ -29,26 +48,28 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> -->
 
                         <!-- Table of Dates Of Events -->
     <div class="calendar mt-4">
-        <h3 class="text-center mb-3 mt-5">Your Events</h3>
+        <h3 class="text-center mb-3 mt-2">Your Events</h3>
         <div class="list-group line-stop">
             @foreach($events as $event)
                 @if($event->user->id == Auth::user()->id)
                     <a href="/events/{{ $event->id }}" class="list-group-item list-group-item-action">
-                        <div class="col-6 p-0"><b>
+                        <div class="col-1 p-0"><b>
+                            <span class="lnr lnr-calendar-full small-cal"></span>
                             <?php
-                                $print_date = $event->date
+                                // $print_date = $event->date
                             ?>
                             <?php
-                                $print_date = DateTime::createFromFormat('Y-m-d H:i:s', $print_date);
-                                echo($print_date->format('m/d/Y'));
+                                 // $print_date = DateTime::createFromFormat('Y-m-d H:i:s', $print_date);
+                                 // echo($print_date->format('m/d'));
                             ?>
+
                         </b></div>
-                        <div class="col-6 ">
-                            <span class="text-right">{{ $event->event_name }}</span>
+                        <div class="col-11 ">
+                            <span class="">{{ $event->event_name }}</span>
                           </div>
                     </a>
                 @endif
@@ -62,6 +83,10 @@
 </div>
                     <!-- Custom Styles -->
 <style type="text/css">
+.hide {
+    display: none;
+}
+
 h3 {
     color: #fff;
     font-weight: 200;
@@ -83,6 +108,7 @@ h3 {
 .line-stop {
   white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis
 }
 
 .list-group-item {

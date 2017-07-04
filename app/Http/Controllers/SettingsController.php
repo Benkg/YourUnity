@@ -38,11 +38,11 @@ class SettingsController extends Controller
 
         $id = $user->id;
 
-        DB::update('update events set
-            name = :name,
-            where id = :id', [
-                'name' => request('name'),
-        ]);
+        // DB::update('update events set
+        //     name = :name,
+        //     where id = :id', [
+        //         'name' => request('name'),
+        // ]);
 
         $user->save();
         return view('settings.index', array('user' => Auth::user()));

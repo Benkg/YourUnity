@@ -14,14 +14,25 @@
             <div class="card-block">
                 <div class="row">
 
+                    <!-- Formatting date properly -->
+                    <?php
+                        $print_date = $event->date
+                    ?>
+
                     <!-- Logistics -->
-                    <h6 class="card-subtitle text-muted col-3"><span class="lnr lnr-calendar-full"></span> {{ $event->date }}</h6>
-                    <h6 class="card-subtitle text-muted col-3"><span class="lnr lnr-clock"></span></span> {{ $event->time_start }} - ##:## PM</h6>
-                    <h6 class="card-subtitle text-muted col-6"><span class="lnr lnr-map-marker"></span>{{ $event->location }}</h6>
+                    <h6 class="card-subtitle text-muted col-3"><span class="lnr lnr-calendar-full"></span> <?php
+                        $print_date = DateTime::createFromFormat('Y-m-d H:i:s', $print_date);
+                        echo($print_date->format('M d, Y'));
+                        ?>
+                    </h6>
+                    <h6 class="card-subtitle text-muted col-4"><span class="lnr lnr-clock"></span></span> {{ $event->time_start }} - {{ $event->time_end }}</h6>
+                    <h6 class="card-subtitle text-muted col-5"><span class="lnr lnr-map-marker"></span>{{ $event->location }}</h6>
 
                 </div>
             </div>
         </div>
+
+        <hr />
 
                         <!-- Event Description -->
         <div class="card mb-2">

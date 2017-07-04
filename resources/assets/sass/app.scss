@@ -1,6 +1,7 @@
 html {
     position: relative;
     height: 100% !important;
+    overflow-x: hidden;
 }
 
 body {
@@ -12,12 +13,15 @@ body {
 }
 
 .content {
-    margin-top: 8%;
     min-height: 100%;
 }
 
 .full-content {
     margin-bottom: -73px;
+}
+
+h1 {
+    font-weight: 200 !important;
 }
 
 h2 {
@@ -31,7 +35,7 @@ h3 {
 }
 
 hr {
-    width: 60%;
+    width: 75%;
     background-color: #6bbaa7;
 }
 
@@ -67,6 +71,14 @@ hr {
     background: linear-gradient(to top, #2e2e2e, #3f3f3f); /*Standard*/
 }
 
+.white {
+    color: #fff !important;
+}
+
+.white a {
+    color: #fff !important;
+}
+
 .logo {
   width: 13em;
 }
@@ -81,8 +93,9 @@ hr {
   height: 100vh;
   position: fixed !important;
   top: 0;
-  background-color: #2d2d2d;
+  background-color: rgba(45,45,45,0.8);
   z-index: 999;
+  border-right: 2px solid rgba(22,22,22,0.1);
 }
 
 .dashboard {
@@ -121,13 +134,13 @@ button:hover {
 .fileUpload {
 	position: absolute;
 	overflow: hidden;
-    top: 2.85rem;
-    left: 2rem;
+    top: 4.52rem;
+    left: 1.92rem;
 	margin: 10px;
 	background-color: rgba(214,214,214,0.5);
 	height: 15rem;
 	width: 15rem;
-    border-radius: 50%;
+    border-radius: 5px;
 	text-align: center;
 }
 .fileUpload input.upload {
@@ -153,7 +166,7 @@ button:hover {
     position: relative;
     overflow: hidden;
     margin-top: 1rem;
-    border-radius: 50%;
+    border-radius: 5px;
 }
 
 .avatar img {
@@ -163,7 +176,7 @@ button:hover {
 .avatar-sm {
     width: 10rem;
     height: 10rem;
-    border-radius: 50%;
+    border-radius: 5px;
 }
 
 .event {
@@ -244,17 +257,16 @@ footer {
 }
 
 header {
-    position: fixed;
-    top: 0;
-    z-index: 999;
+    margin-left: -0.95rem;
     width: 100vw;
-    background-color: #3f3f3f;
+    background-color: #2d2d2d;
 }
 
 .login-card {
     background-color: #2e2e2e;
     padding: 3%;
     width: 50%;
+    margin-top: 8%;
     margin-left: 25%;
     border-radius: 5px;
 }
@@ -265,7 +277,7 @@ header {
     width: 70%;
     margin-left: 15%;
     border-radius: 5px;
-    margin-top: -3%;
+    margin-top: 7%;
     margin-bottom: 3%;
 }
 
@@ -276,4 +288,35 @@ header {
 
 .table-full input {
     width: 100%;
+}
+
+.small-cal {
+    font-size: 110%;
+}
+
+.side-hr {
+    margin-top: 9px;
+    width: 70%;
+    height: 2px;
+}
+
+.sidebar-setting {
+    display: inline-block;
+    position: absolute;
+    top: 6.95rem;
+    left: 4.95rem;
+    width: 10rem;
+    height: 10rem;
+    background: rgba(255,255,255,0.5);
+    line-height: 10rem;
+    vertical-align: middle;
+    border-radius: 5px;
+}
+
+.sidebar-setting a {
+    font-size: 3.5rem;
+}
+
+.card {
+    border: 0px !important;
 }

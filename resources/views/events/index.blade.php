@@ -4,7 +4,6 @@ All Events
 @endsection
 
 @section('content')
-@include('layouts.header')
 
                     <!-- Main Content -->
 <div class="container-fluid">

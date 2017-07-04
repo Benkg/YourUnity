@@ -106,6 +106,17 @@ document.getElementById("uploadBtn").onchange = function () {
                                 </tr>
 
                             </table>
+                            <!-- Logout button -->
+                            <div class="col-12 text-right">
+                                    <a class="btn btn-primary btn white" role="button" aria-disabled="true" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                            </div>
                         </td>
                     </tr>
                 </table>
