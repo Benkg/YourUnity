@@ -35,3 +35,4 @@ Route::get('/dashboard', 'HomeController@index');
 Route::get('/settings', 'SettingsController@index');
 Route::get('/settings/edit', 'SettingsController@edit');
 Route::post('/settings', 'SettingsController@store');
+Route::post('/settings/edit', 'SettingsController@update');

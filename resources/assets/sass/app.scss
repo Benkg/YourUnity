@@ -34,6 +34,11 @@ h3 {
     font-weight: 100;
 }
 
+h4 {
+    font-weight: 400 !important;
+    font-size: 1.1rem !important;
+}
+
 hr {
     width: 75%;
     background-color: #6bbaa7;
@@ -134,7 +139,7 @@ button:hover {
 .fileUpload {
 	position: absolute;
 	overflow: hidden;
-    top: 4.52rem;
+    top: 2.82rem;
     left: 1.92rem;
 	margin: 10px;
 	background-color: rgba(214,214,214,0.5);
@@ -319,4 +324,13 @@ header {
 
 .card {
     border: 0px !important;
+}
+
+.edit-card {
+    width: 40%;
+    padding: 2%;
+    background-color: #2e2e2e;
+    border-radius: 0.2rem;
+    margin-top: 5%;
+    margin-left: 30%;
 }

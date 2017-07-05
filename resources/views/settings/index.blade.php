@@ -98,9 +98,9 @@ document.getElementById("uploadBtn").onchange = function () {
                                     </td>
                                     <td>
                                         <?php
-                                            $date = Auth::user()->created_at;
-                                            $date = date("F j, Y");
-                                            echo $date;
+                                            $print_date = Auth::user()->created_at;
+                                            $print_date = DateTime::createFromFormat('Y-m-d H:i:s', $print_date);
+                                            echo($print_date->format('F j, Y'));
                                         ?>
                                     </td>
                                 </tr>

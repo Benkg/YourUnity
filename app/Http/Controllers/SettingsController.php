@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Event;
 use Auth;
@@ -38,13 +41,36 @@ class SettingsController extends Controller
 
         $id = $user->id;
 
-        // DB::update('update events set
-        //     name = :name,
-        //     where id = :id', [
-        //         'name' => request('name'),
-        // ]);
-
         $user->save();
         return view('settings.index', array('user' => Auth::user()));
+    }
+
+
+
+    public function update()
+    {
+        // validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'name'       => 'required|string|max:255',
+            'email'      => 'required|string|email|max:255|unique:users,email,' . Auth::user()->id
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('settings/edit')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            // store
+            $user = Auth::user();
+            $user->name = request('name');
+            $user->email = request('email');
+            $user->save();
+
+            // redirect
+            return Redirect::to('/settings');
+        }
     }
 }
