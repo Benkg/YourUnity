@@ -20,10 +20,11 @@ Route::get('/events', 'EventsController@index');
 Route::post('/events', 'EventsController@store');
 Route::get('/events/create', 'EventsController@create');
 Route::get('/events/{event}', 'EventsController@show');
-Route::get('/events/{event}/delete', 'EventsController@getDelete');
 Route::get('/events/{event}/edit', 'EventsController@edit');
 Route::post('/events/{event}/edit', 'EventsController@patch');
+Route::get('/events/{event}/delete', 'EventsController@getDelete');
 Route::post('/events/{event}/delete', 'EventsController@delete');
+Route::get('/events/{event}/duplicate', 'EventsController@duplicate');
 
                       /* Login and Register Routes ??? */
 Auth::routes();

@@ -24,15 +24,6 @@ Dashboard
                         <!-- Stats Bar -->
                 @include('cards.stats')
 
-                        <!-- Event List -->
-                <div class="col-12">
-                    <br />
-                    <br />
-                    <br />
-                    <h2 class="text-center">{{ Auth::user()->company }} &#8226; <a href="/events" class="no-highlight">View All Events</a></h2>
-                    <hr />
-                </div>
-
             </div>
         </div>
     </div>

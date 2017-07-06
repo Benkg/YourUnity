@@ -52,7 +52,7 @@
 
                         <!-- Table of Dates Of Events -->
     <div class="calendar mt-4">
-        <h3 class="text-center mb-3 mt-2">Your Events</h3>
+        <a href="/events" class="no-highlight"><h3 class="text-center mb-3 mt-2">Your Events</h3></a>
         <div class="list-group line-stop">
             @foreach($events as $event)
                 @if($event->user->id == Auth::user()->id)

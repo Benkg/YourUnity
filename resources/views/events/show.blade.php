@@ -4,7 +4,6 @@
 @endsection
 
 @section('content')
-@include('layouts.header')
 
                     <!-- Event Card -->
 <div class="full-content">

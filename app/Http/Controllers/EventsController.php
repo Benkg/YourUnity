@@ -37,6 +37,10 @@ class EventsController extends Controller
         return view('events.edit', compact('event'));
     }
 
+    public function duplicate(Event $event) {
+        return view('events.duplicate', compact('event'));
+    }
+
                     /* View Delete From */
     public function getDelete(Event $event) {
         return view('events.delete', compact('event'));

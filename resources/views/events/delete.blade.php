@@ -7,10 +7,11 @@ Delete Event
 @include('layouts.header')
 
                     <!-- Are you sure you want to delete this event? -->
-<div class="card card-inverse text-center " style="margin: auto; width: 50vw; background-color: #333; border-color: #333;">
+<div class="card card-inverse text-center " style="margin: 2vh auto; width: 50vw; background-color: #333; border-color: #333;">
     <div class="card-block">
         <h3 class="card-title">Are you sure you want to delete this event?</h3>
         <p class="card-text">Deleting an event is permanent. Click no to return to previous page.</p>
+        <hr />
         <form method="POST" action="/events/{{ $event->id }}/delete">
           {{ csrf_field() }}
           <button type="submit" class="btn btn-primary text-white">Yes</button>
