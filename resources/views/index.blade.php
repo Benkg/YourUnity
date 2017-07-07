@@ -11,7 +11,7 @@ YourUnity
                       <!-- Top Bar and Logo -->
 	<div class="black-background-transp absolute">
 		<div class="row-fluid center">
-			<img src="{{ url('/images/whitegreen.svg') }}" class="logo-main" alt="YourUnity">
+			<img src="{{ url('/images/White.svg') }}" class="logo-main" alt="YourUnity">
 		</div>
 	</div>
 
