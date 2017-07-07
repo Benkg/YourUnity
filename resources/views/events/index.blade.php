@@ -5,17 +5,17 @@ All Events
 
 @section('content')
 
-                    <!-- Main Content -->
+<!-- Main Content -->
 <div class="container-fluid">
         <div class="row">
 
-                        <!-- SideBar -->
+            <!-- SideBar -->
             @include('layouts.sidebar')
 
             <!-- Padding for fixed sidebar -->
             <div class="col-3"></div>
 
-                        <!-- Event Listing -->
+            <!-- Event Listing -->
             <div class="col-9 pl-5 pr-5 pt-4">
                 @foreach($events as $event)
                     @include('events.event')

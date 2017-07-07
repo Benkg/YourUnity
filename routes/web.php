@@ -15,6 +15,10 @@ Route::get('/', 'MainController@index');
 Route::get('/login', 'MainController@login');
 Route::get('/register', 'MainController@register');
 
+                      /* Route for Access Code */
+Route::get('/access', 'MainController@access');
+Route::post('/access', 'MainController@granted');
+
                       /* Event Routes */
 Route::get('/events', 'EventsController@index');
 Route::post('/events', 'EventsController@store');

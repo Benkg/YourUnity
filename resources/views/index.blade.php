@@ -30,12 +30,6 @@ YourUnity
 					<p class="landing-paragraph">We help you connect with countless community service providers in your area and improve the community around you.</p>
 				</div>
 			</div>
-	    <!-- <div class="col-6 text-right">
-	    	<button onclick="location.href='/login';" type="button" class="btn btn-primary btn-lg">Sign In</button>
-	    </div>
-	    <div class="col-6 text-left">
-	    	<button onclick="location.href='/register';" type="button" class="blue-outline btn btn-outline-secondary btn-lg">Register</button>
-	    </div> -->
 			<div class="down-circle center"><span class="lnr lnr-chevron-down-circle"></span></div>
 		</div>
 	</div>
