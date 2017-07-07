@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use AuthenticatesUsers;
 
 class MainController extends Controller
 {
+    protected $redirectTo = '/register';
                     /*  */
     public function __construct() {
         $this->middleware('guest');
@@ -21,12 +23,14 @@ class MainController extends Controller
     }
 
                     /* Returns Registration Page */
-    public function register() {
-        return view('auth.register');
+    public function register($access) {
+        if($access == "true") {
+            return view('auth.registration');
+        }
+        else {
+            return view('auth.access');
+        }
     }
-
-
-
 
                     /* Returns Access Code Page */
     public function access() {
@@ -35,10 +39,12 @@ class MainController extends Controller
 
                     /* Hardcoded Access Code. However, people can still just visit /register without fail */
     public function granted (Request $request) {
-        if($request->code == "myunity")
-            return redirect('/register');
-        else
+        if($request->code == "myunity") {
+            return view('auth.registration', ['access' => 'true']);
+        }
+        else {
             return redirect('/access');
+        }
     }
 
 

@@ -428,3 +428,46 @@ header {
     font-style: italic;
     color: #ededed !important;
 }
+
+.iphone {
+    width: 60%;
+}
+
+.thick {
+    font-weight: 300 !important;
+}
+
+.splash-card-1 {
+    position: absolute;
+    width: 29%;
+    height: 62%;
+    left: 2.5vw;
+    border-radius: 5px;
+    background-color: #1f1f1f;
+}
+
+.splash-card-2 {
+    position: absolute;
+    width: 29%;
+    height: 62%;
+    left: 36.5vw;
+    border-radius: 5px;
+    background-color: #1f1f1f;
+}
+
+.splash-card-3 {
+    position: absolute;
+    width: 29%;
+    height: 62%;
+    left: 70.2vw;
+    border-radius: 5px;
+    background-color: #1f1f1f;
+}
+
+.lighter {
+    border: 1px solid #6bbaa7 !important;
+}
+
+.short {
+    width: 40%;
+}

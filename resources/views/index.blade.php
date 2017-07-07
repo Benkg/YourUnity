@@ -6,20 +6,43 @@ YourUnity
 
 @section('content')
 
+<script>
+	$('document').ready(function() {
+		$('.sc1').hover(function() {
+			$('.splash-card-1').toggleClass('lighter');
+		});
+		$('.sc1').click(function() {
+				window.location.replace("#service_providers");
+		});
+		$('.sc2').hover(function() {
+			$('.splash-card-2').toggleClass('lighter');
+		});
+		$('.sc2').click(function() {
+				window.location.replace("#service_leaders");
+		});
+		$('.sc3').hover(function() {
+			$('.splash-card-3').toggleClass('lighter');
+		});
+		$('.sc3').click(function() {
+				window.location.replace("#volunteers");
+		});
+	});
+</script>
+
 <div class="container-fluid no-padding">
                       <!-- Background Image, Sign In and Register Buttons -->
 	<div class="row justify-content-center splash-image">
 		<div class="col-12">
 			<div class="row mt-2">
 				<div class="col-3 text-right">
-					<img src="{{ url('/images/logo_white.png') }}" class="logo-main" alt="YourUnity">
+					<img src="{{ url('/images/whitelogo.svg') }}" class="logo-main" alt="YourUnity">
 				</div>
 				<div class="col-8 text-right vertical-align">
-					<span class="head-links white"><a href="http://blog.yourunity.com">Blog</a></span>
+					<span class="head-links white"><a href="http://blog.yourunity.org">Blog</a></span>
 					<img src="{{ url('/images/twitter_white.png') }}" class="head-twitter-icon" alt="Twitter">
 					<img src="{{ url('/images/facebook_white.png') }}" class="head-social-icons ml-2" alt="Facebook">
 					<img src="{{ url('/images/instagram_white.png') }}" class="head-social-icons ml-4" alt="Instagram">
-					<a href="/register" class="btn btn-outline-primary white ml-4">Community Service Provider?</a>
+					<a href="/access" class="btn btn-outline-primary white ml-4">Community Service Provider?</a>
 				</div>
 			</div>
 
@@ -37,44 +60,40 @@ YourUnity
 	<div class="row dark-grey pt-4 pb-4">
 		<div class="col-12 p-4">
 			<div class="row">
-				<div class="col-12 ml-3">
-					<h2>Community, for everyone.</h2>
+				<div class="col-12 center mb-4">
+					<h2 class="thick">Community, for everyone.</h2>
+					<hr class="short" />
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-4 center">
+			<div class="row pb-4">
+				<div class="splash-card-1"></div>
+				<div class="col-4 center sc1">
 					<span class="lnr lnr-store big-icons"></span>
+					<h3 class="mt-2">Community Service Providers</h3>
 				</div>
-				<div class="col-4 center pt-4">
+				<div class="splash-card-2"></div>
+				<div class="col-4 center pt-4 sc2">
 					<span class="lnr lnr-user big-icons-user"></span>
+					<h3 class="mt-3">Community Service Leaders</h3>
 				</div>
-				<div class="col-4 center pt-2">
+				<div class="splash-card-3"></div>
+				<div class="col-4 center pt-2 sc3">
 					<span class="lnr lnr-users big-icons"></span>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-4 center">
-					<h3>Community Service Providers</h3>
-				</div>
-				<div class="col-4 center">
-					<h3>Community Service Leaders</h3>
-				</div>
-				<div class="col-4 center">
 					<h3>Volunteers</h3>
 				</div>
 			</div>
+			<br />
 		</div>
 	</div>
 
-	<div class="row pt-4 pb-4">
+	<div id="service_providers" class="row pt-4 pb-4">
 		<div class="col-12 p-4">
 			<div class="row">
-				<div class="col-5 ml-3">
-					<h2>Community, for Service Providers.</h2>
-				</div>
-				<div class="col-6">
-					<a href="/register" class="btn btn-primary white">Register</a>
-					<a href="/login" class="btn btn-outline-secondary white ml-2">Login</a>
+				<div class="col-12 center">
+					<h2 class="thick">Community, for Service Providers.</h2>
+					<a href="/access" class="btn btn-primary white mt-2">Register</a>
+					<a href="/login" class="btn btn-outline-secondary white ml-3 mt-2">Login</a>
+					<hr class="short" />
 				</div>
 			</div>
 			<div class="row mt-4 p-1">
@@ -83,14 +102,14 @@ YourUnity
 				</div>
 				<div class="col-6">
 					<h3>Create events for volunteers to join.</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur interdum id enim id tempor. Donec tempor odio et risus sagittis, nec lacinia leo tempus. Nam sit amet ligula suscipit, semper ipsum ut, auctor dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed finibus vel nunc sit amet viverra. Morbi accumsan ipsum vitae enim pharetra, id facilisis ipsum venenatis. Ut tellus orci, blandit eu facilisis vel, dignissim at massa.</p>
+					<p></p>
 				</div>
 			</div>
 			<div class="row p-1 mt-4">
 				<div class="col-1"></div>
 				<div class="col-6">
 					<h3>Track your events.</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur interdum id enim id tempor. Donec tempor odio et risus sagittis, nec lacinia leo tempus. Nam sit amet ligula suscipit, semper ipsum ut, auctor dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed finibus vel nunc sit amet viverra. Morbi accumsan ipsum vitae enim pharetra, id facilisis ipsum venenatis. Ut tellus orci, blandit eu facilisis vel, dignissim at massa.</p>
+					<p></p>
 				</div>
 				<div class="col-5 blue_background pt-3 pb-3 text-right">
 					<img src="{{ url('/images/screenshot_tracking.png') }}" class="screenshot" alt="Track Events">
@@ -102,17 +121,18 @@ YourUnity
 				</div>
 				<div class="col-6">
 				<h3>Update volunteers on any sudden event changes.</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur interdum id enim id tempor. Donec tempor odio et risus sagittis, nec lacinia leo tempus. Nam sit amet ligula suscipit, semper ipsum ut, auctor dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed finibus vel nunc sit amet viverra. Morbi accumsan ipsum vitae enim pharetra, id facilisis ipsum venenatis. Ut tellus orci, blandit eu facilisis vel, dignissim at massa. Nulla tristique ipsum ut luctus malesuada.</p>
+				<p></p>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="row dark-grey pt-4 pb-4">
+	<div id="service_leaders" class="row dark-grey pt-4 pb-4">
 		<div class="col-12 p-4">
 			<div class="row">
-				<div class="col-12">
-					<h2>Community, for Service Leaders.</h2>
+				<div class="col-12 center">
+					<h2 class="thick">Community, for Service Leaders.</h2>
+					<hr class="short" />
 				</div>
 			</div>
 			<div class="row mt-4">
@@ -147,15 +167,44 @@ YourUnity
 		</div>
 	</div>
 
-	<div class="row pt-3 pb-3">
+	<div id="volunteers" class="row pt-3 pb-3">
 		<div class="col-12 p-4">
 			<div class="row">
-				<div class="col-12">
-					<h2>Community, for Volunteers.</h2>
+				<div class="col-12 center">
+					<h2 class="thick">Community, for Volunteers.</h2>
+					<hr class="short" />
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-4 center">
+					<img src="{{ url('/images/iphone.png') }}" class="iphone" alt="YourUnity iPhone app screenshot">
+				</div>
+				<div class="col-4 center">
+					<img src="{{ url('/images/iphone.png') }}" class="iphone" alt="YourUnity iPhone app screenshot">
+				</div>
+				<div class="col-4 center">
+					<img src="{{ url('/images/iphone.png') }}" class="iphone" alt="YourUnity iPhone app screenshot">
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-4 center">
+					<h3>Find events that interest you.</h3>
+				</div>
+				<div class="col-4 center vol-tit">
+					<h3>Track your hours.</h3>
+				</div>
+				<div class="col-4 center vol-tit">
+					<h3>No paper. Anytime.</h3>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-12 center">
+					<span class="coming-soon">Coming Soon...</span>
 				</div>
 			</div>
 		</div>
 
+		<hr />
 </div>
 
                       <!-- Style for Background Image and Logo -->

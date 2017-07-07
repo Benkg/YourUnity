@@ -13,7 +13,7 @@
                       /* Main Index, Login, Register Routes */
 Route::get('/', 'MainController@index');
 Route::get('/login', 'MainController@login');
-Route::get('/register', 'MainController@register');
+Route::get('/registration/{access}', 'MainController@register');
 
                       /* Route for Access Code */
 Route::get('/access', 'MainController@access');
