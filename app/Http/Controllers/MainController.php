@@ -25,9 +25,6 @@ class MainController extends Controller
         return view('auth.register');
     }
 
-
-
-
                     /* Returns Access Code Page */
     public function access() {
         return view('auth.access');

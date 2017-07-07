@@ -12,7 +12,7 @@ YourUnity
 		<div class="col-12">
 			<div class="row mt-2">
 				<div class="col-3 text-right">
-					<img src="{{ url('/images/logo_white.png') }}" class="logo-main" alt="YourUnity">
+					<img src="{{ url('/images/White.svg') }}" class="logo-main" alt="YourUnity">
 				</div>
 				<div class="col-8 text-right vertical-align">
 					<span class="head-links white"><a href="http://blog.yourunity.com">Blog</a></span>

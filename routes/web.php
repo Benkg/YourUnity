@@ -14,10 +14,13 @@
 Route::get('/', 'MainController@index');
 Route::get('/login', 'MainController@login');
 Route::get('/register', 'MainController@register');
-
                       /* Route for Access Code */
 Route::get('/access', 'MainController@access');
 Route::post('/access', 'MainController@granted');
+
+                      /* Feedback Routes */
+Route::get('/feedback', 'FeedbackController@index');
+Route::past('/feedback', 'FeedbackController@store');
 
                       /* Event Routes */
 Route::get('/events', 'EventsController@index');

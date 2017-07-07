@@ -10,6 +10,9 @@
                             </div>
 
                         </div>
+                        
+                        <!-- FEEDBACK LINK -->
+                        <a href="/feedback" class="link feedback"><span class="lnr lnr-pencil"></span></a>
                     </div>
             </header>
         </div>

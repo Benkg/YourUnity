@@ -81,9 +81,13 @@
                         <!-- Create New Event Button -->
     <a href="/events/create" class="btn btn-success btn-lg btn-block mt-4 new-event-sidebar" role="button" aria-disabled="true">Create Event</a>
 
+
+        <!-- FEEDBACK LINK -->
+        <a href="/feedback" class="link feedback"><span class="lnr lnr-pencil"></span></a>
 </div>
                     <!-- Custom Styles -->
 <style type="text/css">
+
 .hide {
     display: none;
 }
