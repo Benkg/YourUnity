@@ -11,7 +11,7 @@ YourUnity
                       <!-- Top Bar and Logo -->
 	<div class="black-background-transp absolute">
 		<div class="row-fluid center">
-	  	<img src="{{ url('/images/logo_white.png') }}" class="logo-main" alt="YourUnity">
+			<img src="{{ url('/images/whitegreen.svg') }}" class="logo-main" alt="YourUnity">
 		</div>
 	</div>
 
@@ -20,8 +20,14 @@ YourUnity
     <div class="col-4 text-right">
     	<button onclick="location.href='/login';" type="button" class="btn btn-primary btn-lg">Sign In</button>
     </div>
+<!--		Original Register Button. Uncomment when access code is no longer needed.
     <div class="col-4 text-left">
     	<button onclick="location.href='/register';" type="button" class="blue-outline btn btn-outline-secondary btn-lg">Register</button>
+    </div>
+-->
+		<!-- Access Code Button -->
+		<div class="col-4 text-left">
+    	<button onclick="location.href='/access';" type="button" class="blue-outline btn btn-outline-secondary btn-lg">Register</button>
     </div>
 	</div>
 

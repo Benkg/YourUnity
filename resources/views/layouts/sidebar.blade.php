@@ -13,8 +13,9 @@
 <div class="col-3 pt-3 sidebar">
 
     <!-- Logo -->
-    <div class="center"><a href="/dashboard"><img src="{{ url('/images/logo_white.png') }}" class="logo" alt="YourUnity"></a></div>
+    <div class="center"><a href="/dashboard"><img src="{{ url('/images/whitegreen.svg') }}" class="logo" alt="YourUnity"></a></div>
     <hr class="side-hr mb-4"/>
+
                         <!-- Profile Picture -->
     <div class="text-center">
         <img src="/images/avatars/{{ Auth::user()->avatar }}" class="avatar-sm">
