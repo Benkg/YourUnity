@@ -23,9 +23,6 @@ YourUnity
 				</div>
 			</div>
 
-                      <!-- Top Bar and Logo -->
-	<div class="black-background-transp absolute">
-		<div class="row-fluid center">
 			<div class="row">
 				<div class="col-6 phrase">
 					<span class="landing-phrase">Community, everywhere.</span>
