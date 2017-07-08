@@ -19,6 +19,10 @@ Route::get('/registration/{access}', 'MainController@register');
 Route::get('/access', 'MainController@access');
 Route::post('/access', 'MainController@granted');
 
+                      /* Feedback Routes */
+Route::get('/feedback', 'FeedbackController@index');
+Route::post('/feedback', 'FeedbackController@store');
+
                       /* Event Routes */
 Route::get('/events', 'EventsController@index');
 Route::post('/events', 'EventsController@store');

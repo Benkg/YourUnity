@@ -18,10 +18,10 @@
 <div class="col-3 pt-3 sidebar">
 
     <!-- Logo -->
-    <div class="center"><a href="/dashboard"><img src="{{ url('/images/whitelogo.svg') }}" class="logo" alt="YourUnity"></a></div>
+    <div class="center"><a href="/dashboard"><img src="{{ url('/images/White.svg') }}" class="logo" alt="YourUnity"></a></div>
     <hr class="side-hr mb-4"/>
 
-                        <!-- Profile Picture -->
+    <!-- Profile Picture -->
     <div class="text-center">
         <a href="/settings"><img src="/images/avatars/{{ Auth::user()->avatar }}" class="avatar-sm"></a>
     </div>
@@ -81,9 +81,13 @@
                         <!-- Create New Event Button -->
     <a href="/events/create" class="btn btn-success btn-lg btn-block mt-4 new-event-sidebar" role="button" aria-disabled="true">Create Event</a>
 
+
+        <!-- FEEDBACK LINK -->
+        <a href="/feedback" class="link feedback"><span class="lnr lnr-pencil"></span></a>
 </div>
                     <!-- Custom Styles -->
 <style type="text/css">
+
 .hide {
     display: none;
 }
@@ -135,3 +139,9 @@ h3 {
         $(this).addClass("active");
     });
 </script>
+
+<!-- Flash Current URL to next http request -->
+<?php
+    $currentUrl = $_SERVER['REQUEST_URI'];
+    session()->flash('url', $currentUrl);
+?>
