@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Event;
+use App\Feedback;
 use Auth;
 
 class FeedbackController extends Controller
@@ -19,7 +19,8 @@ class FeedbackController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function index() {
-         return view('feedback.index');
+        $url = session('url');
+        return view('feedback.index', compact('url'));
      }
 
     /* Store a newly created resource in storage.
@@ -28,7 +29,19 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        
+                              // Validate form before submit
+              $this->validate(request(), [
+                  'fback' => 'required|min:5'
+              ]);
+
+                              // Create new feedback data
+              Feedback::create([
+                  'fback' => request('fback'),
+                  'user_id' => auth()->user()->id
+              ]);
+
+              $previousUrl = session('url');
+              return redirect($previousUrl);
     }
 
 }

@@ -139,3 +139,9 @@ h3 {
         $(this).addClass("active");
     });
 </script>
+
+<!-- Flash Current URL to next http request -->
+<?php
+    $currentUrl = $_SERVER['REQUEST_URI'];
+    session()->flash('url', $currentUrl);
+?>
