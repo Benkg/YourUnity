@@ -1,10 +1,15 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('.avatar-sm').mouseenter(function() {
-            $('.sidebar-setting').removeClass('hide');
+            $('.avatar-sm').addClass('blue-outline');
+            $('.avatar-sm').addClass('pointer');
         });
-        $('.sidebar-setting').mouseleave(function() {
-            $('.sidebar-setting').addClass('hide');
+        $('.avatar-sm').mouseleave(function() {
+            $('.avatar-sm').removeClass('blue-outline');
+            $('.avatar-sm').removeClass('pointer');
+        });
+
+        $('.avatar.sm').click(function() {
         });
     });
 </script>
@@ -18,12 +23,7 @@
 
                         <!-- Profile Picture -->
     <div class="text-center">
-        <img src="/images/avatars/{{ Auth::user()->avatar }}" class="avatar-sm">
-    </div>
-    <div class="text-center">
-        <div class="sidebar-setting text-center hide">
-            <a href="/settings"><span class="lnr lnr-cog sidebar-setting-icon"></span></a>
-        </div>
+        <a href="/settings"><img src="/images/avatars/{{ Auth::user()->avatar }}" class="avatar-sm"></a>
     </div>
 
                         <!-- Name and Logout Button -->

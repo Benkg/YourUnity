@@ -6,7 +6,7 @@
                     <div class="container-fluid">
                         <div class="row bottom-border pt-3 pb-3">
                             <div class="col-12 text-center">
-                                <a href="/dashboard"><img src="{{ url('/images/whitegreen.svg') }}" class="logo" alt="YourUnity"></a>
+                                <a href="/dashboard"><img src="{{ url('/images/whitelogo.svg') }}" class="logo" alt="YourUnity"></a>
                             </div>
 
                         </div>

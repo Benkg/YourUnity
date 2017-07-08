@@ -141,7 +141,7 @@ button:hover {
 .fileUpload {
 	position: absolute;
 	overflow: hidden;
-    top: 2.82rem;
+    top: 2.83rem;
     left: 1.92rem;
 	margin: 10px;
 	background-color: rgba(214,214,214,0.5);
@@ -177,6 +177,7 @@ button:hover {
 }
 
 .avatar img {
+    width: 100%;
     height: 100%;
 }
 
@@ -443,7 +444,10 @@ header {
     height: 62%;
     left: 2.5vw;
     border-radius: 5px;
-    background-color: #1f1f1f;
+}
+
+.sc1:hover {
+    cursor: pointer;
 }
 
 .splash-card-2 {
@@ -452,7 +456,11 @@ header {
     height: 62%;
     left: 36.5vw;
     border-radius: 5px;
-    background-color: #1f1f1f;
+
+}
+
+.sc2:hover {
+    cursor: pointer;
 }
 
 .splash-card-3 {
@@ -461,7 +469,11 @@ header {
     height: 62%;
     left: 70.2vw;
     border-radius: 5px;
-    background-color: #1f1f1f;
+
+}
+
+.sc3:hover {
+    cursor: pointer;
 }
 
 .lighter {
@@ -470,4 +482,16 @@ header {
 
 .short {
     width: 40%;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.black {
+    color: #2e2e2e !important;
+}
+
+.white-background {
+    background-color: #efefef !important;
 }
