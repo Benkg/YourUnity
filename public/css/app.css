@@ -39,6 +39,10 @@ h4 {
   font-size: 1.1rem !important;
 }
 
+h5 {
+  font-weight: 100 !important;
+}
+
 hr {
   width: 75%;
   background-color: #6bbaa7;
@@ -133,6 +137,12 @@ button:hover {
     position: fixed;
     top: 3%;
     left: 1%;
+}
+
+.all_events {
+    position: fixed;
+    bottom: 3%;
+    left: 6.5%;
 }
 
 .margin-left-30 {

@@ -35,7 +35,7 @@ YourUnity
 		<div class="col-sm-12">
 			<div class="row mt-2">
 				<div class="col-sm-3 text-right">
-					<img src="{{ url('/images/White.svg') }}" class="logo-main" alt="YourUnity">
+					<img src="{{ url('/images/logo_17_10_7.svg') }}" class="logo-main" alt="YourUnity">
 				</div>
 				<div class="col-sm-8 text-right vertical-align">
 					<span class="head-links white"><a href="http://blog.yourunity.org">Blog</a></span>
