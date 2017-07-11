@@ -18,7 +18,9 @@ All Events
             <!-- Event Listing -->
             <div class="col-9 pl-5 pr-5 pt-4">
                 @foreach($events as $event)
-                    @include('events.event')
+                    @if($event->user->id == Auth::user()->id)
+                        @include('events.event')
+                    @endif
                 @endforeach
             </div>
         </div>
