@@ -42,7 +42,8 @@ YourUnity
 					<img src="{{ url('/images/twitter_white.png') }}" class="head-twitter-icon" alt="Twitter">
 					<img src="{{ url('/images/facebook_white.png') }}" class="head-social-icons ml-2" alt="Facebook">
 					<img src="{{ url('/images/instagram_white.png') }}" class="head-social-icons ml-4" alt="Instagram">
-					<a href="/access" class="btn btn-outline-primary white ml-4 top-btn">Community Service Provider?</a>
+					<a href="/login" class="btn btn-outline-secondary white ml-4 top-btn top-login">Login</a>
+					<a href="/access" class="btn btn-primary white ml-3 top-btn">Register</a>
 				</div>
 			</div>
 
@@ -50,7 +51,7 @@ YourUnity
 				<div class="col-sm-6 phrase">
 					<span class="landing-phrase">Community, everywhere.</span>
 					<br />
-					<p class="landing-paragraph">We help you connect with countless community service providers in your area and improve the community around you.</p>
+					<p class="landing-paragraph">We help you connect with community service providers in your area and improve the community around you.</p>
 				</div>
 			</div>
 			<div class="down-circle center"><span class="lnr lnr-chevron-down-circle"></span></div>
@@ -110,7 +111,7 @@ YourUnity
 				<div class="col-sm-1"></div>
 				<div class="col-sm-5">
 					<h3 class="mb-4">Track your events.</h3>
-					<p>Track every single event that you post to YourUnity. See how many people are interested in your event, how many show up, and the number of hours that they log at your event. Many more analytics are coming every day to YourUnity to help you understand how to drive even more people to them.</p>
+					<p>Track every event that you post to YourUnity. See how many people are interested in your event, how many show up, and the number of hours that they log at your event. Many more analytics are coming every day to YourUnity to help you understand how to drive even more people to them.</p>
 				</div>
 				<div class="col-sm-5 blue_background pt-3 pb-3 text-right">
 					<img src="{{ url('/images/screenshot_tracking.png') }}" class="screenshot" alt="Track Events">

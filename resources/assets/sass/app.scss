@@ -139,16 +139,20 @@ button:hover {
 }
 
 .fileUpload {
-	position: absolute;
+	position: relative;
 	overflow: hidden;
-    top: 2.83rem;
-    left: 1.92rem;
 	margin: 10px;
-	background-color: rgba(214,214,214,0.5);
-	height: 15rem;
-	width: 15rem;
-    border-radius: 5px;
 	text-align: center;
+}
+
+.fileUpload p {
+    color: #6bbaa7 !important;
+    font-weight: 100;
+    font-size: 1.2rem;
+}
+
+.fileUpload:hover p {
+    text-decoration: underline;
 }
 .fileUpload input.upload {
 	position: absolute;
@@ -159,8 +163,6 @@ button:hover {
 	font-size: 20px;
 	cursor: pointer;
 	opacity: 0;
-	filter: alpha(opacity=0);
-	height: 100%;
 	text-align: center;
 }
 .custom-span{ font-family: Arial; font-weight: bold;font-size: 100px; color: #6bbaa7;}
@@ -494,4 +496,20 @@ header {
 
 .white-background {
     background-color: #efefef !important;
+}
+
+.feedback {
+    position: fixed;
+    top: 3%;
+    left: 1%;
+}
+
+.all_events {
+    position: fixed;
+    bottom: 3%;
+    left: 6.5%;
+}
+
+.top-login {
+
 }

@@ -14,13 +14,6 @@ document.getElementById("uploadBtn").onchange = function () {
                     <!-- Script for Profile Picture Form -->
 <script type="text/javascript">
     $(document).ready(function() {
-        $('.avatar').mouseenter(function() {
-            $('.fileUpload').removeClass('hide');
-        });
-        $('.fileUpload').mouseleave(function() {
-            $('.fileUpload').addClass('hide');
-        });
-
         $('#uploadBtn').change(function() {
             $('#fileUpload').submit();
         });
@@ -45,8 +38,7 @@ document.getElementById("uploadBtn").onchange = function () {
 
                                 <!-- Change Profile Picture Form -->
                             <form enctype="multipart/form-data" action="/settings" method="POST" id="fileUpload">
-                                <div class="fileUpload hide">
-                                    <span class="custom-span">+</span>
+                                <div class="fileUpload">
                                     <p class="custom-para">Change Image</p>
                                     <input id="uploadBtn" type="file" class="upload" name="avatar"/>
                                 </div>
