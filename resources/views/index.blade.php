@@ -38,9 +38,9 @@ YourUnity
 					<img src="{{ url('/images/logo_17_10_7.svg') }}" class="logo-main" alt="YourUnity">
 				</div>
 				<div class="col-sm-8 text-right vertical-align">
-					<span class="head-links white"><a href="http://blog.yourunity.org">Blog</a></span>
-					<img src="{{ url('/images/twitter_white.png') }}" class="head-twitter-icon" alt="Twitter">
-					<img src="{{ url('/images/facebook_white.png') }}" class="head-social-icons ml-2" alt="Facebook">
+					<span class="head-links white"><a href="https://yourunity.org/blog">Blog</a></span>
+					<a href="https://twitter.com/YourUnityApp"><img src="{{ url('/images/twitter_white.png') }}" class="head-twitter-icon" alt="Twitter"></a>
+					<a href="https://www.facebook.com/YourUnityApp/"><img src="{{ url('/images/facebook_white.png') }}" class="head-social-icons ml-2" alt="Facebook"></a>
 					<img src="{{ url('/images/instagram_white.png') }}" class="head-social-icons ml-4" alt="Instagram">
 					<a href="/login" class="btn btn-outline-secondary white ml-4 top-btn top-login">Login</a>
 					<a href="/access" class="btn btn-primary white ml-3 top-btn">Register</a>

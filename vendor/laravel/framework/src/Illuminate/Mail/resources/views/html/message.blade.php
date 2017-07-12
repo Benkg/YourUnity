@@ -1,7 +1,7 @@
 @component('mail::layout')
     {{-- Header --}}
     @slot('header')
-        @component('mail::header', ['url' => config('app.url')])
+        @component('mail::header', ['url' => config('https://yourunity.org/dashboard')])
             {{ config('app.name') }}
         @endcomponent
     @endslot
