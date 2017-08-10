@@ -31,38 +31,23 @@
                       <tr class="text-center">
                           <td class="pt-3 pb-3 blue"><span class="lnr lnr-calendar-full"></span></td>
                           <td class="stat">
-                              <?php
-                                    // If the org has any events
-                                    if(Auth::user()->num_events > 0) {
-                                        // Save the date of the event
-                                        $date = DB::table('events')->orderBy('date', 'ASC')->first();
+                            <?php
+                                  // If the org has any events
+                                  if(Auth::user()->num_events > 0) {
+                                      // Save the date of the event
+                                      $time = DB::table('events')->orderBy('starts', 'ASC')->first()->starts;
+                                      echo timeUntil($time);
 
-                                        if(strtotime($date->date) <= strtotime(date('m/d/Y'))) {
-                                            $id = $date->id;
-                                            DB::table('events')->where('id', $id)->delete();
-                                            $user = Auth::user();
-                                            $user->num_events = $user->num_events - 1;
-                                            $user->save();
-                                            $date = DB::table('events')->orderBy('date', 'ASC')->first();
-                                        }
-
-                                        $date = $date->date;
-                                        // $date = str_replace('/', '-', $date);
-                                        $date = date('Y-m-d', strtotime($date));
-                                        $currDate = date('Y-m-d');
-                                        $diff = abs(strtotime($date) - strtotime($currDate));
-                                        $diff = $diff / 86400;
-                                        echo $diff + 1;
-                                    }
-                                    else {
-                                        echo 0;
-                                    }
-                               ?>
+                                  }
+                                  else {
+                                      echo 0;
+                                  }
+                             ?>
                           </td>
                       </tr>
                   </table>
                   <div class="card-block">
-                    <h4 class="card-title text-center">Days Until Next Event</h4>
+                    <h4 class="card-title text-center">Until Next Event</h4>
                   </div>
               </div>
 

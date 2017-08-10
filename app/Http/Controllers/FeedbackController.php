@@ -23,6 +23,11 @@ class FeedbackController extends Controller
         return view('feedback.index', compact('url'));
      }
 
+     public function eventOptions() {
+        $url = session('url');
+        return view('feedback.eventOptions', compact('url'));
+     }
+
     /* Store a newly created resource in storage.
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

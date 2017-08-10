@@ -21,6 +21,7 @@ Route::post('/access', 'MainController@granted');
 
                       /* Feedback Routes */
 Route::get('/feedback', 'FeedbackController@index');
+Route::get('/feedback/eventOptions', 'FeedbackController@eventOptions');
 Route::post('/feedback', 'FeedbackController@store');
 
                       /* Event Routes */

@@ -68,17 +68,12 @@ YourUnity
 			</div>
 			<div class="row pb-4">
 				<div class="splash-card-1"></div>
-				<div class="col-sm-4 center sc1">
+				<div class="col-sm-6 center sc1">
 					<span class="lnr lnr-store big-icons"></span>
 					<h3 class="mt-2">Community Service Providers</h3>
 				</div>
-				<div class="splash-card-2"></div>
-				<div class="col-sm-4 center pt-4 sc2">
-					<span class="lnr lnr-user big-icons-user"></span>
-					<h3 class="mt-3">Community Service Leaders</h3>
-				</div>
 				<div class="splash-card-3"></div>
-				<div class="col-sm-4 center pt-2 sc3">
+				<div class="col-sm-6 center pt-2 sc3">
 					<span class="lnr lnr-users big-icons"></span>
 					<h3>Volunteers</h3>
 				</div>

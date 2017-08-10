@@ -27,26 +27,25 @@
     </script>
 
 </head>
-<body>
+    <body>
 
-    <div class="content">
-        @yield('content')
-    </div>
+        <div class="content">
+            @yield('content')
+        </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-3"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3"></div>
 
-            <div class="col-9">
-            @include('layouts.footer')
+                <div class="col-9">
+                @include('layouts.footer')
+                </div>
+
             </div>
 
         </div>
 
-    </div>
+        <script src="{{ asset('js/app.js') }}"></script>
 
-    <script src="{{ asset('js/app.js') }}"></script>
-
-</body>
-
+    </body>
 </html>

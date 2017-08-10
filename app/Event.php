@@ -8,9 +8,8 @@ class Event extends Model
 {
     protected $fillable = [
         'event_name',
-        'date',
-        'time_start',
-        'time_end',
+        'starts',
+        'ends',
         'location',
         'event_description',
         'event_requirements',

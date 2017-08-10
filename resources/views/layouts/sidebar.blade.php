@@ -18,43 +18,17 @@
 <div class="col-3 pt-3 sidebar container">
 
     <!-- Logo -->
-    <div class="center"><a href="/dashboard"><img src="{{ url('/images/logo_17_10_7.svg') }}" class="logo" alt="YourUnity"></a></div>
-    <hr class="side-hr mb-4"/>
+    <div class="center"><a href="/dashboard"><img src="{{ url('/images/YU_001_White.svg') }}" class="logo" alt="YourUnity"></a></div>
 
     <!-- Profile Picture -->
     <div class="text-center">
         <a href="/settings"><img src="/images/avatars/{{ Auth::user()->avatar }}" class="avatar-sm"></a>
     </div>
-
-                        <!-- Name and Logout Button -->
-    <!-- <div class="text-center mt-3">
-        <div class="btn-group">
-
-
-            <a class="btn btn-secondary dropdown-toggle" href="/dashboard" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ Auth::user()->name }}
-            </a>
-
-
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li class="pl-3">
-                    <a href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                        Logout
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                </li>
-            </ul>
-        </div>
-    </div> -->
-
+    <hr class="side-hr mt-4"/>
     <!-- Table of Dates Of Events -->
     <div class="calendar mt-4">
         <div class="list-group line-stop">
-            <h5 class="text-center mb-1">Upcoming Events</h5>
+            <h3 class="text-center mb-1">Upcoming Events</h3>
 
             <!-- start a count var -->
             <?php $count = 1; ?>
@@ -104,7 +78,7 @@
 
     <!-- All Events -->
     <div class="col-centered">
-        <h3 class="text-center"><a href="/events" class="all_events" aria-disabled="true">View All Events</a></h3>
+        <h3 class="text-center"><a href="/events" class="all_events no-highlight" aria-disabled="true">View All Events</a></h3>
     </div>
 
     <!-- FEEDBACK LINK -->
@@ -154,11 +128,7 @@ h3 {
 
 </style>
 
-<!-- Flash Current URL to next http request -->
-<?php
-    $currentUrl = $_SERVER['REQUEST_URI'];
-    session()->flash('url', $currentUrl);
-?>
+{{ flashURL() }}
 
                     <!-- Script for Active Hover on Event Table -->
 <script>
@@ -167,9 +137,7 @@ h3 {
     var route = window.location.pathname;
 
     /* Whatever page this is, highlight that option */
-    if (route === "/dashboard"){
-        $( ".list-group-item:first" ).addClass("active");
-    } else {
+    if (route !== "/dashboard"){
         $("a[href$= '" + route + "']" ).addClass("active");
     }
 
@@ -182,20 +150,23 @@ h3 {
             });
             $(this).addClass("active");
         });
+    });
 
-        /* When the mouse leaves, return highlight to orignial value.. Wet code, same as above */
-        $(".list-group").mouseleave(function(){
-            $( ".list-group-item" ).each(function() {
-                $(".list-group-item").removeClass("active");
-            });
-            if (route === "/dashboard"){
-                $( ".list-group-item:first" ).addClass("active");
-            } else {
-                $("a[href$= '" + route + "']" ).addClass("active");
-            }
+    /* When the mouse leaves, return highlight to orignial value.. Wet code, same as above */
+    $(".list-group").mouseleave(function(){
+
+        $( ".list-group-item" ).each(function() {
+            $(".list-group-item").removeClass("active");
         });
 
+        if (route !== "/dashboard"){
+            $("a[href$= '" + route + "']" ).addClass("active");
+        }
+
+        /* When All Events link is clicked, don't highlight it */
+        $(".all_events").removeClass("active");
     });
+
 
     /* When All Events link is clicked, don't highlight it */
     $(".all_events").removeClass("active");

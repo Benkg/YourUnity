@@ -2,13 +2,10 @@
 <div class="card mt-4 mb-4 p-3">
     <div class="card-block">
 
+    {{ flashURL() }}
 
                         <!-- Event Name -->
         <div class="row">
-            <!-- Formatting date properly -->
-            <?php
-                $print_date = $event->date
-            ?>
             <div class="btn-group col-4">
                 <button type="button" class="btn btn-secondary text-center ml-3"><a href="/events/{{ $event->id }}" class="no-highlight">{{ $event->event_name }}</a></button>
                 <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -17,21 +14,17 @@
                 <div class="dropdown-menu ml-3">
                     <a href="/events/{{ $event->id }}/edit" class="dropdown-item">Edit</a>
                     <a href="/events/{{ $event->id }}/duplicate" class="dropdown-item" href="#">Duplicate +</a>
-                    <a class="dropdown-item" href="#">Make Reccuring</a>
+                    <a href="/feedback/eventOptions" class="dropdown-item">More Options</a>
                 </div>
             </div>
 
             <div class="col-8 text-right">
                 <div class="row">
                     <!-- Logistics -->
-                    <h6 class="card-subtitle text-muted col-12"><span class="lnr lnr-calendar-full"></span> <?php
-                        $print_date = DateTime::createFromFormat('Y-m-d H:i:s', $print_date);
-                        echo($print_date->format('M d, Y'));
-                        ?>
-                    </h6>
+                    <h6 class="card-subtitle text-muted col-12"><span class="lnr lnr-calendar-full"></span> {{ printDate($event->starts) }}</h6>
                 </div>
                 <div class="row mt-2">
-                    <h6 class="card-subtitle text-muted col-12"><span class="lnr lnr-clock"></span></span> {{ $event->time_start }} - {{ $event->time_end }}</h6>
+                    <h6 class="card-subtitle text-muted col-12"><span class="lnr lnr-clock"></span></span> {{ printTime($event->starts) }} - {{ printTime($event->ends) }}</h6>
                 </div>
             </div>
 
