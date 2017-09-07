@@ -40,18 +40,12 @@
                     <a href="/events/{{ $event->id }}" class="list-group-item list-group-item-action">
 
                         <!-- Calendar Icon -->
-                        <div class="col-1 p-0"><b>
-                            <span class="lnr lnr-calendar-full small-cal"></span>
-
-                            <!-- we should use the same code as "days till next event" to just put # of days till event -->
-                            <?php
-                                // $print_date = $event->date
-                            ?>
-                            <?php
-                                 // $print_date = DateTime::createFromFormat('Y-m-d H:i:s', $print_date);
-                                 // echo($print_date->format('m/d'));
-                            ?>
-                        </b></div>
+                        <div class="col-1 p-0">
+                            <b>
+                                <span class="lnr lnr-calendar-full small-cal"></span>
+                                <!-- we should use the same code as "days till next event" to just put # of days till event -->
+                            </b>
+                        </div>
 
                         <!-- Event name -->
                         <div class="col-11 ">

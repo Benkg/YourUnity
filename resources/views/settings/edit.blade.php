@@ -4,7 +4,6 @@ Settings
 @endsection
 
 @section('content')
-                    <!-- Script for updating value of... Where is id = uploadFile ?  -->
 
 @include('layouts.header')
 

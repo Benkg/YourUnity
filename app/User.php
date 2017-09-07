@@ -30,4 +30,12 @@ class User extends Authenticatable
     public function events() {
         return $this->hasMany(Event::class);
     }
+
+    public function feedback() {
+        return $this->hasMany(Feedback::class);
+    }
+
+    public function attachments() {
+        return $this->hasMany(Attachments::class);
+    }
 }

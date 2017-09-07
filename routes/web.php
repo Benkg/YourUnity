@@ -35,6 +35,10 @@ Route::get('/events/{event}/delete', 'EventsController@getDelete');
 Route::post('/events/{event}/delete', 'EventsController@delete');
 Route::get('/events/{event}/duplicate', 'EventsController@duplicate');
 
+                      /* Attachment Routes */
+Route::get('/upload', 'UploadController@uploadForm');
+Route::post('/upload', 'UploadController@uploadSubmit');
+
                       /* Login and Register Routes ??? */
 Auth::routes();
 

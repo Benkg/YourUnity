@@ -12,9 +12,7 @@
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu ml-3">
-                    <a href="/events/{{ $event->id }}/edit" class="dropdown-item">Edit</a>
-                    <a href="/events/{{ $event->id }}/duplicate" class="dropdown-item" href="#">Duplicate +</a>
-                    <a href="/feedback/eventOptions" class="dropdown-item">More Options</a>
+                    {{ htmlEventDropDown($event) }}
                 </div>
             </div>
 

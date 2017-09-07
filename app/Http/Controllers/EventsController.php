@@ -121,6 +121,7 @@ class EventsController extends Controller
             'location' => request('location'),
             'event_description' => request('event_description'),
             'event_requirements' => request('event_requirements'),
+            'time_state' => 2,
             'user_id' => auth()->user()->id
         ]);
 
@@ -238,18 +239,19 @@ class EventsController extends Controller
     }
 
     public function test(Request $request){
-        /* Collect the date and time (start and end) input arrays */
+        /* Collect the date and time (start and end) input arrays
         $startDate = $_POST['startDate'];
         $endDate = $_POST['endDate'];
         $startTime = $_POST['startTime'];
         $endTime = $_POST['endTime'];
 
-        /* Format Date/Time arrays into YYMMDDHHMMTZS format */
+        Format Date/Time arrays into YYMMDDHHMMTZS format
         $starts = storeDTA($startDate, $startTime);
 
         timeUntil($starts);
 
         echo " until " . printDate($starts) . " " . printTime($starts);
+        */
     }
 
 }

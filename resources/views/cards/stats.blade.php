@@ -34,8 +34,24 @@
                             <?php
                                   // If the org has any events
                                   if(Auth::user()->num_events > 0) {
-                                      // Save the date of the event
-                                      $time = DB::table('events')->orderBy('starts', 'ASC')->first()->starts;
+
+                                      //get the User's ID
+                                      $userId = Auth::user()->id;
+
+                                      //Select all this user's events that have not already passed
+                                      $events = App\Event::where('user_id', $userId)
+                                                          ->where('time_state','!=', 0)
+                                                          ->get();
+
+                                      //For each of these event's, update its time state
+                                      foreach ($events as $event) {
+                                          updateTimeState($event);
+                                      }
+
+                                      //Get the time of the most recent event
+                                      $time = DB::table('events')->where('time_state', '!=', 0)->orderBy('starts', 'ASC')->first()->starts;
+
+                                      //Echo the time until the start of this event
                                       echo timeUntil($time);
 
                                   }

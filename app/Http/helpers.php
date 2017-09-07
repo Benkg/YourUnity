@@ -1,6 +1,13 @@
 <?php
 
-/*=================================Date And Time Helpers
+use Illuminate\Support\Facades\DB;
+use App\Event;
+
+
+
+
+
+/*================================= DATE AND TIME HELPERS =================================*/
 
 /*         storeDTA();
 /***************************************************************************************************/
@@ -59,28 +66,35 @@ if (! function_exists('storeDTA')) {
         $date = toUTC($date);
 
         return $date;
+
     }
 }
 
 /*         toUTC();
-/*********************************/
-/* Returns days until a DTA time */
-/*********************************/
+/**********************************************/
+/* Converts from seconds Local to seconds UTC */
+/**********************************************/
 if (! function_exists('toUTC')) {
     function toUTC($secondsLocal) {
+
+        //Second adjustment for San Diego
         $secondsUTC = $secondsLocal + 25200;
         return $secondsUTC;
+
     }
 }
 
 /*         toLocalTime();
-/*********************************/
-/* Returns days until a DTA time */
-/*********************************/
+/**********************************************/
+/* Converts from seconds UTC to seconds Local */
+/**********************************************/
 if (! function_exists('toLocalTime')) {
     function toLocalTime($secondsUTC) {
+
+        //Second adjustment for San Diego
         $secondsLocal = $secondsUTC - 25200;
         return $secondsLocal;
+
     }
 }
 
@@ -90,63 +104,83 @@ if (! function_exists('toLocalTime')) {
 /*********************************/
 if (! function_exists('timeUntil')) {
     function timeUntil($futureDate){
+
+        //get the current time
         $currentDate = time();
+
+        //get the time differene in seconds
         $deltaSeconds = $futureDate - $currentDate;
+
+        //return the result in a readable format
         return secsToTime($deltaSeconds);
+
     }
 }
 
 /*         secsToTime();
-/*********************************/
-/* Returns days until a DTA time */
-/*********************************/
+/*******************************************/
+/* Converts seconds into a readable format */
+/*******************************************/
 if (! function_exists('secsToTime')) {
     function secsToTime($seconds) {
-        /* if less than a day, else */
 
-        if($seconds>=86400) {
+        if($seconds>=86400) { //If over 1 day, return # of days
             $time = floor($seconds / 86400);
             return $time . " Days";
-        } else if($seconds>=3600){
+        } else if($seconds>=3600){ //If over 1 hour, return # of hours
             $time = floor($seconds / 3600);
             return $time . " Hours";
-        } else if($seconds>=0){
+        } else if($seconds>=0){ //If positive, return minutes
             $time = floor($seconds / 60 % 60);
             return $time . " Mins";
-        } else {
+        } else { //If in the past, return 0
             return "0";
         }
     }
 }
 
 /*         printDate();
-/*********************************/
-/* Returns days until a DTA time */
-/*********************************/
+/***************************************/
+/* Prints the date of some seconds UTC */
+/***************************************/
 if (! function_exists('printDate')) {
     function printDate($secondsUTC) {
+
+        //Convert to seconds Local time
         $secondsLocal = toLocalTime($secondsUTC);
+
+        //Format the date
         $localDate = date("F j, Y", $secondsLocal);
+
+        //Return the formatted date
         return $localDate;
+
     }
 }
 
 /*         printTime();
-/*********************************/
-/* Returns days until a DTA time */
-/*********************************/
+/***************************************/
+/* Prints the date of some seconds UTC */
+/***************************************/
 if (! function_exists('printTime')) {
     function printTime($secondsUTC) {
+
+        //Conver to seconds Local time
         $secondsLocal = toLocalTime($secondsUTC);
+
+        //Format the time
         $localTime = date("g:i a", $secondsLocal);
+
+        //Return the formatted time
         return $localTime;
+
     }
 }
 
 /*         parseTime();
-/*********************************/
-/* Returns days until a DTA time */
-/*********************************/
+/******************************************************************************/
+/* Parses time in seconds to an array(Year, Month, Day, Hour, Minute, Period) */
+/******************************************************************************/
 if (! function_exists('parseTime')) {
     function parseTime($secondsUTC) {
         $secondsLocal = toLocalTime($secondsUTC);
@@ -162,7 +196,99 @@ if (! function_exists('parseTime')) {
     }
 }
 
-/*=================================General Helpers
+
+
+
+
+/*================================= TIME STATE HELPERS =================================*/
+
+/*         updateTimeState();
+/**************************************/
+/* Updates the time state of an event */
+/**************************************/
+if (! function_exists('updateTimeState')) {
+    function updateTimeState(Event $event) {
+
+        //get current time
+        $currentTime = time();
+
+        //get event's time state, start time and end time
+        $starts = $event->starts;
+        $ends = $event->ends;
+        $state = $event->time_state;
+
+        //If in Future State and passed the start time, change the state to Present State
+        if($state = 2 && $currentTime>$starts){
+            setTimeState($event, 1);
+        }
+
+        //If in Present State and passed the end time, change the state to Past State
+        if($state = 1 && $currentTime>$ends){
+            setTimeState($event, 0);
+        }
+
+    }
+}
+
+/*         setTimeState();
+/***********************************/
+/* Sets the time state of an event */
+/***********************************/
+if (! function_exists('setTimeState')) {
+    function setTimeState(Event $event, $newState) {
+
+        //get event's id, state, start time and end time
+        $id = $event->id;
+
+        //Update this event's time state
+        DB::update('update events set
+            time_state = :time_state
+            where id = :id', [
+                'id' => $id,
+                'time_state' => $newState
+        ]);
+
+    }
+}
+
+/*         getTimeState();
+/**************************************/
+/* Returns the time state of an event */
+/**************************************/
+if (! function_exists('getTimeState')) {
+    function getTimeState(Event $event) {
+        return $event->time_state;
+    }
+}
+
+/*         htmlEventDropDown();
+/**************************************/
+/* Returns the time state of an event */
+/**************************************/
+if (! function_exists('htmlEventDropDown')) {
+    function htmlEventDropDown(Event $event) {
+
+        switch(getTimeState($event)) {
+          case 2:
+              echo '<a href="/events/{{ $event->id }}/edit" class="dropdown-item">Edit</a>
+              <a href="/events/{{ $event->id }}/duplicate" class="dropdown-item" href="#">Duplicate +</a>
+              <a href="/feedback/eventOptions" class="dropdown-item">More Options</a>';
+              break;
+          case 1:
+
+              break;
+          case 0:
+              echo '<a href="/events/{{ $event->id }}/duplicate" class="dropdown-item" href="#">Duplicate +</a>
+              <a href="/feedback/eventOptions" class="dropdown-item">More Options</a>';
+              break;
+        }
+
+    }
+}
+
+
+
+/*================================= GENERAL HELPERS =================================*/
 
 /*         flashURL();
 /******************************************/
