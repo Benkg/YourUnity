@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 
+use App\Event;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,4 +17,14 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('events', function() {
+    // If the Content-Type and Accept headers are set to 'application/json',
+    // this will return a JSON structure. This will be cleaned up later.
+    return Event::all();
+});
+
+Route::get('events/{id}', function($id) {
+    return Event::find($id);
 });

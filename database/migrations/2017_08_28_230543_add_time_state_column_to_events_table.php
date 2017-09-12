@@ -15,7 +15,7 @@ class AddTimeStateColumnToEventsTable extends Migration
     {
         Schema::table('events', function (Blueprint $table) {
             //
-            $table->tinyInteger("time_state");
+            $table->tinyInteger("time_state")->default(2);
         });
     }
 
