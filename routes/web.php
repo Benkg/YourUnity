@@ -35,6 +35,13 @@ Route::get('/events/{event}/delete', 'EventsController@getDelete');
 Route::post('/events/{event}/delete', 'EventsController@delete');
 Route::get('/events/{event}/duplicate', 'EventsController@duplicate');
 
+Route::get('/legal/service', 'LegalController@service');
+Route::get('/legal/users', 'LegalController@users');
+Route::get('/legal/cookies', 'LegalController@cookies');
+Route::get('/legal/privacy', 'LegalController@privacy');
+Route::get('/legal/community', 'LegalController@community');
+Route::get('/legal/ip', 'LegalController@ip');
+
                       /* Attachment Routes */
 Route::get('/upload', 'UploadController@uploadForm');
 Route::post('/upload', 'UploadController@uploadSubmit');

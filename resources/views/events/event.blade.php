@@ -28,7 +28,7 @@
 
         </div>
 
-        <!-- Event Logistics and Requirements -->
+        <!-- Event Logistics -->
         <div class="card">
             <div class="card-block">
                 <div class="row">
@@ -39,30 +39,13 @@
 
         <hr />
 
-                        <!-- Event Description -->
+        <!-- Event Description -->
         <div class="card">
             <div class="card-block">
                 <p class="card-text">Description</p>
                 <p class="card-text">{{ $event->event_description }}</p>
             </div>
         </div>
-
-                <!-- Event Requirements -->
-
-        @if ( $event->event_requirements )
-            <div class="card">
-                <div class="card-block">
-                    <p class="card-text">Requirements</p>
-                    <p class="card-text">{{ $event->event_requirements }}</p>
-                </div>
-            </div>
-        @else
-            <div class="card">
-                <div class="card-block">
-                    <p class="card-text text-center text-muted">(This event has no requirements)</p>
-                </div>
-            </div>
-        @endif
 
     </div>
 </div>

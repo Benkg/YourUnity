@@ -313,12 +313,6 @@ Edit Event
           <textarea class="form-control text-left" id="event_description" name="event_description" rows="3"><?php echo "$event->event_description"; ?></textarea>
         </div>
 
-        <!-- Event Requirements Input (Hidden)-->
-        <div class="form-group invisible">
-          <label for="event_description">Requirements</label>
-          <textarea class="form-control" id="event_requirements" name="event_requirements" rows="3"><?php echo "$event->event_requirements"; ?></textarea>
-        </div>
-
     </form>
 </div>
 

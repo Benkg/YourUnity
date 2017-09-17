@@ -15,14 +15,19 @@ class CreateEventsTable extends Migration
     {
        Schema::create('events', function (Blueprint $table) {
            $table->increments('id');
+
            $table->integer('user_id')->unsigned();
            $table->string('event_name');
-           $table->bigInteger('starts')->unsigned();;
-           $table->bigInteger('ends')->unsigned();;
+           $table->bigInteger('starts')->unsigned();
+           $table->bigInteger('ends')->unsigned();
            $table->string('location');
            $table->text('event_description');
-           $table->text('event_requirements')->nullable();
+           $table->tinyInteger("time_state")->default(2);
+           $table->integer('num_registered')->unsigned()->default(0);
+           $table->integer('num_attended')->unsigned()->default(0);
            $table->timestamps();
+
+           $table->foreign('user_id')->references('id')->on('users');
        });
     }
 
@@ -33,6 +38,8 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('events');
+        Schema::enableForeignKeyConstraints();
     }
 }

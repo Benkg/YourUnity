@@ -15,12 +15,14 @@ class CreateAttachmentsTable extends Migration
     {
         Schema::create('attachments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('file_name');
+
+            $table->integer('user_id')->unsigned();
+            $table->string('name');
             $table->string('type');
             $table->integer('size')->unsigned();
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -31,6 +33,8 @@ class CreateAttachmentsTable extends Migration
      */
     public function down()
     {
+      Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('attachments');
+        Schema::enableForeignKeyConstraints();
     }
 }

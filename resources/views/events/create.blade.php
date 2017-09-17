@@ -314,12 +314,6 @@ Create Event
                     <textarea class="form-control" id="event_description" name="event_description" rows="3"></textarea>
                 </div>
 
-                <!-- Event Requirements Input -->
-                <div class="form-group">
-                    <label for="event_requirements">Requirements</label>
-                    <textarea class="form-control" id="event_requirements" name="event_requirements" rows="3"></textarea>
-                </div>
-
                 <!-- Cancle and Submit Button -->
                 <a href="/">Cancel</a>
                 <button type="submit" name="submit" value="Submit" class="btn btn-primary float-right">Create</button>

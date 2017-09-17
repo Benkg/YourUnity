@@ -120,7 +120,6 @@ class EventsController extends Controller
             'ends' => request('ends'),
             'location' => request('location'),
             'event_description' => request('event_description'),
-            'event_requirements' => request('event_requirements'),
             'time_state' => 2,
             'user_id' => auth()->user()->id
         ]);
@@ -210,7 +209,6 @@ class EventsController extends Controller
             ends = :ends,
             location = :location,
             event_description = :event_description,
-            event_requirements = :event_requirements,
             user_id = :user_id
             where id = :id', [
                 'id' => $id,
@@ -219,7 +217,6 @@ class EventsController extends Controller
                 'ends'=> request('ends'),
                 'location' => request('location'),
                 'event_description' => request('event_description'),
-                'event_requirements' => request('event_requirements'),
                 'user_id' => auth()->user()->id
         ]);
 
