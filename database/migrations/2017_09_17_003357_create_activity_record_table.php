@@ -14,6 +14,7 @@ class CreateActivityRecordTable extends Migration
     public function up()
     {
       Schema::create('activity_records', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
           $table->increments('id');
 
           $table->integer('event_id')->unsigned();

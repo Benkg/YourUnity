@@ -14,8 +14,10 @@ class CreateEventAttachmentsTable extends Migration
     public function up()
     {
       Schema::create('event_attachments', function (Blueprint $table) {
+
+          $table->engine = 'InnoDB';
           $table->increments('id');
-          
+
           $table->integer('event_id')->unsigned();
           $table->integer('attachment_id')->unsigned();
 

@@ -14,6 +14,8 @@ class CreateEventsTable extends Migration
     public function up()
     {
        Schema::create('events', function (Blueprint $table) {
+
+           $table->engine = 'InnoDB';
            $table->increments('id');
 
            $table->integer('user_id')->unsigned();
@@ -27,13 +29,8 @@ class CreateEventsTable extends Migration
            $table->integer('num_attended')->unsigned()->default(0);
            $table->timestamps();
 
-
+           $table->foreign('user_id')->references('id')->on('users');
        });
-
-       Schema::table('events', function(Blueprint $table)
-        {
-            $table->foreign('user_id')->references('id')->on('users');
-        });
     }
 
     /**
