@@ -14,13 +14,14 @@ class CreateAttendeesTable extends Migration
     public function up()
     {
       Schema::create('attendees', function (Blueprint $table) {
-          $table->increments('id');
-
+          // $table->increments('id');
           $table->string('firedb_id');
           $table->string('name')->default('NULL');
           $table->string('avatar')->default('default.jpg');
           $table->rememberToken();
           $table->timestamps();
+
+          $table->primary('firedb_id');
       });
     }
 
