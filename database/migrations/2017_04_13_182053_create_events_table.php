@@ -27,8 +27,13 @@ class CreateEventsTable extends Migration
            $table->integer('num_attended')->unsigned()->default(0);
            $table->timestamps();
 
-           $table->foreign('user_id')->references('id')->on('users');
+
        });
+
+       Schema::table('events', function(Blueprint $table)
+        {
+            $table->foreign('user_id')->references('id')->on('users');
+        });
     }
 
     /**
