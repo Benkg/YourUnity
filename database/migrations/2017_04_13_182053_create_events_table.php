@@ -29,7 +29,7 @@ class CreateEventsTable extends Migration
            $table->integer('num_attended')->unsigned()->default(0);
            $table->timestamps();
 
-           $table->foreign('user_id')->references('id')->on('Users');
+           $table->foreign('user_id')->references('id')->on('users');
        });
     }
 
