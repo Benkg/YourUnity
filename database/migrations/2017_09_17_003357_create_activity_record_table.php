@@ -18,14 +18,14 @@ class CreateActivityRecordTable extends Migration
           $table->increments('id');
 
           $table->integer('event_id')->unsigned();
-          $table->integer('attendee_id')->unsigned();
+          $table->string('attendee_id')->default("NULL");
           $table->integer('check_in_time')->unsigned();
           $table->integer('duration')->unsigned()->default(0);
           $table->integer('activity_status')->unsigned();
           $table->timestamps();
 
           $table->foreign('event_id')->references('id')->on('events');
-          $table->foreign('attendee_id')->references('id')->on('attendees');
+          $table->foreign('attendee_id')->references('firedb_id')->on('attendees');
       });
     }
 
