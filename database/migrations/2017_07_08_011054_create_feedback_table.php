@@ -21,7 +21,7 @@ class CreateFeedbackTable extends Migration
             $table->text('fback');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('Users');
         });
     }
 
