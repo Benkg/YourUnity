@@ -13,7 +13,7 @@ class CreateActivityRecordTable extends Migration
      */
     public function up()
     {
-      Schema::create('activity_record', function (Blueprint $table) {
+      Schema::create('activity_records', function (Blueprint $table) {
           $table->increments('id');
 
           $table->integer('event_id')->unsigned();
@@ -36,7 +36,7 @@ class CreateActivityRecordTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('activity_record');
+        Schema::dropIfExists('activity_records');
         Schema::enableForeignKeyConstraints();
     }
 }

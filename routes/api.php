@@ -22,9 +22,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('events', function() {
     // If the Content-Type and Accept headers are set to 'application/json',
     // this will return a JSON structure. This will be cleaned up later.
-    return Event::all();
+    return Event::orderBy('starts')->get();
 });
 
 Route::get('events/{id}', function($id) {
     return Event::find($id);
 });
+
+Route::apiResource('register_event', 'EventRegisterController', ['only' => [
+    'store', 'destroy', 'update'
+    ]]);
+
+Route::apiResource('register_event.update', 'EventRegisterController', ['only' => [
+    'update'
+    ]]);
+
+Route::apiResource('add_attendee', 'AddAttendeeController', ['only' => [
+    'store', 'destroy'
+    ]]);
