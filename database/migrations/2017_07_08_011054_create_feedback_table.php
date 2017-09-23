@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeedbackTable extends Migration
+class CreateContactTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateFeedbackTable extends Migration
      */
     public function up()
     {
-        Schema::create('feedback', function (Blueprint $table) {
+        Schema::create('contact', function (Blueprint $table) {
             $table->increments('id');
-
             $table->integer('user_id')->unsigned();
-            $table->text('fback');
+            $table->text('contact');
+            $table->tinyInteger('type')->unsigned();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
@@ -32,7 +32,7 @@ class CreateFeedbackTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('feedback');
+        Schema::dropIfExists('contact');
         Schema::enableForeignKeyConstraints();
     }
 }

@@ -1,21 +1,16 @@
 @extends('layouts.master')
+
 @section('page_title')
-Edit Event
+Cookie Policy
 @endsection
 
 @section('content')
+
 @include('layouts.header')
 
 <div id="legalContainer">
 
-    <div class="legend">
-        <a href="/legal/service" class="text-white"><h1>Terms of Serice</h1></a>
-        <a href="/legal/users" class="text-white"><h1>Terms of Use</h1></a>
-        <a href="/legal/cookies" class="text-white"><h1>Cookie Policy</h1></a>
-        <a href="/legal/privacy" class="text-white"><h1>Privacy Policy</h1></a>
-        <a href="/legal/ip" class="text-white"><h1>Intellectual Property</h1></a>
-        <a href="/legal/community" class="text-white"><h1>Community Guidelines</h1></a>
-    </div>
+    @include('layouts.menu.legal')
 
     <div class="cont">
       <p>
@@ -48,12 +43,12 @@ Edit Event
           <p>
               These cookies collect information that is used either in aggregate form to help us understand how our Sites are being used or how effective are marketing campaigns are, or to help us customize our Sites for you.
               Who services these cookies:
-              <br/>• Yahoo
-              <br/>• Bing
-              <br/>• AdWords
-              <br/>• Twitter
-              <br/>• Facebook
-              <br/>• Google Tag Manager
+              <br/>• <a href="https://policies.yahoo.com/ie/en/yahoo/privacy/topics/cookies/">Yahoo</a>
+              <br/>• <a href="https://advertise.bingads.microsoft.com/en-us/resources/policies/microsoft-bing-ads-privacy-policy">Bing</a>
+              <br/>• <a href="https://www.google.com/policies/technologies/ads/">AdWords</a>
+              <br/>• <a href="https://twitter.com/privacy?lang=en">Twitter</a>
+              <br/>• <a href="https://www.facebook.com/policies/cookies/">Facebook</a>
+              <br/>• <a href="https://www.google.com/policies/privacy/">Google Tag Manager</a>
 
               <br/><br/>How to refuse:
               <br/>To refuse these cookies, please follow the instructions below under the heading "How can I control cookies?"
@@ -71,7 +66,8 @@ Edit Event
 
       <h1>What about Flash Cookies or Local Shared Objects?</h1>
           <p>
-              Our Sites may also use so-called "Flash Cookies" (also known as Local Shared Objects or "LSOs") to, among other things, collect and store information about your use of our services, fraud prevention and for other site operations. If you do not want Flash Cookies stored on your computer, you can adjust the settings of your Flash player to block Flash Cookies storage using the tools contained in the Website Storage Settings Panel. You can also control Flash Cookies by going to the Global Storage Settings Panel and following the instructions (which may include instructions that explain, for example, how to delete existing Flash Cookies (referred to "information" on the Macromedia site), how to prevent Flash LSOs from being placed on your computer without your being asked, and (for Flash Player 8 and later) how to block Flash Cookies that are not being delivered by the operator of the page you are on at the time).
+              Our Sites may also use so-called "Flash Cookies" (also known as Local Shared Objects or "LSOs") to, among other things, collect and store information about your use of our services, fraud prevention and for other site operations. If you do not want Flash Cookies stored on your computer, you can adjust the settings of your Flash player to block Flash Cookies storage using the tools contained in the <a href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html">Website Storage Settings Panel</a>. You can also control Flash Cookies by going to the <a href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager03.html">Global Storage Settings Panel</a>
+               and following the instructions (which may include instructions that explain, for example, how to delete existing Flash Cookies (referred to "information" on the Macromedia site), how to prevent Flash LSOs from being placed on your computer without your being asked, and (for Flash Player 8 and later) how to block Flash Cookies that are not being delivered by the operator of the page you are on at the time).
               Please note that setting the Flash Player to restrict or limit acceptance of Flash Cookies may reduce or impede the functionality of some Flash applications, including, potentially, Flash applications used in connection with our Sites.
           </p>
 
@@ -97,45 +93,5 @@ Edit Event
           </p>
 
     </div>
-
 </div>
-
 @endsection
-
-<style>
-
-    #legalContainer {
-        display: grid;
-        width: 100%;
-        grid-template-rows: 100%;
-        grid-template-columns: 5vw 30vw 60vw 5vw;
-        grid-template-areas:
-        ". legend cont .";
-    }
-
-    #legalContainer > .legend {
-        grid-area: legend;
-        background-color: #8ca0ff;
-    }
-
-    #legalContainer > .cont {
-        grid-area: cont;
-        background-color: #ffa08c;
-    }
-
-    .cont > h1 {
-        margin-left: 2vw;
-        margin-top: 2vw;
-    }
-
-    .cont > h2 {
-        margin-left: 5vw;
-    }
-
-    .cont > p {
-        margin-left: 8vw;
-        font-size: 150%;
-
-    }
-
-</style>

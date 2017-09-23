@@ -272,14 +272,14 @@ if (! function_exists('htmlEventDropDown')) {
             case 2:
                 echo '<a href="/events/'.$event->id.'/edit" class="dropdown-item">Edit</a>
                 <a href="/events/'.$event->id.'/duplicate" class="dropdown-item" href="#">Duplicate +</a>
-                <a href="/feedback/eventOptions" class="dropdown-item">More Options</a>';
+                <a href="/Contact/feedback" class="dropdown-item">More Options</a>';
                 break;
             case 1:
 
                 break;
             case 0:
                 echo '<a href="/events/'.$event->id.'/duplicate" class="dropdown-item" href="#">Duplicate +</a>
-                <a href="/feedback/eventOptions" class="dropdown-item">More Options</a>';
+                <a href="/Contact/feedback" class="dropdown-item">More Options</a>';
                 break;
         }
 

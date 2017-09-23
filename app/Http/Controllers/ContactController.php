@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Feedback;
+use App\contact;
 use Auth;
 
-class FeedbackController extends Controller
+class ContactController extends Controller
 {
 
     public function __construct() {
@@ -20,12 +20,27 @@ class FeedbackController extends Controller
      */
      public function index() {
         $url = session('url');
-        return view('feedback.index', compact('url'));
+        return view('contact.index', compact('url'));
+     }
+
+     public function feedback() {
+        $url = session('url');
+        return view('contact.feedback', compact('url'));
      }
 
      public function eventOptions() {
         $url = session('url');
-        return view('feedback.eventOptions', compact('url'));
+        return view('contact.eventOptions', compact('url'));
+     }
+
+     public function direct() {
+        $url = session('url');
+        return view('contact.direct', compact('url'));
+     }
+
+     public function report() {
+        $url = session('url');
+        return view('contact.report', compact('url'));
      }
 
     /* Store a newly created resource in storage.
@@ -36,13 +51,16 @@ class FeedbackController extends Controller
     {
                               // Validate form before submit
               $this->validate(request(), [
-                  'fback' => 'required|min:5'
+                  'contact' => 'required|min:5'
               ]);
+              
+              $type = (int)($this->type);
 
-                              // Create new feedback data
-              Feedback::create([
-                  'fback' => request('fback'),
-                  'user_id' => auth()->user()->id
+                              // Create new contact data
+              contact::create([
+                  'contact' => request('contact'),
+                  'user_id' => auth()->user()->id,
+                  'type' => $type;
               ]);
 
               $previousUrl = session('url');

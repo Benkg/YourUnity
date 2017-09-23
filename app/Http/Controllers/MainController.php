@@ -8,6 +8,12 @@ use AuthenticatesUsers;
 class MainController extends Controller
 {
     protected $redirectTo = '/register';
+
+    /* Returns Login Page*/
+    public function menu() {
+        return view('legal.menu');
+    }
+
                     /*  */
     public function __construct() {
         $this->middleware('guest');

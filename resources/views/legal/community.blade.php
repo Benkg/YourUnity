@@ -1,24 +1,18 @@
 @extends('layouts.master')
+
 @section('page_title')
-Edit Event
+Community Guidelines
 @endsection
 
 @section('content')
+
 @include('layouts.header')
 
 <div id="legalContainer">
 
-    <div class="legend">
-        <a href="/legal/service" class="text-white"><h1>Terms of Serice</h1></a>
-        <a href="/legal/users" class="text-white"><h1>Terms of Use</h1></a>
-        <a href="/legal/cookies" class="text-white"><h1>Cookie Policy</h1></a>
-        <a href="/legal/privacy" class="text-white"><h1>Privacy Policy</h1></a>
-        <a href="/legal/ip" class="text-white"><h1>Intellectual Property</h1></a>
-        <a href="/legal/community" class="text-white"><h1>Community Guidelines</h1></a>
-    </div>
+    @include('layouts.menu.legal')
 
     <div class="cont">
-
         <p>
             We want every one of you to rest assured that you are browsing in a safe, secure environment. This is why we developed our Community Guidelines.
         </p>
@@ -27,8 +21,8 @@ Edit Event
         <h1>Building A Community</h1>
         <p>
             These guidelines are intended to help you understand what is acceptable on YourUnity and what crosses the line.
-            We don’t endorse all the events or organizers on our platform, but we do support freedom of speech and assembly, and want to help cultivate safe spaces for everyone. If something violates our Terms of Service, is unsafe, or otherwise doesn’t meet the standards set out in our Community Guidelines, we remove it from the platform. Otherwise, we welcome all parties and views that behave respectfully.
-            If you or someone you know is in immediate danger as a result of content posted on YourUnity, please first contact your local law enforcement agency. Once you’ve reported the issue to law enforcement, click here to report the issue directly to YourUnity.
+            We don’t endorse all the events or organizers on our platform, but we do support freedom of speech and assembly, and want to help cultivate safe spaces for everyone. If something violates our <a href="/legal/service">Terms of Service</a>, is unsafe, or otherwise doesn’t meet the standards set out in our Community Guidelines, we remove it from the platform. Otherwise, we welcome all parties and views that behave respectfully.
+            If you or someone you know is in immediate danger as a result of content posted on YourUnity, please first contact your local law enforcement agency. Once you’ve reported the issue to law enforcement, click <a href="/report">here</a> to report the issue directly to YourUnity.
         </p>
 
         <h1>Do's</h1>
@@ -79,50 +73,12 @@ Edit Event
 
         <h1>How to Flag and Process for Review</h1>
             <p>
-                Our goal is to promote a safe and respectful community. We rely on this community to report content that violates our Community Guidelines. We also ask for your understanding that YourUnity encourages a diverse, global community. Content that you find upsetting or controversial may not violate our Community Guidelines.
-                If you come across content that you believe violates our Community Guidelines or is otherwise disturbing, we want to know. Use the “Report This Event” link in the footer of the event listing to submit your concern. We’ll review each report, and depending on the nature of the report, we may or may not follow up with you. If we determine that the content violates our Community Guidelines, we may remove only the relevant content, or we may take down the entire event listing. If the abuse of our platform is serious and severe, we may also terminate the associated YourUnity account. Certain content, while not in violation of our Community Guidelines, may not be appropriate for everyone on our platform. In these cases, we may decide to make the content private.
+                Our goal is to promote a safe and respectful community. We rely on this community to <a href="/report">report content</a> that violates our Community Guidelines. We also ask for your understanding that YourUnity encourages a diverse, global community. Content that you find upsetting or controversial may not violate our Community Guidelines.
+                <!--If you come across content that you believe violates our Community Guidelines or is otherwise disturbing, we want to know. Use the “Report This Event” link in the footer of the event listing to submit your concern. We’ll review each report, and depending on the nature of the report, we may or may not follow up with you. If we determine that the content violates our Community Guidelines, we may remove only the relevant content, or we may take down the entire event listing. If the abuse of our platform is serious and severe, we may also terminate the associated YourUnity account. Certain content, while not in violation of our Community Guidelines, may not be appropriate for everyone on our platform. In these cases, we may decide to make the content private.
+                -->
             </p>
 
     </div>
 
 </div>
-
 @endsection
-
-<style>
-
-    #legalContainer {
-        display: grid;
-        width: 100%;
-        grid-template-rows: 100%;
-        grid-template-columns: 5vw 30vw 60vw 5vw;
-        grid-template-areas:
-        ". legend cont .";
-    }
-
-    #legalContainer > .legend {
-        grid-area: legend;
-        background-color: #8ca0ff;
-    }
-
-    #legalContainer > .cont {
-        grid-area: cont;
-        background-color: #ffa08c;
-    }
-
-    .cont > h1 {
-        margin-left: 2vw;
-        margin-top: 2vw;
-    }
-
-    .cont > h2 {
-        margin-left: 5vw;
-    }
-
-    .cont > p {
-        margin-left: 8vw;
-        font-size: 150%;
-
-    }
-
-</style>

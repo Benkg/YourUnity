@@ -1,21 +1,16 @@
 @extends('layouts.master')
+
 @section('page_title')
-Edit Event
+Privacy Policy
 @endsection
 
 @section('content')
+
 @include('layouts.header')
 
 <div id="legalContainer">
 
-    <div class="legend">
-        <a href="/legal/service" class="text-white"><h1>Terms of Serice</h1></a>
-        <a href="/legal/users" class="text-white"><h1>Terms of Use</h1></a>
-        <a href="/legal/cookies" class="text-white"><h1>Cookie Policy</h1></a>
-        <a href="/legal/privacy" class="text-white"><h1>Privacy Policy</h1></a>
-        <a href="/legal/ip" class="text-white"><h1>Intellectual Property</h1></a>
-        <a href="/legal/community" class="text-white"><h1>Community Guidelines</h1></a>
-    </div>
+    @include('layouts.menu.legal')
 
     <div class="cont">
         <h1>1. Who We Are.</h1>
@@ -48,8 +43,8 @@ Edit Event
 
             <h2>3.1 All Users.</h2>
                 <p>
-                    Information you provide to us: For all Users we collect Personal Data when you voluntarily provide such information to the Services, such as when you register for access to the Services, contact us with inquiries, respond to one of our surveys or browse or use certain parts of the Services. The Personal Data we may collect includes without limitation your name, address, email address and other information that enables Users to be personally identified.
-                    Information we automatically collect: We also automatically collect certain technical data that is sent to us from the computer, mobile device and/or browser through which you access the Services (“Automatic Data”). Automatic Data, includes without limitation, a unique identifier associated with your access device and/or browser (including, for example, your Internet Protocol (IP) address) characteristics about your access device and/or browser, statistics on your activities on the Services, information about how you came to the Services and data collected through Cookies, Pixel Tags, Local Shared Objects, Web Storage and other similar technologies. You can find out more information about how we use Cookies and other similar tracking technologies in our Cookie Policy.
+                    Information you provide to us: For all Users we collect Personal Data when you voluntarily provide such information to the Services, such as when you register for access to the Services, <a href="/contact">contact us</a> with inquiries, respond to one of our surveys or browse or use certain parts of the Services. The Personal Data we may collect includes without limitation your name, address, email address and other information that enables Users to be personally identified.
+                    Information we automatically collect: We also automatically collect certain technical data that is sent to us from the computer, mobile device and/or browser through which you access the Services (“Automatic Data”). Automatic Data, includes without limitation, a unique identifier associated with your access device and/or browser (including, for example, your Internet Protocol (IP) address) characteristics about your access device and/or browser, statistics on your activities on the Services, information about how you came to the Services and data collected through Cookies, Pixel Tags, Local Shared Objects, Web Storage and other similar technologies. You can find out more information about how we use Cookies and other similar tracking technologies in our <a href="/legal/cookies">Cookie Policy</a>.
                     When you register for the Services or otherwise submit Personal Data to us, we may associate other Non-Personal Data (including Non-Personal Data we collect from third parties) with your Personal Data. At such instance, we will treat any such combined data as Personal Data until such time as it can no longer be associated with you or used to identify you.
                 </p>
 
@@ -74,7 +69,7 @@ Edit Event
 
             <h2>4.1 Specific Reason.</h2>
                 <p>
-                    If you provide Personal Data for a certain purpose, we may use the Personal Data in connection with the purpose for which it was provided. For instance, if you contact us by e-mail, we will use the Personal Data you provide to answer your question or resolve your problem and will respond to the email address from which the contact came.
+                    If you provide Personal Data for a certain purpose, we may use the Personal Data in connection with the purpose for which it was provided. For instance, if you <a href="/contact">contact us</a> by e-mail, we will use the Personal Data you provide to answer your question or resolve your problem and will respond to the email address from which the contact came.
                 </p>
 
             <h2>4.2 Access and Use.</h2>
@@ -146,18 +141,18 @@ Edit Event
         <h1>7. How You Can Access, Update, Correct or Delete Your Personal Data.</h1>
             <p>
                 You can request access to some of your Personal Data being stored by us. You can also ask us to correct, update or delete any inaccurate Personal Data that we process about them.
-                If you are a registered User, you can exercise these rights by logging in and visiting the Settings page. Both registered and unregistered Users may also exercise these rights contact us directly through our support center or at the address specified below.
+                If you are a registered User, you can exercise these rights by <a href="/access">logging in</a> and visiting the Settings page. Both registered and unregistered Users may also exercise these rights <a href="/contact">contact us</a> directly through our support center or at the address specified below.
                 We will consider and respond to all requests in accordance with applicable law.
             </p>
 
         <h1>8. How Long We Retain Your Personal Data.</h1>
             <p>
-                We may retain your Personal Data as long as you are registered to use the Services. You may close your account by contacting us. However, we may retain Personal Data for an additional period as is permitted or required under applicable laws. Even if we delete your Personal Data it may persist on backup or archival media for an additional period of time for legal, tax or regulatory reasons or for legitimate and lawful business purposes.
+                We may retain your Personal Data as long as you are registered to use the Services. You may close your account by <a href="/contact">contacting us</a>. However, we may retain Personal Data for an additional period as is permitted or required under applicable laws. Even if we delete your Personal Data it may persist on backup or archival media for an additional period of time for legal, tax or regulatory reasons or for legitimate and lawful business purposes.
             </p>
 
         <h1>9. Cookies, Pixels Tags, Local Shared Objects, Web Storage And Similar Technologies.</h1>
             <p>
-                Please refer to our Cookie Policy for more information about our use of cookies and other similar tracking technologies.
+                Please refer to our <a href="/legal/cookies">Cookie Policy</a> for more information about our use of cookies and other similar tracking technologies.
             </p>
 
         <h1>10. Your Choices.</h1>
@@ -177,7 +172,7 @@ Edit Event
                     <br/><br/>(b) Organizer Initiated Communications.
                     Organizers may use our email tools to send electronic communications to those on their email subscription lists, including Attendees who have registered for their events on the Services in the past. Although these electronic communications are sent through our system, YourUnity does not determine the content or the recipients of these electronic communications. Organizers are required to use our email tools only in accordance with all applicable laws. YourUnity provides an “Unsubscribe” link on each of these emails, which allows recipients to “opt out” of electronic communications from the particular Organizer.
                     <br/><br/>(d) Transactional or Responsive Communications.
-                    Certain electronic communications from YourUnity are responsive to your requests. For instance, if you are an Attendee, we must email you your registration information when you register for an event. As a further example, if you email our customer support department, we will return your email. Notwithstanding any unsubscribe election that you have made, you will still receive these emails. You can stop receiving these types of emails only by contacting us. By electing to stop receiving all electronic communications from us or through our system you will no longer receive any updates on events you have created or on events you are registered to attend. We do not recommend that you do this unless you plan to no longer use the Services, are not currently registered for an event, are not currently organizing an event and will have no need to receive further communications from us or through our system.
+                    Certain electronic communications from YourUnity are responsive to your requests. For instance, if you are an Attendee, we must email you your registration information when you register for an event. As a further example, if you email our customer support department, we will return your email. Notwithstanding any unsubscribe election that you have made, you will still receive these emails. You can stop receiving these types of emails only by <a href="/contact">contacting us</a>. By electing to stop receiving all electronic communications from us or through our system you will no longer receive any updates on events you have created or on events you are registered to attend. We do not recommend that you do this unless you plan to no longer use the Services, are not currently registered for an event, are not currently organizing an event and will have no need to receive further communications from us or through our system.
                     <br/><br/>(e) Retention.
                     It may take up to forty-eight (48) hours for us to process an unsubscribe request. Even after you opt out of all electronic communications, we will retain your Personal Data in accordance with this Privacy Policy, however, we will no longer use it to contact you. However, Organizers who have received your Personal Data in accordance with this Privacy Policy may still use that Personal Data to contact you in accordance with their own privacy policies, but they may not use our system to do so.
                 </p><br/>
@@ -205,7 +200,7 @@ Edit Event
 
         <h1>12. Children.</h1>
             <p>
-                We do not knowingly collect Personal Data from children under the age of thirteen (13). If you are under the age of thirteen (13), please do not submit any Personal Data through the Services. We encourage parents and legal guardians to monitor their children’s Internet usage and to help enforce our Privacy Policy by instructing their children never to provide Personal Data through the Services without their permission. If you have reason to believe that a child under the age of 13 has provided Personal Data to us through the Services, please contact us, and we will endeavor to delete that information from our databases.
+                We do not knowingly collect Personal Data from children under the age of thirteen (13). If you are under the age of thirteen (13), please do not submit any Personal Data through the Services. We encourage parents and legal guardians to monitor their children’s Internet usage and to help enforce our Privacy Policy by instructing their children never to provide Personal Data through the Services without their permission. If you have reason to believe that a child under the age of 13 has provided Personal Data to us through the Services, please <a href="/contact">contact us</a>, and we will endeavor to delete that information from our databases.
             </p>
 
         <h1>13. International Privacy Laws.</h1>
@@ -225,45 +220,5 @@ Edit Event
             </p>
 
     </div>
-
 </div>
-
 @endsection
-
-<style>
-
-    #legalContainer {
-        display: grid;
-        width: 100%;
-        grid-template-rows: 100%;
-        grid-template-columns: 5vw 30vw 60vw 5vw;
-        grid-template-areas:
-        ". legend cont .";
-    }
-
-    #legalContainer > .legend {
-        grid-area: legend;
-        background-color: #8ca0ff;
-    }
-
-    #legalContainer > .cont {
-        grid-area: cont;
-        background-color: #ffa08c;
-    }
-
-    .cont > h1 {
-        margin-left: 2vw;
-        margin-top: 2vw;
-    }
-
-    .cont > h2 {
-        margin-left: 5vw;
-    }
-
-    .cont > p {
-        margin-left: 8vw;
-        font-size: 150%;
-
-    }
-
-</style>

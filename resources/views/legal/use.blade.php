@@ -1,21 +1,16 @@
 @extends('layouts.master')
+
 @section('page_title')
-Edit Event
+Terms of Use
 @endsection
 
 @section('content')
+
 @include('layouts.header')
 
 <div id="legalContainer">
 
-    <div class="legend">
-        <a href="/legal/service" class="text-white"><h1>Terms of Serice</h1></a>
-        <a href="/legal/users" class="text-white"><h1>Terms of Use</h1></a>
-        <a href="/legal/cookies" class="text-white"><h1>Cookie Policy</h1></a>
-        <a href="/legal/privacy" class="text-white"><h1>Privacy Policy</h1></a>
-        <a href="/legal/ip" class="text-white"><h1>Intellectual Property</h1></a>
-        <a href="/legal/community" class="text-white"><h1>Community Guidelines</h1></a>
-    </div>
+    @include('layouts.menu.legal')
 
     <div class="cont">
       <p>
@@ -29,7 +24,7 @@ Edit Event
               </p>
           <h2>1.2 The Services.</h2>
               <p>
-                  YourUnity’s websites and domains, including https://YourUnity.org, and all of the webpages, subdomains, country level domain variants and subparts of those websites (collectively, our “Site”), all of the services available on or through the Site or otherwise provided by us (including our application programming interfaces), and all of our free mobile applications (YourUnity app) are offered, maintained and provided by YourUnity. We refer to all of these as our “Services.”
+                  YourUnity’s websites and domains, including <a href="/">https://YourUnity.org</a>, and all of the webpages, subdomains, country level domain variants and subparts of those websites (collectively, our “Site”), all of the services available on or through the Site or otherwise provided by us (including our application programming interfaces), and all of our free mobile applications (YourUnity app) are offered, maintained and provided by YourUnity. We refer to all of these as our “Services.”
               </p>
           <h2>1.3 Users.</h2>
               <p>
@@ -124,7 +119,7 @@ Edit Event
           <h2>8.1 Certain Restrictions.</h2>
               <p>
                   You understand that you are liable for all Content, in whatever form, that you provide or otherwise make available to or through the Services, including to other users of the Services.
-                  <br/><br/>You agree (1) to use the Services in accordance with our Community Guidelines; and (2) not to use the Services to:
+                  <br/><br/>You agree (1) to use the Services in accordance with our <a href="/legal/community">Community Guidelines</a>; and (2) not to use the Services to:
                   <br/><br/>(a) upload, post, email, transmit or otherwise make available any Content that is unlawful, harmful, threatening, abusive, harassing, tortious, defamatory, vulgar, obscene, libelous, invasive of another’s privacy, hateful, or racially, ethnically or otherwise objectionable;
                   <br/><br/>(b) harm minors in any way;
                   <br/><br/>(c) facilitate gambling, gaming, lotteries, raffles, contests, sweepstakes and/or any other activity featuring the award of a prize other than raffles, contests or sweepstakes;
@@ -179,7 +174,7 @@ Edit Event
       <h1>13. Privacy; Customer Information.</h1>
           <h2>13.1 Privacy Policy.</h2>
               <p>
-                  All information provided by Users or collected by YourUnity in connection with the Services is governed by YourUnity’s Privacy Policy, a copy of which is located here. The Privacy Policy is incorporated into the Terms of Service by reference. YourUnity strongly recommends that you review the Privacy Policy.
+                  All information provided by Users or collected by YourUnity in connection with the Services is governed by YourUnity’s Privacy Policy, a copy of which is located <a href="/legal/privacy">here</a>. The Privacy Policy is incorporated into the Terms of Service by reference. YourUnity strongly recommends that you review the Privacy Policy.
               </p>
 
           <h2>13.2 Co-Ownership.</h2>
@@ -189,43 +184,4 @@ Edit Event
 
     </div>
 </div>
-
 @endsection
-
-<style>
-
-    #legalContainer {
-        display: grid;
-        width: 100%;
-        grid-template-rows: 100%;
-        grid-template-columns: 5vw 30vw 60vw 5vw;
-        grid-template-areas:
-        ". legend cont .";
-    }
-
-    #legalContainer > .legend {
-        grid-area: legend;
-        background-color: #8ca0ff;
-    }
-
-    #legalContainer > .cont {
-        grid-area: cont;
-        background-color: #ffa08c;
-    }
-
-    .cont > h1 {
-        margin-left: 2vw;
-        margin-top: 2vw;
-    }
-
-    .cont > h2 {
-        margin-left: 5vw;
-    }
-
-    .cont > p {
-        margin-left: 8vw;
-        font-size: 150%;
-
-    }
-
-</style>

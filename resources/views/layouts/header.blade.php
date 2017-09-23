@@ -32,6 +32,14 @@
         color: #6bbaa7;
         cursor: pointer;
     }
+
+    @media only screen and (max-width : 1224px) {
+        .feedback{
+          display: none;
+          z-index: -1;
+        }
+    }
+
 </style>
 
 <!-- Flash Current URL to next http request -->

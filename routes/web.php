@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/legal/menu', 'MainController@menu');
+
                       /* Main Index, Login, Register Routes */
 Route::get('/', 'MainController@index');
 Route::get('/login', 'MainController@login');
@@ -19,10 +22,13 @@ Route::get('/registration/{access}', 'MainController@register');
 Route::get('/access', 'MainController@access');
 Route::post('/access', 'MainController@granted');
 
-                      /* Feedback Routes */
-Route::get('/feedback', 'FeedbackController@index');
-Route::get('/feedback/eventOptions', 'FeedbackController@eventOptions');
-Route::post('/feedback', 'FeedbackController@store');
+                      /* Contact Routes */
+Route::get('/contact', 'ContactController@index');
+Route::get('/contact/feedback', 'ContactController@feedback');
+Route::get('/contact/direct', 'ContactController@direct');
+Route::get('/contact/report', 'ContactController@report');
+
+Route::post('/contact', 'ContactController@store');
 
                       /* Event Routes */
 Route::get('/events', 'EventsController@index');

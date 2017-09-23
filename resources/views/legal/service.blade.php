@@ -1,24 +1,18 @@
 @extends('layouts.master')
+
 @section('page_title')
-Edit Event
+Terms of Service
 @endsection
 
 @section('content')
+
 @include('layouts.header')
 
 <div id="legalContainer">
 
-    <div class="legend">
-        <a href="/legal/service" class="text-white"><h1>Terms of Serice</h1></a>
-        <a href="/legal/users" class="text-white"><h1>Terms of Use</h1></a>
-        <a href="/legal/cookies" class="text-white"><h1>Cookie Policy</h1></a>
-        <a href="/legal/privacy" class="text-white"><h1>Privacy Policy</h1></a>
-        <a href="/legal/ip" class="text-white"><h1>Intellectual Property</h1></a>
-        <a href="/legal/community" class="text-white"><h1>Community Guidelines</h1></a>
-    </div>
+    @include('layouts.menu.legal')
 
     <div class="cont">
-
       <h1>1. Who We Are.</h1>
           <h2>1.1 YourUnity.</h2>
               <p>
@@ -27,7 +21,7 @@ Edit Event
 
           <h2>1.2 The Services.</h2>
               <p>
-                  YourUnity’s websites and domains, including https://YourUnity.org, and all of the webpages, subdomains, country level domain variants and subparts of those websites (collectively, our “Site”), all of the services available on or through the Site or otherwise provided by us (including our application programming interfaces), and all of our free mobile applications (YourUnity app) are offered, maintained and provided by YourUnity. We refer to all of these as our “Services.”
+                  YourUnity’s websites and domains, including <a href="/">https://YourUnity.org</a>, and all of the webpages, subdomains, country level domain variants and subparts of those websites (collectively, our “Site”), all of the services available on or through the Site or otherwise provided by us (including our application programming interfaces), and all of our free mobile applications (YourUnity app) are offered, maintained and provided by YourUnity. We refer to all of these as our “Services.”
               </p>
 
           <h2>1.3 Users.</h2>
@@ -36,18 +30,18 @@ Edit Event
               </p>
 
           <h2>1.4 Contracting Party.</h2>
-              <p>If you are a User, the Services are being provided to you by, and you are entering into these Terms of Service with, https://YourUnity.org
-          For purposes of these Terms of Service, https://YourUnity.org, shall be referred to as “YourUnity,” “us,” “we” or “our.”</p>
+              <p>If you are a User, the Services are being provided to you by, and you are entering into these Terms of Service with, <a href="/">https://YourUnity.org</a>
+          For purposes of these Terms of Service, <a href="/">https://YourUnity.org</a>, shall be referred to as “YourUnity,” “us,” “we” or “our.”</p>
 
 
       <h1>2. Our Terms Of Service.</h1>
           <h2>2.1 Terms of Service Agreement.</h2>
               <p>
                   The following pages contain our Terms of Service Agreement (“Terms of Service”). These Terms of Service govern all of our Services, all of which are offered subject to your acceptance without modification of these Terms of Service. In addition to the Sections below, these Terms of Service include and incorporate by reference the following agreements, terms, policies, requirements and guidelines:
-                    <br/>• our Terms of Use available here;
-                    <br/>• our Privacy Policy available here;
-                    <br/>• our Cookie Policy here;
-                    <br/>• the Trademark & Copyright Policy available here;
+                    <br/>• our Terms of Use available <a href="/legal/use">here</a>;
+                    <br/>• our Privacy Policy available <a href="/legal/privacy">here</a>;
+                    <br/>• our Cookie Policy <a href="/legal/cookies">here</a>;
+                    <br/>• the Trademark & Copyright Policy available <a href="/legal/ip">here</a>;
                     <br/>• additional terms and conditions that are displayed along with additional Services that you may use from time to time.
 
       <h1>3. Your Acceptance.</h1>
@@ -81,7 +75,7 @@ Edit Event
 
           <h2>4.3 Termination by You.</h2>
               <p>
-                  Except to the extent you have agreed otherwise in a separate written Addendum Agreement between you and an authorized officer of YourUnity, you may terminate your access to the Services and these Terms of Service by deleting your account. If you need help deleting your account, please contact us. In the event there is a separate agreement between you and YourUnity governing your use of the Services and that agreement terminates or expires, these Terms of Service (as unmodified by such agreement) shall govern your use of the Services unless and until you delete your account.
+                  Except to the extent you have agreed otherwise in a separate written Addendum Agreement between you and an authorized officer of YourUnity, you may terminate your access to the Services and these Terms of Service by deleting your account. If you need help deleting your account, please <a href="/contact">contact us</a>. In the event there is a separate agreement between you and YourUnity governing your use of the Services and that agreement terminates or expires, these Terms of Service (as unmodified by such agreement) shall govern your use of the Services unless and until you delete your account.
               </p>
 
           <h2>4.4 Survival of Terms.</h2>
@@ -122,7 +116,7 @@ Edit Event
           <h2>5.6 Notices.</h2>
               <p>
                   Notices to you may be sent via email. The Services may also provide notices of changes to these Terms of Service or other matters by displaying notices or links to notices to you generally on the Services. If you wish to contact YourUnity or deliver any notice, you can do so as follows:
-                  https://YourUnity.org
+                  <a href="/">https://YourUnity.org</a>
                   Email: legal@yourunity.com
               </p>
 
@@ -142,7 +136,7 @@ Edit Event
                   <br/>PLEASE READ THIS SECTION CAREFULLY AS IT AFFECTS YOUR RIGHTS. ANY DISPUTE OR CLAIM UNDER THESE TERMS OF SERVICE OR WITH RESPECT TO THE SERVICES WILL BE SETTLED BY BINDING ARBITRATION OR IN SMALL CLAIMS COURT (TO THE EXTENT THE CLAIM QUALIFIES) AND WILL TAKE PLACE ON AN INDIVIDUAL BASIS ONLY; CLASS, CONSOLIDATED OR REPRESENTATIVE ARBITRATIONS AND CIVIL ACTIONS ARE NOT PERMITTED ONCE THIS SECTION IS EFFECTIVE.
 
                   <br/><br/>(a) Contact Us First.
-                  <br/>If you have a question or concern about the Services, please contact us first. Our customer support team will try to answer your question or resolve your concern.
+                  <br/>If you have a question or concern about the Services, please <a href="/contact">contact us</a> first. Our customer support team will try to answer your question or resolve your concern.
 
                   <br/><br/>(b) Agreement to Arbitrate.
                   <br/>In the unlikely event that our customer support team is unable to resolve your concerns, we each hereby agree to resolve any and all disputes or claims under these Terms of Service or with respect to the Services through binding arbitration or in small claims court (to the extent the claim qualifies) instead of in courts of general jurisdiction and only on an individual basis and not as part of any purported class, consolidated or representative proceeding. Arbitration, which is often cheaper, faster and less formal than a lawsuit in court, uses a neutral arbitrator instead of a judge or jury. Arbitrators can award the same damages and relief as a court. Binding arbitration is subject to very limited review. Only the arbitrator appointed pursuant to this Section, and not any federal, state or local court or agency, shall have the authority to resolve any dispute or claim relating to this Section, including, without limitation, the scope, enforceability and arbitrability of these Terms of Service. This arbitration provision shall survive termination of these Terms of Service. These Terms of Service evidence a transaction in interstate commerce and the interpretation and enforcement of this Section 5.9 is governed by the Federal Arbitration Act, notwithstanding the choice of law set forth in Section 5.8 above.
@@ -160,7 +154,7 @@ Edit Event
                   <br/>A party who intends to seek arbitration must first send to the other a typed Notice of Dispute (“Notice”). The Notice to YourUnity must be sent to the email address in Section 5.6 above (“Notice Address”) and must be sent by an email registered through the Services. The Notice to you must be delivered to your YourUnity account email address. The Notice must (i) describe the nature and basis of the claim or dispute; and (ii) set forth the specific relief sought. If YourUnity and you do not reach an agreement to resolve the claim within sixty (60) calendar days after the Notice is received, you or YourUnity may commence an arbitration proceeding.
 
                   <br/><br/>(g) Arbitration Proceedings.
-                  <br/>The arbitration will be governed by the Commercial Arbitration Rules, or, if the actions giving rise to the dispute or claim relate to your personal or household use of the Services (rather than business use), the Consumer Arbitration Rules (in each case, the “AAA Rules”) of the American Arbitration Association (“AAA”), as modified by this Section 5.9, and will be administered by the AAA and settled by a single arbitrator. The AAA Rules are available online at adr.org or by calling the AAA at 1-800-778-7879. The arbitrator is bound by the terms of these Terms of Service. All issues are for the arbitrator to decide, including, but not limited to, issues relating to the scope, enforceability, and arbitrability of this Section 5.9. Unless YourUnity and you agree otherwise, any arbitration hearings will take place in a reasonably convenient location in the United States for both parties with due consideration of their ability to travel and other pertinent circumstances. If the parties are unable to agree on a location, AAA shall determine the location. If your claim is for ten thousand dollars ($10,000) or less, we agree that you may choose whether the arbitration will be conducted solely on the basis of documents submitted to the arbitrator, through a telephonic hearing, or by an in-person hearing as established by the AAA Rules. If your claim exceeds ten thousand dollars ($10,000), the right to a hearing will be determined by the AAA Rules. Regardless of the manner in which the arbitration is conducted, the arbitrator shall issue a reasoned written decision sufficient to explain the essential findings and conclusions on which the award is based. All decisions by the arbitrator shall be final and binding and judgment on the award rendered may be entered in any court having jurisdiction.
+                  <br/>The arbitration will be governed by the <a href="https://www.adr.org/node/158#%40%3F_afrWindowId%3Dnull%26_afrLoop%3D1586484752896499%26doc%3DADRSTG_004130%26_afrWindowMode%3D0%26_adf.ctrl-state%3Diwo6y8gfy_219">Commercial Arbitration Rules</a>, or, if the actions giving rise to the dispute or claim relate to your personal or household use of the Services (rather than business use), the <a href="https://www.adr.org/node/158#%40%3F_afrWindowId%3Dnull%26_afrLoop%3D1628678600796460%26doc%3DADRSTAGE2021424%26_afrWindowMode%3D0%26_adf.ctrl-state%3D11uwfxohmb_4">Consumer Arbitration Rules</a> (in each case, the “AAA Rules”) of the American Arbitration Association (“AAA”), as modified by this Section 5.9, and will be administered by the AAA and settled by a single arbitrator. The AAA Rules are available online at adr.org or by calling the AAA at 1-800-778-7879. The arbitrator is bound by the terms of these Terms of Service. All issues are for the arbitrator to decide, including, but not limited to, issues relating to the scope, enforceability, and arbitrability of this Section 5.9. Unless YourUnity and you agree otherwise, any arbitration hearings will take place in a reasonably convenient location in the United States for both parties with due consideration of their ability to travel and other pertinent circumstances. If the parties are unable to agree on a location, AAA shall determine the location. If your claim is for ten thousand dollars ($10,000) or less, we agree that you may choose whether the arbitration will be conducted solely on the basis of documents submitted to the arbitrator, through a telephonic hearing, or by an in-person hearing as established by the AAA Rules. If your claim exceeds ten thousand dollars ($10,000), the right to a hearing will be determined by the AAA Rules. Regardless of the manner in which the arbitration is conducted, the arbitrator shall issue a reasoned written decision sufficient to explain the essential findings and conclusions on which the award is based. All decisions by the arbitrator shall be final and binding and judgment on the award rendered may be entered in any court having jurisdiction.
 
                   <br/><br/>(h) Costs of Arbitration; Legal Fees.
                   <br/>i. Payment of all filing, administration, and arbitrator costs and expenses imposed by AAA will be governed by the AAA rules, provided that if you are initiating an arbitration against YourUnity. In the event that the arbitrator determines that all of the claims you assert in arbitration are frivolous according to Federal Rule of Civil Procedure 11, you agree to reimburse YourUnity for all such cost and expenses that YourUnity paid and that you would have been obligated to pay under the AAA rules.
@@ -192,7 +186,7 @@ Edit Event
 
           <h2>5.13 Violations.</h2>
               <p>
-                  Please report any violations of these Terms of Service by email.
+                  Please report any violations of these Terms of Service by <a href="/contact">email</a>.
               </p>
 
           <h2>5.14 Assignment.</h2>
@@ -206,49 +200,6 @@ Edit Event
               </p>
 
     </div>
-
+    
 </div>
-
 @endsection
-
-<style>
-
-    #legalContainer {
-        display: grid;
-        width: 100%;
-        grid-template-rows: 100vh, 1fr;
-        grid-template-columns: 5vw 30vw 60vw 5vw;
-        grid-template-areas:
-        ". legend cont .";
-    }
-
-    #legalContainer > .legend {
-        grid-area: legend;
-        background-color: #8ca0ff;
-    }
-
-    #legalContainer > .cont {
-        grid-area: cont;
-        background-color: #ffa08c;
-    }
-
-    .cont > h1 {
-        margin-left: 2vw;
-        margin-top: 2vw;
-    }
-
-    .cont > h2 {
-        margin-left: 5vw;
-    }
-
-    .cont > p {
-        margin-left: 8vw;
-        font-size: 150%;
-
-    }
-
-    .legend > a > h1 {
-        margin-bottom: 10%;
-    }
-
-</style>

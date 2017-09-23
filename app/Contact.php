@@ -4,11 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Feedback extends Model
+class Contact extends Model
 {
   protected $fillable = [
-      'fback',
-      'user_id'
+      'user_id',
+      'contact',
+      'type'
   ];
 
   public function user() {
