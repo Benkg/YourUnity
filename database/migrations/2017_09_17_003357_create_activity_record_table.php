@@ -19,8 +19,8 @@ class CreateActivityRecordTable extends Migration
 
           $table->integer('event_id')->unsigned();
           $table->string('attendee_id');
-          $table->integer('check_in_time')->unsigned();
-          $table->integer('duration')->unsigned()->default(0);
+          $table->bigInteger('check_in_time')->unsigned();
+          $table->bigInteger('duration')->unsigned()->default(0);
           $table->integer('activity_status')->unsigned();
           $table->timestamps();
 
