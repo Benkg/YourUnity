@@ -30,12 +30,10 @@ Route::get('events/{id}', function($id) {
 });
 
 Route::apiResource('register_event', 'EventRegisterController', ['only' => [
-    'store', 'destroy', 'update'
+    'store', 'destroy'
     ]]);
 
-Route::apiResource('register_event.update', 'EventRegisterController', ['only' => [
-    'update'
-    ]]);
+Route::patch('checkin/{user}/{event}', 'EventRegisterController@update');
 
 Route::apiResource('add_attendee', 'AddAttendeeController', ['only' => [
     'store', 'destroy'

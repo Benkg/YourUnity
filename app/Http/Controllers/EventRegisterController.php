@@ -75,14 +75,22 @@ class EventRegisterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $attendee_id, $event_id)
     {
+        // $check_in_event = DB::table('activity_records')->where([['attendee_id', $user], ['event_id', $event]])->get();
+        //
+        // $check_in_event->check_in_time = request('check_in_time');
+        // $check_in_event->duration = request('duration');
+        // $check_in_event->activity_status = request('activity_status');
+        // $check_in_event->save();
+
         DB::update('update activity_records set
             check_in_time = :check_in_time,
             duration = :duration,
             activity_status = :activity_status
-            where id = :id', [
-                'id' => $id,
+            where attendee_id = :attendee_id and event_id = :event_id', [
+                'attendee_id' => $attendee_id,
+                'event_id' => $event_id,
                 'check_in_time' => request('check_in_time'),
                 'duration' => request('duration'),
                 'activity_status'=> request('activity_status')
