@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 
 use App\Event;
+use App\ActivityRecord;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,23 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('events', function() {
     // If the Content-Type and Accept headers are set to 'application/json',
     // this will return a JSON structure. This will be cleaned up later.
-    return Event::all();
+    return Event::orderBy('starts')->get();
 });
 
 Route::get('events/{id}', function($id) {
     return Event::find($id);
 });
+
+Route::get('activity_records/{user}', function($attendee_id) {
+    return ActivityRecord::where('attendee_id', $attendee_id)->get();
+});
+
+Route::apiResource('register_event', 'EventRegisterController', ['only' => [
+    'store', 'destroy'
+    ]]);
+
+Route::patch('checkin/{user}/{event}', 'EventRegisterController@update');
+
+Route::apiResource('add_attendee', 'AddAttendeeController', ['only' => [
+    'store', 'destroy'
+    ]]);

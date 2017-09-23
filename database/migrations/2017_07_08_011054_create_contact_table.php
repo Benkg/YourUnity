@@ -14,6 +14,8 @@ class CreateContactTable extends Migration
     public function up()
     {
         Schema::create('contact', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->text('contact');

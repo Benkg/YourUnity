@@ -13,18 +13,19 @@ class CreateActivityRecordTable extends Migration
      */
     public function up()
     {
-      Schema::create('activity_record', function (Blueprint $table) {
+      Schema::create('activity_records', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
           $table->increments('id');
 
           $table->integer('event_id')->unsigned();
-          $table->integer('attendee_id')->unsigned();
-          $table->integer('check_in_time')->unsigned();
-          $table->integer('duration')->unsigned()->default(0);
+          $table->string('attendee_id');
+          $table->bigInteger('check_in_time')->unsigned();
+          $table->bigInteger('duration')->unsigned()->default(0);
           $table->integer('activity_status')->unsigned();
           $table->timestamps();
 
           $table->foreign('event_id')->references('id')->on('events');
-          $table->foreign('attendee_id')->references('id')->on('attendees');
+          $table->foreign('attendee_id')->references('firedb_id')->on('attendees');
       });
     }
 
@@ -36,7 +37,7 @@ class CreateActivityRecordTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('activity_record');
+        Schema::dropIfExists('activity_records');
         Schema::enableForeignKeyConstraints();
     }
 }
