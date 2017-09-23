@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 
 use App\Event;
+use App\ActivityRecord;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,10 @@ Route::get('events', function() {
 
 Route::get('events/{id}', function($id) {
     return Event::find($id);
+});
+
+Route::get('activity_records/{user}', function($attendee_id) {
+    return ActivityRecord::where('attendee_id', $attendee_id)->get();
 });
 
 Route::apiResource('register_event', 'EventRegisterController', ['only' => [
