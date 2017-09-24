@@ -30,9 +30,7 @@ Route::get('events/{id}', function($id) {
     return Event::find($id);
 });
 
-Route::get('user_events/{user}', function($user) {
-    return Event::where('attendee_id', $attendee_id)->get();
-});
+Route::get('user_events/{user}', 'EventRegisterController@user_events');
 
 Route::apiResource('register_event', 'EventRegisterController', ['only' => [
     'store', 'destroy'
