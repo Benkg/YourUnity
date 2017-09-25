@@ -111,7 +111,10 @@ class EventRegisterController extends Controller
 
     public function user_events($user) {
 
-        $event_ids =  ActivityRecord::where('attendee_id', $user)->get();
+        $event_ids =  ActivityRecord::where([
+            ['attendee_id', '=', $user],
+            ['activity_status', '>', 0]
+            ])->get();
 
         $ids = [];
 
