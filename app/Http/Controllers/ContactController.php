@@ -53,18 +53,15 @@ class ContactController extends Controller
               $this->validate(request(), [
                   'contact' => 'required|min:5'
               ]);
-              
-              $type = (int)($this->type);
 
-                              // Create new contact data
+              // Create new contact data
               contact::create([
                   'contact' => request('contact'),
                   'user_id' => auth()->user()->id,
-                  'type' => $type;
+                  'type' => request('type')
               ]);
 
-              $previousUrl = session('url');
-              return redirect($previousUrl);
+              return redirect('/');
     }
 
 }

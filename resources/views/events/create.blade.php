@@ -317,7 +317,6 @@ Create Event
                 <!-- Cancle and Submit Button -->
                 <a href="/">Cancel</a>
                 <button type="submit" name="submit" value="Submit" class="btn btn-primary float-right">Create</button>
-                <a href="/upload" class="btn btn-secondary float-right mr-3">Add Documents</a>
 
                 <input type="hidden" name="date_start" value="" />
                 <input type="hidden" name="date_end" value="" />

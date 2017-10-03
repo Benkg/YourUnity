@@ -15,7 +15,7 @@ class CreateAttachmentsTable extends Migration
     {
         Schema::create('attachments', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
+            $table->string('unique_name');
 
             $table->integer('user_id')->unsigned();
             $table->string('name');
@@ -23,6 +23,7 @@ class CreateAttachmentsTable extends Migration
             $table->integer('size')->unsigned();
             $table->timestamps();
 
+            $table->primary('unique_name');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

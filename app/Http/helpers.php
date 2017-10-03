@@ -272,6 +272,7 @@ if (! function_exists('htmlEventDropDown')) {
             case 2:
                 echo '<a href="/events/'.$event->id.'/edit" class="dropdown-item">Edit</a>
                 <a href="/events/'.$event->id.'/duplicate" class="dropdown-item" href="#">Duplicate +</a>
+                <a href="/attachments/'.$event->id.'" class="dropdown-item">Add Documents</a>
                 <a href="/Contact/feedback" class="dropdown-item">More Options</a>';
                 break;
             case 1:
@@ -298,5 +299,79 @@ if (! function_exists('flashURL')) {
     function flashURL() {
         $currentUrl = $_SERVER['REQUEST_URI'];
         session()->flash('url', $currentUrl);
+    }
+}
+
+/******************************************/
+/* Flash Current URL to next http request */
+/******************************************/
+if (! function_exists('randomNumber')) {
+    function randomNumber($length) {
+        $result = '';
+
+        for($i = 0; $i < $length; $i++) {
+            $result .= mt_rand(0, 9);
+        }
+
+        return $result;
+    }
+}
+
+
+/*================================= FILE UPLOAD HELPERS =================================*/
+
+/*         testUpload();
+/******************************************/
+/* Flash Current URL to next http request */
+/******************************************/
+if (! function_exists('getInfo')) {
+    function getInfo($attachment) {
+
+        $fileName = $attachment['name'];
+        $fileTmpName = $attachment['tmp_name'];
+        $fileSize = $attachment['size'];
+        $fileError = $attachment['error'];
+        $fileType = $attachment['type'];
+
+        $fileExt = explode ('.', $fileName);
+        $fileLcaseExt = strtolower(end($fileExt));
+
+        $fileInfo = [
+            'name' => $fileName,
+            'tmpName' => $fileTmpName,
+            'size' => $fileSize,
+            'type' => $fileType,
+            'ext' => $fileLcaseExt,
+            'error' => $fileError
+        ];
+
+        return $fileInfo;
+    }
+}
+
+/*         reArrayFiles();
+/******************************************/
+/* Flash Current URL to next http request */
+/******************************************/
+if (! function_exists('reArrayFiles')) {
+    function reArrayFiles() {
+
+        //save uploaded files
+        $attachments = $_FILES['attachments'];
+        //count these files (for loop later)
+        $file_count = count($attachments["name"]);
+        //get the array keys of the $_FILES superglobal
+        $file_keys = array_keys($attachments);
+        //create a new array
+        $re_ordered = array();
+
+        //shuffle array so that each index is its own attachment
+        for ($i=0; $i<$file_count; $i++) {
+            foreach ($file_keys as $key) {
+                $re_ordered[$i][$key] = $attachments[$key][$i];
+            }
+        }
+
+        return $re_ordered;
     }
 }

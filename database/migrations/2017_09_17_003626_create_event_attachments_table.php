@@ -19,10 +19,11 @@ class CreateEventAttachmentsTable extends Migration
           $table->increments('id');
 
           $table->integer('event_id')->unsigned();
-          $table->integer('attachment_id')->unsigned();
-
+          $table->string('attachment_id');
+          $table->timestamps();
+          
           $table->foreign('event_id')->references('id')->on('events');
-          $table->foreign('attachment_id')->references('id')->on('attachments');
+          $table->foreign('attachment_id')->references('unique_name')->on('attachments');
       });
     }
 

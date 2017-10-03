@@ -49,8 +49,15 @@ Route::get('/legal/community', 'LegalController@community');
 Route::get('/legal/ip', 'LegalController@ip');
 
                       /* Attachment Routes */
-Route::get('/upload', 'UploadController@uploadForm');
-Route::post('/upload', 'UploadController@uploadSubmit');
+Route::get('/attachments/manager', 'AttachmentController@manager');
+Route::post('/attachments/upload', 'AttachmentController@store');
+Route::post('/attachments/delete', 'AttachmentController@delete');
+
+Route::get('/attachments/{event}', 'AttachmentController@uploadForm');
+Route::post('/attachments/attach', 'EventAttachmentController@store');
+Route::post('/attachments/remove', 'EventAttachmentController@remove');
+//Route::post('/attach'), 'UploadController@attach');
+//Route::get('/storage/{attachmentURL}', 'UploadController@show');
 
                       /* Login and Register Routes ??? */
 Auth::routes();

@@ -14,20 +14,7 @@
 
 <style>
 
-.cont > li {
-    margin-left: 2vw;
-    margin-top: 2vw;
-}
-
-.cont > h2 {
-    margin-left: 5vw;
-}
-
-.cont > p {
-    margin-left: 8vw;
-    font-size: 150%;
-}
-
+/*** GENERAL STYLES ***/
 /* Side menu item */
 li {
   color: #FFFFFF;
@@ -37,11 +24,36 @@ li {
   cursor: pointer;
 }
 
+.cardContainer {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cardContents {
+  display: table;
+  text-align: center;
+  text-decoration: none;
+
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  background-color: #2d2d2d;
+  border-color: black;
+
+  border-radius: 6px;
+  margin: 5vh auto;
+  padding-bottom: 2vh;
+}
+
+.cardContents > h3{
+    margin: 2vh auto;
+}
+
 /* Side menu item hover */
 li:hover {
   color: #6bbaa7;
 }
 
+/*** DESKTOP STYLES ***/
 @media only screen and (min-width : 1224px) {
 
   #contactContainer {
@@ -79,8 +91,14 @@ li:hover {
       z-index: -1;
     }
 
+    .cardContents {
+      width: 100%;
+    }
+
 }
 
+
+/*** MOBILE STYLES ***/
 @media only screen and (max-width : 1224px) {
     /* Toggle Button O */
     .toggle {
@@ -114,18 +132,8 @@ li:hover {
       transition: left 0.3s cubic-bezier(.25,.8,.25,1);
     }
 
-    /* Side menu item */
-    li {
-      color: #FFFFFF;
-      margin-bottom: 15px;
-      font-size: 30px;
-      -webkit-font-smoothing: subpixel-antialiased;
-      cursor: pointer;
-    }
-
-    /* Side menu item hover */
-    li:hover {
-      color: #6bbaa7;
+    .cardContents {
+      width: 80vw;
     }
 
     /* Main Content */

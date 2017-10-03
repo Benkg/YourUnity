@@ -4,13 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Attachments extends Model
+class Attachment extends Model
 {
   protected $fillable = [
-      'file_name',
-      'size',
+      'unique_name',
+      'user_id',
+      'name',
       'type',
-      'user_id'
+      'size'
   ];
 
   public function user() {
