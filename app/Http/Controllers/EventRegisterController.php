@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\ActivityRecord;
+use App\Event;
 
 
 class EventRegisterController extends Controller
@@ -106,5 +107,22 @@ class EventRegisterController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function user_events($user) {
+
+        $event_ids =  ActivityRecord::where([
+            ['attendee_id', '=', $user],
+            ['activity_status', '>', 0]
+            ])->get();
+
+        $ids = [];
+
+        foreach($event_ids as $event) {
+            array_push($ids, $event->event_id);
+        }
+
+        return Event::findMany($ids);
+
     }
 }

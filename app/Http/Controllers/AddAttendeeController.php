@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Attendee;
+use Illuminate\Support\Facades\DB;
 
 class AddAttendeeController extends Controller
 {
@@ -71,9 +72,16 @@ class AddAttendeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $firedb_id)
     {
-        //
+        DB::update('update attendees set
+            name = :name,
+            avatar = :avatar
+            where firedb_id = :firedb_id', [
+                'firedb_id' => $firedb_id,
+                'name' => request('name'),
+                'avatar' => request('avatar')
+        ]);
     }
 
     /**

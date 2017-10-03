@@ -30,9 +30,7 @@ Route::get('events/{id}', function($id) {
     return Event::find($id);
 });
 
-Route::get('activity_records/{user}', function($attendee_id) {
-    return ActivityRecord::where('attendee_id', $attendee_id)->get();
-});
+Route::get('user_events/{user}', 'EventRegisterController@user_events');
 
 Route::apiResource('register_event', 'EventRegisterController', ['only' => [
     'store', 'destroy'
@@ -43,3 +41,5 @@ Route::patch('checkin/{user}/{event}', 'EventRegisterController@update');
 Route::apiResource('add_attendee', 'AddAttendeeController', ['only' => [
     'store', 'destroy'
     ]]);
+
+Route::patch('add_attendee/{user}', 'AddAttendeeController@update');
