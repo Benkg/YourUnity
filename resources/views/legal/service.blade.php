@@ -13,7 +13,9 @@ Terms of Service
     @include('layouts.menu.legal')
 
     <div class="cont">
-      <h1>1. Who We Are.</h1>
+        <h1>Terms of Service</h1>
+
+      <h1 class="legal_h1">1. Who We Are.</h1>
           <h2>1.1 YourUnity.</h2>
               <p>
                   Welcome to YourUnity! We are a platform dedicated to building a stronger and more connected community by increasing awareness of and interaction with various community service events. Through our platform, mobile apps and services, we leverage the latest technology in order to reduce any barriers involved on both sides of the community service process. We are not a social media organization, as our aim is not to increase media consumption. Rather YourUnity aims to provide an avenue through which a User may more efficiently interact with the community around them.
@@ -34,7 +36,7 @@ Terms of Service
           For purposes of these Terms of Service, <a href="/">https://YourUnity.org</a>, shall be referred to as “YourUnity,” “us,” “we” or “our.”</p>
 
 
-      <h1>2. Our Terms Of Service.</h1>
+      <h1 class="legal_h1">2. Our Terms Of Service.</h1>
           <h2>2.1 Terms of Service Agreement.</h2>
               <p>
                   The following pages contain our Terms of Service Agreement (“Terms of Service”). These Terms of Service govern all of our Services, all of which are offered subject to your acceptance without modification of these Terms of Service. In addition to the Sections below, these Terms of Service include and incorporate by reference the following agreements, terms, policies, requirements and guidelines:
@@ -44,7 +46,7 @@ Terms of Service
                     <br/>• the Trademark & Copyright Policy available <a href="/legal/ip">here</a>;
                     <br/>• additional terms and conditions that are displayed along with additional Services that you may use from time to time.
 
-      <h1>3. Your Acceptance.</h1>
+      <h1 class="legal_h1">3. Your Acceptance.</h1>
           <h2>3.1 Binding Agreement.</h2>
               <p>
                   You agree to these Terms of Service and you enter into a binding contract with YourUnity either when you sign up for a registered account by clicking “Sign Up,” “Register Now,” “Get Started” or similar buttons, or if you are an unregistered Attendee, when you register for an event by clicking “Plan For,” “Register Now,” “RSVP” or similar buttons, or in accordance with Section 3.2 below. If you are not a registered user or an unregistered Attendee, you agree to these Terms of Service and you enter into a binding contract with YourUnity by downloading Applications or using, accessing or browsing any part of the Services. If you do not agree to any portion of these Terms of Service, do not use or access the Services. If you will be using the Services on behalf of an entity, you agree to these Terms of Service on behalf of that entity and its affiliates and you represent that you have the authority to do so. In such case, “you” and “your” will refer to that entity. If you do not have such authority, or if you do not agree to any portion of these Terms of Service, do not use or access the Services.
@@ -62,7 +64,7 @@ Terms of Service
                   We may translate these Terms of Service (or any of the agreements that make up these Terms of Service) into other languages for your convenience. The English language version of each of these documents is the version that governs your use of the Services and in the event of any conflict between the English language version and a translated version, the English language version will control.
               </p>
 
-      <h1>4. Term; Termination.</h1>
+      <h1 class="legal_h1">4. Term; Termination.</h1>
           <h2>4.1 Term.</h2>
               <p>
                   These Terms of Service are effective upon your Acceptance as set forth under Section 3.1 above and continue in effect until terminated.
@@ -83,7 +85,7 @@ Terms of Service
                   All provisions of these Terms of Service that by their nature should survive termination of these Terms of Service shall survive (including, without limitation, all limitations on liability, releases, indemnification obligations, disclaimers of warranties, agreements to arbitrate, choices of law and judicial forum and intellectual property protections and licenses).
               </p>
 
-      <h1>5. Important Legal Terms Governing All Use Of The Services (AKA, The Legal “Stuff”).</h1>
+      <h1 class="legal_h1">5. Important Legal Terms Governing All Use Of The Services (AKA, The Legal “Stuff”).</h1>
           <h2>5.1 Indemnification.</h2>
               <p>
                   You agree to defend, indemnify and hold YourUnity, and its affiliates and subsidiaries, and each of its and their respective officers, directors, agents, co-branders, licensors, other partners and employees, harmless from any and all damage (whether direct, indirect, incidental, consequential or otherwise), loss, liability, cost and expense (including, without limitation, reasonable attorneys’ and accounting fees) resulting from any claim, demand, suit, proceeding (whether before an arbitrator, court, mediator or otherwise) or investigation made by any third party (each a “Claim”) due to or arising out of: (a) your breach of these Terms of Service, including, without limitation the Terms of Use and any other part of these Terms of Service; (b) your improper use of the Services; (c) your breach of any applicable local, state, provincial, national or other law, rule or regulation or the rights of any third party; or (d) in the case of Organizers, your events or the fact that YourUnity was providing Services with respect to those events, provided that in the case of (d), this indemnification shall not apply to the extent that the Claim arises out of YourUnity’s gross negligence or willful misconduct. YourUnity shall provide notice to you of any such Claim, provided that the failure or delay by YourUnity in providing such notice shall not limit your obligations hereunder except to the extent you are materially disadvantaged by such failure.
@@ -200,6 +202,6 @@ Terms of Service
               </p>
 
     </div>
-    
+
 </div>
 @endsection

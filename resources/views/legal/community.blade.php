@@ -13,9 +13,12 @@ Community Guidelines
     @include('layouts.menu.legal')
 
     <div class="cont">
+        <h1>Community Guidlines</h1>
         <p>
             We want every one of you to rest assured that you are browsing in a safe, secure environment. This is why we developed our Community Guidelines.
         </p>
+
+        <hr />
 
 
         <h1>Building A Community</h1>
@@ -82,3 +85,29 @@ Community Guidelines
 
 </div>
 @endsection
+
+<style>
+hr {
+    margin-top: 5vh !important;
+    margin-bottom: 8vh !important;
+}
+
+.cont > p:first-of-type {
+    margin-left: 0 !important;
+    font-style: italic;
+}
+
+.cont > p {
+    font-size: 1.1rem !important;
+    line-height: 1.8rem;
+    margin-left: 4vw !important;
+    font-size: 150%;
+    color: #dfdfdf;
+}
+
+@media only screen and (max-width : 1224px) {
+    .cont > p:first-of-type {
+        margin-left: 4vw !important;
+    }
+}
+</style>

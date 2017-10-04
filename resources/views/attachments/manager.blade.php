@@ -35,8 +35,8 @@ Create Event
                 <p>Upload a new attachment. (Must be of type .pdf or .png)</p>
                 <hr />
 
-                <input type="file" name="attachments[]" multiple="" />
-                <input type="submit" name="submit" />
+                <input type="file" name="attachments[]" multiple="" class="upload_file" />
+                <input type="submit" name="submit" class="submit_documents" value="Submit"/>
 
             </div>
         </div>
@@ -69,10 +69,10 @@ Create Event
                 echo '
                     <div class="form-check">
 
-                      <label class="form-check-label" for="other'.$index.'">
-                          <input type="checkbox" class="form-check-input" name='.$index.' id="other'.$index.'" value='.$attachment->unique_name.'>
+                        <label class="form-check-label" for="other'.$index.'">
+                          <input type="checkbox" class="form-check-input" id="check" name='.$index.' id="other'.$index.'" value='.$attachment->unique_name.'>
                           '.$attachment->name.'
-                      </label>
+                          </label>
 
                     </div>
                 ';

@@ -2,8 +2,8 @@
 <footer class="text-muted">
     <div class="container pt-4">
         <p class="float-right">
-            <a href="#">Back to top</a>
+            <a href="/legal/ip">&copy; YourUnity 2017 - Community, everywhere</a>
         </p>
-        <p>&copy; YourUnity 2017 - Community, everywhere</p>
+        <p></p>
     </div>
 </footer>

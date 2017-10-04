@@ -4,46 +4,65 @@
 
 <ul class="legend">
     <a href="/legal/service" class="text-white"><li>Terms of Service</li></a>
-    <hr class="mt-12"/>
+
     <a href="/legal/users" class="text-white"><li>Terms of Use</li></a>
-    <hr class="mt-12"/>
+
     <a href="/legal/cookies" class="text-white"><li>Cookie Policy</li></a>
-    <hr class="mt-12"/>
+
     <a href="/legal/privacy" class="text-white"><li>Privacy Policy</li></a>
-    <hr class="mt-12"/>
+
     <a href="/legal/community" class="text-white"><li>Community Guidelines</li></a>
-    <hr class="mt-12"/>
+
     <a href="/legal/ip" class="text-white"><li>Trademark & Copyright Policy</li></a>
 </ul>
 
 <style>
 
 .cont > li {
-    margin-left: 2vw;
+    margin-left: 1vw;
     margin-top: 2vw;
 }
 
+.cont > h1:first-of-type {
+    margin-bottom: 3vh;
+    text-align: center;
+    font-weight: 800 !important;
+    font-size: 2.2rem !important;
+}
+
+.cont > h1 {
+    font-size: 2rem;
+    font-weight: 600 !important;
+}
+
 .cont > h2 {
+    font-weight: 400 !important;
+    font-size: 1.7rem;
     margin-left: 5vw;
+    color: #eee;
 }
 
 .cont > p {
+    font-size: 1.1rem !important;
+    line-height: 1.8rem;
     margin-left: 8vw;
     font-size: 150%;
+    color: #dfdfdf;
 }
 
 /* Side menu item */
 li {
   color: #FFFFFF;
   margin-bottom: 15px;
-  font-size: 30px;
+  font-size: 1.6rem;
   -webkit-font-smoothing: subpixel-antialiased;
   cursor: pointer;
+  padding-left: 0.5vw;
 }
 
 /* Side menu item hover */
 li:hover {
-  color: #6bbaa7;
+  border-left: 2px solid #6bbaa7;
 }
 
 @media only screen and (min-width : 1224px) {
@@ -52,20 +71,23 @@ li:hover {
     display: grid;
     width: 100%;
     grid-template-rows: 100%;
-    grid-template-columns: 5vw 30vw 60vw 5vw;
+    grid-template-columns: 0vw 28vw 60vw 5vw;
     grid-template-areas:
     ". legend cont .";
+    padding-top: 4vh;
     }
 
     #legalContainer > .legend {
         list-style-type: none;
         grid-area: legend;
         background-color: #3f3f3f;
+        border-right: 1px solid #6bbaa7;
     }
 
     #legalContainer > .cont {
         grid-area: cont;
         background-color: #3f3f3f;
+        padding-left: 3vw;
     }
 
     #legendToggle {
@@ -86,15 +108,39 @@ li:hover {
 }
 
 @media only screen and (max-width : 1224px) {
+
+    .cont > h1:first-of-type {
+        margin-top: 3vh !important;
+        margin-bottom: 5vh !important;
+    }
+
+    .cont > h1 {
+        font-size: 2rem;
+        margin-bottom: 2vh !important;
+        font-weight: 600 !important;
+    }
+
+    .cont > h2 {
+        font-size: 1.7rem;
+        margin-bottom: 2vh !important;
+        margin-left: 5vw;
+        color: #eee;
+    }
+
+    .cont > p {
+        line-height: 2rem !important;
+        margin-bottom: 4vh !important;
+    }
+
     /* Toggle Button O */
     .toggle {
       text-decoration: none;
       position: fixed;
-      top: -1vh;
+      top: 0vh;
       bottom: 0px;
-      right: 80vw;
+      right: 83vw;
       z-index: 2;
-      font-size: 20vw;
+      font-size: 15vw;
       color: #6bbaa7;
 
       transition: right 0.3s cubic-bezier(.25,.8,.25,1);
@@ -110,9 +156,9 @@ li:hover {
       z-index: 1;
 
       padding: 10% 0 0 10%;
-      width: 80vw;
+      width: 85vw;
       height: 100%;
-      background-color: #2d2d2d;
+      background-color: rgba(43,43,43,0.98) !important;
 
       transition: left 0.3s background-color(.25,.8,.25,1);
       transition: left 0.3s cubic-bezier(.25,.8,.25,1);
@@ -121,10 +167,12 @@ li:hover {
     /* Side menu item */
     li {
       color: #FFFFFF;
-      margin-bottom: 15px;
-      font-size: 30px;
+      margin-bottom: 4vh;
+      font-size: 1.6rem !important;
       -webkit-font-smoothing: subpixel-antialiased;
       cursor: pointer;
+      border-left: 2px solid #6bbaa7;
+      padding-left: 2vw;
     }
 
     /* Side menu item hover */
@@ -137,6 +185,7 @@ li:hover {
       position: relative;
       z-index: 0;
       background-color: #3f3f3f;
+      padding-right: 5vw;
 
       transition: background-color 0.3s cubic-bezier(.25,.8,.25,1);
     }

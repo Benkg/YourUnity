@@ -94,6 +94,11 @@ hr {
     width: 12em;
 }
 
+.appstore {
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+}
+
 .sidebar {
   height: 100vh;
   position: fixed !important;
@@ -327,7 +332,7 @@ header {
 .side-hr {
     margin-top: 9px;
     width: 70%;
-    height: 2px;
+    height: 1px;
 }
 
 .sidebar-setting {
@@ -444,7 +449,7 @@ header {
 
 .splash-card-1 {
     position: absolute;
-    width: 29%;
+    width: 45%;
     height: 62%;
     left: 2.5vw;
     border-radius: 5px;
@@ -454,24 +459,11 @@ header {
     cursor: pointer;
 }
 
-.splash-card-2 {
-    position: absolute;
-    width: 29%;
-    height: 62%;
-    left: 36.5vw;
-    border-radius: 5px;
-
-}
-
-.sc2:hover {
-    cursor: pointer;
-}
-
 .splash-card-3 {
     position: absolute;
-    width: 29%;
+    width: 45%;
     height: 62%;
-    left: 70.2vw;
+    left: 53vw;
     border-radius: 5px;
 
 }
@@ -514,4 +506,50 @@ header {
 
 .top-login {
 
+}
+
+/** Attachments **/
+
+.upload_file::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.upload_file::before {
+  content: 'Select files';
+  display: inline-block;
+  background: #6bbaa7;
+  border: none;
+  border-radius: 3px;
+  padding: 2% 5%;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #fff;
+}
+.upload_file:hover::before {
+  border-color: none;
+}
+.upload_file:active::before {
+  background: #6bbaa7;
+}
+
+.submit_documents {
+    background: #6bbaa7;
+    border: none;
+    border-radius: 3px;
+    padding: 1.3% 5%;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #fff;
+}
+
+
+/** Legal Styling **/
+
+.legal_h1 h1 {
+    font-size: 2.5rem !important;
 }

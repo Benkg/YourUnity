@@ -41,7 +41,7 @@ YourUnity
 					<span class="head-links white"><a href="https://yourunity.org/blog">Blog</a></span>
 					<a href="https://twitter.com/YourUnityApp"><img src="{{ url('/images/twitter_white.png') }}" class="head-twitter-icon" alt="Twitter"></a>
 					<a href="https://www.facebook.com/YourUnityApp/"><img src="{{ url('/images/facebook_white.png') }}" class="head-social-icons ml-2" alt="Facebook"></a>
-					<img src="{{ url('/images/instagram_white.png') }}" class="head-social-icons ml-4" alt="Instagram">
+					<!-- <img src="{{ url('/images/instagram_white.png') }}" class="head-social-icons ml-4" alt="Instagram"> -->
 					<a href="/login" class="btn btn-outline-secondary white ml-4 top-btn top-login">Login</a>
 					<a href="/access" class="btn btn-primary white ml-3 top-btn">Register</a>
 				</div>
@@ -68,17 +68,12 @@ YourUnity
 			</div>
 			<div class="row pb-4">
 				<div class="splash-card-1"></div>
-				<div class="col-sm-4 center sc1">
+				<div class="col-sm-6 center sc1">
 					<span class="lnr lnr-store big-icons"></span>
 					<h3 class="mt-2">Community Service Providers</h3>
 				</div>
-				<div class="splash-card-2"></div>
-				<div class="col-sm-4 center pt-4 sc2">
-					<span class="lnr lnr-user big-icons-user"></span>
-					<h3 class="mt-3">Community Service Leaders</h3>
-				</div>
 				<div class="splash-card-3"></div>
-				<div class="col-sm-4 center pt-2 sc3">
+				<div class="col-sm-6 center pt-2 sc3">
 					<span class="lnr lnr-users big-icons"></span>
 					<h3>Volunteers</h3>
 				</div>
@@ -130,83 +125,38 @@ YourUnity
 		</div>
 	</div>
 
-	<div id="service_leaders" class="row dark-grey pt-4 pb-4">
-		<div class="col-sm-12 p-4">
-			<div class="row">
-				<div class="col-sm-12 center">
-					<h2 class="thick">Community, for Service Leaders.</h2>
-					<hr class="short" />
-				</div>
-			</div>
-			<div class="row mt-4">
-				<div class="col-1 text-right">
-					<span class="lnr lnr-checkmark-circle md-icon"></span>
-				</div>
-				<div class="col-11">
-					<span class="leader-checklist">Check individual volunteer hours within volunteer group.</span>
-				</div>
-			</div>
-			<div class="row mt-4">
-				<div class="col-1 text-right">
-					<span class="lnr lnr-checkmark-circle md-icon"></span>
-				</div>
-				<div class="col-11">
-					<span class="leader-checklist">Upload required documents through docusign.</span>
-				</div>
-			</div>
-			<div class="row mt-4">
-				<div class="col-1 text-right">
-					<span class="lnr lnr-checkmark-circle md-icon"></span>
-				</div>
-				<div class="col-11">
-					<span class="leader-checklist">Directly contact service providers through the YourUnity app.</span>
-				</div>
-			</div>
-			<div class="row mt-4">
-				<div class="col-12 center">
-					<span class="coming-soon">Coming Soon...</span>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="volunteers" class="row pt-3 pb-3">
+	<div id="volunteers" class="row black-background pt-3 pb-3">
 		<div class="col-sm-12 p-4">
 			<div class="row">
 				<div class="col-sm-12 center">
 					<h2 class="thick">Community, for Volunteers.</h2>
+					<a href="https://itunes.apple.com/us/app/yourunity/id1291525611?ls=1&mt=8"><img src="{{ url('/images/appstore.svg') }}" class="appstore" alt="Download YourUnity on the App Store"></a>
 					<hr class="short" />
 				</div>
 			</div>
 			<div class="row mt-4">
 				<div class="col-sm-4 center">
-					<img src="{{ url('/images/iphone.png') }}" class="iphone" alt="YourUnity iPhone app screenshot">
+					<img src="{{ url('/images/iphone_find_events.png') }}" class="iphone" alt="YourUnity iPhone app screenshot">
 				</div>
 				<div class="col-sm-4 center">
-					<img src="{{ url('/images/iphone.png') }}" class="iphone" alt="YourUnity iPhone app screenshot">
+					<img src="{{ url('/images/iphone_register.png') }}" class="iphone" alt="YourUnity iPhone app screenshot">
 				</div>
 				<div class="col-sm-4 center">
-					<img src="{{ url('/images/iphone.png') }}" class="iphone" alt="YourUnity iPhone app screenshot">
+					<img src="{{ url('/images/iphone_checkin.png') }}" class="iphone" alt="YourUnity iPhone app screenshot">
 				</div>
 			</div>
-			<div class="row mt-2">
+			<div class="row mt-4">
 				<div class="col-sm-4 center">
 					<h3>Find events that interest you.</h3>
 				</div>
 				<div class="col-sm-4 center vol-tit">
-					<h3>Track your hours.</h3>
+					<h3>Register from the palm of your hand.</h3>
 				</div>
 				<div class="col-sm-4 center vol-tit">
-					<h3>No paper. Anytime.</h3>
-				</div>
-			</div>
-			<div class="row mt-4">
-				<div class="col-sm-12 center">
-					<span class="coming-soon">Coming Soon...</span>
+					<h3>Check in and track with ease.</h3>
 				</div>
 			</div>
 		</div>
-
 		<hr />
 </div>
 

@@ -32,7 +32,7 @@
     <!-- Table of Dates Of Events -->
     <div class="calendar mt-4">
         <div class="list-group line-stop">
-            <h3 class="text-center mb-1">Upcoming Events</h3>
+            <h3 class="text-center mb-2">Upcoming Events</h3>
 
             <!-- start a count var -->
             <?php $count = 1; ?>
@@ -96,7 +96,7 @@ h3 {
     background: #6bbaa7 !important;
     border: #6bbaa7 !important;
     opacity: 1;
-    z-index: 999;
+    z-index: 2;
 }
 
 .btn {

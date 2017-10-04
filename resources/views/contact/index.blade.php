@@ -12,7 +12,6 @@ Contact YourUnity
 ?>
 
 <div id="contactContainer">
-    @include('layouts.menu.contact')
     <div class="cont">
         <ul class="contactOptions">
             <li><a href="/contact/direct">Contact us Directly</a></li>
@@ -30,12 +29,22 @@ Contact YourUnity
         height: 100%;
     }
 
+    .contactOptions li:hover {
+        border: 0 !important;
+        background-color: #282828;
+    }
+
     .contactOptions > li > a {
         display: table-cell;
         text-decoration: none;
         text-decoration-color: white !important;
-        font-size: 150%;
+        font-size: 2rem;
         vertical-align: middle;
+        color: #eee !important;
+    }
+
+    .contactOptions > li > a:hover {
+        color: #6bbaa7 !important;
     }
 
     .contactOptions > li {
@@ -45,12 +54,18 @@ Contact YourUnity
 
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         background-color: #2d2d2d;
-        border-color: black;
 
         border-radius: 6px;
-        width: 80vw;
-        height: 20vh;
+        width: 70vw;
+        height: 15vh;
         margin: 5vh auto;
+    }
+
+    @media only screen and (max-width : 1224px) {
+        .contactOptions > li {
+            width: 90vw;
+            margin: 5vh auto;
+        }
     }
 
 </style>

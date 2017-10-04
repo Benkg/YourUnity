@@ -4,11 +4,11 @@
 
 <ul class="legend">
     <a href="/contact/direct" class="text-white"><li>Direct Contact</li></a>
-    <hr class="mt-12"/>
+
     <a href="/contact/feedback" class="text-white"><li>Leave Feedback</li></a>
-    <hr class="mt-12"/>
+
     <a href="/contact/report" class="text-white"><li>Report an Issue</li></a>
-    <hr class="mt-12"/>
+
     <a href="/" class="text-white"><li>Home</li></a>
 </ul>
 
@@ -17,11 +17,12 @@
 /*** GENERAL STYLES ***/
 /* Side menu item */
 li {
-  color: #FFFFFF;
-  margin-bottom: 15px;
-  font-size: 30px;
-  -webkit-font-smoothing: subpixel-antialiased;
-  cursor: pointer;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    -webkit-font-smoothing: subpixel-antialiased;
+    cursor: pointer;
+    padding-left: 0.5vw;
 }
 
 .cardContainer {
@@ -40,8 +41,7 @@ li {
   border-color: black;
 
   border-radius: 6px;
-  margin: 5vh auto;
-  padding-bottom: 2vh;
+  margin-bottom: 5vh;
 }
 
 .cardContents > h3{
@@ -50,7 +50,7 @@ li {
 
 /* Side menu item hover */
 li:hover {
-  color: #6bbaa7;
+  border-left: 2px solid #6bbaa7;
 }
 
 /*** DESKTOP STYLES ***/
@@ -60,9 +60,10 @@ li:hover {
     display: grid;
     width: 100%;
     grid-template-rows: 100%;
-    grid-template-columns: 5vw 30vw 60vw 5vw;
+    grid-template-columns: 0vw 28vw 60vw 0vw;
     grid-template-areas:
     ". legend cont .";
+    padding-top: 4vh;
     }
 
     #contactContainer > .legend {

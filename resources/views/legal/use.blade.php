@@ -13,9 +13,7 @@ Terms of Use
     @include('layouts.menu.legal')
 
     <div class="cont">
-      <p>
-          This is YourUnity's Terms of Use Policy.
-      </p>
+        <h1>Terms of Use</h1>
 
       <h1>1. Who We Are.</h1>
           <h2>1.1 YourUnity.</h2>

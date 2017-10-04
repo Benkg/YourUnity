@@ -13,6 +13,8 @@ Privacy Policy
     @include('layouts.menu.legal')
 
     <div class="cont">
+        <h1>Privacy Policy</h1>
+
         <h1>1. Who We Are.</h1>
             <h2>1.1 YourUnity.</h2>
                 <p>

@@ -17,7 +17,7 @@
 .cont {
   position: relative;
   z-index: 0;
-  background-color: #3f3f3f;
+  background-color: #2e2e2e !important;
 
   transition: background-color 0.3s cubic-bezier(.25,.8,.25,1);
 }
@@ -28,14 +28,15 @@ li {
   color: #FFFFFF;
   margin-bottom: 15px;
   margin-left: 5%;
-  font-size: 40px;
+  font-size: 1.8rem;
   -webkit-font-smoothing: subpixel-antialiased;
   cursor: pointer;
 }
 
 /* Side menu item hover */
 li:hover {
-  color: #6bbaa7;
+  border-left: 2px solid #6bbaa7;
+  padding-left: 1rem;
 }
 
 /* Toggle Button O */
@@ -45,11 +46,14 @@ li:hover {
   top: -1vh;
   bottom: 0px;
   left: 0;
-  z-index: 2;
-  font-size: 10vh;
+  z-index: 4;
+  font-size: 4rem;
   color: #6bbaa7;
-  height: 10vh;
   transition: left 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.toggle:hover {
+    cursor: pointer;
 }
 
 /* Side menu */
@@ -59,15 +63,15 @@ li:hover {
   top: 0px;
   left: -100%;
   bottom: 0px;
-  z-index: 1;
+  z-index: 3;
 
-  padding: 10% 0 0 0;
+  padding: 7% 0 0 0;
   width: 25vw;
   height: 100%;
-  background-color: #2d2d2d;
+  background-color: #2e2e2e;
 
-  transition: left 0.3s background-color(.25,.8,.25,1);
-  transition: left 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: left 0.25s background-color(.25,.8,.25,1);
+  transition: left 0.25s cubic-bezier(.25,.8,.25,1);
 }
 
 .legend > hr {
@@ -85,7 +89,7 @@ li:hover {
 /* When toggled, transition in the legend and add a shadow */
 #legendToggle:checked ~ .legend {
     left: 0;
-    background-color: #3f3f3f;
+    background-color: rgba(46,46,46,0.97);
     box-shadow: 3px 0 6px rgba(0,0,0,0.16), 3px 0 6px rgba(0,0,0,0.23);
 }
 

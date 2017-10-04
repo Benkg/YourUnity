@@ -13,6 +13,8 @@ Trademark & Copyright
     @include('layouts.menu.legal')
 
     <div class="cont">
+        <h1>Trademark & Copyright Policy</h1>
+
         <h1>1. Who We Are.</h1>
             <h2>1.1 YourUnity.</h2>
                 <p>
