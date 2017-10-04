@@ -51,9 +51,12 @@ class EventsController extends Controller
 
         /* Collect the date and time (start and end) input arrays */
         $startDate = $_POST['startDate'];
-        $endDate = $_POST['endDate'];
+        //$endDate = $_POST['endDate'];
+        //End date disabled untill we want to do multi-day events...
+        $endDate = $startDate;
         $startTime = $_POST['startTime'];
         $endTime = $_POST['endTime'];
+        $location = $_POST['location'];
 
         /* Concatenate the arrays and merge values into form request, just to check that every input was filled */
         $request->merge([
@@ -61,6 +64,7 @@ class EventsController extends Controller
             'ending_date' => $startDate['year'] . $startDate['month'] . $startDate['day'],
             'starting_time' => $startTime['hour'] . $startTime['minute'] . $startTime['period'],
             'ending_time' => $endTime['hour'] . $endTime['minute'] . $endTime['period'],
+            'location' => $location['address'] .', '. $location['city'] . ', CA, ' . $location['zip'],
         ]);
 
         $request->merge([
@@ -79,6 +83,10 @@ class EventsController extends Controller
             'ending_hour' => $endTime['hour'],
             'ending_minute' => $endTime['minute'],
             'ending_period' => $endTime['period'],
+
+            'address' => $location['address'],
+            'city' => $location['city'],
+            'zip' => $location['zip'],
         ]);
 
         /* Validate form before submit */
@@ -99,10 +107,14 @@ class EventsController extends Controller
             'ending_minute' => 'required',
             'ending_period' => 'required',
 
+            'address' => 'required|min:4',
+            'city' => 'required|min:4',
+            'zip' => 'required|min:4',
+
             'event_name' => 'required|min:3|max:255',
-            'location' => 'required|min:4|max:255',
             'event_description' => 'required|min:5'
         ]);
+
 
         /* Format Date/Time arrays into YYMMDDHHMMTZS format */
         $starts = storeDTA($startDate, $startTime);
@@ -136,12 +148,15 @@ class EventsController extends Controller
 
                     /* Edit an Existing Event */
     public function patch(Request $request, Event $event) {
-
+      
         /* Collect the date and time (start and end) input arrays */
         $startDate = $_POST['startDate'];
-        $endDate = $_POST['endDate'];
+        //$endDate = $_POST['endDate'];
+        //End date disabled untill we want to do multi-day events...
+        $endDate = $startDate;
         $startTime = $_POST['startTime'];
         $endTime = $_POST['endTime'];
+        $location = $_POST['location'];
 
         /* Concatenate the arrays and merge values into form request, just to check that every input was filled */
         $request->merge([
@@ -149,6 +164,7 @@ class EventsController extends Controller
             'ending_date' => $startDate['year'] . $startDate['month'] . $startDate['day'],
             'starting_time' => $startTime['hour'] . $startTime['minute'] . $startTime['period'],
             'ending_time' => $endTime['hour'] . $endTime['minute'] . $endTime['period'],
+            'location' => $location['address'] .', '. $location['city'] . ', CA, ' . $location['zip'],
         ]);
 
         $request->merge([
@@ -167,6 +183,10 @@ class EventsController extends Controller
             'ending_hour' => $endTime['hour'],
             'ending_minute' => $endTime['minute'],
             'ending_period' => $endTime['period'],
+
+            'address' => $location['address'],
+            'city' => $location['city'],
+            'zip' => $location['zip'],
         ]);
 
         /* Validate form before submit */
@@ -186,6 +206,10 @@ class EventsController extends Controller
             'ending_hour' => 'required',
             'ending_minute' => 'required',
             'ending_period' => 'required',
+
+            'address' => 'required',
+            'city' => 'required',
+            'zip' => 'required',
 
             'event_name' => 'required|min:3|max:255',
             'location' => 'required|min:4|max:255',

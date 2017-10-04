@@ -17,6 +17,10 @@
 <!-- Profile Picture, Name, Logout, Event Table, New Event Button -->
 <div class="col-3 pt-3 sidebar container">
 
+
+    <!-- Menu -->
+    @include('layouts.menu.main')
+
     <!-- Logo -->
     <div class="center"><a href="/dashboard"><img src="{{ url('/images/YU_001_White.svg') }}" class="logo" alt="YourUnity"></a></div>
 
@@ -74,9 +78,6 @@
     <div class="col-centered">
         <h3 class="text-center"><a href="/events" class="all_events no-highlight" aria-disabled="true">View All Events</a></h3>
     </div>
-
-    <!-- FEEDBACK LINK -->
-    <a href="/feedback" class="link feedback"><span class="lnr lnr-pencil"></span></a>
 
 </div>
                     <!-- Custom Styles -->

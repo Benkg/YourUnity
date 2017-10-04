@@ -33,34 +33,30 @@ Create Event
 
             <form method="POST" action="/events">
                 {{ csrf_field() }}
-
                 <div class="row">
-
-                    <!-- Event Name -->
                     <div class="col-6">
+                        <!-- Event Name -->
                         <div class="form-group">
                             <label for="event_name">Event name</label>
                             <input type="text" class="form-control" id="event_name" aria-describedby="emailHelp" placeholder="Enter event name" name="event_name">
                         </div>
-                    </div>
 
-                    <!-- Event Location -->
-                    <div class="col-6">
+                        <!-- Event Location -->
                         <div class="form-group">
                             <label for="location">Location of Event</label>
-                            <input type="text" class="form-control" id="location" aria-describedby="locationHelp" placeholder="Enter event location" name="location">
+                            <div id=location>
+                                <input type="text" class="form-control mb-2" id="location[address]" aria-describedby="locationHelp" placeholder="Address" name="location[address]">
+                                <input type="text" class="form-control mb-2" id="location[city]" aria-describedby="locationHelp" placeholder="City" name="location[city]">
+                                <input type="text" class="form-control" id="location[zip]" aria-describedby="locationHelp" placeholder="Zip" name="location[zip]">
+                            </div>
+
                         </div>
                     </div>
 
-                </div>
-
-                <!-- Start Date/Time -->
-                <div class="row">
-
-                    <!-- Start Date Picker -->
                     <div class="col-6">
+                        <!-- Start Date Picker -->
                         <div class="form-group">
-                            <label for="date_start">Starts On:</label>
+                            <label for="date_start">Event Date:</label>
                             <div class="row pl-3" id="date_start">
 
                                 <select class="form-control col-5 mr-2" id="startDate[month]" name="startDate[month]">
@@ -125,17 +121,14 @@ Create Event
                                 </select>
 
                             </div>
-
                         </div>
-                    </div>
 
-                    <!-- Start Time Picker -->
-                    <div class="col-6">
+                        <!-- Start Time Picker -->
                         <div class="form-group">
-                            <label for="time_start">Starts At:</label>
+                            <label for="time_start">Start Time:</label>
                             <div class="row pl-3" id="time_start">
 
-                                <select class="form-control col-3" id="startTime[hour]" name="startTime[hour]">
+                                <select class="form-control col-4" id="startTime[hour]" name="startTime[hour]">
                                     <option value=""></option>
                                     <option>1</option>
                                     <option>2</option>
@@ -153,7 +146,7 @@ Create Event
 
                                 <p class="ml-1 mr-1">:</p>
 
-                                <select class="form-control col-3" id="startTime[minute]" name="startTime[minute]">
+                                <select class="form-control col-4" id="startTime[minute]" name="startTime[minute]">
                                     <option value=""></option>
                                     <option>00</option>
                                     <option>05</option>
@@ -169,7 +162,7 @@ Create Event
                                     <option>55</option>
                                 </select>
 
-                                <select class="form-control col-3 ml-2" id="startTime[period]" name="startTime[period]">
+                                <select class="form-control col-3 ml-1" id="startTime[period]" name="startTime[period]">
                                     <option value=""></option>
                                     <option>AM</option>
                                     <option>PM</option>
@@ -177,15 +170,8 @@ Create Event
 
                             </div>
                         </div>
-                    </div>
 
-                </div>
-
-                <!-- End Date/Time -->
-                <div class="row">
-
-                    <!-- End Date Picker -->
-                    <div class="col-6">
+                        <!-- End Date Picker
                         <div class="form-group">
                             <label for="date_end">Ends On:</label>
                             <div class="row pl-3" id="date_end">
@@ -252,17 +238,15 @@ Create Event
                                 </select>
 
                             </div>
-
                         </div>
-                    </div>
+                        -->
 
-                    <!-- End Time Picker -->
-                    <div class="col-6">
+                        <!-- End Time Picker -->
                         <div class="form-group">
-                            <label for="time_end">Ends At:</label>
+                            <label for="time_end">End Time:</label>
                             <div class="row pl-3" id="time_end">
 
-                                <select class="form-control col-3" id="endTime[hour]" name="endTime[hour]">
+                                <select class="form-control col-4" id="endTime[hour]" name="endTime[hour]">
                                     <option value=""></option>
                                     <option>1</option>
                                     <option>2</option>
@@ -280,7 +264,7 @@ Create Event
 
                                 <p class="ml-1 mr-1">:</p>
 
-                                <select class="form-control col-3" id="endTime[minute]" name="endTime[minute]">
+                                <select class="form-control col-4" id="endTime[minute]" name="endTime[minute]">
                                   <option value=""></option>
                                   <option>00</option>
                                   <option>05</option>
@@ -296,7 +280,7 @@ Create Event
                                   <option>55</option>
                                 </select>
 
-                                <select class="form-control col-3 ml-2" id="endTime[period]" name="endTime[period]">
+                                <select class="form-control col-3 ml-1" id="endTime[period]" name="endTime[period]">
                                     <option value=""></option>
                                     <option>AM</option>
                                     <option>PM</option>
@@ -305,13 +289,12 @@ Create Event
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <!-- Event Description Input -->
                 <div class="form-group">
-                    <label for="event_description">Description</label>
-                    <textarea class="form-control" id="event_description" name="event_description" rows="3"></textarea>
+                        <label for="event_description">Description</label>
+                        <textarea class="form-control" id="event_description" name="event_description" rows="3"></textarea>
                 </div>
 
                 <!-- Cancle and Submit Button -->
