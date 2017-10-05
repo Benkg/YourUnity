@@ -94,12 +94,20 @@
                     </tr>
                 </table>
 
-              <!-- Submit Button -->
-                <div class="form-group">
-                    <div class="col-md-6 col-md-offset-4 mt-4">
+                <div class="row">
+                    <!-- Submit Button -->
+                    <div class="form-group col-6 ml-3 mt-4">
                         <button type="submit" class="btn btn-primary">
                             Register
                         </button>
+                    </div>
+
+                    <!-- Agreement Checkbox -->
+                    <div class="form-check col-5 mt-4">
+                        <label for="agreement" class="form-check-label">
+                            <input type="checkbox" id="agreement" class="form-check-input" name="agreement">
+                            I have read and agree to this sites <a href="/legal/service">terms and policies.</a>
+                        </label>
                     </div>
                 </div>
 
