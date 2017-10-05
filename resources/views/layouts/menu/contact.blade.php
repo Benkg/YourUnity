@@ -41,7 +41,8 @@ li {
   border-color: black;
 
   border-radius: 6px;
-  margin-bottom: 5vh;
+  margin: 5vh auto;
+  padding: 2%;
 }
 
 .cardContents > h3{
@@ -101,15 +102,21 @@ li:hover {
 
 /*** MOBILE STYLES ***/
 @media only screen and (max-width : 1224px) {
+    li {
+        border-left: 2px solid #6bbaa7;
+        padding-left: 2vw !important;
+        margin-bottom: 4vh;
+    }
+
     /* Toggle Button O */
     .toggle {
       text-decoration: none;
       position: fixed;
-      top: -1vh;
+      top: 0vh;
       bottom: 0px;
-      right: 80vw;
+      right: 83vw;
       z-index: 2;
-      font-size: 20vw;
+      font-size: 15vw;
       color: #6bbaa7;
 
       transition: right 0.3s cubic-bezier(.25,.8,.25,1);
@@ -125,9 +132,9 @@ li:hover {
       z-index: 1;
 
       padding: 10% 0 0 10%;
-      width: 80vw;
+      width: 85vw;
       height: 100%;
-      background-color: #2d2d2d;
+      background-color: rgba(43,43,43,0.97) !important;
 
       transition: left 0.3s background-color(.25,.8,.25,1);
       transition: left 0.3s cubic-bezier(.25,.8,.25,1);
