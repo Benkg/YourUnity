@@ -61,7 +61,7 @@ li:hover {
     display: grid;
     width: 100%;
     grid-template-rows: 100%;
-    grid-template-columns: 0vw 28vw 60vw 0vw;
+    grid-template-columns: 0vw 30vw 60vw 0vw;
     grid-template-areas:
     ". legend cont .";
     padding-top: 4vh;

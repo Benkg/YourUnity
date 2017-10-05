@@ -22,7 +22,7 @@
     @include('layouts.menu.main')
 
     <!-- Logo -->
-    <div class="center"><a href="/dashboard"><img src="{{ url('/images/YU_001_White.svg') }}" class="logo" alt="YourUnity"></a></div>
+    <div class="center mb-3"><a href="/dashboard"><img src="{{ url('/images/YU_001_White.svg') }}" class="logo" alt="YourUnity"></a></div>
 
     <!-- Profile Picture -->
     <div class="text-center">
@@ -32,7 +32,7 @@
     <!-- Table of Dates Of Events -->
     <div class="calendar mt-4">
         <div class="list-group line-stop">
-            <h3 class="text-center mb-2">Upcoming Events</h3>
+            <h3 class="text-center mb-3">Upcoming Events</h3>
 
             <!-- start a count var -->
             <?php $count = 1; ?>

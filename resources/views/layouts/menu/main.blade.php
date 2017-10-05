@@ -3,6 +3,7 @@
 <label for="legendToggle" class="toggle">◎</label>
 
 <ul class="legend">
+    <a href="/settings" class="text-white"><li>Profile</li></a>
     <a href="/" class="text-white"><li>Dashboard</li></a>
     <a href="/contact" class="text-white"><li>Contact Us</li></a>
     <a href="/legal/service" class="text-white"><li>Legal Terms</li></a>
@@ -47,7 +48,7 @@ li:hover {
   bottom: 0px;
   left: 0;
   z-index: 4;
-  font-size: 4rem;
+  font-size: 3.3rem;
   color: #6bbaa7;
   transition: left 0.3s cubic-bezier(.25,.8,.25,1);
 }

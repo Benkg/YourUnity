@@ -17,7 +17,9 @@
                   <table class="size-5 full-table">
                       <tr class="text-center">
                           <td class="pt-3 pb-3 blue"><a href="/events"><span class="lnr lnr-bullhorn"></span></a></td>
-                          <td class="stat">{{ Auth::user()->num_events }}</td>
+                      </tr>
+                      <tr class="center">
+                          <td class="stat_num">{{ Auth::user()->num_events }}</td>
                       </tr>
                   </table>
                   <div class="card-block m-0">
@@ -30,7 +32,9 @@
                   <table class="size-5 full-table">
                       <tr class="text-center">
                           <td class="pt-3 pb-3 blue"><span class="lnr lnr-calendar-full"></span></td>
-                          <td class="stat">
+                      </tr>
+                      <tr class="center">
+                          <td class="stat_num">
                             <?php
                                   // If the org has any events
                                   if(Auth::user()->num_events > 0) {
@@ -49,10 +53,16 @@
                                       }
 
                                       //Get the time of the most recent event
-                                      $time = DB::table('events')->where('time_state', '!=', 0)->orderBy('starts', 'ASC')->first()->starts;
+                                      $time = DB::table('events')->where('time_state', '!=', 0)->orderBy('starts', 'ASC')->first();
 
                                       //Echo the time until the start of this event
-                                      echo timeUntil($time);
+                                      if($time != null) {
+                                          $time = $time->starts;
+                                          echo timeUntil($time);
+                                      }
+                                      else {
+                                          echo 0;
+                                      }
 
                                   }
                                   else {
@@ -72,7 +82,9 @@
                   <table class="size-5 full-table">
                       <tr class="text-center">
                           <td class="pt-3 pb-3 blue"><span class="lnr lnr-users"></span></td>
-                          <td class="stat">
+                      </tr>
+                      <tr class="center">
+                          <td class="stat_num">
                               <?php
                                 echo Auth::user()->num_people_events;
                               ?>
@@ -91,12 +103,16 @@
 
                     <!-- Custom Styles -->
 <style>
+    tr {
+        padding: 0 !important;
+    }
+
     .full-table {
         width: 100%;
     }
 
     .size-5 {
-        font-size: 5em;
+        font-size: 4em;
     }
 
     h4 {
@@ -114,6 +130,10 @@
 
     .stat {
         font-size: 0.8em;
+    }
+
+    .stat_num {
+        font-size: 2.8rem !important;
     }
 
     .card-small {

@@ -8,7 +8,7 @@
             <br />
 
               <!-- Registration Form, POST's to Register Route -->
-            <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+            <form class="form-horizontal" id="registration" role="form" method="POST" action="{{ route('register') }}">
                 {{ csrf_field() }}
 
                 <table class="table-full">
@@ -97,7 +97,7 @@
                 <div class="row">
                     <!-- Submit Button -->
                     <div class="form-group col-6 ml-3 mt-4">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary submit">
                             Register
                         </button>
                     </div>
@@ -106,7 +106,7 @@
                     <div class="form-check col-5 mt-4">
                         <label for="agreement" class="form-check-label">
                             <input type="checkbox" id="agreement" class="form-check-input" name="agreement">
-                            I have read and agree to this sites <a href="/legal/service">terms and policies.</a>
+                            I have read and agree to this sites <a href="/legal/service" target="_blank">terms and policies.</a>
                         </label>
                     </div>
                 </div>
