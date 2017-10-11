@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Mail\EventRegistration;
+use Illuminate\Http\Request;
 use App\ActivityRecord;
+use App\Attendees;
 use App\Event;
 use Mail;
-use App\Mail\EventRegistration;
 
 
 class EventRegisterController extends Controller
@@ -40,36 +41,27 @@ class EventRegisterController extends Controller
      */
     public function store(Request $request)
     {   //Are we checking to make sure that the user cannot register for an active or past event?
-        ActivityRecord::create([
+        ActivityRecord::create([ //not sure if this is allowed
             'event_id' => request('event_id'),
-            'attendee_id' => request('attendee_id'),
+            'attendee_id' => request('firedb_id'),
             'check_in_time' => request('check_in_time'),
             'duration' => request('duration'),
             'activity_status' => request('activity_status')
         ]);
 
-        DB::update('events')->increment('num_registered');
+        $attendee = App\Attendees::where('firedb_id','=', $request['firedb_id'])->get();
 
-        /*
-        $attendee_email = /*JSON REQUEST to get attendee_email... ;
-
-        $data_mail = Mail::send($tmp, array('msg'=>$msg), function($message) use ($path) {
-            $message->from('xxx@example.com', $_POST['subj']);
-            $message->to($_POST['to'])->subject($_POST['subj']);
-            $size = sizeOf($path); //get the count of number of attachments
-
-            for ($i=0; $i < $size; $i++) {
-                $message->attach($path[$i]);
-            }
-        },true);
+        //might have to use column index but names should work.
+        $attendee_name = $attendee['name'];
+        $attendee_email = $attendee['email'];
 
         //get only future event with this id, returns null if not future state....
         $event_id = $request['event_id'];
         $event = App\Event::where('time_state','=', 2)->where('event_id', $event_id)->get();
 
         //Send email to this user. Passes user info and event info
-        Mail::to($attendee_email)->send(new EventRegistration($attendee, $event));
-        */
+        Mail::to($attendee_email)->send(new EventRegistration($attendee_name, $event));
+
     }
 
     /**

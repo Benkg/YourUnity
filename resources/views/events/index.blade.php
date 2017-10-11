@@ -39,25 +39,36 @@ All Events
                                         ->orderBy('starts', 'DESC')
                                         ->get();
                 ?>
-                @foreach($futureEvents as $event)
-                    @if($event->user->id == Auth::user()->id)
-                        @include('events.event')
-                    @endif
-                @endforeach
 
-                <br /><hr /><br />
+                @if(isset($futureEvents[0]))
+                    <?php echo '<br /><hr /><br />
+                    <h3 class="text center">Future Events</h3>'?>
+                    @foreach($futureEvents as $event)
+                        @if($event->user->id == Auth::user()->id)
+                            @include('events.event')
+                        @endif
+                    @endforeach
+                @endif
 
-                @foreach($presentEvents as $event)
-                    @if($event->user->id == Auth::user()->id)
-                        @include('events.event')
-                    @endif
-                @endforeach
+                @if(isset($presentEvents[0]))
+                    <?php echo '<br /><hr /><br />
+                    <h3 class="text center">Current Events</h3>'?>
+                    @foreach($presentEvents as $event)
+                        @if($event->user->id == Auth::user()->id)
+                            @include('events.event')
+                        @endif
+                    @endforeach
+                @endif
 
-                @foreach($pastEvents as $event)
-                    @if($event->user->id == Auth::user()->id)
-                        @include('events.event')
-                    @endif
-                @endforeach
+                @if(isset($pastEvents[0]))
+                    <?php echo '<br /><hr /><br />
+                    <h3 class="text center">Past Events</h3>'?>
+                    @foreach($pastEvents as $event)
+                        @if($event->user->id == Auth::user()->id)
+                            @include('events.event')
+                        @endif
+                    @endforeach
+                @endif
 
             </div>
         </div>

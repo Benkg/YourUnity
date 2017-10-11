@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\EventAttachment;
 
 class EventRegistration extends Mailable
 {
@@ -16,9 +17,9 @@ class EventRegistration extends Mailable
      *
      * @return void
      */
-    public function __construct(Attendee $attendee, Event $event)
+    public function __construct(Attendee $attendee_name, Event $event)
     {
-        $this->attendee = $attendee;
+        $this->attendee_name = $attendee_name;
         $this->event = $event;
     }
 
@@ -29,6 +30,15 @@ class EventRegistration extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.eventregistration')->attach('/path/to/file');;
+        $event_id = $event['id'];
+        $eventAttPaths = DB::table('event_attachments')->where('event_id',"=",$event_id)->pluck('attachment_id');
+        $size = count($eventAttPaths);
+
+        for ($i=0; $i < $size; $i++) {
+            $fullPath = storage_path().'/app/'.$eventAttPaths[$i];
+            $this->attach($fullPath);
+        }
+
+        return $this->markdown('emails.eventregistration');
     }
 }

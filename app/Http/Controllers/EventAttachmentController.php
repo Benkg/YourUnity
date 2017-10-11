@@ -42,7 +42,6 @@ class EventAttachmentController extends Controller
         }
 
         return back();
-        //redirect("/events/$event_id");
     }
 
     public function remove(Request $request){
