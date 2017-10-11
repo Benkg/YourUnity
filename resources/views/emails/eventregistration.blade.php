@@ -1,9 +1,9 @@
 @component('mail::message')
 # Introduction
 
-Hello, {{ $attendee->name }}
+Hello, {{ $attendee_name }}
 
-You have successfully registered for {{ $event->event_name }}.
+Congratulations on registering for {{ $event->event_name }}.
 
 Here's what you need to know.
 
@@ -14,11 +14,10 @@ When: {{ printDate($event->starts) }} from {{ printTime($event->starts) }} to {{
 What: {{ $event->event_description }}
 
 
-
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::button', ['url' => 'https://yourunity.org/dashboard'])
+Go to YourUnity
 @endcomponent
 
-Thanks,<br>
+Take care,<br>
 {{ config('app.name') }}
 @endcomponent

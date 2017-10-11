@@ -226,10 +226,17 @@ if (! function_exists('updateTimeState')) {
         //If in Present State and passed the end time, change the state to Past State
         if($state = 1 && $currentTime>$ends){
             setTimeState($event, 0);
+
             //count users volunteered for this event that is has passed;
             $event_id = $event->id;
             $people = App\ActivityRecord::where('event_id', $event_id);
-            $num_people = count($people);
+
+            $num_people = 0;
+
+            if(isset($people[0])){
+              $num_people = count($people);
+            }
+
             /* Authorize, increment num_people_events, save user */
             $user = Auth::user();
             $user->num_people_events = $user->num_people_events + $num_people;

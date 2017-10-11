@@ -37,7 +37,7 @@ class AttachmentController extends Controller
 
             $file = $request->file('attachments')[$attIndex];
             //$uniqueFileName = Storage::putFile('attachments', $file);
-            $uniqueFilePath = $file->store('public/attachments');
+            $uniqueFilePath = $file->store('public/storage/attachments');
 
             //$attachment = Storage::disk('attachments')->get('filename');
 
