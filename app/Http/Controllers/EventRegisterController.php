@@ -48,6 +48,8 @@ class EventRegisterController extends Controller
             'activity_status' => request('activity_status')
         ]);
 
+        DB::update('events')->increment('num_registered');
+
         /*
         $attendee_email = /*JSON REQUEST to get attendee_email... ;
 
