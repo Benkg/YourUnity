@@ -4,6 +4,9 @@ All Events
 @endsection
 
 @section('content')
+<?php
+    $nonPastEvents = getNonPastEvents();
+?>
 
 <!-- Main Content -->
 <div class="container-fluid">

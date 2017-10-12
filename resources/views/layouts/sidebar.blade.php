@@ -37,23 +37,29 @@
             <!-- start a count var -->
             <?php $count = 1; ?>
 
-            @foreach($events as $event)
-                @if($event->user->id == Auth::user()->id)
+            @foreach($nonPastEvents as $event)
+                @if($event->time_state == 2)
 
                     <!-- Main Link to Event -->
                     <a href="/events/{{ $event->id }}" class="list-group-item list-group-item-action">
 
+                        <div class= "col-2">
+                            <?php
+                                $time = timeUntil($event->starts);
+                                echo secsToTimeShort($time);
+                            ?>
+                        </div>
                         <!-- Calendar Icon -->
                         <div class="col-1 p-0">
                             <b>
-                                <span class="lnr lnr-calendar-full small-cal"></span>
+                                <span class="lnr lnr-calendar-full small-cal pl-2"></span>
                                 <!-- we should use the same code as "days till next event" to just put # of days till event -->
                             </b>
                         </div>
 
                         <!-- Event name -->
-                        <div class="col-11 ">
-                            <span class="">{{ $event->event_name }}</span>
+                        <div id = "eventName" class="col-8 ">
+                            <span>{{ $event->event_name }}</span>
                         </div>
                     </a>
 
@@ -82,6 +88,12 @@
 </div>
                     <!-- Custom Styles -->
 <style type="text/css">
+
+#eventName {
+  padding-left: 1rem;
+  margin-left: 1rem;
+  border-left: 2px solid #6bbaa7;
+}
 
 .hide {
     display: none;
@@ -160,10 +172,12 @@ h3 {
 
         /* When All Events link is clicked, don't highlight it */
         $(".all_events").removeClass("active");
+        $(".this_event").removeClass("active");
     });
 
 
     /* When All Events link is clicked, don't highlight it */
     $(".all_events").removeClass("active");
+
 
 </script>

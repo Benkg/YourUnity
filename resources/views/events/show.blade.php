@@ -4,6 +4,9 @@
 @endsection
 
 @section('content')
+<?php
+    $nonPastEvents = getNonPastEvents();
+?>
 
                     <!-- Event Card -->
 <div class="full-content">

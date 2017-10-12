@@ -112,7 +112,7 @@ if (! function_exists('timeUntil')) {
         $deltaSeconds = $futureDate - $currentDate;
 
         //return the result in a readable format
-        return secsToTime($deltaSeconds);
+        return $deltaSeconds;
 
     }
 }
@@ -133,6 +133,27 @@ if (! function_exists('secsToTime')) {
         } else if($seconds>=0){ //If positive, return minutes
             $time = floor($seconds / 60 % 60);
             return $time . " Mins";
+        } else { //If in the past, return 0
+            return "0";
+        }
+    }
+}
+
+/*******************************************/
+/* Converts seconds into a readable format */
+/*******************************************/
+if (! function_exists('secsToTimeShort')) {
+    function secsToTimeShort($seconds) {
+
+        if($seconds>=86400) { //If over 1 day, return # of days
+            $time = floor($seconds / 86400);
+            return $time . " d";
+        } else if($seconds>=3600){ //If over 1 hour, return # of hours
+            $time = floor($seconds / 3600);
+            return $time . " h";
+        } else if($seconds>=0){ //If positive, return minutes
+            $time = floor($seconds / 60 % 60);
+            return $time . " m";
         } else { //If in the past, return 0
             return "0";
         }
@@ -207,8 +228,7 @@ if (! function_exists('parseTime')) {
 /* Updates the time state of an event */
 /**************************************/
 if (! function_exists('updateTimeState')) {
-    function updateTimeState(Event $event) {
-
+    function updateTimeState($event) {
         //get current time
         $currentTime = time();
 
@@ -251,8 +271,7 @@ if (! function_exists('updateTimeState')) {
 /* Sets the time state of an event */
 /***********************************/
 if (! function_exists('setTimeState')) {
-    function setTimeState(Event $event, $newState) {
-
+    function setTimeState($event, $newState) {
         //get event's id, state, start time and end time
         $id = $event->id;
 
@@ -263,7 +282,6 @@ if (! function_exists('setTimeState')) {
                 'id' => $id,
                 'time_state' => $newState
         ]);
-
     }
 }
 
@@ -389,5 +407,20 @@ if (! function_exists('reArrayFiles')) {
         }
 
         return $re_ordered;
+    }
+}
+
+/*         getNonPastEvents();
+/******************************************************************************************************/
+/* Returns array of all present and future events ordered by starting time (closest to present first) */
+/******************************************************************************************************/
+if (! function_exists('getNonPastEvents')) {
+    function getNonPastEvents() {
+        $userId = Auth::user()->id;
+        $nonPastEvents = DB::table('events')->where('user_id', $userId)
+                            ->where('time_state','!=', 0)
+                            ->orderBy('starts', 'ASC')
+                            ->get();
+        return $nonPastEvents;
     }
 }

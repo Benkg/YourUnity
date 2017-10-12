@@ -5,9 +5,10 @@ Dashboard
 
 @section('content')
 
+<?php
+    $nonPastEvents = getNonPastEvents();
+?>
                     <!-- Header (top bar with logo and settings) -->
-
-
 <div class="container-fluid">
     <div class="row">
 
