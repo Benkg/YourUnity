@@ -1,0 +1,127 @@
+<===============================>
+<==== DATE AND TIME HELPERS ====>
+<===============================>
+
+==> storeDTA( array date, array time );
+      DESCRIPTION: Coverts time and date arrays into timestamp in UTC
+      PRE: Takes arguments date array("Mo","Da","Ye") and time array("HH","MM","XM")
+      POST: Returns the equivalent time in seconds UTC
+      USED IN:
+      USES: toUTC();
+
+==> toUTC( int secondsLocal );
+      DESCRIPTION: Converts from seconds local to seconds UTC. Accounts for timezone and daylight savings.
+      PRE: Takes integer argument seconds in local time
+      POST: Returns the adjusted time in seconds UTC
+      USED IN: storeDTA();
+
+==> toLocalTime( int secondsUTC );
+      DESCRIPTION: Converts from seconds UTC to seconds Local. Accounts for timezone and daylight savings.
+      PRE: Takes integer argument seconds in UTC time
+      POST: Returns the adjusted time in seconds local time.
+      USED IN:
+
+==> timeUntil( int futureSeconds );
+      DESCRIPTION: Returns the difference in seconds until a future date will occur.
+      PRE: Takes integer argument seconds of future date
+      POST: Returns the number of seconds until that date will occur.
+      USED IN:
+
+==> secsToTime( int seconds );
+      DESCRIPTION: Converts seconds until and event to a number of days/hours/minutes until that event.
+      PRE: Takes integer argument seconds until some date.
+      POST: Returns a string that tells "# Days/hours/minutes" until next event.
+      USED IN: Statscard.blade.php
+
+==> secsToTimeShort( int seconds );
+      DESCRIPTION: Converts seconds until an event to a number of d/h/m until that event.
+      PRE: Takes integer argument seconds until some date.
+      POST: Returns a string that tells "# d/h/m" until next event.
+      USED IN: Sidebar.blade.php
+
+==> printDate( int secondsUTC );
+      DESCRIPTION: Prints a human readable date for some seconds UTC.
+      PRE: Takes integer argument seconds UTC.
+      POST: Returns the date string "Month day, Year".
+      USED IN:
+      USES: toLocalTime();
+
+==> printTime( int secondsUTC );
+      DESCRIPTION: Prints the human readable time for some seconds UTC
+      PRE: Takes integer argument seconds UTC.
+      POST: Returns the time string "HH:MM XM"
+      USED IN:
+      USES: toLocalTime();
+
+==> parseTime( int secondsUTC );
+      DESCRIPTION: Parses time in seconds to an array containing individual time components.
+      PRE: Takes integer argument seconds UTC.
+      POST: Returns an array(Year, Month, Day, Hour, Minute, Period).
+      USED IN:
+      USES: toLocalTime();
+
+
+<============================>
+<==== TIME STATE HELPERS ====>
+<============================>
+
+==> updateTimeState( array $event );
+      DESCRIPTION: Updates the time state of an event; 2 - future state; 1 - present state; 0 - past state.
+      When changing the time state to past, it also counts number of people attended and increments that stat.
+      PRE: Takes an array argument of $event contents.
+      POST: Void return. Time state of event, and number of people attended are updated.
+      USED IN:
+      USES: setTimeState();
+
+==> setTimeState( array $event, int $newState );
+    DESCRIPTION: Sets the time state of an event to a specified state.
+    PRE: Takes two arguments; one array argument of the $event to be updated; the other integer argument of the new state.
+    POST: Void return. Updates the time state of the event in the database.
+    USED IN: updateTimeState();
+
+==> getTimeState( array $event );
+    DESCRIPTION: Returns the time state of an event.
+    PRE: Takes an array argument of the $event.
+    POST: Returns the integer time state of that event.
+    USED IN: htmlEventDropDown();
+
+==> htmlEventDropDown( array $event );
+    DESCRIPTION: Dynamically creates the event dropdown options based on the time state of the event.
+    PRE: Takes an array argument of the $event.
+    POST: Void return. Echos the corresponding html.
+    USED IN:
+
+
+<=========================>
+<==== GENERAL HELPERS ====>
+<=========================>
+
+==> flashURL();
+    DESCRIPTION: Flash Current URL to next http request
+    PRE: Void argument.
+    POST: Void return. Saves a session variable named 'url' that only lives through to the next http request.
+    USED IN:
+
+==> getNonPastEvents();
+    DESCRIPTION: Gets all present and future events ordered by starting time (closest to present first).
+    PRE: Void argument.
+    POST: Returns array of present and future events ordered by their starting time.
+    USED IN:
+
+<=============================>
+<==== FILE UPLOAD HELPERS ====>
+<=============================>
+
+==> reArrayFiles();
+    DESCRIPTION: Takes the files from a request using the $_FILES superglobal
+    and returns a reordered array of the same information.
+    PRE: Void argument.
+    POST: Returns a 2d array of all the files with their info nested under them.
+    Each file and its info gets 1 index, rather than each info type getting an index.
+    USED IN:
+
+==> getInfo( array $attachment );
+    DESCRIPTION: Takes a rearranged file array and extracts the data necessary for storage.
+    PRE: Takes an array of rearranged $attachment files.
+    POST: Returns an array of $fileInfo needed for storage.
+    USED IN:

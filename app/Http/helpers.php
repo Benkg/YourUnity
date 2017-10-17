@@ -3,21 +3,14 @@
 use Illuminate\Support\Facades\DB;
 use App\Event;
 
-
-
-
-
 /*================================= DATE AND TIME HELPERS =================================*/
 
-/*         storeDTA();
-/***************************************************************************************************/
-/* Converts date array("Mo","Da","Ye") and time array("##","##","XM")to int YeMoDaHoMiTzS 24 hour time*/
-/***************************************************************************************************/
+// storeDTA();
 if (! function_exists('storeDTA')) {
     function storeDTA($date, $time){
 
-/* TIME FORMATTING */
-        /* Computation for 24 hour time */
+/* TIME ARRAY FORMATTING */
+        /* Converts 12 hour time to 24 hour time */
         if( $time['period'] == "PM"){
             if( !(($time['hour']) == "12") ){
                 $time['hour'] = ((int) $time['hour']) + 12;
@@ -44,20 +37,18 @@ if (! function_exists('storeDTA')) {
             $time['hour'] = "0" . $time['hour'];
         }
 
-        /* Implodes array("##","##") to string "####" */
+        /* Implodes 24 hour array("##","##") to 24 hour string "####" */
         $time = implode("", $time);
 
-        /* HARD CODE FOR PACIFIC TIMEZONE */
-        // $time = $time . "001";
-
-/* DATE FORMATTING */
-        /* Concatenates date to "YYMMDD" */
+/* DATE ARRAY FORMATTING */
+        /* Concatenates date to "YYMMDD" string */
         $date = $date['year'] . $date['month'] . $date['day'];
 
 /* COMBINING DATE AND TIME FOR STORAGE */
+        /* Concatenates two strings into an integer Y Y M M D D H H M M  */
         $DTA = (int)($date . $time);
 
-        $date = DateTime::createFromFormat('ymdHi',$DTA);
+        $date = DateTime::createFromFormat('ymdHi', $DTA);
 
         $date = $date->format('Y-m-d H:i') . "\n";
 
@@ -70,46 +61,81 @@ if (! function_exists('storeDTA')) {
     }
 }
 
-/*         toUTC();
-/**********************************************/
-/* Converts from seconds Local to seconds UTC */
-/**********************************************/
+if(! function_exists('inDLS')) {
+  function inDLS($secondsUTC){
+
+      $DLSstart = [
+        '17' => 1489312800,
+        '18' => 1520762400,
+        '19' => 1552212000,
+        '20' => 1583661600,
+      ];
+
+      $DLSend = [
+        '17' => 1509872400,
+        '18' => 1541322000,
+        '19' => 1572771600,
+        '20' => 1604221200,
+      ];
+
+      $year = date("y", $secondsUTC);
+
+      if( (abs($DLSend[$year]-$secondsUTC)) <= 25200){
+          return 0;
+      } else if( ($DLSstart[$year] <= $secondsUTC) && ($secondsUTC < $DLSend[$year] )){
+          return 1;
+      } else if( (abs($DLSstart[$year]-$secondsUTC)) <= 25200){
+          return 1;
+      } else {
+          return 0;
+      }
+
+  }
+}
+
+// toUTC();
 if (! function_exists('toUTC')) {
     function toUTC($secondsLocal) {
 
-        //Second adjustment for San Diego
-        $secondsUTC = $secondsLocal + 25200;
-        return $secondsUTC;
+        //Hardcode adjustment for CA
+        if(inDLS($secondsLocal)){
+            $offset = 25200;
+        } else {
+            $offset = 28800;
+        }
 
+        //Correct for offset
+        $secondsUTC = $secondsLocal + $offset;
+        return $secondsUTC;
     }
 }
 
-/*         toLocalTime();
-/**********************************************/
-/* Converts from seconds UTC to seconds Local */
-/**********************************************/
+// toLocalTime();
 if (! function_exists('toLocalTime')) {
     function toLocalTime($secondsUTC) {
 
-        //Second adjustment for San Diego
-        $secondsLocal = $secondsUTC - 25200;
+        //HardCode adjustment for CA
+        if(inDLS($secondsUTC-25200)){
+            $offset = 25200;
+        } else {
+            $offset = 28800;
+        }
+
+        $secondsLocal = $secondsUTC - $offset;
         return $secondsLocal;
 
     }
 }
 
-/*         timeUntil();
-/*********************************/
-/* Returns days until a DTA time */
-/*********************************/
+// timeUntil();
 if (! function_exists('timeUntil')) {
-    function timeUntil($futureDate){
+    function timeUntil($futureSeconds){
 
         //get the current time
-        $currentDate = time();
+        $currentSeconds = time();
 
         //get the time differene in seconds
-        $deltaSeconds = $futureDate - $currentDate;
+        $deltaSeconds = $futureSeconds - $currentSeconds;
 
         //return the result in a readable format
         return $deltaSeconds;
@@ -117,13 +143,9 @@ if (! function_exists('timeUntil')) {
     }
 }
 
-/*         secsToTime();
-/*******************************************/
-/* Converts seconds into a readable format */
-/*******************************************/
+// secsToTime();
 if (! function_exists('secsToTime')) {
     function secsToTime($seconds) {
-
         if($seconds>=86400) { //If over 1 day, return # of days
             $time = floor($seconds / 86400);
             return $time . " Days";
@@ -139,9 +161,7 @@ if (! function_exists('secsToTime')) {
     }
 }
 
-/*******************************************/
-/* Converts seconds into a readable format */
-/*******************************************/
+// secsToTimeShort();
 if (! function_exists('secsToTimeShort')) {
     function secsToTimeShort($seconds) {
 
@@ -160,10 +180,7 @@ if (! function_exists('secsToTimeShort')) {
     }
 }
 
-/*         printDate();
-/***************************************/
-/* Prints the date of some seconds UTC */
-/***************************************/
+// printDate();
 if (! function_exists('printDate')) {
     function printDate($secondsUTC) {
 
@@ -179,10 +196,7 @@ if (! function_exists('printDate')) {
     }
 }
 
-/*         printTime();
-/***************************************/
-/* Prints the date of some seconds UTC */
-/***************************************/
+// printTime();
 if (! function_exists('printTime')) {
     function printTime($secondsUTC) {
 
@@ -198,10 +212,7 @@ if (! function_exists('printTime')) {
     }
 }
 
-/*         parseTime();
-/******************************************************************************/
-/* Parses time in seconds to an array(Year, Month, Day, Hour, Minute, Period) */
-/******************************************************************************/
+// parseTime();
 if (! function_exists('parseTime')) {
     function parseTime($secondsUTC) {
         $secondsLocal = toLocalTime($secondsUTC);
@@ -217,16 +228,9 @@ if (! function_exists('parseTime')) {
     }
 }
 
-
-
-
-
 /*================================= TIME STATE HELPERS =================================*/
 
-/*         updateTimeState();
-/**************************************/
-/* Updates the time state of an event */
-/**************************************/
+// updateTimeState();
 if (! function_exists('updateTimeState')) {
     function updateTimeState($event) {
         //get current time
@@ -266,10 +270,7 @@ if (! function_exists('updateTimeState')) {
     }
 }
 
-/*         setTimeState();
-/***********************************/
-/* Sets the time state of an event */
-/***********************************/
+// setTimeState();
 if (! function_exists('setTimeState')) {
     function setTimeState($event, $newState) {
         //get event's id, state, start time and end time
@@ -285,20 +286,14 @@ if (! function_exists('setTimeState')) {
     }
 }
 
-/*         getTimeState();
-/**************************************/
-/* Returns the time state of an event */
-/**************************************/
+// getTimeState();
 if (! function_exists('getTimeState')) {
     function getTimeState(Event $event) {
         return $event->time_state;
     }
 }
 
-/*         htmlEventDropDown();
-/**************************************/
-/* Returns the time state of an event */
-/**************************************/
+// htmlEventDropDown();
 if (! function_exists('htmlEventDropDown')) {
     function htmlEventDropDown(Event $event) {
 
@@ -325,10 +320,7 @@ if (! function_exists('htmlEventDropDown')) {
 
 /*================================= GENERAL HELPERS =================================*/
 
-/*         flashURL();
-/******************************************/
-/* Flash Current URL to next http request */
-/******************************************/
+// flashURL();
 if (! function_exists('flashURL')) {
     function flashURL() {
         $currentUrl = $_SERVER['REQUEST_URI'];
@@ -336,9 +328,19 @@ if (! function_exists('flashURL')) {
     }
 }
 
-/******************************************/
-/* Flash Current URL to next http request */
-/******************************************/
+// getNonPastEvents();
+if (! function_exists('getNonPastEvents')) {
+    function getNonPastEvents() {
+        $userId = Auth::user()->id;
+        $nonPastEvents = DB::table('events')->where('user_id', $userId)
+                            ->where('time_state','!=', 0)
+                            ->orderBy('starts', 'ASC')
+                            ->get();
+        return $nonPastEvents;
+    }
+}
+
+/* randomNumber()
 if (! function_exists('randomNumber')) {
     function randomNumber($length) {
         $result = '';
@@ -350,43 +352,12 @@ if (! function_exists('randomNumber')) {
         return $result;
     }
 }
+*/
 
 
 /*================================= FILE UPLOAD HELPERS =================================*/
 
-/*         testUpload();
-/******************************************/
-/* Flash Current URL to next http request */
-/******************************************/
-if (! function_exists('getInfo')) {
-    function getInfo($attachment) {
-
-        $fileName = $attachment['name'];
-        $fileTmpName = $attachment['tmp_name'];
-        $fileSize = $attachment['size'];
-        $fileError = $attachment['error'];
-        $fileType = $attachment['type'];
-
-        $fileExt = explode ('.', $fileName);
-        $fileLcaseExt = strtolower(end($fileExt));
-
-        $fileInfo = [
-            'name' => $fileName,
-            'tmpName' => $fileTmpName,
-            'size' => $fileSize,
-            'type' => $fileType,
-            'ext' => $fileLcaseExt,
-            'error' => $fileError
-        ];
-
-        return $fileInfo;
-    }
-}
-
-/*         reArrayFiles();
-/******************************************/
-/* Flash Current URL to next http request */
-/******************************************/
+// reArrayFiles();
 if (! function_exists('reArrayFiles')) {
     function reArrayFiles() {
 
@@ -410,17 +381,28 @@ if (! function_exists('reArrayFiles')) {
     }
 }
 
-/*         getNonPastEvents();
-/******************************************************************************************************/
-/* Returns array of all present and future events ordered by starting time (closest to present first) */
-/******************************************************************************************************/
-if (! function_exists('getNonPastEvents')) {
-    function getNonPastEvents() {
-        $userId = Auth::user()->id;
-        $nonPastEvents = DB::table('events')->where('user_id', $userId)
-                            ->where('time_state','!=', 0)
-                            ->orderBy('starts', 'ASC')
-                            ->get();
-        return $nonPastEvents;
+// getInfo();
+if (! function_exists('getInfo')) {
+    function getInfo($attachment) {
+
+        $fileName = $attachment['name'];
+        $fileTmpName = $attachment['tmp_name'];
+        $fileSize = $attachment['size'];
+        $fileError = $attachment['error'];
+        $fileType = $attachment['type'];
+
+        $fileExt = explode ('.', $fileName);
+        $fileLcaseExt = strtolower(end($fileExt));
+
+        $fileInfo = [
+            'name' => $fileName,
+            'tmpName' => $fileTmpName,
+            'size' => $fileSize,
+            'type' => $fileType,
+            'ext' => $fileLcaseExt,
+            'error' => $fileError
+        ];
+
+        return $fileInfo;
     }
 }
