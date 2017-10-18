@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Mail\EventRegistration;
 use Illuminate\Http\Request;
 use App\ActivityRecord;
-use App\Attendees;
+use App\Attendee;
 use App\Event;
 use Mail;
 
@@ -49,15 +49,17 @@ class EventRegisterController extends Controller
             'activity_status' => request('activity_status')
         ]);
 
-        $attendee = App\Attendees::where('firedb_id','=', $request['firedb_id'])->get();
+        $attendee = Attendee::where('firedb_id','=', $request['firedb_id'])->get();
 
         //might have to use column index but names should work.
-        $attendee_name = $attendee['name'];
-        $attendee_email = $attendee['email'];
+        $attendee_name = $attendee[0]->name;
+        $attendee_name = (string)$attendee_name;
+        
+        $attendee_email = $attendee[0]->email;
 
         //get only future event with this id, returns null if not future state....
         $event_id = $request['event_id'];
-        $event = App\Event::where('time_state','=', 2)->where('event_id', $event_id)->get();
+        $event = Event::where('time_state','=', 2)->where('id', $event_id)->first();
 
         //Send email to this user. Passes user info and event info
         Mail::to($attendee_email)->send(new EventRegistration($attendee_name, $event));

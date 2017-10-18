@@ -9,7 +9,8 @@ class Attendee extends Model
     protected $fillable = [
         'firedb_id',
         'name',
-        'avatar'
+        'avatar',
+        'email'
     ];
 
     public function user() {

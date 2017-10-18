@@ -7,17 +7,21 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\EventAttachment;
+use App\Event;
+use Illuminate\Support\Facades\DB;
 
 class EventRegistration extends Mailable
 {
     use Queueable, SerializesModels;
+    public $attendee_name;
+    public $event;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Attendee $attendee_name, Event $event)
+    public function __construct(string $attendee_name, Event $event)
     {
         $this->attendee_name = $attendee_name;
         $this->event = $event;
@@ -30,7 +34,7 @@ class EventRegistration extends Mailable
      */
     public function build()
     {
-        $event_id = $event['id'];
+        $event_id = $this->event['id'];
         $eventAttPaths = DB::table('event_attachments')->where('event_id',"=",$event_id)->pluck('attachment_id');
         $size = count($eventAttPaths);
 
