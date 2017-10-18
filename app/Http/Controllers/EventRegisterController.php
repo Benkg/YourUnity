@@ -9,6 +9,7 @@ use App\ActivityRecord;
 use App\Attendee;
 use App\Event;
 use Mail;
+use Auth;
 
 
 class EventRegisterController extends Controller
@@ -48,6 +49,8 @@ class EventRegisterController extends Controller
             'duration' => request('duration'),
             'activity_status' => request('activity_status')
         ]);
+
+        DB::table('events')->where('id', '=', $request['event_id'])->increment('num_registered');
 
         $attendee = Attendee::where('firedb_id','=', $request['firedb_id'])->get();
 
@@ -115,6 +118,18 @@ class EventRegisterController extends Controller
                 'duration' => request('duration'),
                 'activity_status'=> request('activity_status')
         ]);
+
+        // If the user is checking in to the event, increment num_attended
+        if($request['duration'] == 0) {
+            DB::table('events')->where('id', '=', $event_id)->increment('num_attended');
+
+            // Get user id from event
+            $event = Event::where('id', $event_id)->first();
+            $user_id = $event->user_id;
+
+            // Update user table as well for number of people who attended their events
+            DB::table('users')->where('id', '=', $user_id)->increment('num_people_events');
+        }
     }
 
     /**

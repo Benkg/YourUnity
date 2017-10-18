@@ -42,6 +42,8 @@
                                       //get the User's ID
                                       $userId = Auth::user()->id;
 
+                                      $nonPastEvents = getNonPastEvents();
+
                                       //Select all this user's events that have not already passed
                                       //$events = App\Event::where('user_id', $userId)->where('time_state','!=', 0)->orderBy('starts', 'ASC')->get();
 
@@ -54,13 +56,13 @@
                                       //$time = DB::table('events')->where('time_state', '!=', 0)->orderBy('starts', 'ASC')->first();
 
                                       //Echo the time until the start of this event
-                                      $time = $nonPastEvents[0]->starts;
-                                      if($time != null) {
-                                          $time = timeUntil($time);
-                                          echo secsToTime($time);
+                                      if(count($nonPastEvents) == 0) {
+                                          echo 0;
                                       }
                                       else {
-                                          echo 0;
+                                          $time = $nonPastEvents[0]->starts;
+                                          $time = timeUntil($time);
+                                          echo secsToTime($time);
                                       }
 
                                   }

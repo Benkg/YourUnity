@@ -253,18 +253,30 @@ if (! function_exists('updateTimeState')) {
 
             //count users volunteered for this event that is has passed;
             $event_id = $event->id;
-            $people = App\ActivityRecord::where('event_id', $event_id);
+            $people = App\ActivityRecord::where('event_id', $event_id)->get();
 
-            $num_people = 0;
+            foreach ($people as $person) {
+                $person->activity_status = 0;
 
-            if(isset($people[0])){
-              $num_people = count($people);
+                $time_at_event = (($ends) - ($person->check_in_time));
+                $person->duration = $time_at_event;
+                $person->save();
             }
 
+
+
+            /* Already doing this in the registration code */
+
+            // $num_people = 0;
+
+            // if(isset($people[0])){
+            //   $num_people = count($people);
+            // }
+
             /* Authorize, increment num_people_events, save user */
-            $user = Auth::user();
-            $user->num_people_events = $user->num_people_events + $num_people;
-            $user->save();
+            // $user = Auth::user();
+            // $user->num_people_events = $user->num_people_events + $num_people;
+            // $user->save();
         }
 
     }
