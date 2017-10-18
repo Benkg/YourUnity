@@ -256,7 +256,18 @@ if (! function_exists('updateTimeState')) {
             $people = App\ActivityRecord::where('event_id', $event_id)->get();
 
             foreach ($people as $person) {
-                $person->activity_status = 0;
+                if($person->activity_status == 1) {
+                    $person->activity_status = 0;
+
+                    DB::table('events')->where('id', '=', $event_id)->increment('num_attended');
+                    
+                    // Get user id from event
+                    $event = Event::where('id', $event_id)->first();
+                    $user_id = $event->user_id;
+                
+                    // Update user table as well for number of people who attended their events
+                    DB::table('users')->where('id', '=', $user_id)->increment('num_people_events');
+                }
 
                 $time_at_event = (($ends) - ($person->check_in_time));
                 $person->duration = $time_at_event;
