@@ -141,6 +141,10 @@ class EventsController extends Controller
         $user->num_events = $user->num_events + 1;
         $user->save();
 
+        //if($_POST['duplicate_id']){
+        //    echo $_POST['duplicate_id'];
+        //} For when we want to implement duplicate with attachments
+
         /* Redirect to event page */
         return redirect('/events');
 
@@ -148,7 +152,7 @@ class EventsController extends Controller
 
                     /* Edit an Existing Event */
     public function patch(Request $request, Event $event) {
-      
+
         /* Collect the date and time (start and end) input arrays */
         $startDate = $_POST['startDate'];
         //$endDate = $_POST['endDate'];
@@ -250,6 +254,7 @@ class EventsController extends Controller
                     /* Delete an Existing Event */
     public function delete(Event $event) {
         $id = $event->id;
+        DB::delete('delete from event_attachments where event_id = ?', [$id]);
         DB::delete('delete from events where id = ?', [$id]);
 
         $user = Auth::user();

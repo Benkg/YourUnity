@@ -286,6 +286,11 @@ Edit Event
               </div>
         </div>
 
+        <!-- Event ID (Hidden)-->
+        <div class="form-group invisible">
+            <input type="text" class="form-control" id="duplicate_id" aria-describedby="emailHelp" value="{{$event->id}}" name="duplicate_id">
+        </div>
+
         <!-- Event Name (Hidden)-->
         <div class="form-group invisible">
             <label for="event_name">Event name</label>
