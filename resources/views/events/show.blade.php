@@ -8,21 +8,25 @@
     $nonPastEvents = getNonPastEvents();
 ?>
 
-                    <!-- Event Card -->
-<div class="full-content">
-    <div class="container-fluid">
-        <div class="row">
+<!-- Event Card -->
+<div class="container-fluid">
+    <div class="row">
 
-            @include('layouts.sidebar')
-            <div class="col-3"></div>
+        <!-- SideBar -->
+        @include('layouts.sidebar')
 
-            <div class="col-9 pl-5 pr-5 pt-4">
-                @include('events.event')
-            </div>
+        <!-- Padding for fixed sidebar -->
+        <div class="col-3"></div>
 
+        <!-- Event Listing -->
+        <div class="col-9 pl-5 pr-5 pt-4">
+            @include('events.event')
+            @include('cards.attendeeList')
         </div>
+
     </div>
 </div>
+
 
 @endsection
 
@@ -30,6 +34,10 @@
 body {
   background: #3f3f3f !important;
   font-weight: 200;
+}
+
+footer {
+    position: relative !important;
 }
 
 .black-background {

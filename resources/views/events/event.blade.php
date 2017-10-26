@@ -44,7 +44,3 @@
 
     </div>
 </div>
-
-<style>
-
-</style>

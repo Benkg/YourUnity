@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
         $schedule->command('update:timestate')
-                 ->twiceDaily(7, 19);
+                 ->everyThirtyMinutes();
     }
 
     /**

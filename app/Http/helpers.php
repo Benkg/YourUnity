@@ -231,6 +231,12 @@ if (! function_exists('parseTime')) {
 /*================================= TIME STATE HELPERS =================================*/
 
 // updateTimeState();
+
+//WE HAVE TO CHECK ATTENDEE ACTIVITY STATUS
+//AND UPDATE ATTENDEE STATUS/DURATION
+//(EX: MY DATA WAS NEVER UPDATED FOR EVENT 1)
+// What if an event has no attendees (registered and/or volunteered)
+
 if (! function_exists('updateTimeState')) {
     function updateTimeState($event) {
         //get current time
@@ -260,11 +266,11 @@ if (! function_exists('updateTimeState')) {
                     $person->activity_status = 0;
 
                     DB::table('events')->where('id', '=', $event_id)->increment('num_attended');
-                    
+
                     // Get user id from event
                     $event = Event::where('id', $event_id)->first();
                     $user_id = $event->user_id;
-                
+
                     // Update user table as well for number of people who attended their events
                     DB::table('users')->where('id', '=', $user_id)->increment('num_people_events');
                 }
