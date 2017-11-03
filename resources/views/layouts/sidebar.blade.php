@@ -14,79 +14,84 @@
     });
 </script>
 
-<!-- Profile Picture, Name, Logout, Event Table, New Event Button -->
-<div class="col-3 pt-3 sidebar container">
+<?php
+    $nonPastEvents = getNonPastEvents();
+?>
+        <!-- SideBar -->
+        <!-- Profile Picture, Name, Logout, Event Table, New Event Button -->
+        <div class="col-3 pt-3 sidebar container">
 
 
-    <!-- Menu -->
-    @include('layouts.menu.main')
+            <!-- Menu -->
+            @include('layouts.menu.main')
 
-    <!-- Logo -->
-    <div class="center mb-3"><a href="/dashboard"><img src="{{ url('/images/YU_001_White.svg') }}" class="logo" alt="YourUnity"></a></div>
+            <!-- Logo -->
+            <div class="center mb-3"><a href="/dashboard"><img src="{{ url('/images/YU_001_White.svg') }}" class="logo" alt="YourUnity"></a></div>
 
-    <!-- Profile Picture -->
-    <div class="text-center">
-        <a href="/settings"><img src="/images/avatars/{{ Auth::user()->avatar }}" class="avatar-sm"></a>
-    </div>
-    <hr class="side-hr mt-4"/>
-    <!-- Table of Dates Of Events -->
-    <div class="calendar mt-4">
-        <div class="list-group line-stop">
-            <h3 class="text-center mb-3">Upcoming Events</h3>
+            <!-- Profile Picture -->
+            <div class="text-center">
+                <a href="/settings"><img src="/images/avatars/{{ Auth::user()->avatar }}" class="avatar-sm"></a>
+            </div>
+            <hr class="side-hr mt-4"/>
+            <!-- Table of Dates Of Events -->
+            <div class="calendar mt-4">
+                <div class="list-group line-stop">
+                    <h3 class="text-center mb-3">Upcoming Events</h3>
 
-            <!-- start a count var -->
-            <?php $count = 1; ?>
+                    <!-- start a count var -->
+                    <?php $count = 1; ?>
 
-            @foreach($nonPastEvents as $event)
-                @if($event->time_state == 2)
+                    @foreach($nonPastEvents as $event)
+                        @if($event->time_state == 2)
 
-                    <!-- Main Link to Event -->
-                    <a href="/events/{{ $event->id }}" class="list-group-item list-group-item-action">
+                            <!-- Main Link to Event -->
+                            <a href="/events/{{ $event->id }}" class="list-group-item list-group-item-action">
 
-                        <div class= "col-2">
+                                <div class= "col-2">
+                                    <?php
+                                        $time = timeUntil($event->starts);
+                                        echo secsToTimeShort($time);
+                                    ?>
+                                </div>
+                                <!-- Calendar Icon -->
+                                <div class="col-1 p-0">
+                                    <b>
+                                        <span class="lnr lnr-calendar-full small-cal pl-2"></span>
+                                        <!-- we should use the same code as "days till next event" to just put # of days till event -->
+                                    </b>
+                                </div>
+
+                                <!-- Event name -->
+                                <div id = "eventName" class="col-8 ">
+                                    <span>{{ $event->event_name }}</span>
+                                </div>
+                            </a>
+
+                            <!-- If 5 events have loaded, break. Else, keep loading. -->
                             <?php
-                                $time = timeUntil($event->starts);
-                                echo secsToTimeShort($time);
+                                if ($count == 5){
+                                    break;
+                                } else {
+                                    $count++;
+                                }
                             ?>
-                        </div>
-                        <!-- Calendar Icon -->
-                        <div class="col-1 p-0">
-                            <b>
-                                <span class="lnr lnr-calendar-full small-cal pl-2"></span>
-                                <!-- we should use the same code as "days till next event" to just put # of days till event -->
-                            </b>
-                        </div>
 
-                        <!-- Event name -->
-                        <div id = "eventName" class="col-8 ">
-                            <span>{{ $event->event_name }}</span>
-                        </div>
-                    </a>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
 
-                    <!-- If 5 events have loaded, break. Else, keep loading. -->
-                    <?php
-                        if ($count == 5){
-                            break;
-                        } else {
-                            $count++;
-                        }
-                    ?>
+            <!-- Create New Event Button -->
+            <a href="/events/create" class="btn btn-success btn-lg btn-block mt-4 new-event-sidebar" role="button" aria-disabled="true">Create Event</a>
 
-                @endif
-            @endforeach
+            <!-- All Events -->
+            <div class="col-centered">
+                <h3 class="text-center"><a href="/events" class="all_events no-highlight" aria-disabled="true">View All Events</a></h3>
+            </div>
+
         </div>
-    </div>
 
-    <!-- Create New Event Button -->
-    <a href="/events/create" class="btn btn-success btn-lg btn-block mt-4 new-event-sidebar" role="button" aria-disabled="true">Create Event</a>
-
-    <!-- All Events -->
-    <div class="col-centered">
-        <h3 class="text-center"><a href="/events" class="all_events no-highlight" aria-disabled="true">View All Events</a></h3>
-    </div>
-
-</div>
-                    <!-- Custom Styles -->
+<!-- Custom Styles -->
 <style type="text/css">
 
 #eventName {
@@ -134,8 +139,6 @@ h3 {
 }
 
 </style>
-
-{{ flashURL() }}
 
                     <!-- Script for Active Hover on Event Table -->
 <script>
