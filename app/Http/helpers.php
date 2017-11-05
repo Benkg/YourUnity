@@ -9,7 +9,7 @@ use App\Event;
 if (! function_exists('storeDTA')) {
     function storeDTA($date, $time){
 
-/* TIME ARRAY FORMATTING */
+        /* TIME ARRAY FORMATTING */
         /* Converts 12 hour time to 24 hour time */
         if( $time['period'] == "PM"){
             if( !(($time['hour']) == "12") ){
@@ -330,6 +330,7 @@ if (! function_exists('htmlEventDropDown')) {
             case 2:
                 echo '<a href="/events/'.$event->id.'/edit" class="dropdown-item">Edit</a>
                 <a href="/events/'.$event->id.'/duplicate" class="dropdown-item" href="#">Duplicate +</a>
+                <a href="/events/'.$event->id.'/delete" class="dropdown-item" href="#">Delete -</a>
                 <a href="/attachments/'.$event->id.'" class="dropdown-item">Add Documents</a>
                 <a href="/contact/feedback" class="dropdown-item">More Options</a>';
                 break;

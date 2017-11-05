@@ -10,43 +10,43 @@ use Auth;
 
 class EventsController extends Controller
 {
-                    /*  */
     public function __construct() {
         $this->middleware('auth');
     }
 
-                    /* View All Events */
+    /* VIEW ALL Events */
     public function index() {
         $events = Event::latest()->get();
         return view('events.index', compact('events'));
     }
 
-                    /* Create an Event */
-    public function create() {
-        return view('events.create');
-    }
-
-                    /* View Single Event */
+    /* VIEW SINGLE Event */
     public function show(Event $event) {
         $events = Event::latest()->get();
         return view('events.show', compact('events','event'));
     }
 
-                    /* View Edit Form */
+    /* CREATE Form */
+    public function create() {
+        return view('events.create');
+    }
+
+    /* EDIT Form */
     public function edit(Event $event) {
         return view('events.edit', compact('event'));
     }
 
+    /* DUPLICATE Form */
     public function duplicate(Event $event) {
         return view('events.duplicate', compact('event'));
     }
 
-                    /* View Delete From */
+    /* DELETE Form */
     public function getDelete(Event $event) {
         return view('events.delete', compact('event'));
     }
 
-    /* Store a Newly Created Event */
+    /* CREATE/DUPLICATE an Event */
     public function store(Request $request) {
 
         /* Collect the date and time (start and end) input arrays */
@@ -126,7 +126,7 @@ class EventsController extends Controller
         ]);
 
         /* Create new event using request data */
-        Event::create([
+        $thisEvents = Event::create([
             'event_name' => request('event_name'),
             'starts' => request('starts'),
             'ends' => request('ends'),
@@ -145,12 +145,13 @@ class EventsController extends Controller
         //    echo $_POST['duplicate_id'];
         //} For when we want to implement duplicate with attachments
 
+        $id = $thisEvents->id;
         /* Redirect to event page */
-        return redirect('/events');
+        return redirect("/events/$id");
 
     }
 
-                    /* Edit an Existing Event */
+    /* EDIT an Existing Event */
     public function patch(Request $request, Event $event) {
 
         /* Collect the date and time (start and end) input arrays */
@@ -248,10 +249,10 @@ class EventsController extends Controller
                 'user_id' => auth()->user()->id
         ]);
 
-        return redirect('/');
+        return redirect("/events/$id");
     }
 
-                    /* Delete an Existing Event */
+    /* DELETE an Existing Event */
     public function delete(Event $event) {
         $id = $event->id;
         DB::delete('delete from event_attachments where event_id = ?', [$id]);
@@ -261,7 +262,7 @@ class EventsController extends Controller
         $user->num_events = $user->num_events - 1;
         $user->save();
 
-        return redirect('/');
+        return redirect("/");
     }
 
     public function test(Request $request){

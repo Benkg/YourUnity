@@ -66,16 +66,16 @@ Create Event
             $index = 0;
 
             foreach($attachments as $attachment){
-                echo '
-                    <div class="form-check">
+              echo '
+                  <div class="form-check">
 
-                        <label class="form-check-label" for="other'.$index.'">
-                          <input type="checkbox" class="form-check-input" id="check" name='.$index.' id="other'.$index.'" value='.$attachment->unique_name.'>
+                      <label class="form-check-label" for='.$index.'>
+                          <input type="checkbox" class="form-check-input" name='.$index.' id='.$index.' value='.$attachment->unique_name.'>
                           '.$attachment->name.'
-                          </label>
+                      </label>
 
-                    </div>
-                ';
+                  </div>
+              ';
 
                 $index++;
             }

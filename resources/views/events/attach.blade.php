@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('page_title')
-Create Event
+Edit Event
 @endsection
 
 @section('content')
@@ -10,38 +10,17 @@ Create Event
             <!-- SideBar -->
             @include('layouts.sidebar')
 
-            <!-- Errors Banner -->
+            <!-- Edit Form -->
             @include('events.format.top')
-                @include('events.cards.errors')
-            @include('events.format.bottom')
-
-            <!-- Create Form -->
-            @include('events.format.top')
-                @include('events.forms.createF')
+                @include('events.forms.attachF')
             @include('events.format.bottom')
 
         </div>
     </div>
 @endsection
-                    <!-- Script for Date Format -->
-<script>
-    $(document).ready(function(){
-      var date_input=$('input[name="date"]'); //our date input has the name "date"
-      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-      var options={
-        format: 'mm/dd/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-      };
-      date_input.datepicker(options);
-  });
-</script>
-
 
                     <!-- Custom Styles -->
 <style>
-
 body {
   background: #3f3f3f !important;
   font-weight: 200;
