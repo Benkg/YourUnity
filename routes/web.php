@@ -18,6 +18,12 @@ Route::get('/registration/{access}',    'MainController@register');
 Route::get('/access',                   'MainController@access');
 Route::post('/access',                  'MainController@granted');
 
+/* HOME-CONTROLLER */
+Route::get('/dashboard',                'HomeController@index');
+
+/* AUTHORIZATION */
+Auth::routes();
+
 /* CONTACT-CONTROLLER (Feedback, Contact, and Reports) */
 Route::get('/contact',                  'ContactController@index');
 Route::get('/contact/feedback',         'ContactController@feedback');
@@ -55,8 +61,6 @@ Route::post('/attachments/attach',      'EventAttachmentController@update');
 Route::post('/attachments/remove',      'EventAttachmentController@remove');
 //Route::get('/storage/{attachmentURL}', 'UploadController@show');
 
-/* HOME-CONTROLLER */
-Route::get('/dashboard',                'HomeController@index');
 
 /* SETTINGS-CONTROLLER */
 Route::get('/settings',                 'SettingsController@index');
@@ -64,5 +68,9 @@ Route::get('/settings/edit',            'SettingsController@edit');
 Route::post('/settings',                'SettingsController@store');
 Route::post('/settings/edit',           'SettingsController@update');
 
-/* AUTHORIZATION */
-Auth::routes();
+/* PUBLIC-CONTROLLER (Organization Page, Events, and Check-in) */
+Route::get('/{organization}',                'PublicController@index');
+Route::get('/{organization}/events',         'PublicController@events');
+Route::get('/{organization}/{event}',        'PublicController@event');
+Route::get('/{organization}/{event}/signin','PublicController@signinform');
+Route::post('/{organization}/{event}/signin','PublicController@signin');
