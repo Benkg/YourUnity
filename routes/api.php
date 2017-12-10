@@ -20,11 +20,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('events', function() {
+Route::get('events', ['middleware' => 'cors', function() {
     // If the Content-Type and Accept headers are set to 'application/json',
     // this will return a JSON structure. This will be cleaned up later.
     return Event::orderBy('starts')->where('time_state', '>', 0)->get();
-});
+}]);
 
 Route::get('events/{id}', function($id) {
     return Event::find($id);
