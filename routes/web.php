@@ -58,9 +58,7 @@ Route::get('/attachments/{event}',      'AttachmentController@attach');
 
 /* EVENT-ATTACHMENT-CONTROLLER */
 Route::post('/attachments/attach',      'EventAttachmentController@update');
-Route::post('/attachments/remove',      'EventAttachmentController@remove');
-//Route::get('/storage/{attachmentURL}', 'UploadController@show');
-
+Route::post('/attachments/remove',      'EventAttachmentController@remove'); 
 
 /* SETTINGS-CONTROLLER */
 Route::get('/settings',                 'SettingsController@index');
