@@ -40,8 +40,12 @@ h4 {
 }
 
 hr {
-  width: 75%;
+  width: 90%;
   background-color: #6bbaa7;
+}
+
+.green-text {
+  color:#6bbaa7;
 }
 
 .settings-info td {

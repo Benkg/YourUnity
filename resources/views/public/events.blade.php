@@ -7,10 +7,21 @@ Test
 <div id="contactContainer">
     @include('layouts.menu.public')
     <div class="cont">
-        <div class="orgTitle">
+        <div class="cardContents">
             <a href="/{{ $org->company }}">
-                <h1 class="mt-2"> {{$org->company}} </h1>
+                <h1 class="mt-2" style="color:white"> {{$org->company}} </h1>
             </a>
+        </div>
+        
+        <div class="cardContents">
+            <div class="row pt-2">
+                <div class="col-6">
+                    <h2 class="text-left"> Upcoming Events: </h2>
+                </div>
+                <div class="col-6 text-right ">
+                    <a href="#" ><h2 class="green-text"><span class="lnr lnr-pencil "></span> Sign-in</h2></a>
+                </div>
+            </div>
         </div>
 
         @foreach($events as $event)

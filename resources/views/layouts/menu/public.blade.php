@@ -45,18 +45,17 @@ li {
   padding: 2%;
 }
 
-.orgTitle {
+.orgTitle { 
   display: table;
   text-align: center;
   text-decoration: none;
-
-  width: 100vw;
 
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   background-color: #2d2d2d;
   border-color: black;
 
   border-radius: 6px;
+  margin: 5vh auto;
   padding: 2%;
 }
 
