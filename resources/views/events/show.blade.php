@@ -13,7 +13,8 @@
 
                 @include('events.cards.buttons')
                 @include('events.cards.event')
-                @include('events.cards.attendeeList')
+                @include('events.cards.registeredList')
+                @include('events.cards.attendedList')
 
             @include('events.format.bottom')
 
