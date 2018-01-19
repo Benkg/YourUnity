@@ -196,6 +196,22 @@ if (! function_exists('printDate')) {
     }
 }
 
+// printDateFS();
+if (! function_exists('printDateFS')) {
+    function printDateFS($secondsUTC) {
+
+        //Convert to seconds Local time
+        $secondsLocal = toLocalTime($secondsUTC);
+
+        //Format the date
+        $localDate = date("m/d/y", $secondsLocal);
+
+        //Return the formatted date
+        return $localDate;
+
+    }
+}
+
 // printTime();
 if (! function_exists('printTime')) {
     function printTime($secondsUTC) {
@@ -243,7 +259,6 @@ if (! function_exists('updateTimeState')) {
         $currentTime = time();
 
         //get event's time state, start time and end time
-
         $starts = $event->starts;
         $ends = $event->ends;
         $state = $event->time_state;
@@ -251,6 +266,7 @@ if (! function_exists('updateTimeState')) {
         //If in Future State and passed the start time, change the state to Present State
         if($state = 2 && $currentTime>$starts){
             setTimeState($event, 1);
+            //Attendee status must be updated(or created) to 1 when they check-in to an event.
         }
 
         //If in Present State and passed the end time, change the state to Past State
@@ -262,6 +278,12 @@ if (! function_exists('updateTimeState')) {
             $people = App\ActivityRecord::where('event_id', $event_id)->get();
 
             foreach ($people as $person) {
+                // If they have checked in and the event is over,
+                // changed their status to volunteered and update their duration time.
+                if($person->activity_status == 2) {
+                  //piss off !!!!!!FIX THIS!!!!!!
+                }
+
                 if($person->activity_status == 1) {
                     $person->activity_status = 0;
 
@@ -273,11 +295,22 @@ if (! function_exists('updateTimeState')) {
 
                     // Update user table as well for number of people who attended their events
                     DB::table('users')->where('id', '=', $user_id)->increment('num_people_events');
+
+                    $time_at_event = (($ends) - ($person->check_in_time));
+                    $person->duration = $time_at_event;
+                    $person->save();
                 }
 
-                $time_at_event = (($ends) - ($person->check_in_time));
-                $person->duration = $time_at_event;
-                $person->save();
+                // Maybe use an alternative activity status. If we made:
+                //
+                // 0) through app 1) through web 2) through provider
+                //
+                // 2)registered 1) checked-in 0) checked-out.
+                //
+                // Then we would be able to keep metrics on all types of possibilities of use.
+                // Everyone who registers starts as a 2 and either gets updated to a 1 if
+                // they check in or a 3 if they don't check-in. And so after the event
+                // is over, only users with a 1 or 0 get time duration updates.
             }
 
 
