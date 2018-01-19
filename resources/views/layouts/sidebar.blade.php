@@ -26,11 +26,11 @@
             @include('layouts.menu.main')
 
             <!-- Logo -->
-            <div class="center mb-3"><a href="/dashboard"><img src="{{ url('/images/YU_001_White.svg') }}" class="logo" alt="YourUnity"></a></div>
+            <div class="center mb-3"><a href="/dashboard"><img src="{{ url('/images/YU_001_White.svg') }}" class="logo img-fluid" alt="YourUnity"></a></div>
 
             <!-- Profile Picture -->
             <div class="text-center">
-                <a href="/settings"><img src="/images/avatars/{{ Auth::user()->avatar }}" class="avatar-sm"></a>
+                <a href="/settings"><img src="/images/avatars/{{ Auth::user()->avatar }}" class="rounded img-fluid"></a>
             </div>
             <hr class="side-hr mt-4"/>
             <!-- Table of Dates Of Events -->
@@ -46,25 +46,19 @@
 
                             <!-- Main Link to Event -->
                             <a href="/events/{{ $event->id }}" class="list-group-item list-group-item-action">
-
-                                <div class= "col-2">
+                                <span class="truncate">
+                                    <!--Time until Event -->
                                     <?php
                                         $time = timeUntil($event->starts);
                                         echo secsToTimeShort($time);
-                                    ?>
-                                </div>
-                                <!-- Calendar Icon -->
-                                <div class="col-1 p-0">
+                                    ?>                                                       
+                                    <!-- Calendar Icon -->
                                     <b>
-                                        <span class="lnr lnr-calendar-full small-cal pl-2"></span>
-                                        <!-- we should use the same code as "days till next event" to just put # of days till event -->
-                                    </b>
-                                </div>
-
-                                <!-- Event name -->
-                                <div id = "eventName" class="col-8 ">
-                                    <span>{{ $event->event_name }}</span>
-                                </div>
+                                        <span class="lnr lnr-calendar-full small-cal"></span>
+                                    </b>                                    
+                                    <!-- Event name -->                                   
+                                    <span id = "eventName">{{ $event->event_name }}</span>
+                                </span>
                             </a>
 
                             <!-- If 5 events have loaded, break. Else, keep loading. -->
@@ -82,7 +76,7 @@
             </div>
 
             <!-- Create New Event Button -->
-            <a href="/events/create" class="btn btn-success btn-lg btn-block mt-4 new-event-sidebar" role="button" aria-disabled="true">Create Event</a>
+            <a href="/events/create" class="btn btn-success  btn-block mt-4 responsive-button" role="button" aria-disabled="true">Create Event</a>
 
             <!-- All Events -->
             <div class="col-centered">
@@ -93,10 +87,15 @@
 
 <!-- Custom Styles -->
 <style type="text/css">
+.responsive-button { 
+overflow: hidden;
+white-space: nowrap;
+
+}
 
 #eventName {
-  padding-left: 1rem;
-  margin-left: 1rem;
+  padding-left: 0.5rem;
+  margin-left: 0.5rem;
   border-left: 2px solid #6bbaa7;
 }
 
@@ -136,6 +135,12 @@ h3 {
 
 .list-group-item:hover {
     background: #6bbaa7 !important;
+}
+
+.truncate {
+    display:inline;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 </style>

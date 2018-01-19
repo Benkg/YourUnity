@@ -67,8 +67,7 @@ Route::post('/settings',                'SettingsController@store');
 Route::post('/settings/edit',           'SettingsController@update');
 
 /* PUBLIC-CONTROLLER (Organization Page, Events, and Check-in) */
-Route::get('/{organization}',                'PublicController@index');
-Route::get('/{organization}/events',         'PublicController@events');
+Route::get('/{organization}',                'PublicController@events');
 Route::get('/{organization}/{event}',        'PublicController@event');
 Route::get('/{organization}/{event}/signin','PublicController@signinform');
 Route::post('/{organization}/{event}/signin','PublicController@signin');

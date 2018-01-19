@@ -15,11 +15,8 @@ Test
         
         <div class="cardContents">
             <div class="row pt-2">
-                <div class="col-6">
+                <div class="col-12">
                     <h2 class="text-left"> Upcoming Events: </h2>
-                </div>
-                <div class="col-6 text-right ">
-                    <a href="#" ><h2 class="green-text"><span class="lnr lnr-pencil "></span> Sign-in</h2></a>
                 </div>
             </div>
         </div>
