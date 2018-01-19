@@ -45,3 +45,7 @@ Route::apiResource('add_attendee', 'AddAttendeeController', ['only' => [
     ]]);
 
 Route::patch('add_attendee/{user}', 'AddAttendeeController@update');
+
+Route::get('user/{user}', function($user){
+    return ActivityRecord::where('attendee_id', $user)->get();
+});
