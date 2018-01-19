@@ -23,7 +23,7 @@ Dashboard
             <div class="row">
 
                         <!-- Stats Bar -->
-                @include('cards.stats')
+                @include('cards.stats') 
 
             </div>
         </div>

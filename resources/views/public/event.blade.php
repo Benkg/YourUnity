@@ -8,9 +8,9 @@ Test
     @include('layouts.menu.public')
     <div class="cont">
 
-        <div class="orgTitle">
+        <div class="cardContents">
             <a href="/{{ $org->company }}">
-                <h1 class="mt-2"> {{$org->company}} </h1>
+                <h1 class="mt-2" style="color:white"> {{$org->company}} </h1>
             </a>
         </div>
         @include('public.cards.buttons')

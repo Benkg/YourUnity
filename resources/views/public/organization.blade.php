@@ -1,13 +1,13 @@
 @extends('layouts.master')
 @section('page_title')
-Test
+{{$org->company}} Test
 @endsection
 
 @section('content')
 <div id="contactContainer">
-    @include('layouts.menu.public')
+    @include('layouts.menu.public') <!--TODO: Default CSS shouldn't be in here-->
     <div class="cont">
-        <div class="orgTitle">
+        <div class="cardContents">
             <h1 class="mt-2"> {{$org->company}} </h1>
         </div>
 
@@ -27,6 +27,7 @@ Test
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
