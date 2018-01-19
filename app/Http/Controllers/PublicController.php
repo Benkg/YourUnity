@@ -46,4 +46,8 @@ class PublicController extends Controller
         return view('public.signindone');
     }
 
+    public function get_user($user) {
+        
+    }
+
 }
