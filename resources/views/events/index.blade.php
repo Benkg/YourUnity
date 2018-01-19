@@ -11,6 +11,8 @@ All Events
 
             @include('events.format.top')
 
+            @include('events.cards.mainButtons')
+
                 <?php
 
                     $userId = Auth::user()->id;

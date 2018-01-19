@@ -43,7 +43,9 @@ class PublicController extends Controller
     public function signin(string $organization, Event $event) {
       $org = DB::table('users')->where('company', '=', $organization)->get();
       $org = $org[0];
-        return view('public.signindone');
+
+
+      return view('public.signindone');
     }
 
 }

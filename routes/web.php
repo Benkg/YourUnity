@@ -70,8 +70,9 @@ Route::post('/settings/edit',           'SettingsController@update');
 Route::get('/{organization}',                'PublicController@index');
 Route::get('/{organization}/events',         'PublicController@events');
 Route::get('/{organization}/{event}',        'PublicController@event');
-Route::get('/{organization}/{event}/signin','PublicController@signinform');
+Route::get('/{organization}/{event}/signin', 'PublicController@signinform');
 Route::post('/{organization}/{event}/signin','PublicController@signin');
 
 /* DOWNLOADS-CONTROLLER (Organization Page, Events, and Check-in) */
-Route::post('/download/{event}',               'DownloadsController@event');
+Route::post('/download/{event}',           'DownloadsController@event');
+Route::post('/download/all',               'DownloadsController@all');

@@ -11,10 +11,15 @@
 
             @include('events.format.top')
 
-                @include('events.cards.buttons')
-                @include('events.cards.event')
+            @include('events.cards.buttons')
+            @include('events.cards.event')
+            @if ( $event->time_state == 2)
                 @include('events.cards.registeredList')
+            @elseif ( $event->time_state == 1)
+                @include('events.cards.attendingList')
+            @else
                 @include('events.cards.attendedList')
+            @endif
 
             @include('events.format.bottom')
 

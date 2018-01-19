@@ -280,6 +280,10 @@ if (! function_exists('updateTimeState')) {
             foreach ($people as $person) {
                 // If they have checked in and the event is over,
                 // changed their status to volunteered and update their duration time.
+                if($person->activity_status == 2) {
+                  //piss off !!!!!!FIX THIS!!!!!!
+                }
+
                 if($person->activity_status == 1) {
                     $person->activity_status = 0;
 
@@ -298,7 +302,11 @@ if (! function_exists('updateTimeState')) {
                 }
 
                 // Maybe use an alternative activity status. If we made:
-                // 3) reg and not checked in. 2) registered 1) reg and checked in. 0) checked in.
+                //
+                // 0) through app 1) through web 2) through provider
+                //
+                // 2)registered 1) checked-in 0) checked-out.
+                //
                 // Then we would be able to keep metrics on all types of possibilities of use.
                 // Everyone who registers starts as a 2 and either gets updated to a 1 if
                 // they check in or a 3 if they don't check-in. And so after the event

@@ -168,7 +168,9 @@ YourUnity
 	}
 
 	.splash-image {
-  	background-image: url("/images/splash-background.jpg");
+  	/* background-image: url("/images/splash-background.jpg"); */
+		/* background-image: url("/images/pexels-photo-207896.jpeg"); */
+		background-image: url("/images/pexels-photo-325521.jpeg");
   	background-size: cover;
   	background-repeat: no-repeat;
   	background-position: center center;
