@@ -17,11 +17,11 @@ class CreateAttendeesTable extends Migration
           $table->engine = 'InnoDB';
           
           $table->increments('id');
-          $table->string('firedb_id')->nullable();
+          $table->string('firedb_id')->unique()->nullable();
 
           $table->string('email')->unique();
-          $table->string('name_first');
-          $table->string('name_last');
+          $table->string('name_first')->nullable();
+          $table->string('name_last')->nullable();
           $table->string('gender')->nullable();
           $table->string('avatar')->default('default.jpg');
 

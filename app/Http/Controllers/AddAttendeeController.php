@@ -38,9 +38,17 @@ class AddAttendeeController extends Controller
     {
         Attendee::create([
             'firedb_id' => request('firedb_id'),
-            'name' => request('name'),
             'avatar' => request('avatar'),
-            'email' => request('email')
+            'email' => request('email'),
+        ]);
+
+        DB::update('update attendees set
+            name_first = :name_first,
+            name_last = :name_last
+            where firedb_id = :firedb_id', [
+                'firedb_id' => request('firedb_id'),
+                'name_first' => request('name_first'),
+                'name_last' => request('name_last')
         ]);
     }
 
@@ -76,12 +84,14 @@ class AddAttendeeController extends Controller
     public function update(Request $request, $firedb_id)
     {
         DB::update('update attendees set
-            name = :name,
+            name_first = :name_first,
+            name_last = :name_last,
             avatar = :avatar,
             email = :email
             where firedb_id = :firedb_id', [
                 'firedb_id' => $firedb_id,
-                'name' => request('name'),
+                'name_first' => request('name_first'),
+                'name_last' => request('name_last'),
                 'avatar' => request('avatar'),
                 'email' => request('email')
         ]);
