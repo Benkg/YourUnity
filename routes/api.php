@@ -40,9 +40,11 @@ Route::apiResource('register_event', 'EventRegisterController', ['only' => [
 
 Route::patch('checkin/{user}/{event}', 'EventRegisterController@update');
 
-Route::apiResource('add_attendee', 'AddAttendeeController', ['only' => [
-    'store', 'destroy'
-    ]]);
+Route::post('add_attendee', 'AddAttendeeController@store');
+
+// Route::apiResource('add_attendee', 'AddAttendeeController', ['only' => [
+//     'store', 'destroy'
+//     ]]);
 
 Route::patch('add_attendee/{user}', 'AddAttendeeController@update');
 
