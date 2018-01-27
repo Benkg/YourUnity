@@ -8,12 +8,16 @@ class Event extends Model
 {
     protected $fillable = [
         'event_name',
+        'type_id',
+        'location_id',
         'starts',
         'ends',
         'location',
         'event_description',
         'event_requirements',
-        'user_id'
+        'user_id',
+        'num_registered',
+        'num_attended',
     ];
 
     public function user() {

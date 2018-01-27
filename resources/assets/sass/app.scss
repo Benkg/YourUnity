@@ -148,7 +148,8 @@ button:hover {
 .fileUpload {
 	position: relative;
 	overflow: hidden;
-	margin: 10px;
+    margin: 10px;
+    margin-left: -50px;
 	text-align: center;
 }
 
@@ -176,13 +177,17 @@ button:hover {
 #uploadFile{border: none;margin-left: 10px; width: 200px;}
 .custom-para{font-family: arial;font-weight: bold;font-size: 24px; color:#585858;}
 
+.rounded {
+    border-radius: 100% !important;
+}
+
 .avatar {
     width: 15rem;
     height: 15rem;
     position: relative;
     overflow: hidden;
     margin-top: 1rem;
-    border-radius: 5px;
+    border-radius: 100%;
 }
 
 .avatar img {
@@ -191,9 +196,8 @@ button:hover {
 }
 
 .avatar-sm {
-    width: 10rem;
-    height: 10rem;
-    border-radius: 5px;
+    width: 85%;
+    height: 85%;
 }
 
 .event {
@@ -209,6 +213,22 @@ button:hover {
     color: #fff;
 }
 
+form {
+    margin-bottom: 0 !important;
+}
+
+/** Small event cards on the dashboard **/
+
+.small-event:hover {
+    box-shadow: 1px 2px 25px #2e2e2e;
+}
+
+#eventName {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    margin-right: 3px;
+}
+
 .settings-card {
     width: 60%;
     padding: 2%;
@@ -220,6 +240,26 @@ button:hover {
 .btn-primary {
     background-color: #6bbaa7 !important;
     border: 1px solid #6bbaa7 !important;
+}
+
+/** .button-sec: Secondary button on sidebar **/
+.button-sec {
+    color: #efefef !important;
+    border: 1px solid #efefef !important;
+    padding: 6px;
+    width: 22vw;
+    height: 50px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 12vh;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.button-sec:hover {
+    border: 1px solid #6bbaa7 !important;
+    color: #6bbaa7 !important;
 }
 
 .btn-outline-primary {
@@ -356,6 +396,13 @@ header {
     border: 0px !important;
 }
 
+/** Move link to top right of card (settings) **/
+.top-right {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+}
+
 .edit-card {
     width: 40%;
     padding: 2%;
@@ -443,8 +490,16 @@ header {
     width: 60%;
 }
 
+.italic {
+    font-style: italic !important;
+}
+
 .thick {
     font-weight: 300 !important;
+}
+
+.thicc {
+    font-weight: 500 !important;
 }
 
 .splash-card-1 {
@@ -498,12 +553,6 @@ header {
     left: 1%;
 }
 
-.all_events {
-    position: fixed;
-    bottom: 3%;
-    left: 6.5%;
-}
-
 .top-login {
 
 }
@@ -552,4 +601,12 @@ header {
 
 .legal_h1 h1 {
     font-size: 2.5rem !important;
+}
+
+/** Random styling **/
+
+.bottom-right {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
 }
