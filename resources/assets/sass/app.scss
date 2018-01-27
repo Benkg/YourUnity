@@ -91,7 +91,11 @@ hr {
 }
 
 .logo-main {
-    width: 12em;
+    margin:auto;
+    margin-top:16%;
+    width:60vw;
+    justify-content: center;
+    align-items:center;
 }
 
 .appstore {
@@ -108,9 +112,6 @@ hr {
   border-right: 2px solid rgba(22,22,22,0.1);
 }
 
-.dashboard {
-
-}
 
 a {
     color: #6bbaa7 !important;
@@ -200,6 +201,7 @@ button:hover {
     height: 85%;
 }
 
+
 .event {
     background-color: #2e2e2e;
     width: 100%;
@@ -281,6 +283,11 @@ form {
 
 .dark-grey {
     background-color: #2e2e2e;
+    width:100vw !important;
+}
+
+.loginButtons {
+    margin-top:1;
 }
 
 .blue {
@@ -419,7 +426,7 @@ header {
 .down-circle {
     font-size: 2.5rem;
     position: absolute;
-    top: 85vh;
+    top: 80vh;
     left: 50vw;
 }
 
@@ -446,8 +453,7 @@ header {
 
 .landing-phrase {
     color: #fff !important;
-    font-weight: 300;
-    font-size: 3.5rem;
+    font-size: 6vh;
     line-height: 5.3rem;
 }
 
@@ -477,7 +483,8 @@ header {
 }
 
 .screenshot {
-    width: 100%;
+    width: 40vw;
+    border-radius: 30%;
 }
 
 .leader-checklist {

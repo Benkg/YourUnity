@@ -13,21 +13,39 @@
                 <table class="table-full">
                     <tr>
                         <td>
-                            <!-- Name Input -->
-                              <div class="form-group<?php echo e($errors->has('name') ? ' has-error' : ''); ?>">
-                                  <label for="name" class="col-12 control-label">Name</label>
+                            <!-- First Name Input -->
+                              <div class="form-group<?php echo e($errors->has('name_first') ? ' has-error' : ''); ?>">
+                                  <label for="name_first" class="col-12 control-label">First Name</label>
 
                                   <div class="col-11">
-                                      <input id="name" type="text" class="form-control" name="name" value="<?php echo e(old('name')); ?>" required autofocus>
+                                      <input id="name_first" type="text" class="form-control" name="name_first" value="<?php echo e(old('name_first')); ?>" required autofocus>
 
-                                      <?php if($errors->has('name')): ?>
+                                      <?php if($errors->has('name_first')): ?>
                                           <span class="help-block">
-                                              <strong><?php echo e($errors->first('name')); ?></strong>
+                                              <strong><?php echo e($errors->first('name_first')); ?></strong>
                                           </span>
                                       <?php endif; ?>
                                   </div>
                               </div>
                         </td>
+                        <td>
+                            <!-- Last Name Input -->
+                              <div class="form-group<?php echo e($errors->has('name_last') ? ' has-error' : ''); ?>">
+                                  <label for="name_last" class="col-12 control-label">Last Name</label>
+
+                                  <div class="col-11">
+                                      <input id="name_last" type="text" class="form-control" name="name_last" value="<?php echo e(old('name_last')); ?>" required autofocus>
+
+                                      <?php if($errors->has('name_last')): ?>
+                                          <span class="help-block">
+                                              <strong><?php echo e($errors->first('name_last')); ?></strong>
+                                          </span>
+                                      <?php endif; ?>
+                                  </div>
+                              </div>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>
                             <!-- Company/Organization Name Input -->
                               <div class="form-group<?php echo e($errors->has('name') ? ' has-error' : ''); ?>">
@@ -39,6 +57,22 @@
                                       <?php if($errors->has('company')): ?>
                                           <span class="help-block">
                                               <strong><?php echo e($errors->first('company')); ?></strong>
+                                          </span>
+                                      <?php endif; ?>
+                                  </div>
+                              </div>
+                        </td>
+                        <td>
+                            <!-- E-Mail Address Input -->
+                              <div class="form-group<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
+                                  <label for="email" class="col-12 control-label">E-Mail Address</label>
+
+                                  <div class="col-11">
+                                      <input id="email" type="email" class="form-control" name="email" value="<?php echo e(old('email')); ?>" required>
+
+                                      <?php if($errors->has('email')): ?>
+                                          <span class="help-block">
+                                              <strong><?php echo e($errors->first('email')); ?></strong>
                                           </span>
                                       <?php endif; ?>
                                   </div>
@@ -58,16 +92,7 @@
                                           <span class="help-block">
                                               <strong><?php echo e($errors->first('password')); ?></strong>
                                           </span>
-                                      <?php endif; ?>
-                                      <?php if($errors->any()): ?>
-    <div class="alert alert-danger">
-        <ul>
-            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <li><?php echo e($error); ?></li>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        </ul>
-    </div>
-<?php endif; ?>
+                                      <?php endif; ?>                                    
                                   </div>                          
                               </div>
                         </td>
@@ -78,24 +103,6 @@
 
                                   <div class="col-11">
                                       <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                                  </div>
-                              </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <!-- E-Mail Address Input -->
-                              <div class="form-group<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
-                                  <label for="email" class="col-12 control-label">E-Mail Address</label>
-
-                                  <div class="col-11">
-                                      <input id="email" type="email" class="form-control" name="email" value="<?php echo e(old('email')); ?>" required>
-
-                                      <?php if($errors->has('email')): ?>
-                                          <span class="help-block">
-                                              <strong><?php echo e($errors->first('email')); ?></strong>
-                                          </span>
-                                      <?php endif; ?>
                                   </div>
                               </div>
                         </td>

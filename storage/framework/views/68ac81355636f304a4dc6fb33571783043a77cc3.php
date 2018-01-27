@@ -26,9 +26,6 @@ YourUnity
 		});
 	});
 
-	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-		console.log("On a Phone");
-	}
 </script>
 					  <!-- Nav Bar -->
 
@@ -40,7 +37,7 @@ YourUnity
 			<a href="https://twitter.com/YourUnityApp"><img src="https://yourunity.org/images/twitter_white.png" class="head-twitter-icon" alt="Twitter"></a>
 			<a href="https://www.facebook.com/YourUnityApp/"><img src="https://yourunity.org/images/facebook_white.png" class="head-social-icons" alt="Facebook"></a>	
 		</span>
-		<span class="col-6">
+		<span class="col-6 center">
 			<a href="/login" class="btn btn-outline-secondary white top-login">Login</a>
 			<a href="/access" class="btn btn-primary white top-login top-btn top-reg">Register</a>
 		</span>
@@ -51,9 +48,8 @@ YourUnity
 
 	<div class="row justify-content-center splash-image">
 		<div class="col-sm-12 ">
-			<div class="text-center ">
-				<img src="<?php echo e(url('/images/YU_001_White.svg')); ?>" class="logo-main " alt="YourUnity">
-				
+			<div class="text-center">
+				<img src="<?php echo e(url('/images/YU_001_White.svg')); ?>" class="center logo-main" alt="YourUnity">
 			</div>
 			<div class="text-center landing-phrase">Community, everywhere.</div>
 			<div class="down-circle "><span class="lnr lnr-chevron-down-circle"></span></div>
@@ -61,7 +57,7 @@ YourUnity
 	</div>
 					<!-- Landing phrase and Options -->
 
-	<section class="dark-grey ">
+	<section class="dark-grey p-3">
 			<div class="text-center col-12">
 				<div class="landing-phrase">Community, for everyone.</d>
 				<br />
@@ -188,7 +184,7 @@ YourUnity
   	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
-	height:100vh;
+	height:90vh;
 	}
 
 	.serviceProviders {
@@ -301,7 +297,7 @@ YourUnity
 		}
 
 		.down-circle {
-			top: 88vh;
+			top: 70vh;
 			padding-bottom:3vh;
 		}
 
