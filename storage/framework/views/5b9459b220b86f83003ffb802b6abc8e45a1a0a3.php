@@ -10,6 +10,8 @@ All Events
 
             <?php echo $__env->make('events.format.top', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
+            <?php echo $__env->make('events.cards.mainButtons', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
                 <?php
 
                     $userId = Auth::user()->id;

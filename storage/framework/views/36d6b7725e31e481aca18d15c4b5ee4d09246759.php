@@ -4,6 +4,7 @@ Contact YourUnity
 
 <?php $__env->startSection('content'); ?>
 <?php echo $__env->make('layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.menu.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 <!-- Pass url to form submit, should be done using session reflash -->
 <?php

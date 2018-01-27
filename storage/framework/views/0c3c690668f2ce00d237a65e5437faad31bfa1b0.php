@@ -20,7 +20,7 @@ document.getElementById("uploadBtn").onchange = function () {
 </script>
 
 <?php echo $__env->make('layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
+ <?php echo $__env->make('layouts.menu.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <div class="full-content">
 <div class="container-fluid">
     <div class="row">

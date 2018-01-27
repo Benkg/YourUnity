@@ -21,7 +21,7 @@ document.getElementById("uploadBtn").onchange = function () {
 </script>
 
 @include('layouts.header')
-
+ @include('layouts.menu.main')
 <div class="full-content">
 <div class="container-fluid">
     <div class="row">

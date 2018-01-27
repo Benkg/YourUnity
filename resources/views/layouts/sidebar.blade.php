@@ -12,6 +12,8 @@
         $('.avatar.sm').click(function() {
         });
     });
+
+    
 </script>
 
 <?php

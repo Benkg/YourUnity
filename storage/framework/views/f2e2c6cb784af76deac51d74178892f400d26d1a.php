@@ -4,14 +4,20 @@ Privacy Policy
 
 <?php $__env->startSection('content'); ?>
 
-<?php echo $__env->make('layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<div class="container-fluid">
+    <div class="row">
 
-<div id="legalContainer">
+                    <!-- Sidebar -->
+        <?php echo $__env->make('layouts.legalsidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-    <?php echo $__env->make('layouts.menu.legal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <!-- Padding for fixed sidebar -->
+        <div class="col-3"></div>
 
-    <div class="cont">
-        <h1>Privacy Policy</h1>
+                    <!-- Stats Bar and Events List -->
+        <div class="col-9 pl-5 pr-5 pt-4 dashboard">
+            <div class="row">
+            <div class="cont">
+        <h1 class="blue"><b>Privacy Policy</b></h1>
 
         <h1>1. Who We Are.</h1>
             <h2>1.1 YourUnity.</h2>
@@ -220,7 +226,15 @@ Privacy Policy
             </p>
 
     </div>
+                  
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

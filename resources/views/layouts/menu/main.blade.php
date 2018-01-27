@@ -1,12 +1,10 @@
-
 <button class="toggle">◎</button>
 
-<ul class="legend">
+<ul class="legend" id="list">
     <a href="/settings" class="text-white"><li>Profile</li></a>
     <a href="/" class="text-white"><li>Dashboard</li></a>
     <a href="/contact" class="text-white"><li>Contact Us</li></a>
     <a href="/legal/service" class="text-white"><li>Legal Terms</li></a>
-    <a href="/attachments/manager" class="text-white"><li>Attachment Manager</li></a>
 </ul>
 
 <!-- JS Toggle Menu -->
@@ -16,6 +14,11 @@
         $('.legend').toggle("display");
     })
   });
+
+  $current = window.location.pathname;
+    if($current.includes('dashboard')) {
+      document.getElementById("list").children[1].style.display = "none";
+    }
 </script>
 
 <style>

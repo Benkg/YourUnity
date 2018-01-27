@@ -52,14 +52,23 @@
                                   <label for="password" class="col-12 control-label">Password</label>
 
                                   <div class="col-11">
-                                      <input id="password" type="password" class="form-control" name="password" required>
-
+                                    <input id="password" type="password" class="form-control" name="password" required>
+                                    <span>Must be 6 characters long</span>
                                       <?php if($errors->has('password')): ?>
                                           <span class="help-block">
                                               <strong><?php echo e($errors->first('password')); ?></strong>
                                           </span>
                                       <?php endif; ?>
-                                  </div>
+                                      <?php if($errors->any()): ?>
+    <div class="alert alert-danger">
+        <ul>
+            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><?php echo e($error); ?></li>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </ul>
+    </div>
+<?php endif; ?>
+                                  </div>                          
                               </div>
                         </td>
                         <td>
@@ -102,12 +111,18 @@
                     </div>
 
                     <!-- Agreement Checkbox -->
-                    <div class="form-check col-5 mt-4">
+                    <div class="form-group<?php echo e($errors->has('agreement') ? ' has-error' : ''); ?> col-5 mt-4">
                         <label for="agreement" class="form-check-label">
-                            <input type="checkbox" id="agreement" class="form-check-input" name="agreement">
+                            <input type="checkbox" id="agreement" class="form-check-input" name="agreement" required>
                             I have read and agree to this sites <a href="/legal/service" target="_blank">terms and policies.</a>
                         </label>
+                        <?php if($errors->has('agreement')): ?>
+                            <span class="help-block">
+                                <strong><?php echo e($errors->first('agreement')); ?></strong>
+                            </span>
+                        <?php endif; ?>
                     </div>
+                    
                 </div>
 
             </form>

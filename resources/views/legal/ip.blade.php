@@ -6,14 +6,20 @@ Trademark & Copyright
 
 @section('content')
 
-@include('layouts.header')
+<div class="container-fluid">
+    <div class="row">
 
-<div id="legalContainer">
+                    <!-- Sidebar -->
+        @include('layouts.legalsidebar')
 
-    @include('layouts.menu.legal')
+        <!-- Padding for fixed sidebar -->
+        <div class="col-3"></div>
 
-    <div class="cont">
-        <h1>Trademark & Copyright Policy</h1>
+                    <!-- Stats Bar and Events List -->
+        <div class="col-9 pl-5 pr-5 pt-4 dashboard">
+            <div class="row">
+            <div class="cont">
+        <h1 class="blue"><b>Trademark & Copyright Policy</b></h1>
 
         <h1>1. Who We Are.</h1>
             <h2>1.1 YourUnity.</h2>
@@ -75,6 +81,10 @@ Trademark & Copyright
                 </p>
     </div>
 
+            </div>
+        </div>
+    </div>
 </div>
+
 
 @endsection

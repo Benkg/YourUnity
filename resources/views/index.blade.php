@@ -27,16 +27,27 @@ YourUnity
 				window.location.replace("#volunteers");
 		});
 	});
+
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+		console.log("On a Phone");
+	}
 </script>
 					  <!-- Nav Bar -->
 
 <div class="container-fluid no-padding">
 	<nav class="navbar navbar-light bg-faded" style="background-color: #3f3f3f;">
-		<span class="text-right">
-		<a href="https://yourunity.org/blog" class="text-white">Blog</a>
-		<a href="https://twitter.com/YourUnityApp"><img src="https://yourunity.org/images/twitter_white.png" class="head-twitter-icon" alt="Twitter"></a>
-		<a href="https://www.facebook.com/YourUnityApp/"><img src="https://yourunity.org/images/facebook_white.png" class="head-social-icons" alt="Facebook"></a>	
+		<div class="row">
+		<span class="col-6 media-icons">
+			<a href="https://yourunity.org/blog" class="text-white">Blog</a>
+			<a href="https://twitter.com/YourUnityApp"><img src="https://yourunity.org/images/twitter_white.png" class="head-twitter-icon" alt="Twitter"></a>
+			<a href="https://www.facebook.com/YourUnityApp/"><img src="https://yourunity.org/images/facebook_white.png" class="head-social-icons" alt="Facebook"></a>	
 		</span>
+		<span class="col-6">
+			<a href="/login" class="btn btn-outline-secondary white top-login">Login</a>
+			<a href="/access" class="btn btn-primary white top-login top-btn top-reg">Register</a>
+		</span>
+		
+		</div>
 	</nav>
 					  <!-- Background Image -->
 
@@ -58,7 +69,7 @@ YourUnity
 				<br />
 				<div class="landing-paragraph">We connect community service providers with volunteers to improve the community around you.</div>
 			</div>
-			<hr class="short" />
+			<hr class="short"/>
 			<div class="row">
 				<div class="col-lg-6 col-sm-12 col-md-6 card-one">
 					<span class="lnr lnr-store big-icons"></span>
@@ -74,7 +85,7 @@ YourUnity
 	</section>
 					<!-- 3 Images and Text Pitch -->
 
-	<div class="row serviceProviders">
+	<div class="row serviceProviders ">
 		<div class="col-sm-12 p-4">
 			
 			<div class="row p-1 mt-4">
@@ -88,7 +99,7 @@ YourUnity
 			</div>
 			<div class="row p-1 mt-4">
 				<div class="col-lg-6 col-md-6 col-sm-6 contentPad flex-first">
-					<h2 class="mb-4 ">Get data analytics from your past events.</h2>
+					<h2 class="mb-4">Get data analytics from your past events.</h2>
 					<p>Track every event that you post to YourUnity. See how many people are interested in your event, how many show up, and the number of hours that they log at your event. Many more analytics are coming every day to YourUnity to help you understand how to drive even more people to them.</p>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 flex-second">
@@ -100,7 +111,7 @@ YourUnity
 					<img src="{{ url('/images/notifications.png') }}" class="screenshot tinted" alt="Update Volunteers">
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 contentPad">
-				<h2 class="mb-4 ">Send liabilty waivers and other documents to your volunteers.</h2>
+				<h2 class="mb-4">Send liabilty waivers and other documents to your volunteers.</h2>
 				<p>YourUnity gives you the unique ability to send a notification to all of your volunteers with the click of a button, guaranteeing that any pertinent information for your events has the attention of the people that matter most.</p>
 				</div>
 			</div>
@@ -108,7 +119,7 @@ YourUnity
 	</div>
 
 						<!-- App Pictures -->
-	<div id="volunteers" class="row black-background ">
+	<div class="row black-background volunteers">
 		<div class="col-sm-12 p-5">
 			<div class="row">
 				<div class="col-sm-12 center">
@@ -145,20 +156,35 @@ YourUnity
 
                       <!-- Style for Background Image and Logo -->
 <style>
+	.media-icons {
+		padding-left:3vw;
+	}
 
 	.content {
 		margin-top: 0 !important;
 	}
 
+	.iphone {
+  		width: 60%;
+	}
+
+	.top-reg {
+		margin-right: 2%;
+	}
+
+	.top-login {
+		float:right;
+	}
+
 	.contentPad {
 		padding-right: 5%;
     	padding-left: 5%;
-    	padding-top: 1%;
+		padding-top: 1%;
 	}
 
 	.splash-image {
   	/* background-image: url("/images/splash-background.jpg"); */
-		/* background-image: url("/images/pexels-photo-207896.jpeg"); */
+	/* background-image: url("/images/pexels-photo-207896.jpeg"); */
 	background-image: url("/images/pexels-photo-325521.jpeg");
   	background-size: cover;
   	background-repeat: no-repeat;
@@ -170,7 +196,14 @@ YourUnity
 	.serviceProviders {
 		display:flex;
   		flex-flow: row wrap;
-  		justify-content:space-between;
+		justify-content:space-between;
+		padding-bottom: 3%
+	}
+
+	,volunteers {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content:space-between;
 	}
 
 	.logo {
@@ -180,7 +213,41 @@ YourUnity
 
 	.tinted { opacity: 0.7; }
 
-	@media (max-width: 768px) {
+	@media (max-width: 376px) {
+		.serviceProviders{
+			flex-direction:column;
+		}
+		.flex-first {
+			order:2;
+		}
+		.flex-second {
+			order:1;
+		}
+		.screenshot {
+			width: 65vw;
+			border-radius: 40px;
+			display: block;
+			margin: auto;
+			padding-bottom:2vh;
+		}
+
+		.iphone{
+			width:60%;
+			padding-bottom:5%;
+		}
+
+		.volunteers {
+			flex-direction: column;
+		}
+
+		.top-btn {
+			display: none;
+		}
+
+
+	}
+
+	@media (max-width: 768px) and (min-width : 377px) {
 
 		html {
 			overflow-x: hidden;
@@ -191,15 +258,7 @@ YourUnity
 			width: 60vh;
 		}
 
-		.serviceProviders{
-			flex-direction:column;
-		}
-		.flex-first {
-			order:2;
-		}
-		.flex-second {
-			order:1;
-		}
+		
 	    .splash-image {
 	        width: 104vw !important;
 		}
@@ -209,6 +268,16 @@ YourUnity
 			border-radius: 40px;
 			display: block;
 			margin: auto;
+		}
+
+		.serviceProviders{
+			flex-direction:column;
+		}
+		.flex-first {
+			order:2;
+		}
+		.flex-second {
+			order:1;
 		}
 
 		.vertical-align {
