@@ -327,8 +327,6 @@ class ComposerStaticInitcbb253ec52184eb61066879da93f6c62
     );
 
     public static $classMap = array (
-        'AddEmailToAttendeesTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_11_142323_add_email_to_attendees_table.php',
-        'AddOrganizationIdToActivityRecordsTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_25_142740_add_organization_id_to_activity_records_table.php',
         'App\\ActivityRecord' => __DIR__ . '/../..' . '/app/ActivityRecord.php',
         'App\\Attachment' => __DIR__ . '/../..' . '/app/Attachment.php',
         'App\\Attendee' => __DIR__ . '/../..' . '/app/Attendee.php',
@@ -337,6 +335,7 @@ class ComposerStaticInitcbb253ec52184eb61066879da93f6c62
         'App\\Contact' => __DIR__ . '/../..' . '/app/Contact.php',
         'App\\Event' => __DIR__ . '/../..' . '/app/Event.php',
         'App\\EventAttachment' => __DIR__ . '/../..' . '/app/EventAttachment.php',
+        'App\\EventType' => __DIR__ . '/../..' . '/app/EventType.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AddAttendeeController' => __DIR__ . '/../..' . '/app/Http/Controllers/AddAttendeeController.php',
         'App\\Http\\Controllers\\AttachmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/AttachmentController.php',
@@ -346,6 +345,7 @@ class ComposerStaticInitcbb253ec52184eb61066879da93f6c62
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\ContactController' => __DIR__ . '/../..' . '/app/Http/Controllers/ContactController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DownloadsController' => __DIR__ . '/../..' . '/app/Http/Controllers/DownloadsController.php',
         'App\\Http\\Controllers\\EventAttachmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/EventAttachmentController.php',
         'App\\Http\\Controllers\\EventRegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/EventRegisterController.php',
         'App\\Http\\Controllers\\EventsController' => __DIR__ . '/../..' . '/app/Http/Controllers/EventsController.php',
@@ -361,6 +361,7 @@ class ComposerStaticInitcbb253ec52184eb61066879da93f6c62
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\AttachmentRequest' => __DIR__ . '/../..' . '/app/Http/Requests/AttachmentRequest.php',
+        'App\\Location' => __DIR__ . '/../..' . '/app/Location.php',
         'App\\Mail\\EventRegistration' => __DIR__ . '/../..' . '/app/Mail/EventRegistration.php',
         'App\\Mail\\Register' => __DIR__ . '/../..' . '/app/Mail/Register.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -379,7 +380,9 @@ class ComposerStaticInitcbb253ec52184eb61066879da93f6c62
         'CreateAttendeesTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_17_003356_create_attendees_table.php',
         'CreateContactsTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_08_011054_create_contacts_table.php',
         'CreateEventAttachmentsTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_17_003626_create_event_attachments_table.php',
+        'CreateEventTypesTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_24_013316_create_event_types_table.php',
         'CreateEventsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_13_182053_create_events_table.php',
+        'CreateLocationsTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_24_014300_create_locations_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',

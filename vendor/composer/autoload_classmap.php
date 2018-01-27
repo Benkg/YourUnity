@@ -6,8 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AddEmailToAttendeesTable' => $baseDir . '/database/migrations/2017_10_11_142323_add_email_to_attendees_table.php',
-    'AddOrganizationIdToActivityRecordsTable' => $baseDir . '/database/migrations/2017_10_25_142740_add_organization_id_to_activity_records_table.php',
     'App\\ActivityRecord' => $baseDir . '/app/ActivityRecord.php',
     'App\\Attachment' => $baseDir . '/app/Attachment.php',
     'App\\Attendee' => $baseDir . '/app/Attendee.php',
@@ -16,6 +14,7 @@ return array(
     'App\\Contact' => $baseDir . '/app/Contact.php',
     'App\\Event' => $baseDir . '/app/Event.php',
     'App\\EventAttachment' => $baseDir . '/app/EventAttachment.php',
+    'App\\EventType' => $baseDir . '/app/EventType.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\AddAttendeeController' => $baseDir . '/app/Http/Controllers/AddAttendeeController.php',
     'App\\Http\\Controllers\\AttachmentController' => $baseDir . '/app/Http/Controllers/AttachmentController.php',
@@ -25,6 +24,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\ContactController' => $baseDir . '/app/Http/Controllers/ContactController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\DownloadsController' => $baseDir . '/app/Http/Controllers/DownloadsController.php',
     'App\\Http\\Controllers\\EventAttachmentController' => $baseDir . '/app/Http/Controllers/EventAttachmentController.php',
     'App\\Http\\Controllers\\EventRegisterController' => $baseDir . '/app/Http/Controllers/EventRegisterController.php',
     'App\\Http\\Controllers\\EventsController' => $baseDir . '/app/Http/Controllers/EventsController.php',
@@ -40,6 +40,7 @@ return array(
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\AttachmentRequest' => $baseDir . '/app/Http/Requests/AttachmentRequest.php',
+    'App\\Location' => $baseDir . '/app/Location.php',
     'App\\Mail\\EventRegistration' => $baseDir . '/app/Mail/EventRegistration.php',
     'App\\Mail\\Register' => $baseDir . '/app/Mail/Register.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
@@ -58,7 +59,9 @@ return array(
     'CreateAttendeesTable' => $baseDir . '/database/migrations/2017_09_17_003356_create_attendees_table.php',
     'CreateContactsTable' => $baseDir . '/database/migrations/2017_07_08_011054_create_contacts_table.php',
     'CreateEventAttachmentsTable' => $baseDir . '/database/migrations/2017_09_17_003626_create_event_attachments_table.php',
+    'CreateEventTypesTable' => $baseDir . '/database/migrations/2017_01_24_013316_create_event_types_table.php',
     'CreateEventsTable' => $baseDir . '/database/migrations/2017_04_13_182053_create_events_table.php',
+    'CreateLocationsTable' => $baseDir . '/database/migrations/2017_01_24_014300_create_locations_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',

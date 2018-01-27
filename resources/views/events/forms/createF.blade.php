@@ -290,7 +290,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-9">
+                        <div class="col-9 mb-4">
                             <div class="form-group">
                                 <label for="event_description">Description</label>
                                 <textarea class="form-control" id="event_description" name="event_description" rows="3"></textarea>
@@ -300,7 +300,7 @@
 
                     <!-- Cancle and Submit Button -->
                     <a href="/">Cancel</a>
-                    <div onclick="geocode()" class="btn btn-primary float-right ml-3">Next</div>
+                    <div id="showMap" onclick="geocode()" class="btn btn-primary float-right ml-3">Next</div>
 
                     <input type="hidden" id="location[address]" value="" name="location[address]" />
                     <input type="hidden" id="location[city]" value="" name="location[city]" />
@@ -314,7 +314,7 @@
             </div>
         </div>
 
-        <div class="page">
+        <div class="page map-section">
             <div class="card mb-4 p-3">
                 <div class="card-block">
                     <div id="map"></div>
@@ -343,6 +343,12 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <script>
+    $("#showMap").click(function() {
+        $('html,body').animate({
+            scrollTop: $(".map-section").offset().top},
+            'slow');
+    });
+
     function geocode(){
 
         var address, number, street, city, state, country, zip, latitude, longitude;
