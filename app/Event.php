@@ -11,12 +11,16 @@ class Event extends Model
         'location_id',
         'type_id',
         'event_name',
+        'type_id',
+        'location_id',
         'starts',
         'ends',
         'time_state',
         'event_description',
+        'event_requirements',
+        'user_id',
         'num_registered',
-        'num_atteneded'
+        'num_attended',
     ];
 
     public function user() {

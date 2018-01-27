@@ -6,14 +6,20 @@ Cookie Policy
 
 @section('content')
 
-@include('layouts.header')
+<div class="container-fluid">
+    <div class="row">
 
-<div id="legalContainer">
+                    <!-- Sidebar -->
+        @include('layouts.legalsidebar')
 
-    @include('layouts.menu.legal')
+        <!-- Padding for fixed sidebar -->
+        <div class="col-3"></div>
 
-    <div class="cont">
-        <h1>Cookie Policy</h1>
+                    <!-- Stats Bar and Events List -->
+        <div class="col-9 pl-5 pr-5 pt-4 dashboard">
+            <div class="row">
+            <div class="cont">
+        <h1 class="blue"><b>Cookie Policy</b></h1>
 
       <p>
         This Cookie Statement explains how <a href="https://yourunity.org">https://YourUnity.org</a> and its affiliated companies (collectively “YourUnity”, "we", "us", and "ours") use cookies and similar technologies to recognize you when you visit our websites and mobile applications (together “Cookies”), including <a href="https://yourunity.org">https://YourUnity.org</a>, and any other webpages, subdomains, country level domain variants that link or refer to this Cookie Policy, all of the services available on or through the Site or otherwise provided by us, and all of our free mobile applications, including without limitation, the YourUnity app ("Site(s)"). It explains what these technologies are and why we use them, as well as your rights to control our use of them.
@@ -97,31 +103,11 @@ Cookie Policy
           </p>
 
     </div>
+
+            </div>
+        </div>
+    </div>
 </div>
+
 @endsection
 
-<style>
-
-hr {
-    margin-top: 5vh !important;
-    margin-bottom: 8vh !important;
-}
-.cont > p:first-of-type {
-    margin-left: 0 !important;
-    font-style: italic;
-}
-
-.cont > p {
-    font-size: 1.1rem !important;
-    line-height: 1.8rem;
-    margin-left: 4vw !important;
-    font-size: 150%;
-    color: #dfdfdf;
-}
-
-@media only screen and (max-width : 1224px) {
-    .cont > p:first-of-type {
-        margin-left: 4vw !important;
-    }
-}
-</style>

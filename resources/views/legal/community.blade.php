@@ -6,14 +6,20 @@ Community Guidelines
 
 @section('content')
 
-@include('layouts.header')
+<div class="container-fluid">
+    <div class="row">
 
-<div id="legalContainer">
+                    <!-- Sidebar -->
+        @include('layouts.legalsidebar')
 
-    @include('layouts.menu.legal')
+        <!-- Padding for fixed sidebar -->
+        <div class="col-3"></div>
 
-    <div class="cont">
-        <h1>Community Guidlines</h1>
+                    <!-- Stats Bar and Events List -->
+        <div class="col-9 pl-5 pr-5 pt-4 dashboard">
+            <div class="row">
+            <div class="cont">
+        <h1 class="blue"><b>Community Guidlines</b></h1>
         <p>
             We want every one of you to rest assured that you are browsing in a safe, secure environment. This is why we developed our Community Guidelines.
         </p>
@@ -83,31 +89,10 @@ Community Guidelines
 
     </div>
 
+            </div>
+        </div>
+    </div>
 </div>
+
+
 @endsection
-
-<style>
-hr {
-    margin-top: 5vh !important;
-    margin-bottom: 8vh !important;
-}
-
-.cont > p:first-of-type {
-    margin-left: 0 !important;
-    font-style: italic;
-}
-
-.cont > p {
-    font-size: 1.1rem !important;
-    line-height: 1.8rem;
-    margin-left: 4vw !important;
-    font-size: 150%;
-    color: #dfdfdf;
-}
-
-@media only screen and (max-width : 1224px) {
-    .cont > p:first-of-type {
-        margin-left: 4vw !important;
-    }
-}
-</style>
