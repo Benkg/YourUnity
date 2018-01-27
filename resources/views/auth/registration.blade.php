@@ -14,21 +14,39 @@
                 <table class="table-full">
                     <tr>
                         <td>
-                            <!-- Name Input -->
-                              <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                  <label for="name" class="col-12 control-label">Name</label>
+                            <!-- First Name Input -->
+                              <div class="form-group{{ $errors->has('name_first') ? ' has-error' : '' }}">
+                                  <label for="name_first" class="col-12 control-label">First Name</label>
 
                                   <div class="col-11">
-                                      <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                      <input id="name_first" type="text" class="form-control" name="name_first" value="{{ old('name_first') }}" required autofocus>
 
-                                      @if ($errors->has('name'))
+                                      @if ($errors->has('name_first'))
                                           <span class="help-block">
-                                              <strong>{{ $errors->first('name') }}</strong>
+                                              <strong>{{ $errors->first('name_first') }}</strong>
                                           </span>
                                       @endif
                                   </div>
                               </div>
                         </td>
+                        <td>
+                            <!-- Last Name Input -->
+                              <div class="form-group{{ $errors->has('name_last') ? ' has-error' : '' }}">
+                                  <label for="name_last" class="col-12 control-label">Last Name</label>
+
+                                  <div class="col-11">
+                                      <input id="name_last" type="text" class="form-control" name="name_last" value="{{ old('name_last') }}" required autofocus>
+
+                                      @if ($errors->has('name_last'))
+                                          <span class="help-block">
+                                              <strong>{{ $errors->first('name_last') }}</strong>
+                                          </span>
+                                      @endif
+                                  </div>
+                              </div>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>
                             <!-- Company/Organization Name Input -->
                               <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -40,6 +58,22 @@
                                       @if ($errors->has('company'))
                                           <span class="help-block">
                                               <strong>{{ $errors->first('company') }}</strong>
+                                          </span>
+                                      @endif
+                                  </div>
+                              </div>
+                        </td>
+                        <td>
+                            <!-- E-Mail Address Input -->
+                              <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                  <label for="email" class="col-12 control-label">E-Mail Address</label>
+
+                                  <div class="col-11">
+                                      <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+
+                                      @if ($errors->has('email'))
+                                          <span class="help-block">
+                                              <strong>{{ $errors->first('email') }}</strong>
                                           </span>
                                       @endif
                                   </div>
@@ -70,24 +104,6 @@
 
                                   <div class="col-11">
                                       <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                                  </div>
-                              </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <!-- E-Mail Address Input -->
-                              <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                  <label for="email" class="col-12 control-label">E-Mail Address</label>
-
-                                  <div class="col-11">
-                                      <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                      @if ($errors->has('email'))
-                                          <span class="help-block">
-                                              <strong>{{ $errors->first('email') }}</strong>
-                                          </span>
-                                      @endif
                                   </div>
                               </div>
                         </td>
