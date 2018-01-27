@@ -32,67 +32,32 @@
 
             <!-- Profile Picture -->
             <div class="text-center">
-                <a href="/settings"><img src="/images/avatars/<?php echo e(Auth::user()->avatar); ?>" class="rounded img-fluid"></a>
+                <a href="/settings"><img src="/images/avatars/<?php echo e(Auth::user()->avatar); ?>" class=" avatar-sm rounded img-fluid"></a>
             </div>
-            <hr class="side-hr mt-4"/>
-            <!-- Table of Dates Of Events -->
-            <div class="calendar mt-4">
-                <div class="list-group line-stop">
-                    <h3 class="text-center mb-3">Upcoming Events</h3>
-
-                    <!-- start a count var -->
-                    <?php $count = 1; ?>
-
-                    <?php $__currentLoopData = $nonPastEvents; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <?php if($event->time_state == 2): ?>
-
-                            <!-- Main Link to Event -->
-                            <a href="/events/<?php echo e($event->id); ?>" class="list-group-item list-group-item-action">
-                                <span class="truncate">
-                                    <!--Time until Event -->
-                                    <?php
-                                        $time = timeUntil($event->starts);
-                                        echo secsToTimeShort($time);
-                                    ?>                                                       
-                                    <!-- Calendar Icon -->
-                                    <b>
-                                        <span class="lnr lnr-calendar-full small-cal"></span>
-                                    </b>                                    
-                                    <!-- Event name -->                                   
-                                    <span id = "eventName"><?php echo e($event->event_name); ?></span>
-                                </span>
-                            </a>
-
-                            <!-- If 5 events have loaded, break. Else, keep loading. -->
-                            <?php
-                                if ($count == 5){
-                                    break;
-                                } else {
-                                    $count++;
-                                }
-                            ?>
-
-                        <?php endif; ?>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </div>
-            </div>
-
-            <!-- Create New Event Button -->
-            <a href="/events/create" class="btn btn-success  btn-block mt-4 responsive-button" role="button" aria-disabled="true">Create Event</a>
+            <!-- <hr class="side-hr mt-4"/> -->
 
             <!-- All Events -->
             <div class="col-centered">
-                <h3 class="text-center"><a href="/events" class="all_events no-highlight" aria-disabled="true">View All Events</a></h3>
+            <a href="/events" class="button-sec mt-4" role="button" aria-disabled="true">View All Events</a>
             </div>
+
+            <!-- Create New Event Button -->
+            <a href="/events/create" class="btn btn-success btn-block mt-4 responsive-button" role="button" aria-disabled="true">Create Event</a>
 
         </div>
 
 <!-- Custom Styles -->
 <style type="text/css">
 .responsive-button { 
-overflow: hidden;
-white-space: nowrap;
-
+    overflow: hidden;
+    white-space: nowrap;
+    height: 50px !important;
+    width: 22vw;
+    font-size: 1.5rem;
+    font-weight: 300;
+    position: absolute;
+    bottom: 3vh;
+    vertical-align: middle;
 }
 
 #eventName {
@@ -147,15 +112,15 @@ h3 {
 
 </style>
 
-                    <!-- Script for Active Hover on Event Table -->
+                    <!-- Script for Hide All Events Button on Event Table -->
 <script>
 
     /* stores current window pathname in full */
     var route = window.location.pathname;
 
-    /* Whatever page this is, highlight that option */
+    /* Hide if on all events page */
     if (route !== "/dashboard"){
-        $("a[href$= '" + route + "']" ).addClass("active");
+        $("a[href$= '" + route + "']" ).addClass("hide");
     }
 
     /* When hovering, give that class an active look */
@@ -163,9 +128,9 @@ h3 {
 
         $('.list-group-item').hover(function() {
             $( ".list-group-item" ).each(function() {
-                $(".list-group-item").removeClass("active");
+                $(".list-group-item").removeClass("hide");
             });
-            $(this).addClass("active");
+            $(this).addClass("hide");
         });
     });
 
@@ -173,21 +138,21 @@ h3 {
     $(".list-group").mouseleave(function(){
 
         $( ".list-group-item" ).each(function() {
-            $(".list-group-item").removeClass("active");
+            $(".list-group-item").removeClass("hide");
         });
 
         if (route !== "/dashboard"){
-            $("a[href$= '" + route + "']" ).addClass("active");
+            $("a[href$= '" + route + "']" ).addClass("hide");
         }
 
         /* When All Events link is clicked, don't highlight it */
-        $(".all_events").removeClass("active");
-        $(".this_event").removeClass("active");
+        $(".all_events").removeClass("hide");
+        $(".this_event").removeClass("hide");
     });
 
 
     /* When All Events link is clicked, don't highlight it */
-    $(".all_events").removeClass("active");
+    $(".all_events").removeClass("hide");
 
 
 </script>
