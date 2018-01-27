@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Location;
 use App\Event;
 use Auth;
 
@@ -16,14 +17,47 @@ class EventsController extends Controller
 
     /* VIEW ALL Events */
     public function index() {
-        $events = Event::latest()->get();
-        return view('events.index', compact('events'));
+        $user_id = Auth::user()->id;
+
+        //Select all this user's future events
+        $futureEvents = DB::table('events')
+                            ->where('user_id', $user_id)
+                            ->where('time_state','=', 2)
+                            ->orderBy('starts', 'DESC')
+                            ->get();
+
+        //Select all this user's present events
+        $presentEvents = DB::table('events')
+                            ->where('user_id', $user_id)
+                            ->where('time_state','=', 1)
+                            ->orderBy('starts', 'DESC')
+                            ->get();
+
+        //Select all this user's past events
+        $pastEvents = DB::table('events')
+                            ->where('user_id', $user_id)
+                            ->where('time_state','=', 0)
+                            ->orderBy('starts', 'DESC')
+                            ->get();
+
+        $locations = DB::table('locations')
+                      ->where('user_id', '=', $user_id)
+                      ->get();
+
+        return view('events.index', compact('futureEvents','presentEvents','pastEvents','locations'));
     }
 
     /* VIEW SINGLE Event */
     public function show(Event $event) {
-        $events = Event::latest()->get();
-        return view('events.show', compact('events','event'));
+        $user_id = auth()->user()->id;
+        $location_id = $event->location_id;
+        $location = DB::table('locations')
+                ->where('location_id', '=', $location_id)
+                ->where('user_id', '=', $user_id)
+                ->get();
+        $location = $location[0];
+
+        return view('events.show', compact('event','location'));
     }
 
     /* CREATE Form */
@@ -33,12 +67,28 @@ class EventsController extends Controller
 
     /* EDIT Form */
     public function edit(Event $event) {
-        return view('events.edit', compact('event'));
+        $user_id = auth()->user()->id;
+        $location_id = $event->location_id;
+        $location = DB::table('locations')
+                ->where('location_id', '=', $location_id)
+                ->where('user_id', '=', $user_id)
+                ->get();
+        $location = $location[0];
+
+        return view('events.edit', compact('event', 'location'));
     }
 
     /* DUPLICATE Form */
     public function duplicate(Event $event) {
-        return view('events.duplicate', compact('event'));
+        $user_id = auth()->user()->id;
+        $location_id = $event->location_id;
+        $location = DB::table('locations')
+                ->where('location_id', '=', $location_id)
+                ->where('user_id', '=', $user_id)
+                ->get();
+        $location = $location[0];
+
+        return view('events.duplicate', compact('event', 'location'));
     }
 
     /* DELETE Form */
@@ -48,24 +98,22 @@ class EventsController extends Controller
 
     /* CREATE/DUPLICATE an Event */
     public function store(Request $request) {
+        /*/ Structure Of Request
+         * startDate[] = {month, day, year}
+         * startTime[] = {hour, minute, period}
+         * endTime[] = {hour, minute, period}
+         * location[] = {address, city, state, zip, country, latitude, longitude}
+         * event_description
+         * event_name
+        /*/
 
-        /* Collect the date and time (start and end) input arrays */
-        $startDate = $_POST['startDate'];
         //$endDate = $_POST['endDate'];
         //End date disabled untill we want to do multi-day events...
+        $startDate = $_POST['startDate'];
         $endDate = $startDate;
         $startTime = $_POST['startTime'];
         $endTime = $_POST['endTime'];
         $location = $_POST['location'];
-
-        /* Concatenate the arrays and merge values into form request, just to check that every input was filled */
-        $request->merge([
-            'starting_date' => $startDate['year'] . $startDate['month'] . $startDate['day'],
-            'ending_date' => $startDate['year'] . $startDate['month'] . $startDate['day'],
-            'starting_time' => $startTime['hour'] . $startTime['minute'] . $startTime['period'],
-            'ending_time' => $endTime['hour'] . $endTime['minute'] . $endTime['period'],
-            'location' => $location['address'] .', '. $location['city'] . ', CA, ' . $location['zip'],
-        ]);
 
         $request->merge([
             'starting_year' => $startDate['year'],
@@ -112,25 +160,65 @@ class EventsController extends Controller
             'zip' => 'required|min:4',
 
             'event_name' => 'required|min:3|max:255',
-            'event_description' => 'required|min:5'
+            'event_description' => 'required|min:5',
+            'event_type' => 'required'
         ]);
+
+        $user_id = auth()->user()->id;
+
+        /*/ Clarifying Location variables
+         * $location -> the location from the request
+         * $locations -> all of this users stored locations
+         * $loc -> a specific stored location
+        /*/
+
+        //Get all of this users stored address
+        $locations = DB::table('locations')->where('user_id', $user_id)->get();
+
+        //Assume a new address (set flag and create the next id)
+        $newAddress = 1;
+        $location_id = count($locations) + 1;
+
+        //Loop through all address and check for a match
+        foreach ($locations as $loc) {
+          //If a match is found, clear flag and change id to that one
+           if($location['address'] == $loc->address){
+              $newAddress = 0;
+              $location_id = $loc->location_id;
+           }
+        }
+
+        //If we have a new address, add it to the database
+        if($newAddress){
+          $thisLocation = Location::create([
+              'user_id' => $user_id,
+              'location_id' => $location_id,
+              'address' => $location['address'],
+              'city' => $location['city'],
+              'state' => $location['state'],
+              'country' => $location['country'],
+              'postal_code' => $location['zip'],
+              'latitude' => $location['latitude'],
+              'longitude' => $location['longitude'],
+          ]);
+        }
 
 
         /* Format Date/Time arrays into YYMMDDHHMMTZS format */
         $starts = storeDTA($startDate, $startTime);
         $ends = storeDTA($endDate, $endTime);
-
         $request->merge([
             'starts' => $starts,
             'ends' => $ends,
         ]);
 
         /* Create new event using request data */
-        $thisEvents = Event::create([
+        $thisEvent = Event::create([
             'event_name' => request('event_name'),
+            'location_id' => $location_id,
+            'type_id' => request('event_type'),
             'starts' => request('starts'),
             'ends' => request('ends'),
-            'location' => request('location'),
             'event_description' => request('event_description'),
             'time_state' => 2,
             'user_id' => auth()->user()->id
@@ -141,36 +229,30 @@ class EventsController extends Controller
         $user->num_events = $user->num_events + 1;
         $user->save();
 
-        //if($_POST['duplicate_id']){
-        //    echo $_POST['duplicate_id'];
-        //} For when we want to implement duplicate with attachments
-
-        $id = $thisEvents->id;
         /* Redirect to event page */
+        $id = $thisEvent->id;
         return redirect("/events/$id");
 
     }
 
     /* EDIT an Existing Event */
     public function patch(Request $request, Event $event) {
+        /*/ Structure Of Request
+         * startDate[] = {month, day, year}
+         * startTime[] = {hour, minute, period}
+         * endTime[] = {hour, minute, period}
+         * location[] = {address, city, state, zip, country, latitude, longitude}
+         * event_description
+         * event_name
+        /*/
 
-        /* Collect the date and time (start and end) input arrays */
-        $startDate = $_POST['startDate'];
         //$endDate = $_POST['endDate'];
         //End date disabled untill we want to do multi-day events...
+        $startDate = $_POST['startDate'];
         $endDate = $startDate;
         $startTime = $_POST['startTime'];
         $endTime = $_POST['endTime'];
         $location = $_POST['location'];
-
-        /* Concatenate the arrays and merge values into form request, just to check that every input was filled */
-        $request->merge([
-            'starting_date' => $startDate['year'] . $startDate['month'] . $startDate['day'],
-            'ending_date' => $startDate['year'] . $startDate['month'] . $startDate['day'],
-            'starting_time' => $startTime['hour'] . $startTime['minute'] . $startTime['period'],
-            'ending_time' => $endTime['hour'] . $endTime['minute'] . $endTime['period'],
-            'location' => $location['address'] .', '. $location['city'] . ', CA, ' . $location['zip'],
-        ]);
 
         $request->merge([
             'starting_year' => $startDate['year'],
@@ -212,19 +294,58 @@ class EventsController extends Controller
             'ending_minute' => 'required',
             'ending_period' => 'required',
 
-            'address' => 'required',
-            'city' => 'required',
-            'zip' => 'required',
+            'address' => 'required|min:4',
+            'city' => 'required|min:4',
+            'zip' => 'required|min:4',
 
             'event_name' => 'required|min:3|max:255',
-            'location' => 'required|min:4|max:255',
-            'event_description' => 'required|min:5'
+            'event_description' => 'required|min:5',
+            'event_type' => 'required'
         ]);
+
+        $user_id = auth()->user()->id;
+
+        /*/ Clarifying Location variables
+         * $location -> the location from the request
+         * $locations -> all of this users stored locations
+         * $loc -> a specific stored location
+        /*/
+
+        //Get all of this users stored address
+        $locations = DB::table('locations')->where('user_id', $user_id)->get();
+
+        //Assume a new address (set flag and create the next id)
+        $newAddress = 1;
+        $location_id = count($locations) + 1;
+
+        //Loop through all address and check for a match
+        foreach ($locations as $loc) {
+          //If a match is found, clear flag and change id to that one
+           if($location['address'] == $loc->address){
+              $newAddress = 0;
+              $location_id = $loc->location_id;
+           }
+        }
+
+        //If we have a new address, add it to the database
+        if($newAddress){
+          $thisLocation = Location::create([
+              'user_id' => $user_id,
+              'location_id' => $location_id,
+              'address' => $location['address'],
+              'city' => $location['city'],
+              'state' => $location['state'],
+              'country' => $location['country'],
+              'postal_code' => $location['zip'],
+              'latitude' => $location['latitude'],
+              'longitude' => $location['longitude'],
+          ]);
+        }
+
 
         /* Format Date/Time arrays into YYMMDDHHMMTZS format */
         $starts = storeDTA($startDate, $startTime);
         $ends = storeDTA($endDate, $endTime);
-
         $request->merge([
             'starts' => $starts,
             'ends' => $ends,
@@ -236,16 +357,18 @@ class EventsController extends Controller
             event_name = :event_name,
             starts = :starts,
             ends = :ends,
-            location = :location,
+            location_id = :location_id,
             event_description = :event_description,
+            type_id = :type_id,
             user_id = :user_id
             where id = :id', [
                 'id' => $id,
                 'event_name' => request('event_name'),
                 'starts' => request('starts'),
                 'ends'=> request('ends'),
-                'location' => request('location'),
+                'location_id' => $location_id,
                 'event_description' => request('event_description'),
+                'type_id' => request('event_type'),
                 'user_id' => auth()->user()->id
         ]);
 
@@ -264,21 +387,4 @@ class EventsController extends Controller
 
         return redirect("/");
     }
-
-    public function test(Request $request){
-        /* Collect the date and time (start and end) input arrays
-        $startDate = $_POST['startDate'];
-        $endDate = $_POST['endDate'];
-        $startTime = $_POST['startTime'];
-        $endTime = $_POST['endTime'];
-
-        Format Date/Time arrays into YYMMDDHHMMTZS format
-        $starts = storeDTA($startDate, $startTime);
-
-        timeUntil($starts);
-
-        echo " until " . printDate($starts) . " " . printTime($starts);
-        */
-    }
-
 }
