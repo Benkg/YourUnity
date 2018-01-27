@@ -5,6 +5,7 @@ Contact YourUnity
 
 @section('content')
 @include('layouts.header')
+@include('layouts.menu.main')
 
 <!-- Pass url to form submit, should be done using session reflash -->
 <?php
