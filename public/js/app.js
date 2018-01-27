@@ -32003,12 +32003,17 @@ __webpack_require__(34);
 // On some exotic environments, it's not clear which object `setimmeidate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
+<<<<<<< HEAD
+exports.setImmediate = self && self.setImmediate || global && global.setImmediate || this && this.setImmediate;
+exports.clearImmediate = self && self.clearImmediate || global && global.clearImmediate || this && this.clearImmediate;
+=======
 exports.setImmediate = (typeof self !== "undefined" && self.setImmediate) ||
                        (typeof global !== "undefined" && global.setImmediate) ||
                        (this && this.setImmediate);
 exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
+>>>>>>> 97f6c5fccd7430b5b17e0093cc1031f418ed4091
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
@@ -32026,7 +32031,11 @@ var Component = __webpack_require__(37)(
   /* cssModules */
   null
 )
+<<<<<<< HEAD
+Component.options.__file = "/Users/Alexander/Desktop/Code/YourUnity-Dev/resources/assets/js/components/Example.vue"
+=======
 Component.options.__file = "/Users/NehaNene/YourUnity-Dev/resources/assets/js/components/Example.vue"
+>>>>>>> 97f6c5fccd7430b5b17e0093cc1031f418ed4091
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
 
