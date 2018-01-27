@@ -25,7 +25,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('events', ['middleware' => 'cors', function() {
     // If the Content-Type and Accept headers are set to 'application/json',
     // this will return a JSON structure. This will be cleaned up later.
-    return Event::orderBy('starts')->where('time_state', '>', 0)->get();
+    // return Event::orderBy('starts')->where('time_state', '>', 0)->get();
+    return DB::table('events')->orderBy('starts')->where('time_state', '>', 0)->join('locations', 'events.location_id', '=', 'locations.location_id')->get()->toArray();
 }]);
 
 Route::get('events/{id}', function($id) {

@@ -41,14 +41,16 @@ class EventRegisterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   //Are we checking to make sure that the user cannot register for an active or past event?
-        ActivityRecord::create([ //not sure if this is allowed
+    {   
+        ActivityRecord::create([ 
             'event_id' => request('event_id'),
             'attendee_id' => request('firedb_id'),
             'check_in_time' => request('check_in_time'),
             'duration' => request('duration'),
             'activity_status' => request('activity_status')
         ]);
+
+        
 
         DB::table('events')->where('id', '=', $request['event_id'])->increment('num_registered');
 
@@ -151,12 +153,13 @@ class EventRegisterController extends Controller
             ])->get();
 
         $ids = [];
+        $location_ids = [];
 
         foreach($event_ids as $event) {
             array_push($ids, $event->event_id);
         }
 
-        return Event::findMany($ids);
+        return DB::table('events')->whereIn('id', $ids)->join('locations', 'events.location_id', '=', 'locations.location_id')->get()->toArray();
 
     }
 }
