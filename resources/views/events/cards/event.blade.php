@@ -1,4 +1,5 @@
-                    <!-- Event Card -->
+
+<!-- Event Card -->
 <div class="card mt-4 mb-4 p-3">
     <div class="card-block">
 
@@ -17,7 +18,7 @@
                     <h6 class="card-subtitle text-muted col-12"><span class="lnr lnr-clock"></span></span> {{ printTime($event->starts) }} - {{ printTime($event->ends) }}</h6>
                 </div>
                 <div class="row">
-                    <h6 class="card-subtitle text-muted col-12"><span class="lnr lnr-map-marker"></span>{{ $event->location }}</h6>
+                    <h6 class="card-subtitle text-muted col-12"><span class="lnr lnr-map-marker"></span>{{ $location->address }}, {{ $location->city }}, {{ $location->postal_code }}</h6>
                 </div>
             </div>
 

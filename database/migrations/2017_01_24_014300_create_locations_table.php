@@ -28,6 +28,8 @@ class CreateLocationsTable extends Migration
           $table->float('latitude', 10, 7);
           $table->float('longitude', 10, 7);
 
+          $table->timestamps();
+          
           $table
               ->primary(array('user_id', 'location_id'));
           $table

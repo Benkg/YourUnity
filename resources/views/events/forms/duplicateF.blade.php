@@ -1,10 +1,7 @@
 <?php
-    $location = explode(", ", $event->location);
-
-    $address = $location[0];
-    $city = $location[1];
-    $state = $location[2];
-    $zip = $location[3];
+    $address = $location->address;
+    $city = $location->city;
+    $zip = $location->postal_code;
 ?>
 
 <!-- Duplicate Form -->
@@ -286,6 +283,20 @@
     <div class="form-group invisible">
         <label for="event_description">Event Description</label>
         <textarea class="form-control text-left" id="event_description" name="event_description" rows="3"><?php echo "$event->event_description"; ?></textarea>
+    </div>
+
+    <!-- Event Type (Hidden)-->
+    <div class="form-group invisible">
+        <label for="event_type">Event Type</label>
+        <input type="text" class="form-control" id="event_type" name="event_type"><?php echo "$event->type_id"; ?></input>
+    </div>
+
+    <!-- Event Type (Hidden)-->
+    <div class="form-group">
+        <label for="event_type">Event Type</label>
+        <select class="form-control" id="event_type" name="event_type">
+            <option value="<?php echo "$event->type_id"; ?>" <?php echo ' selected="selected"';?>></option>
+        </select>
     </div>
 
 </form>
