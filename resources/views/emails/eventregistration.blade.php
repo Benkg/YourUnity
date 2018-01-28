@@ -7,7 +7,7 @@ Congratulations on registering for {{ $event->event_name }}.
 
 Here's what you need to know.
 
-Where: {{ $event->location }}
+Where: {{ $location }}
 
 When: {{ printDate($event->starts) }} from {{ printTime($event->starts) }} to {{ printTime($event->ends) }}.
 

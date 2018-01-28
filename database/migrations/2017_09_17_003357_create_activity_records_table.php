@@ -19,9 +19,9 @@ class CreateActivityRecordsTable extends Migration
           $table->increments('id');
           $table->integer('user_id')->unsigned();
           $table->integer('event_id')->unsigned();
-          $table->string('attendee_id');
+          $table->integer('attendee_id')->unsigned();
 
-          $table->string('group_name')->nullable();
+          $table->string('group_name')->nullable()->default('Independent');
 
           $table->bigInteger('check_in_time')->unsigned();
           $table->tinyInteger('check_in_method')->unsigned()->default(2);
@@ -40,7 +40,7 @@ class CreateActivityRecordsTable extends Migration
               ->on('events');
           $table
               ->foreign('attendee_id')
-              ->references('firedb_id')
+              ->references('id')
               ->on('attendees');
       });
     }

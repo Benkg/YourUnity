@@ -88,8 +88,6 @@
                                     </select>
 
                                     <select class="form-control col-3" id="startDate[year]" name="startDate[year]">
-                                        <option value=""></option>
-                                        <option value="17" >2017</option>
                                         <option value="18" >2018</option>
                                         <option value="19" >2019</option>
                                         <option value="20" >2020</option>
@@ -351,7 +349,7 @@
 
     function geocode(){
 
-        var address, number, street, city, state, country, zip, latitude, longitude;
+        var number, street, poi, address, city, state, country, zip, latitude, longitude;
 
         address = document.getElementById("address").value;
         city = document.getElementById("city").value;
@@ -367,16 +365,42 @@
             }
         })
         .then(function(response){
-            number = response.data.results[0].address_components[0].long_name;
-            street = response.data.results[0].address_components[1].long_name;
-            city = response.data.results[0].address_components[3].long_name;
-            state = response.data.results[0].address_components[5].long_name;
-            country = response.data.results[0].address_components[6].long_name;
-            zip = response.data.results[0].address_components[7].long_name;
-            latitude = response.data.results[0].geometry.location['lat'];
-            longitude = response.data.results[0].geometry.location['lng'];
+            var loc = response.data.results[0];
+            latitude = loc.geometry.location['lat'];
+            longitude = loc.geometry.location['lng'];
 
-            document.getElementById('location[address]').value = number +' '+street;
+            for (var i=0; i<loc.address_components.length; i++) {
+                for (var j=0; j<loc.address_components[i].types.length; j++) {
+
+                    var type = loc.address_components[i].types[j];
+                    var data = loc.address_components[i].short_name;
+
+                    if (type == "street_number") {
+                        number = data;
+                    } else if (type == "route"){
+                        street = data;
+                    } else if (type == "point_of_interest"){
+                        poi = data;
+                    } else if (type == "locality"){
+                        city = data;
+                    } else if (type == "administrative_area_level_1"){
+                        state = data;
+                    } else if (type == "country"){
+                        country = data;
+                    } else if (type == "postal_code"){
+                        zip = data;
+                    }
+
+                }
+            }
+
+            if(number){
+                address = number + ' ' + street;
+            } else {
+               address = poi + ' ' + street;
+            }
+
+            document.getElementById('location[address]').value = address;
             document.getElementById('location[city]').value = city;
             document.getElementById('location[state]').value = state;
             document.getElementById('location[zip]').value = zip;
