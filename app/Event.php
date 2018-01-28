@@ -7,13 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     protected $fillable = [
+        'user_id',
+        'location_id',
+        'type_id',
         'event_name',
+        'type_id',
+        'location_id',
         'starts',
         'ends',
-        'location',
+        'time_state',
         'event_description',
         'event_requirements',
-        'user_id'
+        'user_id',
+        'num_registered',
+        'num_attended',
     ];
 
     public function user() {

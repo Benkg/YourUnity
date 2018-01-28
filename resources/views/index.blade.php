@@ -15,126 +15,116 @@ YourUnity
 				window.location.replace("#service_providers");
 		});
 		$('.sc2').hover(function() {
-			$('.splash-card-2').toggleClass('lighter');
+			$('.card1').toggleClass('lighter');
 		});
 		$('.sc2').click(function() {
 				window.location.replace("#service_leaders");
 		});
 		$('.sc3').hover(function() {
-			$('.splash-card-3').toggleClass('lighter');
+			$('.card2').toggleClass('lighter');
 		});
 		$('.sc3').click(function() {
 				window.location.replace("#volunteers");
 		});
 	});
+
 </script>
+					  <!-- Nav Bar -->
 
 <div class="container-fluid no-padding">
-                      <!-- Background Image, Sign In and Register Buttons -->
+	<nav class="navbar navbar-light bg-faded" style="background-color: #3f3f3f;">
+		<div class="row">
+		<span class="col-6 media-icons">
+			<a href="https://yourunity.org/blog" class="text-white">Blog</a>
+			<a href="https://twitter.com/YourUnityApp"><img src="https://yourunity.org/images/twitter_white.png" class="head-twitter-icon" alt="Twitter"></a>
+			<a href="https://www.facebook.com/YourUnityApp/"><img src="https://yourunity.org/images/facebook_white.png" class="head-social-icons" alt="Facebook"></a>	
+		</span>
+		<span class="col-6">
+			<a href="/login" class="btn btn-outline-secondary white top-login">Login</a>
+			<a href="/access" class="btn btn-primary white top-login top-btn top-reg">Register</a>
+		</span>
+		
+		</div>
+	</nav>
+					  <!-- Background Image -->
+
 	<div class="row justify-content-center splash-image">
-		<div class="col-sm-12">
-			<div class="row mt-2">
-				<div class="col-sm-3 text-right">
-					<img src="{{ url('/images/YU_001_White.svg') }}" class="logo-main" alt="YourUnity">
-				</div>
-				<div class="col-sm-8 text-right vertical-align">
-					<span class="head-links white"><a href="https://yourunity.org/blog">Blog</a></span>
-					<a href="https://twitter.com/YourUnityApp"><img src="{{ url('/images/twitter_white.png') }}" class="head-twitter-icon" alt="Twitter"></a>
-					<a href="https://www.facebook.com/YourUnityApp/"><img src="{{ url('/images/facebook_white.png') }}" class="head-social-icons ml-2" alt="Facebook"></a>
-					<!-- <img src="{{ url('/images/instagram_white.png') }}" class="head-social-icons ml-4" alt="Instagram"> -->
-					<a href="/login" class="btn btn-outline-secondary white ml-4 top-btn top-login">Login</a>
-					<a href="/access" class="btn btn-primary white ml-3 top-btn">Register</a>
-				</div>
+		<div class="col-sm-12 ">
+			<div class="text-center">
+				<img src="{{ url('/images/YU_001_White.svg') }}" class="center logo-main" alt="YourUnity">
 			</div>
-
-			<div class="row">
-				<div class="col-sm-6 phrase">
-					<span class="landing-phrase">Community, everywhere.</span>
-					<br />
-					<p class="landing-paragraph">We help you connect with community service providers in your area and improve the community around you.</p>
-				</div>
-			</div>
-			<div class="down-circle center"><span class="lnr lnr-chevron-down-circle"></span></div>
+			<div class="text-center landing-phrase">Community, everywhere.</div>
+			<div class="down-circle "><span class="lnr lnr-chevron-down-circle"></span></div>
 		</div>
 	</div>
+					<!-- Landing phrase and Options -->
 
-	<div class="row dark-grey pt-4 pb-4">
-		<div class="col-sm-12 p-4">
-			<div class="row">
-				<div class="col-sm-12 center mb-4">
-					<h2 class="thick">Community, for everyone.</h2>
-					<hr class="short" />
-				</div>
+	<section class="dark-grey p-3">
+			<div class="text-center col-12">
+				<div class="landing-phrase">Community, for everyone.</d>
+				<br />
+				<div class="landing-paragraph">We connect community service providers with volunteers to improve the community around you.</div>
 			</div>
-			<div class="row pb-4">
-				<div class="splash-card-1"></div>
-				<div class="col-sm-6 center sc1">
+			<hr class="short"/>
+			<div class="row">
+				<div class="col-lg-6 col-sm-12 col-md-6 card-one">
 					<span class="lnr lnr-store big-icons"></span>
-					<h3 class="mt-2">Community Service Providers</h3>
-				</div>
-				<div class="splash-card-3"></div>
-				<div class="col-sm-6 center pt-2 sc3">
-					<span class="lnr lnr-users big-icons"></span>
-					<h3>Volunteers</h3>
-				</div>
-			</div>
-			<br />
-		</div>
-	</div>
+					<h2 class="mt-2">Community Service Providers</h2>
+					<span class="glyphicon glyphicon-resize-horizontal"></span>
 
-	<div id="service_providers" class="row pt-4 pb-4">
-		<div class="col-sm-12 p-4">
-			<div class="row">
-				<div class="col-sm-12 center">
-					<h2 class="thick">Community, for Service Providers.</h2>
-					<a href="/access" class="btn btn-primary white mt-2">Register</a>
-					<a href="/login" class="btn btn-outline-secondary white ml-3 mt-2">Login</a>
-					<hr class="short" />
+				</div>
+				<div class="col-lg-6 col-sm-12 col-md-6 card-two">
+					<span class="lnr lnr-users big-icons"></span>
+					<h2>Volunteers</h2>
 				</div>
 			</div>
-			<div class="row mt-4 p-1">
-				<div class="col-sm-1"></div>
-				<div class="col-sm-5 blue_background pt-3 pb-3 mr-4">
-					<img src="{{ url('/images/screenshot_create_event.png') }}" class="screenshot" alt="Create an Event">
+	</section>
+					<!-- 3 Images and Text Pitch -->
+
+	<div class="row serviceProviders ">
+		<div class="col-sm-12 p-4">
+			
+			<div class="row p-1 mt-4">
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<img src="{{ url('/images/post.png') }}" class="screenshot tinted" alt="Create an Event">
 				</div>
-				<div class="col-sm-5">
-					<h3 class="mb-4">Create events for volunteers to join.</h3>
+				<div class="col-lg-6 col-md-6 col-sm-6 contentPad">
+					<h2 class="mb-4 ">Publish and publicize your events to a large volunteer pool.</h2>
 					<p>Unlimited events, with unlimited potential. Post your event to YourUnity, and let us do the rest of the work for you! Simply fill out the title of the event, location, time, a short description, and any requirements for the event.</p>
 				</div>
 			</div>
 			<div class="row p-1 mt-4">
-				<div class="col-sm-1"></div>
-				<div class="col-sm-5">
-					<h3 class="mb-4">Track your events.</h3>
+				<div class="col-lg-6 col-md-6 col-sm-6 contentPad flex-first">
+					<h2 class="mb-4">Get data analytics from your past events.</h2>
 					<p>Track every event that you post to YourUnity. See how many people are interested in your event, how many show up, and the number of hours that they log at your event. Many more analytics are coming every day to YourUnity to help you understand how to drive even more people to them.</p>
 				</div>
-				<div class="col-sm-5 blue_background pt-3 pb-3 text-right">
-					<img src="{{ url('/images/screenshot_tracking.png') }}" class="screenshot" alt="Track Events">
+				<div class="col-lg-6 col-md-6 col-sm-6 flex-second">
+					<img src="{{ url('/images/analytics.png') }}" class="screenshot tinted" alt="Track Events">
 				</div>
 			</div>
 			<div class="row p-1 mt-4">
-				<div class="col-sm-1"></div>
-				<div class="col-sm-5 blue_background pt-3 pb-3 mr-4">
-					<img src="{{ url('/images/screenshot_update.png') }}" class="screenshot" alt="Update Volunteers">
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<img src="{{ url('/images/notifications.png') }}" class="screenshot tinted" alt="Update Volunteers">
 				</div>
-				<div class="col-sm-5">
-				<h3 class="mb-4">Update volunteers on any sudden event changes.</h3>
+				<div class="col-lg-6 col-md-6 col-sm-6 contentPad">
+				<h2 class="mb-4">Send liabilty waivers and other documents to your volunteers.</h2>
 				<p>YourUnity gives you the unique ability to send a notification to all of your volunteers with the click of a button, guaranteeing that any pertinent information for your events has the attention of the people that matter most.</p>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="volunteers" class="row black-background pt-3 pb-3">
-		<div class="col-sm-12 p-4">
+						<!-- App Pictures -->
+	<div class="row black-background volunteers">
+		<div class="col-sm-12 p-5">
 			<div class="row">
 				<div class="col-sm-12 center">
-					<h2 class="thick">Community, for Volunteers.</h2>
+					<h2 class="landing-phrase">Community, for Volunteers.</h2>
 					<a href="https://itunes.apple.com/us/app/yourunity/id1291525611?ls=1&mt=8"><img src="{{ url('/images/appstore.svg') }}" class="appstore" alt="Download YourUnity on the App Store"></a>
 					<hr class="short" />
 				</div>
 			</div>
-			<div class="row mt-4">
+			<div class="row mt-4 p-2">
 				<div class="col-sm-4 center">
 					<img src="{{ url('/images/iphone_find_events.png') }}" class="iphone" alt="YourUnity iPhone app screenshot">
 				</div>
@@ -162,38 +152,139 @@ YourUnity
 
                       <!-- Style for Background Image and Logo -->
 <style>
+	.media-icons {
+		padding-left:3vw;
+	}
 
 	.content {
 		margin-top: 0 !important;
 	}
 
+	.iphone {
+  		width: 60%;
+	}
+
+	.top-reg {
+		margin-right: 2%;
+	}
+
+	.top-login {
+		float:right;
+		margin-top: 6px;
+	}
+
+	.contentPad {
+		padding-right: 5%;
+    	padding-left: 5%;
+		padding-top: 1%;
+	}
+
 	.splash-image {
-  	background-image: url("/images/splash-background.jpg");
+  	/* background-image: url("/images/splash-background.jpg"); */
+	/* background-image: url("/images/pexels-photo-207896.jpeg"); */
+	background-image: url("/images/pexels-photo-325521.jpeg");
   	background-size: cover;
   	background-repeat: no-repeat;
-  	background-position: center center;
-  	height: 100vh;
-	width: 104vw;
+	background-position: center center;
+	background-attachment: fixed;
+	height:90vh;
+	}
+
+	.serviceProviders {
+		display:flex;
+  		flex-flow: row wrap;
+		justify-content:space-between;
+		padding-bottom: 3%
+	}
+
+	,volunteers {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content:space-between;
 	}
 
 	.logo {
-		width: 14%;
+		width: 25%;
 		margin: 1%;
 	}
 
-	@media (max-width: 768px) {
+	.tinted { opacity: 0.7; }
+
+	@media (max-width: 376px) {
+		.serviceProviders{
+			flex-direction:column;
+		}
+		.flex-first {
+			order:2;
+		}
+		.flex-second {
+			order:1;
+		}
+		.screenshot {
+			width: 65vw;
+			border-radius: 40px;
+			display: block;
+			margin: auto;
+			padding-bottom:2vh;
+		}
+
+		.iphone{
+			width:60%;
+			padding-bottom:5%;
+		}
+
+		.volunteers {
+			flex-direction: column;
+		}
+
+		.top-btn {
+			display: none;
+		}
+
+
+	}
+
+	@media (max-width: 768px) and (min-width : 377px) {
 
 		html {
 			overflow-x: hidden;
 			max-width: 100%;
 		}
 
+		.center {
+			width: 60vh;
+		}
+
+		
 	    .splash-image {
 	        width: 104vw !important;
-	    }
+		}
+		
+		.screenshot {
+			width: 50vw;
+			border-radius: 40px;
+			display: block;
+			margin: auto;
+		}
+
+		.serviceProviders{
+			flex-direction:column;
+		}
+		.flex-first {
+			order:2;
+		}
+		.flex-second {
+			order:1;
+		}
 
 		.vertical-align {
 		    display: block;
+		}
+
+		.contentPad {
+			padding-right: 4%;
+    		padding-left: 4%;
+			padding-top: 3%;
 		}
 
 		.top-btn {
@@ -205,11 +296,12 @@ YourUnity
 		}
 
 		.landing-phrase {
-			line-height: 3.6rem;
+			padding-top: 7vh;
 		}
 
 		.down-circle {
-			top: 88vh;
+			top: 70vh;
+			padding-bottom:3vh;
 		}
 
 		.mr-4 {

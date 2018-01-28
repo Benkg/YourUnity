@@ -29,7 +29,7 @@
 
                             <!-- Days Until Next Event -->
               <div class="card card-small">
-                  <table class="size-5 full-table">
+                    <table class="size-5 full-table">
                       <tr class="text-center">
                           <td class="pt-3 pb-3 blue"><span class="lnr lnr-calendar-full"></span></td>
                       </tr>
@@ -121,8 +121,10 @@
     }
 
     h5 {
-        font-weight: 200;
+        font-weight: 300;
         margin: 0;
+        text-align:center;
+        
     }
 
     .blue {

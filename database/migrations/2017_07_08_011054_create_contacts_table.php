@@ -22,7 +22,10 @@ class CreateContactsTable extends Migration
             $table->tinyInteger('type')->unsigned();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table
+                ->foreign('user_id')
+                ->references('id')
+                ->on('users');
         });
     }
 
@@ -34,7 +37,7 @@ class CreateContactsTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('contact');
+        Schema::dropIfExists('contacts');
         Schema::enableForeignKeyConstraints();
     }
 }

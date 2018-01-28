@@ -6,14 +6,21 @@ Terms of Service
 
 @section('content')
 
-@include('layouts.header')
 
-<div id="legalContainer">
+<div class="container-fluid">
+    <div class="row">
 
-    @include('layouts.menu.legal')
+                    <!-- Sidebar -->
+        @include('layouts.legalsidebar')
 
-    <div class="cont">
-        <h1>Terms of Service</h1>
+        <!-- Padding for fixed sidebar -->
+        <div class="col-3"></div>
+
+                    <!-- Stats Bar and Events List -->
+        <div class="col-9 pl-5 pr-5 pt-4 dashboard">
+            <div class="row">
+            <div class="cont">
+        <h1 class="blue"><b>Terms of Service</b></h1>
 
       <h1 class="legal_h1">1. Who We Are.</h1>
           <h2>1.1 YourUnity.</h2>
@@ -203,5 +210,12 @@ Terms of Service
 
     </div>
 
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+
 @endsection

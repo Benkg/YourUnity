@@ -1,14 +1,18 @@
-<?php
+ <?php
+/* blade for when event is live. Shows count of volunteered (displays accounts?).
+    eventually to be used for communication during live events?
+
+
 
     $eventId = $event->id;
 
     //Select all of this events activity records IF it is a future event..
-    $registeredList = App\ActivityRecord::where('event_id', $eventId)
-                        ->where('activity_status','=', 2)
+    $attendedList = App\ActivityRecord::where('event_id', $eventId)
+                        ->where('activity_status','=', 1)
                         ->orderBy('created_at', 'DESC')
                         ->get();
 
-    if(isset($registeredList[0])) {
+    if(isset($attendedList[0])) {
         //Attendee List
         echo'
         <div class="card">
@@ -23,6 +27,7 @@
                     <div class="col-6"><h4>Volunteer Name</h4></div>
                     <div class="col-6"><h4>Registration Time</h4></div>
                 </div>';
+                //For when we do organization groups in volunteering
                 //<div class="col-4"><h4>Volunteer Organization</h4></div>
 
                 foreach($registeredList as $registered){
@@ -38,7 +43,6 @@
                     </div>';
 
                 }
-
         echo
             '</div>
         </div>';// to close off card and card block
@@ -51,3 +55,5 @@
         margin: 0;
     }
 </style>
+
+*/ 

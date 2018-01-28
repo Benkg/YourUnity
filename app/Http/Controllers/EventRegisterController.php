@@ -41,8 +41,8 @@ class EventRegisterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   //Are we checking to make sure that the user cannot register for an active or past event?
-        ActivityRecord::create([ //not sure if this is allowed
+    {
+        ActivityRecord::create([
             'event_id' => request('event_id'),
             'attendee_id' => request('firedb_id'),
             'check_in_time' => request('check_in_time'),
@@ -55,17 +55,26 @@ class EventRegisterController extends Controller
         $attendee = Attendee::where('firedb_id','=', $request['firedb_id'])->get();
 
         //might have to use column index but names should work.
-        $attendee_name = $attendee[0]->name;
+        $attendee_name = $attendee[0]->name_first;
         $attendee_name = (string)$attendee_name;
-        
+
         $attendee_email = $attendee[0]->email;
 
         //get only future event with this id, returns null if not future state....
         $event_id = $request['event_id'];
         $event = Event::where('time_state','=', 2)->where('id', $event_id)->first();
 
+        $location_id = $event->location_id;
+        $location = DB::table('locations')
+                ->where('location_id', '=', $location_id)
+                ->where('user_id', '=', $user_id)
+                ->get();
+        $location = $location[0];
+        $location = $location->address .', '.$location->city.', '.$location->state.' '.$location->postal_code;
+        $location = (string)$location;
+
         //Send email to this user. Passes user info and event info
-        Mail::to($attendee_email)->send(new EventRegistration($attendee_name, $event));
+        Mail::to($attendee_email)->send(new EventRegistration($attendee_name, $event, $location));
 
     }
 
@@ -151,12 +160,13 @@ class EventRegisterController extends Controller
             ])->get();
 
         $ids = [];
+        $location_ids = [];
 
         foreach($event_ids as $event) {
             array_push($ids, $event->event_id);
         }
 
-        return Event::findMany($ids);
+        return DB::table('events')->whereIn('id', $ids)->join('locations', 'events.location_id', '=', 'locations.location_id')->get()->toArray();
 
     }
 }

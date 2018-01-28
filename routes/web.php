@@ -58,7 +58,7 @@ Route::get('/attachments/{event}',      'AttachmentController@attach');
 
 /* EVENT-ATTACHMENT-CONTROLLER */
 Route::post('/attachments/attach',      'EventAttachmentController@update');
-Route::post('/attachments/remove',      'EventAttachmentController@remove'); 
+Route::post('/attachments/remove',      'EventAttachmentController@remove');
 
 /* SETTINGS-CONTROLLER */
 Route::get('/settings',                 'SettingsController@index');
@@ -67,8 +67,11 @@ Route::post('/settings',                'SettingsController@store');
 Route::post('/settings/edit',           'SettingsController@update');
 
 /* PUBLIC-CONTROLLER (Organization Page, Events, and Check-in) */
-Route::get('/{organization}',                'PublicController@index');
-Route::get('/{organization}/events',         'PublicController@events');
+Route::get('/{organization}',                'PublicController@events');
 Route::get('/{organization}/{event}',        'PublicController@event');
-Route::get('/{organization}/{event}/signin','PublicController@signinform');
+Route::get('/{organization}/{event}/signin', 'PublicController@signinform');
 Route::post('/{organization}/{event}/signin','PublicController@signin');
+
+/* DOWNLOADS-CONTROLLER (Organization Page, Events, and Check-in) */
+Route::post('/download/all',               'DownloadsController@all');
+Route::post('/download/{event}',           'DownloadsController@event');

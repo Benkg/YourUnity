@@ -3,12 +3,12 @@
     $ends = $event->ends;
     $starting = parseTime($starts);
     $ending = parseTime($ends);
-    $location = explode(", ", $event->location);
 
-    $address = $location[0];
-    $city = $location[1];
-    $state = $location[2];
-    $zip = $location[3];
+    $address = $location->address;
+    $city = $location->city;
+    $zip = $location->postal_code;
+    $currentLat = $location->latitude;
+    $currentLng = $location->longitude;
 
     $startyear = $starting['year'];
     $startmonth = $starting['month'];
@@ -24,10 +24,9 @@
     $endminute = $ending['minute'];
     $endperiod = $ending['period'];
 ?>
-
 <!-- Create Event Form -->
 <div class="card mb-4 p-3">
-    <div class="card-block">
+    <dv class="card-block">
 
 
         <h1 class="white text-center">Edit Event</h1>
@@ -48,9 +47,9 @@
                     <div class="form-group">
                         <label for="location">Location of Event</label>
                         <div id=location>
-                            <input type="text" class="form-control mb-2" id="location[address]" aria-describedby="locationHelp" <?php echo 'value="'.$address.'"'; ?> name="location[address]">
-                            <input type="text" class="form-control mb-2" id="location[city]" aria-describedby="locationHelp" <?php echo 'value="'.$city.'"'; ?> name="location[city]">
-                            <input type="text" class="form-control" id="location[zip]" aria-describedby="locationHelp" <?php echo 'value="'.$zip.'"'; ?> name="location[zip]">
+                            <input type="text" class="form-control mb-2" id="address" aria-describedby="locationHelp" <?php echo 'value="'.$address.'"'; ?>>
+                            <input type="text" class="form-control mb-2" id="city" aria-describedby="locationHelp" <?php echo 'value="'.$city.'"'; ?>>
+                            <input type="text" class="form-control" id="zip" aria-describedby="locationHelp" <?php echo 'value="'.$zip.'"'; ?>>
                         </div>
 
                     </div>
@@ -61,7 +60,6 @@
                     <div class="form-group">
                         <label for="date_start">Starts On:</label>
                         <div class="row pl-3" id="date_start">
-
                             <select class="form-control col-5 mr-2" id="startDate[month]" name="startDate[month]">
                                 <option value=""></option>
                                 <option value="01" <?php if($startmonth=='01')echo ' selected="selected"';?>>January</option>
@@ -77,7 +75,6 @@
                                 <option value="11" <?php if($startmonth=='11')echo ' selected="selected"';?>>November</option>
                                 <option value="12" <?php if($startmonth=='12')echo ' selected="selected"';?>>December</option>
                             </select>
-
                             <select class="form-control col-3 mr-2" id="startDate[day]" name="startDate[day]">
                                 <option value=""></option>
                                 <option value="01" <?php if($startday=='01')echo ' selected="selected"';?>>1</option>
@@ -112,17 +109,13 @@
                                 <option <?php if($startday=='30')echo ' selected="selected"';?>>30</option>
                                 <option <?php if($startday=='31')echo ' selected="selected"';?>>31</option>
                             </select>
-
                             <select class="form-control col-3" id="startDate[year]" name="startDate[year]">
-                                <option value=""></option>
-                                <option value="17" <?php if($startyear=='17')echo ' selected="selected"';?>>2017</option>
                                 <option value="18" <?php if($startyear=='18')echo ' selected="selected"';?>>2018</option>
                                 <option value="19" <?php if($startyear=='19')echo ' selected="selected"';?>>2019</option>
                                 <option value="20" <?php if($startyear=='20')echo ' selected="selected"';?>>2020</option>
                                 <option value="21" <?php if($startyear=='21')echo ' selected="selected"';?>>2021</option>
                                 <option value="22" <?php if($startyear=='22')echo ' selected="selected"';?>>2022</option>
                             </select>
-
                         </div>
                     </div>
 
@@ -294,19 +287,166 @@
                 </div>
             </div>
 
-            <!-- Event Description Input -->
-            <div class="form-group">
-                <label for="event_description">Description</label>
-                <textarea class="form-control text-left" id="event_description" name="event_description" rows="3"><?php echo "$event->event_description"; ?></textarea>
+            <div class="row">
+                <div class="col-3">
+                    <div class="row">
+                        <div id="showMap" onclick="geocode()" class="btn btn-primary float-right ml-3">Update Location</div>
+                    </div>
+                    <div class="row ml-1 mt-1">
+                        <div class="form-group">
+                            <label for="event_type">Event Type</label>
+                            <select class="form-control" id="event_type" name="event_type">
+                                <option value=""></option>
+                                <option value="1"<?php if($event->type_id=='1')echo ' selected="selected"';?>>Animals</option>
+                                <option value="2"<?php if($event->type_id=='2')echo ' selected="selected"';?>>Education</option>
+                                <option value="3"<?php if($event->type_id=='3')echo ' selected="selected"';?>>Elderly</option>
+                                <option value="4"<?php if($event->type_id=='4')echo ' selected="selected"';?>>Enviornment</option>
+                                <option value="5"<?php if($event->type_id=='5')echo ' selected="selected"';?>>Food</option>
+                                <option value="6"<?php if($event->type_id=='6')echo ' selected="selected"';?>>Homeless</option>
+                                <option value="7"<?php if($event->type_id=='7')echo ' selected="selected"';?>>Humanities</option>
+                                <option value="8"<?php if($event->type_id=='8')echo ' selected="selected"';?>>Local Government</option>
+                                <option value="9"<?php if($event->type_id=='9')echo ' selected="selected"';?>>Museum</option>
+                                <option value="10"<?php if($event->type_id=='10')echo ' selected="selected"';?>>Technology</option>
+                                <option value="11"<?php if($event->type_id=='11')echo ' selected="selected"';?>>Youth</option>
+                                <option value="12"<?php if($event->type_id=='12')echo ' selected="selected"';?>>Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div class="form-group">
+                        <label for="event_description">Description</label>
+                        <textarea class="form-control text-left" id="event_description" name="event_description" rows="3"><?php echo "$event->event_description"; ?></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-3 map-section">
+                <div class="card-block">
+                    <div id="map"></div>
+                </div>
             </div>
 
             <!-- Cancle and Submit Button -->
             <a href="/events/{{ $event->id }}" class="float-left">Cancel</a>
             <button type="submit" class="btn btn-primary float-right ml-3">Save</button>
 
-            <input type="hidden" name="date_start" value="" />
-            <input type="hidden" name="date_end" value="" />
-            <input type="hidden" name="time_start" value="" />
-            <input type="hidden" name="time_end" value="" />
+            <input type="hidden" id="currentLat" value="<?php echo "$currentLat"; ?>" />
+            <input type="hidden" id="currentLng" value="<?php echo "$currentLng"; ?>" />
+
+            <input type="hidden" id="location[address]" value="" name="location[address]" />
+            <input type="hidden" id="location[city]" value="" name="location[city]" />
+            <input type="hidden" id="location[state]" value="" name="location[state]" />
+            <input type="hidden" id="location[zip]" value="" name="location[zip]" />
+            <input type="hidden" id="location[country]" value="" name="location[country]" />
+            <input type="hidden" id="location[latitude]" value="" name="location[latitude]" />
+            <input type="hidden" id="location[longitude]" value="" name="location[longitude]" />
 
         </form>
+    </div>
+</div>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA13S6dkirm_vs0FKaBDj0IhD9gQSqPUsc&callback=initMap">
+</script>
+
+<script>
+    function initMap(latitude, longitude) {
+        var place = {lat: latitude, lng: longitude};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 17,
+          center: place
+        });
+        var marker = new google.maps.Marker({
+          position: place,
+          map: map
+        });
+    }
+</script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+    $("#showMap").click(function() {
+        $('html,body').animate({
+            scrollTop: $(".map-section").offset().top},
+            'slow');
+    });
+
+    function geocode(){
+
+        var number, street, poi, address, city, state, country, zip, latitude, longitude;
+
+        address = document.getElementById("address").value;
+        city = document.getElementById("city").value;
+        zip = document.getElementById("zip").value;
+        state = 'CA';
+
+        var location = address + ', ' + city + ', ' + state + zip;
+
+        axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
+            params:{
+              address: location,
+              key: 'AIzaSyA13S6dkirm_vs0FKaBDj0IhD9gQSqPUsc'
+            }
+        })
+        .then(function(response){
+            var loc = response.data.results[0];
+            latitude = loc.geometry.location['lat'];
+            longitude = loc.geometry.location['lng'];
+
+            for (var i=0; i<loc.address_components.length; i++) {
+                for (var j=0; j<loc.address_components[i].types.length; j++) {
+
+                    var type = loc.address_components[i].types[j];
+                    var data = loc.address_components[i].short_name;
+
+                    if (type == "street_number") {
+                        number = data;
+                    } else if (type == "route"){
+                        street = data;
+                    } else if (type == "point_of_interest"){
+                        poi = data;
+                    } else if (type == "locality"){
+                        city = data;
+                    } else if (type == "administrative_area_level_1"){
+                        state = data;
+                    } else if (type == "country"){
+                        country = data;
+                    } else if (type == "postal_code"){
+                        zip = data;
+                    }
+
+                }
+            }
+
+            if(number){
+                address = number + ' ' + street;
+            } else {
+               address = poi + ' ' + street;
+            }
+
+            document.getElementById('location[address]').value = address;
+            document.getElementById('location[city]').value = city;
+            document.getElementById('location[state]').value = state;
+            document.getElementById('location[zip]').value = zip;
+            document.getElementById('location[country]').value = country;
+            document.getElementById('location[latitude]').value = latitude;
+            document.getElementById('location[longitude]').value = longitude;
+
+            initMap(latitude, longitude);
+        });
+
+    };
+
+</script>
+
+<script>
+    geocode();
+</script>
+
+<style>
+    #map {
+      height: 70vh;
+    }
+</style>

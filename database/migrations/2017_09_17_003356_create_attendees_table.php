@@ -14,14 +14,24 @@ class CreateAttendeesTable extends Migration
     public function up()
     {
       Schema::create('attendees', function (Blueprint $table) {
-          // $table->increments('id');
-          $table->string('firedb_id');
-          $table->string('name')->default('NULL');
+          $table->engine = 'InnoDB';
+
+          $table->increments('id');
+          $table->string('firedb_id')->unique()->nullable();
+
+          $table->string('email')->unique();
+          $table->string('name_first')->nullable();
+          $table->string('name_last')->nullable();
+          $table->string('gender')->nullable();
+          $table->string('phone_num')->nullable();
           $table->string('avatar')->default('default.jpg');
+
+          $table->integer('birth_year')->nullable();
+          $table->integer('birth_month')->nullable();
+          $table->integer('birth_day')->nullable();
+
           $table->rememberToken();
           $table->timestamps();
-
-          $table->primary('firedb_id');
       });
     }
 

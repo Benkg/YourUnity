@@ -12,6 +12,8 @@
         $('.avatar.sm').click(function() {
         });
     });
+
+    
 </script>
 
 <?php
@@ -26,77 +28,41 @@
             @include('layouts.menu.main')
 
             <!-- Logo -->
-            <div class="center mb-3"><a href="/dashboard"><img src="{{ url('/images/YU_001_White.svg') }}" class="logo" alt="YourUnity"></a></div>
+            <div class="center mb-3"><a href="/dashboard"><img src="{{ url('/images/YU_001_White.svg') }}" class="logo img-fluid" alt="YourUnity"></a></div>
 
             <!-- Profile Picture -->
             <div class="text-center">
-                <a href="/settings"><img src="/images/avatars/{{ Auth::user()->avatar }}" class="avatar-sm"></a>
+                <a href="/settings"><img src="/images/avatars/{{ Auth::user()->avatar }}" class=" avatar-sm rounded img-fluid"></a>
             </div>
-            <hr class="side-hr mt-4"/>
-            <!-- Table of Dates Of Events -->
-            <div class="calendar mt-4">
-                <div class="list-group line-stop">
-                    <h3 class="text-center mb-3">Upcoming Events</h3>
-
-                    <!-- start a count var -->
-                    <?php $count = 1; ?>
-
-                    @foreach($nonPastEvents as $event)
-                        @if($event->time_state == 2)
-
-                            <!-- Main Link to Event -->
-                            <a href="/events/{{ $event->id }}" class="list-group-item list-group-item-action">
-
-                                <div class= "col-2">
-                                    <?php
-                                        $time = timeUntil($event->starts);
-                                        echo secsToTimeShort($time);
-                                    ?>
-                                </div>
-                                <!-- Calendar Icon -->
-                                <div class="col-1 p-0">
-                                    <b>
-                                        <span class="lnr lnr-calendar-full small-cal pl-2"></span>
-                                        <!-- we should use the same code as "days till next event" to just put # of days till event -->
-                                    </b>
-                                </div>
-
-                                <!-- Event name -->
-                                <div id = "eventName" class="col-8 ">
-                                    <span>{{ $event->event_name }}</span>
-                                </div>
-                            </a>
-
-                            <!-- If 5 events have loaded, break. Else, keep loading. -->
-                            <?php
-                                if ($count == 5){
-                                    break;
-                                } else {
-                                    $count++;
-                                }
-                            ?>
-
-                        @endif
-                    @endforeach
-                </div>
-            </div>
-
-            <!-- Create New Event Button -->
-            <a href="/events/create" class="btn btn-success btn-lg btn-block mt-4 new-event-sidebar" role="button" aria-disabled="true">Create Event</a>
+            <!-- <hr class="side-hr mt-4"/> -->
 
             <!-- All Events -->
             <div class="col-centered">
-                <h3 class="text-center"><a href="/events" class="all_events no-highlight" aria-disabled="true">View All Events</a></h3>
+            <a href="/events" class="button-sec mt-4" role="button" aria-disabled="true">View All Events</a>
             </div>
+
+            <!-- Create New Event Button -->
+            <a href="/events/create" class="btn btn-success btn-block mt-4 responsive-button" role="button" aria-disabled="true">Create Event</a>
 
         </div>
 
 <!-- Custom Styles -->
 <style type="text/css">
+.responsive-button { 
+    overflow: hidden;
+    white-space: nowrap;
+    height: 50px !important;
+    width: 22vw;
+    font-size: 1.5rem;
+    font-weight: 300;
+    position: absolute;
+    bottom: 3vh;
+    vertical-align: middle;
+}
 
 #eventName {
-  padding-left: 1rem;
-  margin-left: 1rem;
+  padding-left: 0.5rem;
+  margin-left: 0.5rem;
   border-left: 2px solid #6bbaa7;
 }
 
@@ -138,17 +104,23 @@ h3 {
     background: #6bbaa7 !important;
 }
 
+.truncate {
+    display:inline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 </style>
 
-                    <!-- Script for Active Hover on Event Table -->
+                    <!-- Script for Hide All Events Button on Event Table -->
 <script>
 
     /* stores current window pathname in full */
     var route = window.location.pathname;
 
-    /* Whatever page this is, highlight that option */
+    /* Hide if on all events page */
     if (route !== "/dashboard"){
-        $("a[href$= '" + route + "']" ).addClass("active");
+        $("a[href$= '" + route + "']" ).addClass("hide");
     }
 
     /* When hovering, give that class an active look */
@@ -156,9 +128,9 @@ h3 {
 
         $('.list-group-item').hover(function() {
             $( ".list-group-item" ).each(function() {
-                $(".list-group-item").removeClass("active");
+                $(".list-group-item").removeClass("hide");
             });
-            $(this).addClass("active");
+            $(this).addClass("hide");
         });
     });
 
@@ -166,21 +138,21 @@ h3 {
     $(".list-group").mouseleave(function(){
 
         $( ".list-group-item" ).each(function() {
-            $(".list-group-item").removeClass("active");
+            $(".list-group-item").removeClass("hide");
         });
 
         if (route !== "/dashboard"){
-            $("a[href$= '" + route + "']" ).addClass("active");
+            $("a[href$= '" + route + "']" ).addClass("hide");
         }
 
         /* When All Events link is clicked, don't highlight it */
-        $(".all_events").removeClass("active");
-        $(".this_event").removeClass("active");
+        $(".all_events").removeClass("hide");
+        $(".this_event").removeClass("hide");
     });
 
 
     /* When All Events link is clicked, don't highlight it */
-    $(".all_events").removeClass("active");
+    $(".all_events").removeClass("hide");
 
 
 </script>

@@ -11,28 +11,7 @@ All Events
 
             @include('events.format.top')
 
-                <?php
-
-                    $userId = Auth::user()->id;
-
-                    //Select all this user's future events
-                    $futureEvents = App\Event::where('user_id', $userId)
-                                        ->where('time_state','=', 2)
-                                        ->orderBy('starts', 'DESC')
-                                        ->get();
-
-                    //Select all this user's present events
-                    $presentEvents = App\Event::where('user_id', $userId)
-                                        ->where('time_state','=', 1)
-                                        ->orderBy('starts', 'DESC')
-                                        ->get();
-
-                    //Select all this user's past events
-                    $pastEvents = App\Event::where('user_id', $userId)
-                                        ->where('time_state','=', 0)
-                                        ->orderBy('starts', 'DESC')
-                                        ->get();
-                ?>
+            @include('events.cards.mainButtons')
 
                 @if(isset($futureEvents[0]))
                     <?php echo '<br />
@@ -41,9 +20,8 @@ All Events
                         </div>';
                     ?>
                     @foreach($futureEvents as $event)
-                        @if($event->user->id == Auth::user()->id)
-                            @include('events.cards.event')
-                        @endif
+                        <?php $location = $locations[$event->location_id-1]; ?>
+                        @include('events.cards.event')
                     @endforeach
                 @endif
 
@@ -54,9 +32,8 @@ All Events
                         </div>';
                     ?>
                     @foreach($presentEvents as $event)
-                        @if($event->user->id == Auth::user()->id)
-                            @include('events.cards.event')
-                        @endif
+                        <?php $location = $locations[$event->location_id-1]; ?>
+                        @include('events.cards.event')
                     @endforeach
                 @endif
 
@@ -67,9 +44,8 @@ All Events
                         </div>';
                     ?>
                     @foreach($pastEvents as $event)
-                        @if($event->user->id == Auth::user()->id)
-                            @include('events.cards.event')
-                        @endif
+                        <?php $location = $locations[$event->location_id-1]; ?>
+                        @include('events.cards.event')
                     @endforeach
                 @endif
 
