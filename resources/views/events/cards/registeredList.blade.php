@@ -28,7 +28,8 @@
                 foreach($registeredList as $registered){
                     $attendeeId = $registered->attendee_id;
                     $registeredAt = $registered->created_at;
-                    $attendeeName = App\Attendee::where('firedb_id', $attendeeId)->value('name');
+                    $attendeeName = App\Attendee::where('id', $attendeeId)->value('name_first').' '.
+                                    App\Attendee::where('id', $attendeeId)->value('name_last');
                     $registeredAt = strtotime($registeredAt);
 
                     echo

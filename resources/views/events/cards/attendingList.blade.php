@@ -24,19 +24,19 @@
             <div class="card-block">
 
                 <div class="row text-center mb-4">
-                    <div class="col-6"><h4>Volunteer Name</h4></div>
+                    <div class="col-12"><h4>Volunteer Name</h4></div>
                 </div>';
                 //<div class="col-4"><h4>Volunteer Organization</h4></div>
 
                 foreach($attendingList as $registered){
                     $attendeeId = $registered->attendee_id;
-                    $attendeeName = App\Attendee::where('firedb_id', $attendeeId)->value('name');
+                    $attendeeName = App\Attendee::where('id', $attendeeId)->value('name_first').' '.
+                                    App\Attendee::where('id', $attendeeId)->value('name_last');
                     $duration = $registered->duration;
 
                     echo
                     '<div class="row text-center mb-2">
-                        <div class="col-6"><span>'.$attendeeName.'</span></div>
-                        <div class="col-6"><span></span></div>
+                        <div class="col-12"><span>'.$attendeeName.'</span></div>
                     </div>';
 
                 }

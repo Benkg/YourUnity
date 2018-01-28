@@ -41,8 +41,8 @@ class EventRegisterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
-        ActivityRecord::create([ 
+    {
+        ActivityRecord::create([
             'event_id' => request('event_id'),
             'attendee_id' => request('firedb_id'),
             'check_in_time' => request('check_in_time'),
@@ -50,24 +50,31 @@ class EventRegisterController extends Controller
             'activity_status' => request('activity_status')
         ]);
 
-        
-
         DB::table('events')->where('id', '=', $request['event_id'])->increment('num_registered');
 
         $attendee = Attendee::where('firedb_id','=', $request['firedb_id'])->get();
 
         //might have to use column index but names should work.
-        $attendee_name = $attendee[0]->name;
+        $attendee_name = $attendee[0]->name_first;
         $attendee_name = (string)$attendee_name;
-        
+
         $attendee_email = $attendee[0]->email;
 
         //get only future event with this id, returns null if not future state....
         $event_id = $request['event_id'];
         $event = Event::where('time_state','=', 2)->where('id', $event_id)->first();
 
+        $location_id = $event->location_id;
+        $location = DB::table('locations')
+                ->where('location_id', '=', $location_id)
+                ->where('user_id', '=', $user_id)
+                ->get();
+        $location = $location[0];
+        $location = $location->address .', '.$location->city.', '.$location->state.' '.$location->postal_code;
+        $location = (string)$location;
+
         //Send email to this user. Passes user info and event info
-        Mail::to($attendee_email)->send(new EventRegistration($attendee_name, $event));
+        Mail::to($attendee_email)->send(new EventRegistration($attendee_name, $event, $location));
 
     }
 

@@ -110,8 +110,6 @@
                                 <option <?php if($startday=='31')echo ' selected="selected"';?>>31</option>
                             </select>
                             <select class="form-control col-3" id="startDate[year]" name="startDate[year]">
-                                <option value=""></option>
-                                <option value="17" <?php if($startyear=='17')echo ' selected="selected"';?>>2017</option>
                                 <option value="18" <?php if($startyear=='18')echo ' selected="selected"';?>>2018</option>
                                 <option value="19" <?php if($startyear=='19')echo ' selected="selected"';?>>2019</option>
                                 <option value="20" <?php if($startyear=='20')echo ' selected="selected"';?>>2020</option>
@@ -292,11 +290,11 @@
             <div class="row">
                 <div class="col-3">
                     <div class="row">
-                        <div onclick="geocode()" class="btn btn-primary float-right ml-3">Update Location</div>
+                        <div id="showMap" onclick="geocode()" class="btn btn-primary float-right ml-3">Update Location</div>
                     </div>
-                    <div class="row">
+                    <div class="row ml-1 mt-1">
                         <div class="form-group">
-                            <label for="event_type">Event Type:</label>
+                            <label for="event_type">Event Type</label>
                             <select class="form-control" id="event_type" name="event_type">
                                 <option value=""></option>
                                 <option value="1"<?php if($event->type_id=='1')echo ' selected="selected"';?>>Animals</option>
@@ -323,7 +321,7 @@
                 </div>
             </div>
 
-            <div class="card mb-4 p-3">
+            <div class="card mt-3 map-section">
                 <div class="card-block">
                     <div id="map"></div>
                 </div>
@@ -369,9 +367,15 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <script>
+    $("#showMap").click(function() {
+        $('html,body').animate({
+            scrollTop: $(".map-section").offset().top},
+            'slow');
+    });
+
     function geocode(){
 
-        var address, number, street, city, state, country, zip, latitude, longitude;
+        var number, street, poi, address, city, state, country, zip, latitude, longitude;
 
         address = document.getElementById("address").value;
         city = document.getElementById("city").value;
@@ -387,16 +391,42 @@
             }
         })
         .then(function(response){
-            number = response.data.results[0].address_components[0].long_name;
-            street = response.data.results[0].address_components[1].long_name;
-            city = response.data.results[0].address_components[3].long_name;
-            state = response.data.results[0].address_components[5].long_name;
-            country = response.data.results[0].address_components[6].long_name;
-            zip = response.data.results[0].address_components[7].long_name;
-            latitude = response.data.results[0].geometry.location['lat'];
-            longitude = response.data.results[0].geometry.location['lng'];
+            var loc = response.data.results[0];
+            latitude = loc.geometry.location['lat'];
+            longitude = loc.geometry.location['lng'];
 
-            document.getElementById('location[address]').value = number +' '+street;
+            for (var i=0; i<loc.address_components.length; i++) {
+                for (var j=0; j<loc.address_components[i].types.length; j++) {
+
+                    var type = loc.address_components[i].types[j];
+                    var data = loc.address_components[i].short_name;
+
+                    if (type == "street_number") {
+                        number = data;
+                    } else if (type == "route"){
+                        street = data;
+                    } else if (type == "point_of_interest"){
+                        poi = data;
+                    } else if (type == "locality"){
+                        city = data;
+                    } else if (type == "administrative_area_level_1"){
+                        state = data;
+                    } else if (type == "country"){
+                        country = data;
+                    } else if (type == "postal_code"){
+                        zip = data;
+                    }
+
+                }
+            }
+
+            if(number){
+                address = number + ' ' + street;
+            } else {
+               address = poi + ' ' + street;
+            }
+
+            document.getElementById('location[address]').value = address;
             document.getElementById('location[city]').value = city;
             document.getElementById('location[state]').value = state;
             document.getElementById('location[zip]').value = zip;
@@ -408,6 +438,7 @@
         });
 
     };
+
 </script>
 
 <script>

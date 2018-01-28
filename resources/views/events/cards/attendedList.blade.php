@@ -37,7 +37,8 @@
 
                 foreach($attendedList as $registered){
                     $attendeeId = $registered->attendee_id;
-                    $attendeeName = App\Attendee::where('firedb_id', $attendeeId)->value('name');
+                    $attendeeName = App\Attendee::where('id', $attendeeId)->value('name_first').' '.
+                                    App\Attendee::where('id', $attendeeId)->value('name_last');
                     $duration = $registered->duration;
 
                     echo
