@@ -24,7 +24,7 @@ Dashboard
             <div class="row mt-4">
 
                 <!-- Stats Bar -->
-                @include('cards.stats') 
+                @include('cards.stats')
 
             </div>
 
@@ -49,20 +49,19 @@ Dashboard
 
                     <div class="col-4 mt-4">
 
-                    <a href="/events/{{ $event->id }}" class="white">   
+                    <a href="/events/{{ $event->id }}" class="white">
                         <div class="card small-event">
-                            <div class="card-header card-inverse center" style="background-color: #6bbaa7; color: #fff !important;">                       
+                            <div class="card-header card-inverse center" style="background-color: #6bbaa7; color: #fff !important;">
                                     <h5>{{ $event->event_name }}</h5>
                             </div>
 
                             <div class="card-block">
                                 <span>
-                                    <span class="lnr lnr-calendar-full"></span> <?php echo printDate($event->starts) ?> 
+                                    <span class="lnr lnr-calendar-full"></span> <?php echo printDate($event->starts) ?>
                                     (<?php
                                         $time = timeUntil($event->starts);
                                         echo secsToTimeShort($time);
-                                        echo " days)";
-                                    ?>  
+                                    ?>)
                                 </span>
                                 <br />
                                 <span><span class="lnr lnr-clock"></span> <?php echo printTime($event->starts) ?> - <?php echo printTime($event->ends) ?></span>
@@ -77,7 +76,7 @@ Dashboard
                                     @endif
                                 </span>
                             </div>
-                        </div> 
+                        </div>
                     </a>
 
                     </div>

@@ -469,3 +469,11 @@ if (! function_exists('getInfo')) {
         return $fileInfo;
     }
 }
+
+/*================================= FILE UPLOAD HELPERS =================================*/
+// getInfo();
+if (! function_exists('downloadCSV')) {
+    function downloadCSV($file_path,$filename,$headers){
+        return response()->download($file_path,$filename,$headers);
+    }
+}

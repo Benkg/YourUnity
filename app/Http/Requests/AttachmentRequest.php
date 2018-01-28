@@ -26,7 +26,7 @@ class AttachmentRequest extends FormRequest
         $attachments = count($_FILES['attachments']['tmp_name']);
 
         foreach(range(0, $attachments) as $index) {
-            $rules['attachments.*' . $index] = 'image|mimes:pdf,png|max:2048';
+            $rules['attachments.*' . $index] = 'mimes:pdf,png|max:3000';
         }
 
         return $rules;
