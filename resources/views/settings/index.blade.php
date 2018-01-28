@@ -62,10 +62,10 @@ document.getElementById("uploadBtn").onchange = function () {
                                     <!-- Name of Organization -->
                                     <tr>
                                         <td>
-                                            <h4>Event Coordinator: </h4>
+                                            <h4>Name: </h4>
                                         </td>
                                         <td>
-                                            {{ $user->name }}
+                                            {{ $user->name_first }} {{ $user->name_last }}
                                         </td>
                                     </tr>
 
