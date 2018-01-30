@@ -54,7 +54,6 @@ YourUnity
 				<img src="{{ url('/images/YU_001_White.svg') }}" class="center logo-main" alt="YourUnity">
 			</div>
 			<div class="text-center landing-phrase">Community, everywhere.</div>
-			<div class="down-circle "><span class="lnr lnr-chevron-down-circle"></span></div>
 		</div>
 	</div>
 					<!-- Landing phrase and Options -->
@@ -156,6 +155,14 @@ YourUnity
 		padding-left:3vw;
 	}
 
+	.logo-main {
+    margin:auto;
+    margin-top:13%;
+    width:60vw;
+    justify-content: center;
+    align-items:center;
+	}
+
 	.content {
 		margin-top: 0 !important;
 	}
@@ -184,9 +191,11 @@ YourUnity
 	/* background-image: url("/images/pexels-photo-207896.jpeg"); */
 	background-image: url("/images/pexels-photo-325521.jpeg");
   	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
   	background-repeat: no-repeat;
 	background-position: center center;
-	background-attachment: fixed;
 	height:90vh;
 	}
 
@@ -216,6 +225,13 @@ YourUnity
 		}
 		.flex-first {
 			order:2;
+		}
+		.logo-main {
+			margin:auto;
+			margin-top:45%;
+			width:60vw;
+			justify-content: center;
+			align-items:center;
 		}
 		.flex-second {
 			order:1;
