@@ -1,7 +1,7 @@
 @component('mail::message')
 # YourUnity
 
-Hello, {{ $user->name }}
+Hello, {{ $user->name_first }}
 
 Thank you for registering with YourUnity!
 
