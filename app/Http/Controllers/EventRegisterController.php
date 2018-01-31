@@ -42,17 +42,19 @@ class EventRegisterController extends Controller
      */
     public function store(Request $request)
     {
+        $attendee = Attendee::where('firedb_id','=', $request['firedb_id'])->get();
+        $attendee_id = $attendee[0]->id;
+
         ActivityRecord::create([
             'event_id' => request('event_id'),
-            'attendee_id' => request('firedb_id'),
+            'user_id' => request('user_id'),
+            'attendee_id' => $attendee_id,
             'check_in_time' => request('check_in_time'),
             'duration' => request('duration'),
             'activity_status' => request('activity_status')
         ]);
 
         DB::table('events')->where('id', '=', $request['event_id'])->increment('num_registered');
-
-        $attendee = Attendee::where('firedb_id','=', $request['firedb_id'])->get();
 
         //might have to use column index but names should work.
         $attendee_name = $attendee[0]->name_first;
@@ -62,19 +64,17 @@ class EventRegisterController extends Controller
 
         //get only future event with this id, returns null if not future state....
         $event_id = $request['event_id'];
-        $event = Event::where('time_state','=', 2)->where('id', $event_id)->first();
+        $event = Event::where('id', $event_id)->first();
 
         $location_id = $event->location_id;
         $location = DB::table('locations')
-                ->where('location_id', '=', $location_id)
-                ->where('user_id', '=', $user_id)
-                ->get();
-        $location = $location[0];
-        $location = $location->address .', '.$location->city.', '.$location->state.' '.$location->postal_code;
-        $location = (string)$location;
+                ->where('location_id', $location_id)
+                ->where('user_id', $request['user_id'])
+                ->first();
+        $location_string = (string)($location->address .', '.$location->city.', '.$location->state.' '.$location->postal_code);
 
         //Send email to this user. Passes user info and event info
-        Mail::to($attendee_email)->send(new EventRegistration($attendee_name, $event, $location));
+        Mail::to($attendee_email)->send(new EventRegistration($attendee_name, $event, $location_string));
 
     }
 
@@ -116,12 +116,15 @@ class EventRegisterController extends Controller
         // $check_in_event->activity_status = request('activity_status');
         // $check_in_event->save();
 
+        $attendee = Attendee::where('firedb_id','=', $attendee_id)->get();
+        $id = $attendee[0]->id;
+
         DB::update('update activity_records set
             check_in_time = :check_in_time,
             duration = :duration,
             activity_status = :activity_status
             where attendee_id = :attendee_id and event_id = :event_id', [
-                'attendee_id' => $attendee_id,
+                'attendee_id' => $id,
                 'event_id' => $event_id,
                 'check_in_time' => request('check_in_time'),
                 'duration' => request('duration'),
@@ -153,9 +156,11 @@ class EventRegisterController extends Controller
     }
 
     public function user_events($user) {
+        $attendee = Attendee::where('firedb_id','=', $user)->get();
+        $id = $attendee[0]->id;
 
         $event_ids =  ActivityRecord::where([
-            ['attendee_id', '=', $user],
+            ['attendee_id', '=', $id],
             ['activity_status', '>', 0]
             ])->get();
 
