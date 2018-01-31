@@ -1,5 +1,4 @@
 <!-- Create Event Form -->
-
 <form id="top" method="POST" action="/events">
     {{ csrf_field() }}
     <div class="form">
