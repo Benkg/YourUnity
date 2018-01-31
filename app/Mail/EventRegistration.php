@@ -15,16 +15,18 @@ class EventRegistration extends Mailable
     use Queueable, SerializesModels;
     public $attendee_name;
     public $event;
+    public $location;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(string $attendee_name, Event $event)
+    public function __construct(string $attendee_name, Event $event, string $location)
     {
         $this->attendee_name = $attendee_name;
         $this->event = $event;
+        $this->location = $location;
     }
 
     /**
