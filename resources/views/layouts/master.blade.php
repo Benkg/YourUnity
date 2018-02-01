@@ -9,6 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
 
+
+                      <!-- SITE-WIDE CSRF-TOKEN -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
                       <!-- Stylesheets and Style Scripts -->
     <link href="/css/app.css?v=<?=time();?>" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">

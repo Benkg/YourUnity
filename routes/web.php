@@ -11,10 +11,6 @@
 |
 */
 
-header('Access-Control-Allow-Headers: Content-Type, x-xsrf-token, x_csrftoken');
-header('Access-Control-Allow-Origin: https://maps.googleapis.com/*');
-header('Access-Control-Allow-Credentials: true');
-
 /* MAIN-CONTROLLER (Login, Register Routes and Access Code) */
 Route::get('/',                         'MainController@index');
 Route::get('/login',                    'MainController@login');

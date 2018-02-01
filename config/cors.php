@@ -12,11 +12,11 @@ return [
     |
     */
    
-    'supportsCredentials' => false,
-    'allowedOrigins' => ['https://maps.googleapis.com','*'],
+    'supportsCredentials' => true,
+    'allowedOrigins' => ['https://yourunity.org'],
     'allowedOriginsPatterns' => [],
-    'allowedHeaders' => ['*'],
-    'allowedMethods' => ['*'],
+    'allowedHeaders' => ['X-CSRF-TOKEN','X-Requested-With', '*'],
+    'allowedMethods' => ['HEAD, POST, GET, OPTIONS, PUT'],
     'exposedHeaders' => [],
     'maxAge' => 0,
 
