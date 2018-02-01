@@ -382,59 +382,58 @@
         zip = document.getElementById("zip").value;
         state = 'CA';
 
-        var location = address + ', ' + city + ', ' + state + zip;
-
-        axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
-            params:{
-              address: location,
-              key: 'AIzaSyA13S6dkirm_vs0FKaBDj0IhD9gQSqPUsc'
-            }
-        })
+        var location = address + city + state + zip;
+        location = location.split(' ').join('+');
+        endpoint = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+        endpoint= endpoint + location + "&key=AIzaSyA13S6dkirm_vs0FKaBDj0IhD9gQSqPUsc"; //Concatenates endpoint with query and API key.
+        fetch(endpoint)
         .then(function(response){
-            var loc = response.data.results[0];
-            latitude = loc.geometry.location['lat'];
-            longitude = loc.geometry.location['lng'];
+            response.json().then(data=>{
+                 var loc = data.results[0];
+                latitude = loc.geometry.location['lat'];
+                longitude = loc.geometry.location['lng'];
 
-            for (var i=0; i<loc.address_components.length; i++) {
-                for (var j=0; j<loc.address_components[i].types.length; j++) {
+                for (var i=0; i<loc.address_components.length; i++) {
+                    for (var j=0; j<loc.address_components[i].types.length; j++) {
 
-                    var type = loc.address_components[i].types[j];
-                    var data = loc.address_components[i].short_name;
+                        var type = loc.address_components[i].types[j];
+                        var data = loc.address_components[i].short_name;
 
-                    if (type == "street_number") {
-                        number = data;
-                    } else if (type == "route"){
-                        street = data;
-                    } else if (type == "point_of_interest"){
-                        poi = data;
-                    } else if (type == "locality"){
-                        city = data;
-                    } else if (type == "administrative_area_level_1"){
-                        state = data;
-                    } else if (type == "country"){
-                        country = data;
-                    } else if (type == "postal_code"){
-                        zip = data;
+                        if (type == "street_number") {
+                            number = data;
+                        } else if (type == "route"){
+                            street = data;
+                        } else if (type == "point_of_interest"){
+                            poi = data;
+                        } else if (type == "locality"){
+                            city = data;
+                        } else if (type == "administrative_area_level_1"){
+                            state = data;
+                        } else if (type == "country"){
+                            country = data;
+                        } else if (type == "postal_code"){
+                            zip = data;
+                        }
+
                     }
-
                 }
-            }
 
-            if(number){
-                address = number + ' ' + street;
-            } else {
-               address = poi + ' ' + street;
-            }
+                if(number){
+                    address = number + ' ' + street;
+                } else {
+                address = poi + ' ' + street;
+                }
 
-            document.getElementById('location[address]').value = address;
-            document.getElementById('location[city]').value = city;
-            document.getElementById('location[state]').value = state;
-            document.getElementById('location[zip]').value = zip;
-            document.getElementById('location[country]').value = country;
-            document.getElementById('location[latitude]').value = latitude;
-            document.getElementById('location[longitude]').value = longitude;
+                document.getElementById('location[address]').value = address;
+                document.getElementById('location[city]').value = city;
+                document.getElementById('location[state]').value = state;
+                document.getElementById('location[zip]').value = zip;
+                document.getElementById('location[country]').value = country;
+                document.getElementById('location[latitude]').value = latitude;
+                document.getElementById('location[longitude]').value = longitude;
 
-            initMap(latitude, longitude);
+                initMap(latitude, longitude);
+            });
         });
 
     };
