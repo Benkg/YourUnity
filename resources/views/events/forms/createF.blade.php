@@ -39,7 +39,7 @@
                                     <select class="form-control col-5 mr-2" id="startDate[month]" name="startDate[month]">
                                         <option value=""></option>
                                         <option value="01">January</option>
-                                        <option value="02">Febuary</option>
+                                        <option value="02">February</option>
                                         <option value="03">March</option>
                                         <option value="04">April</option>
                                         <option value="05">May</option>
@@ -154,7 +154,7 @@
                                     <select class="form-control col-5 mr-2" id="endDate[month]" name="endDate[month]">
                                         <option value=""></option>
                                         <option value="01">January</option>
-                                        <option value="02">Febuary</option>
+                                        <option value="02">February</option>
                                         <option value="03">March</option>
                                         <option value="04">April</option>
                                         <option value="05">May</option>
