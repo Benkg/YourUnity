@@ -47,7 +47,7 @@ Terms of Service
           <h2>2.1 Terms of Service Agreement.</h2>
               <p>
                   The following pages contain our Terms of Service Agreement (“Terms of Service”). These Terms of Service govern all of our Services, all of which are offered subject to your acceptance without modification of these Terms of Service. In addition to the Sections below, these Terms of Service include and incorporate by reference the following agreements, terms, policies, requirements and guidelines:
-                    <br/>• our Terms of Use available <a href="/legal/use">here</a>;
+                    <br/>• our Terms of Use available <a href="/legal/users">here</a>;
                     <br/>• our Privacy Policy available <a href="/legal/privacy">here</a>;
                     <br/>• our Cookie Policy <a href="/legal/cookies">here</a>;
                     <br/>• the Trademark & Copyright Policy available <a href="/legal/ip">here</a>;
