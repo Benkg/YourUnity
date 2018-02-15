@@ -42,19 +42,19 @@ class EventRegisterController extends Controller
      */
     public function store(Request $request)
     {
-        $attendee = Attendee::where('firedb_id','=', $request['firedb_id'])->get();
+        $attendee = Attendee::where('firedb_id','=', $request->input('firedb_id'))->get();
         $attendee_id = $attendee[0]->id;
 
         ActivityRecord::create([
-            'event_id' => request('event_id'),
-            'user_id' => request('user_id'),
+            'event_id' => $request->input('event_id'),
+            'user_id' => $request->input('user_id'),
             'attendee_id' => $attendee_id,
-            'check_in_time' => request('check_in_time'),
-            'duration' => request('duration'),
-            'activity_status' => request('activity_status')
+            'check_in_time' => $request->input('check_in_time'),
+            'duration' => $request->input('duration'),
+            'activity_status' => $request->input('activity_status')
         ]);
 
-        DB::table('events')->where('id', '=', $request['event_id'])->increment('num_registered');
+        DB::table('events')->where('id', '=', $request->input('event_id'))->increment('num_registered');
 
         //might have to use column index but names should work.
         $attendee_name = $attendee[0]->name_first;
@@ -63,7 +63,7 @@ class EventRegisterController extends Controller
         $attendee_email = $attendee[0]->email;
 
         //get only future event with this id, returns null if not future state....
-        $event_id = $request['event_id'];
+        $event_id = $request->input('event_id');
         $event = Event::where('id', $event_id)->first();
 
         $location_id = $event->location_id;
@@ -126,13 +126,13 @@ class EventRegisterController extends Controller
             where attendee_id = :attendee_id and event_id = :event_id', [
                 'attendee_id' => $id,
                 'event_id' => $event_id,
-                'check_in_time' => request('check_in_time'),
-                'duration' => request('duration'),
-                'activity_status'=> request('activity_status')
+                'check_in_time' => $request->input('check_in_time'),
+                'duration' => $request->input('duration'),
+                'activity_status'=> $request->input('activity_status')
         ]);
 
         // If the user is checking in to the event, increment num_attended
-        if($request['duration'] == 0) {
+        if($request->input('duration') == 0) {
             DB::table('events')->where('id', '=', $event_id)->increment('num_attended');
 
             // Get user id from event
@@ -156,8 +156,21 @@ class EventRegisterController extends Controller
     }
 
     public function user_events($user) {
+        // $events = DB::table('events')->orderBy('starts')->where('time_state', '>', 0)->get()->toJson();
+        // $events = json_decode($events, true);
+
+        // $events_slim = [];
+
         $attendee = Attendee::where('firedb_id','=', $user)->get();
         $id = $attendee[0]->id;
+
+        $num_events = ActivityRecord::where('attendee_id','=', $id)->where('activity_status', 0)->count();
+        $duration_array = ActivityRecord::where('attendee_id','=', $id)->get();
+        $duration = 0;
+
+        foreach($duration_array as $d) {
+            $duration = $duration + $d->duration;
+        }
 
         $event_ids =  ActivityRecord::where([
             ['attendee_id', '=', $id],
@@ -171,7 +184,31 @@ class EventRegisterController extends Controller
             array_push($ids, $event->event_id);
         }
 
-        return DB::table('events')->whereIn('id', $ids)->join('locations', 'events.location_id', '=', 'locations.location_id')->get()->toArray();
+        $events = DB::table('events')->orderBy('starts')->whereIn('id', $ids)->get()->toJson();
+        $events = json_decode($events, true);
+
+        $events_slim = [];
+
+        foreach($events as $e) {
+
+            $location = DB::table('locations')->where([
+                ['user_id', '=', $e['user_id']],
+                ['location_id', '=', $e['location_id']]
+            ])->get()->toJson();
+
+            $location = json_decode($location, true);
+
+            $e = array_merge($e, $location);
+
+            array_push($events_slim, $e);
+        }
+        // ->join('locations', 'events.location_id', '=', 'locations.location_id')->
+
+        array_push($events_slim, $num_events);
+        array_push($events_slim, $duration);
+        return $events_slim;
+
+        // return DB::table('events')->whereIn('id', $ids)->join('locations', 'events.location_id', '=', 'locations.location_id')->get()->toArray();
 
     }
 }

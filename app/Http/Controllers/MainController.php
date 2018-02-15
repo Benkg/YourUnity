@@ -53,5 +53,12 @@ class MainController extends Controller
         }
     }
 
+	public function options(Request $request) {
+		return Response::json(array(
+           'error' => false,
+           'userId' => $user->id),
+           200
+       );
+	}
 
 }

@@ -13,7 +13,7 @@ return [
     */
    
     'supportsCredentials' => true,
-    'allowedOrigins' => ['https://yourunity.org'],
+    'allowedOrigins' => ['*'],
     'allowedOriginsPatterns' => [],
     'allowedHeaders' => ['X-CSRF-TOKEN','X-Requested-With', '*'],
     'allowedMethods' => ['HEAD, POST, GET, OPTIONS, PUT'],

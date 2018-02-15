@@ -1,0 +1,180 @@
+<!doctype html>
+
+<html lang="en">
+
+    <head>
+    
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>YourUnity Research - Young Volunteers</title>
+        <meta name="description" content="YourUnity. Community, everywhere.">
+        <meta name="viewport" content="width=device-width, intial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        
+        <link rel="stylesheet" href="style.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400" rel="stylesheet">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+
+         <script>
+
+             $(document).ready(function() {
+             });
+        
+            $(document).scroll(function(e){
+
+	            var scrollAmount = $(window).scrollTop();
+                var documentHeight = $(window).height();
+                
+                var scrollPercent = (scrollAmount / documentHeight) * 100;
+                
+                if(scrollPercent > 15) {
+                    $('.main-header').fadeOut("fast");
+                    $('.small-header').fadeIn("slow");
+	            }
+                
+                if(scrollPercent < 15) {
+                    $('.main-header').fadeIn("slow");
+                    $('.small-header').hide();
+                }
+                
+            });
+        
+        </script>
+
+    </head>
+    
+    <body>
+        
+        <div id="content">
+
+            <header>
+                <img class="main-header" src="images/logo.png">
+                <span class="main-header sub-logo">Research</span>
+                <span class="small-header sub-logo hide-logo"><span class="white">YourUnity</span> Research</span>
+            </header>
+
+            <div class="card">
+                <h1>Lack of Young Volunteers</h1>
+
+                <div class="col-container mb">
+                    <div class="col">
+                        <h2><span class="large blue">62.6</span> Million</h2>
+                        <span>People volunteered in the US in 2015</span>
+                    </div>
+                    <div class="col">
+                        <h2><span class="large blue">7.8</span> Billion</h2>
+                        <span>Hours volunteered in the US in 2015</span>
+                    </div>
+                    <div class="col">
+                        <h2><span class="large blue">$184</span> Billion</h2>
+                        <span>In value from volunteering in the US in 2015</span>
+                    </div>
+                </div>
+
+                <hr class="mb" />
+
+                <div class="col-container mb">
+                    <div class="title">
+                        <h2>Ages 16-24 only make up less than 22% of volunteers.</h2>
+                    </div>
+                </div>
+
+                <div class="col-container">
+                    <div class="chart" style="width: 300px; height: 300px; position: relative; border-radius: 300px; background-color: rgb(106, 187, 167);"><div style="position: absolute; top: 0px; left: 0px; width: 300px; height: 300px; border-radius: 300px; clip: rect(0px, 300px, 300px, 150px);"><div style="background-color: rgb(106, 187, 167); position: absolute; top: 0px; left: 0px; width: 300px; height: 300px; border-radius: 300px; clip: rect(0px, 150px, 300px, 0px); transform: rotate(79.2deg);"></div></div><div style="position: absolute; top: 0px; left: 0px; width: 300px; height: 300px; border-radius: 300px; clip: rect(0px, 300px, 300px, 100px); transform: rotate(79.2deg);"><div style="background-color: rgb(63, 63, 63); position: absolute; top: 0px; left: 0px; width: 300px; height: 300px; border-radius: 300px; clip: rect(0px, 150px, 300px, 0px); transform: rotate(180deg);"></div></div><div style="position: absolute; top: 0px; left: 0px; width: 300px; height: 300px; border-radius: 300px; clip: rect(0px, 300px, 300px, 150px); transform: rotate(258.2deg);"><div style="background-color: rgb(63, 63, 63); position: absolute; top: 0px; left: 0px; width: 300px; height: 300px; border-radius: 300px; clip: rect(0px, 150px, 300px, 0px); transform: rotate(101.8deg);"></div></div></div>
+                    <div class="key">
+                        <span class="young-box"><div class="blue-box"></div>Ages 16-24</span>
+                        <span class="old-box"><div class="grey-box"></div>Ages 25+</span>
+                    </div>
+                </div>
+
+                <div class="col-container mt">
+                    <div class="col no-border">
+                        <img src="images/person.png">
+                        <h2>18% of 16-24 likely to volunteer</h2>
+                    </div>
+                    <div class="col no-border">
+                        <img src="images/person.png">
+                        <h2>30%+ of 25+ likely to volunteer</h2>
+                    </div>
+                </div>
+
+                <hr class="mb" />
+
+                <div class="col-container mb">
+                    <div class="title">
+                        <h2>The younger generations volunteer less hours per year.</h2>
+                    </div>
+                </div>
+
+                <div class="col-container">
+                    <div class="graph">
+                        <div class="young-bar"><span class="left">Ages 16-24</span> 40 Hours per Year</div>
+                        <span class="young-bar-data"></span>
+                        <div class="older-bar"><span class="left">Ages 25+</span> 67 Hours per Year</div>
+                        <span class="older-bar-data"></span>
+                    </div>
+                </div>
+
+                <hr class="mt mb" />
+
+                <div class="col-container mb">
+                    <div class="title">
+                        <h2>The rate at which people volunteer is going down.</h2>
+                    </div>
+                </div>
+
+                <div class="">
+                    <canvas id="myChart" width="400" height="150"></canvas>
+                </div>
+
+                <div class="mt">
+                    <p>Sources: </p>
+                    <a href="https://www.nationalservice.gov/vcla/national">National Service</a>
+                    <br />
+                    <a href="http://causes.volunteermatch.org/articles/infographic">VolunteerMatch</a>
+                </div>
+
+            </div>
+
+            <footer>
+                <p>YourUnity &copy; 2018</p>
+            </footer>
+
+        </div>
+
+    </body>
+
+    <script>
+            var ctx = document.getElementById("myChart").getContext('2d');
+            
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ["2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015"],
+                    datasets: [{
+                        label: "Volunteer Rate",
+                        data: [0.263, 0.268, 0.263, 0.267, 0.264, 0.254, 0.252, 0.249],
+                        borderColor: '#6bbaa7',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            stacked: true,
+                            ticks: {
+                                min: 0.230,
+                                steps: 7,
+                                stepsize: 0.005
+                            }
+                        }]
+                    }
+                }
+            });
+            </script>
+
+</html>

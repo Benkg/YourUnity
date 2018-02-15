@@ -38,7 +38,6 @@ class AddAttendeeController extends Controller
     {
         Attendee::create([
             'firedb_id' => request('firedb_id'),
-            'avatar' => request('avatar'),
             'email' => request('email'),
         ]);
 
