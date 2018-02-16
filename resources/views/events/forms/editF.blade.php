@@ -63,7 +63,7 @@
                             <select class="form-control col-5 mr-2" id="startDate[month]" name="startDate[month]">
                                 <option value=""></option>
                                 <option value="01" <?php if($startmonth=='01')echo ' selected="selected"';?>>January</option>
-                                <option value="02" <?php if($startmonth=='02')echo ' selected="selected"';?>>Febuary</option>
+                                <option value="02" <?php if($startmonth=='02')echo ' selected="selected"';?>>February</option>
                                 <option value="03" <?php if($startmonth=='03')echo ' selected="selected"';?>>March</option>
                                 <option value="04" <?php if($startmonth=='04')echo ' selected="selected"';?>>April</option>
                                 <option value="05" <?php if($startmonth=='05')echo ' selected="selected"';?>>May</option>
@@ -175,7 +175,7 @@
                             <select class="form-control col-5 mr-2" id="endDate[month]" name="endDate[month]">
                                 <option value=""></option>
                                 <option value="01" <php if($endmonth=='01')echo ' selected="selected"';?>>January</option>
-                                <option value="02" <php if($endmonth=='02')echo ' selected="selected"';?>>Febuary</option>
+                                <option value="02" <php if($endmonth=='02')echo ' selected="selected"';?>>February</option>
                                 <option value="03" <php if($endmonth=='03')echo ' selected="selected"';?>>March</option>
                                 <option value="04" <php if($endmonth=='04')echo ' selected="selected"';?>>April</option>
                                 <option value="05" <php if($endmonth=='05')echo ' selected="selected"';?>>May</option>

@@ -1,37 +1,32 @@
+<!-- SideBar -->
+<!-- Profile Picture, Name, Logout, Event Table, New Event Button -->
+<div class="col-3 pt-3 sidebar container">
 
 
-<?php
-    $nonPastEvents = getNonPastEvents();
-?>
-        <!-- SideBar -->
-        <!-- Profile Picture, Name, Logout, Event Table, New Event Button -->
-        <div class="col-3 pt-3 sidebar container">
+    <!-- Menu -->
+    @include('layouts.menu.main')
+
+    <!-- Logo -->
+    <div class="center mb-3"><a href="/dashboard"><img src="{{ url('/images/YU_001_White.svg') }}" class="logo img-fluid" alt="YourUnity"></a></div>
 
 
-            <!-- Menu -->
-            @include('layouts.menu.main')
+    <div class="list-group-item"><a href="/legal/service" class="text-white">Terms of Service</a></div>
 
-            <!-- Logo -->
-            <div class="center mb-3"><a href="/dashboard"><img src="{{ url('/images/YU_001_White.svg') }}" class="logo img-fluid" alt="YourUnity"></a></div>
+    <div class="list-group-item"><a href="/legal/users" class="text-white">Terms of Use</a></div>
 
-            
-            <div class="list-group-item"><a href="/legal/service" class="text-white">Terms of Service</a></div>
+    <div class="list-group-item"><a href="/legal/cookies" class="text-white">Cookie Policy</a></div>
 
-            <div class="list-group-item"><a href="/legal/users" class="text-white">Terms of Use</a></div>
+    <div class="list-group-item"><a href="/legal/privacy" class="text-white">Privacy Policy</a></div>
 
-            <div class="list-group-item"><a href="/legal/cookies" class="text-white">Cookie Policy</a></div>
+   <div class="list-group-item"> <a href="/legal/community" class="text-white">Community Guidelines</a></div>
 
-            <div class="list-group-item"><a href="/legal/privacy" class="text-white">Privacy Policy</a></div>
+    <div class="list-group-item"><a href="/legal/ip" class="text-white">Trademark & Copyright Policy</a></div>
 
-           <div class="list-group-item"> <a href="/legal/community" class="text-white">Community Guidelines</a></div>
-
-            <div class="list-group-item"><a href="/legal/ip" class="text-white">Trademark & Copyright Policy</a></div>
-
-        </div>
+</div>
 
 <!-- Custom Styles -->
 <style type="text/css">
-.responsive-button { 
+.responsive-button {
 overflow: hidden;
 white-space: nowrap;
 
