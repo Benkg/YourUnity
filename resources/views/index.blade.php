@@ -37,13 +37,13 @@ YourUnity
 		<span class="col-6 media-icons">
 			<a href="https://yourunity.org/blog" class="text-white">Blog</a>
 			<a href="https://twitter.com/YourUnityApp"><img src="https://yourunity.org/images/twitter_white.png" class="head-twitter-icon" alt="Twitter"></a>
-			<a href="https://www.facebook.com/YourUnityApp/"><img src="https://yourunity.org/images/facebook_white.png" class="head-social-icons" alt="Facebook"></a>	
+			<a href="https://www.facebook.com/YourUnityApp/"><img src="https://yourunity.org/images/facebook_white.png" class="head-social-icons" alt="Facebook"></a>
 		</span>
 		<span class="col-6">
 			<a href="/login" class="btn btn-outline-secondary white top-login">Login</a>
 			<a href="/access" class="btn btn-primary white top-login top-btn top-reg">Register</a>
 		</span>
-		
+
 		</div>
 	</nav>
 					  <!-- Background Image -->
@@ -82,7 +82,7 @@ YourUnity
 
 	<div class="row serviceProviders ">
 		<div class="col-sm-12 p-4">
-			
+
 			<div class="row p-1 mt-4">
 				<div class="col-lg-6 col-md-6 col-sm-6">
 					<img src="{{ url('/images/post.png') }}" class="screenshot tinted" alt="Create an Event">
@@ -271,11 +271,11 @@ YourUnity
 			width: 60vh;
 		}
 
-		
+
 	    .splash-image {
 	        width: 104vw !important;
 		}
-		
+
 		.screenshot {
 			width: 50vw;
 			border-radius: 40px;
