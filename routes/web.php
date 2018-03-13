@@ -75,3 +75,6 @@ Route::post('/{organization}/{event}/signin','PublicController@signin');
 /* DOWNLOADS-CONTROLLER (Organization Page, Events, and Check-in) */
 Route::post('/download/all',               'DownloadsController@all');
 Route::post('/download/{event}',           'DownloadsController@event');
+
+/* EMAIL-CONTROLLER */
+Route::post('/email/contact',           'EmailController@contact');
