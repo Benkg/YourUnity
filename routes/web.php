@@ -78,3 +78,4 @@ Route::post('/download/{event}',           'DownloadsController@event');
 
 /* EMAIL-CONTROLLER */
 Route::post('/email/contact',           'EmailController@contact');
+Route::post('/email/orgRequest',        'EmailController@orgRequest');
