@@ -2,7 +2,7 @@
 <footer class="text-muted">
     <div class="container pt-4">
         <p class="float-right">
-            <a href="/legal/ip">&copy; YourUnity 2017 - Community, everywhere</a>
+            <a href="/legal/ip">&copy; YourUnity 2018 - Community, everywhere</a>
         </p>
         <p></p>
     </div>
