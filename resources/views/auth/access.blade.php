@@ -70,15 +70,18 @@
   <!-- Request Card -->
   <div class="row">
     <div class="login-card req-card">
-      <h3 class="card-text text-center">To request access,<br/>Enter your organizations email</h3>
+      <h3 class="card-text text-center">To request access,<br/>Enter your organizations name and email</h3>
       <hr />
       <br />
 
       <!-- Form -->
-      <form class="form-horizontal col-8 col-centered" role="form" method="POST" action="/access">
+      <form class="form-horizontal col-8 col-centered" role="form" method="POST" action="/email/orgRequest">
           {{ csrf_field() }}
           <div class="form-group">
-              <input type="text" class="form-control" placeholder="Email" name="code"></input>
+              <input type="text" class="form-control" placeholder="Name of Organization" name="name" required="true"></input>
+          </div>
+          <div class="form-group">
+              <input type="email" class="form-control" placeholder="Email" name="email" required="true"></input>
           </div>
           <!-- Back and Submit Buttons -->
           <a class="btn" href="">
@@ -104,15 +107,16 @@
       </div>
     </div>
 
+    <!-- Missing Screenshots -->
     <div class="row mt-4 p-2">
       <div class="col-sm-4 center">
-        <img src="{{ url('/images/iphone_find_events.png') }}" class="iphone" alt="YourUnity iPhone app screenshot">
+        <img src="" class="iphone" alt="YourUnity iPhone app screenshot">
       </div>
       <div class="col-sm-4 center">
-        <img src="{{ url('/images/iphone_register.png') }}" class="iphone" alt="YourUnity iPhone app screenshot">
+        <img src="" class="iphone" alt="YourUnity iPhone app screenshot">
       </div>
       <div class="col-sm-4 center">
-        <img src="{{ url('/images/iphone_checkin.png') }}" class="iphone" alt="YourUnity iPhone app screenshot">
+        <img src="" class="iphone" alt="YourUnity iPhone app screenshot">
       </div>
     </div>
 
@@ -192,7 +196,6 @@ $(document).ready(function(){
 
 .vol-card {
   display: none;
-
 }
 
 .appstoreIcon {
