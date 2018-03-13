@@ -21,6 +21,7 @@ class Event extends Model
         'user_id',
         'num_registered',
         'num_attended',
+        'company'
     ];
 
     public function user() {
