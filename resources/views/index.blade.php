@@ -46,10 +46,10 @@
         <link rel="stylesheet" href="assets/css/responsive.css" />
         <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
-		
+
 	</head>
 	<body>
-		<header id="main_menu" class="header navbar-fixed-top">            
+		<header id="main_menu" class="header navbar-fixed-top">
             <div class="main_menu_bg">
                 <div class="container">
                     <div class="row">
@@ -64,7 +64,7 @@
                                             <span class="icon-bar"></span>
                                             <span class="icon-bar"></span>
                                         </button>
-                                
+
                                     </div>
 
                                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -73,7 +73,7 @@
 
                                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                         <ul class="nav navbar-nav navbar-right">
-                                            
+
                                             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">About Us</a>
                                                 <ul class="dropdown-menu">
 													<li><a href="/public/blog">Blog</a></li>
@@ -85,12 +85,12 @@
                                             <li><a href="/login" style="font-weight:600;">Login</a></li>
 											</li>
                                             <li><a href="/access" style="font-weight:600;">Register</a></li>
-                                        </ul>    
+                                        </ul>
                                     </div>
 
                                 </div>
                             </nav>
-                        </div>	
+                        </div>
                     </div>
 
                 </div>
@@ -98,14 +98,14 @@
 			</div>
 
 		</header> <!--End of header -->
-		
+
 		  <!-- Home Section -->
         <section id="home" class="home">
 				<div class="text-center">
 					<div class="single_home_slider">
 						<div class="home-overlay"></div>
-						<div class="main_home wow fadeInUp" data-wow-duration="700ms"> 
-							<img src="https://yourunity.org/images/YU_001_White.svg" class="home-logo" alt="YourUnity">							
+						<div class="main_home wow fadeInUp" data-wow-duration="700ms">
+							<img src="{{ url('/images/YU_001_White.svg') }}" class="home-logo" alt="YourUnity">
 							<div class="separator"></div>
 							<h4 class="subtitle">Community, Everywhere</h4>
 							<div class="home_btn">
@@ -113,10 +113,10 @@
 							</div>
 						</div>
 					</div><!-- End of single_home_slider -->
-				</div>       
-                
+				</div>
+
 		</section><!-- End of Home Section -->
-		
+
 		<!-- Overview Section with Two Options -->
 		<section id="overview" class="overview sections">
 			<div class="container">
@@ -139,30 +139,31 @@
 			</div>
 		</section>
 		<!-- End of Overview Section -->
-		
+
 		<!-- Volunteer Section -->
 		<section id="volunteers" class="volunteer sections">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
 						<span class="head_title"><h1 class="margin-bottom-40">Community, for Volunteers.</h1></span>
-						<a href="https://itunes.apple.com/us/app/yourunity/id1291525611?ls=1&amp;mt=8"><img src="https://yourunity.org/images/appstore.svg" alt="Get the App"></a>
-					</div>
+						<a href="https://itunes.apple.com/us/app/yourunity/id1291525611?ls=1&amp;mt=8"><img src="{{ url('/images/AppleAppStore.png') }}" class="appImage" alt="Get the App"></a>
+                        <a href="https://play.google.com/store/apps/details?id=org.yourunity.YourUnity&hl=en"><img src="{{ url('/images/GooglePlayStore.png') }}" class="appImage" alt="Get the App"></a>
+                    </div>
 				</div>
 				<div class="row margin-top-40">
 					<div class="col-sm-4 margin-top-40">
-						<img src="images/iphone_find_events.png" class="app_screenshot" alt="YourUnity iPhone app screenshot">
+						<img src="{{ url('/images/iphone_find_events.png') }}" class="app_screenshot" alt="YourUnity iPhone app screenshot">
 						<p class="text-center margin-top-40 line-height-2">Find events that interest you.</p>
 					</div>
 					<div class="col-sm-4 margin-top-40">
-						<img src="images/iphone_register.png" class="app_screenshot" alt="YourUnity iPhone app screenshot">					
+						<img src="{{ url('/images/iphone_register.png') }}" class="app_screenshot" alt="YourUnity iPhone app screenshot">
 						<p class="text-center margin-top-40">Register from the palm of your hand.</p>
 					</div>
 					<div class="col-sm-4 margin-top-40">
-						<img src="images/iphone_view_stats.png" class="app_screenshot" alt="YourUnity iPhone app screenshot">				
+						<img src="{{ url('/images/iphone_view_stats.png') }}" class="app_screenshot" alt="YourUnity iPhone app screenshot">
 						<p class="text-center margin-top-40">Track your progress with ease.</p>
 					</div>
-				</div>	
+				</div>
 		</section> <!-- End of Volunteer Section -->
 
 		<!-- Service Section -->
@@ -173,19 +174,19 @@
 						<div class=" text-center">
 							<span class="head_title"><h1 class="margin-bottom-40"style="line-height:2em;">A Service... for Community Service Providers.</h1></span>
 						</div>
-						<div class="main_service_area"> 
+						<div class="main_service_area">
                             <div class="single_service_area">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="signle_service_left">
-											<img src="https://yourunity.org/images/post.png" alt="Post events">											
+											<img src="{{ url('/images/post.png') }}" alt="Post events">
                                         </div>
                                     </div>
                                     <div class="col-sm-5 col-sm-push-1">
                                         <div class="single_service">
                                             <h2>Publish and publicize your events to a large volunteer pool.</h2>
                                             <div class="separator2"></div>
-                                            <p>Unlimited events, with unlimited potential. Post your event to YourUnity, and let us do the rest of the work for you! Simply fill out 
+                                            <p>Unlimited events, with unlimited potential. Post your event to YourUnity, and let us do the rest of the work for you! Simply fill out
 												the title of the event, location, time, a short description, and any requirements for the event.</p>
                                         </div>
                                     </div>
@@ -196,7 +197,7 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-sm-push-6">
                                         <div class="signle_service_left">
-											<img src="https://yourunity.org/images/analytics.png" alt="Track Events">
+											<img src="{{ url('/images/analytics.png') }}" alt="Track Events">
                                         </div>
                                     </div>
 
@@ -204,7 +205,7 @@
                                         <div class="single_service">
                                             <h2>Get data analytics from your past events.</h2>
                                             <div class="separator2"></div>
-                                            <p>Track every event that you post to YourUnity. See how many people are interested in your event, how many show up, and the number 
+                                            <p>Track every event that you post to YourUnity. See how many people are interested in your event, how many show up, and the number
 												of hours that they log at your event. Many more analytics are coming every day to YourUnity to help you understand how to drive even more people to them.</p>
                                         </div>
                                     </div>
@@ -216,14 +217,14 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="signle_service_left">
-											<img src="https://yourunity.org/images/notifications.png" alt="Update Volunteers">
+											<img src="{{ url('/images/notifications.png') }}" alt="Update Volunteers">
                                         </div>
                                     </div>
                                     <div class="col-sm-5 col-sm-push-1">
                                         <div class="single_service">
                                             <h2>Send liabilty waivers and other documents to your volunteers.</h2>
                                             <div class="separator2"></div>
-                                            <p>YourUnity gives you the unique ability to send a notification to all of your volunteers with the click of 
+                                            <p>YourUnity gives you the unique ability to send a notification to all of your volunteers with the click of
 												a button, guaranteeing that any pertinent information for your events has the attention of the people that matter most.  </p>
                                         </div>
                                     </div>
@@ -234,7 +235,7 @@
                 </div><!-- End of row -->
             </div><!-- End of Container -->
 		</section><!-- End of Service Section -->
-		
+
 		<!-- Team Section -->
         <section id="team" class="team sections">
             <div class="container">
@@ -250,39 +251,39 @@
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <div class="team">
-                                                <img class="img-circle" src="/images/benHeadshot.jpeg" alt="" />
+                                                <img class="img-circle" src="{{ url('/images/benHeadshot.jpeg') }}" alt="" />
                                                 <h4>Benjamin Gutierrez</h4>
                                                 <div class="separator"></div>
                                                 <p>co-founder</p>
                                             </div>
-                                        </div> <!-- End of col-sm-4 --> 
+                                        </div> <!-- End of col-sm-4 -->
                                         <div class="col-sm-4">
                                             <div class="team">
-                                                <img class="img-circle" src="/images/alexHeadshot.jpeg" alt="" />
+                                                <img class="img-circle" src="{{ url('/images/alexHeadshot.jpeg') }}" alt="" />
                                                 <h4>Alexander Pearson-Goulart</h4>
                                                 <div class="separator"></div>
                                                 <p>co-founder</p>
                                             </div>
-                                        </div> <!-- End of col-sm-4 --> 
+                                        </div> <!-- End of col-sm-4 -->
                                         <div class="col-sm-4">
                                             <div class="team">
-                                                <img class="img-circle" src="/images/nehaHeadshot.jpeg" alt="" />
+                                                <img class="img-circle" src="{{ url('/images/nehaHeadshot.jpeg') }}" alt="" />
                                                 <h4>Neha Nene</h4>
                                                 <div class="separator"></div>
                                                 <p>co-founder</p>
                                             </div>
-                                        </div><!-- End of col-sm-4 -->  
+                                        </div><!-- End of col-sm-4 -->
                                     </div>
                                 </div><!-- End of col-sm-10 -->
                             </div>
-                            
-                            
+
+
                         </div>
                     </div>
                 </div><!-- End of row -->
             </div><!-- End of Contaier -->
-		</section><!-- End of portfolio Section --> 
-		
+		</section><!-- End of portfolio Section -->
+
 		<section id="contact" class="contact">
 			<div class="overlay"></div>
             <div class="container">
@@ -305,7 +306,6 @@
                                             <div class="contact_social transition">
                                                 <a target="_blank" href="https://www.facebook.com/YourUnityApp/"><i class="fa fa-facebook img-circle"></i></a>
                                                 <a target="_blank" href="https://twitter.com/YourUnityApp"><i class="fa fa-twitter img-circle"></i></a>
-                                                <a target="_blank" href=""><i class="fa fa-youtube img-circle"></i></a>
                                                 <a target="_blank" href="https://www.instagram.com/yourunityapp/"><i class="fa fa-instagram img-circle"></i></a>
                                             </div>
                                         </div>
@@ -316,7 +316,7 @@
 											<form action="/email/contact" method="post" id="formid">
 												{{ csrf_field() }}
                                                 <!--<div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">-->
-												
+
                                                 <div class="form-group">
 													<label for="name">Name</label>
                                                     <input type="text" class="form-control" name="name" placeholder="Full Name" required="true">
@@ -336,8 +336,8 @@
                                                     <input type="submit" value="submit" name="submit" class="btn">
 												</div>
 
-												
-                                                <!--</div>--> 
+
+                                                <!--</div>-->
                                             </form>
                                         </div>
                                     </div>
@@ -347,8 +347,8 @@
                     </div><!-- End of col-sm-12 -->
                 </div><!-- End of row -->
             </div><!-- End of Contaier -->
-        </section><!-- End of portfolio Section --> 
-				
+        </section><!-- End of portfolio Section -->
+
 		<!-- footer Section -->
         <footer id="footer" class="footer">
 			<div class="container">
@@ -364,7 +364,7 @@
             </div><!-- End of container -->
 		</footer><!-- End of footer -->
 
-		
+
 		<!-- START SCROLL TO TOP  -->
 
         <div class="scrollup">
@@ -405,4 +405,3 @@
         <script src="assets/js/main.js"></script>
 
 	</body>
-

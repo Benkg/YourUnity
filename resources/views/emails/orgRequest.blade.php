@@ -1,10 +1,8 @@
 @component('mail::message')
-# Contact Form
+# New Request to Join
 
 Name: {{ $name }}
 
 Email: {{ $email }}
-
-Message: {{ $message }}
 
 @endcomponent

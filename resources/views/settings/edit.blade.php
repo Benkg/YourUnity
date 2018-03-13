@@ -15,9 +15,10 @@ Settings
                 <form class="" method = "POST" action = "/settings/edit">
                     {{ csrf_field() }}
                     <h4 class="mb-3">Event Coordinator: </h4>
-                    <input class="form-control col-8 mb-3" type ='text' name ='name' id='name' value ="{{ Auth::user()->name }}"/>
+                    <input class="form-control col-8 mb-3" placeholder="First Name" type ='text' name ='fname' id='fname' value ="{{ Auth::user()->name_first }}"/>
+                    <input class="form-control col-8 mb-3" placeholder="Last Name" type ='text' name ='lname' id='lname' value ="{{ Auth::user()->name_last }}"/>
                     <h4 class="mb-3">Email: </h4>
-                    <input class="form-control col-8 mb-3" type ='text' name ='email' id='email' value ="{{ Auth::user()->email }}"/>
+                    <input class="form-control col-8 mb-3" placeholder="Last Name" type ='text' name ='email' id='email' value ="{{ Auth::user()->email }}"/>
                     <input class="btn btn-primary" type = 'submit' value = "Update" />
                 </form>
             </div>
