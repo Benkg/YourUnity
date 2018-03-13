@@ -110,13 +110,13 @@
     <!-- Missing Screenshots -->
     <div class="row mt-4 p-2">
       <div class="col-sm-4 center">
-        <img src="" class="iphone" alt="YourUnity iPhone app screenshot">
+        <img src="{{ url('/images/iphone_find_events.png') }}" class="iphone" alt="YourUnity iPhone app screenshot">
       </div>
       <div class="col-sm-4 center">
-        <img src="" class="iphone" alt="YourUnity iPhone app screenshot">
+        <img src="{{ url('/images/iphone_register.png') }}" class="iphone" alt="YourUnity iPhone app screenshot">
       </div>
       <div class="col-sm-4 center">
-        <img src="" class="iphone" alt="YourUnity iPhone app screenshot">
+        <img src="{{ url('/images/iphone_view_stats.png') }}" class="iphone" alt="YourUnity iPhone app screenshot">
       </div>
     </div>
 

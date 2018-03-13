@@ -105,7 +105,7 @@
 					<div class="single_home_slider">
 						<div class="home-overlay"></div>
 						<div class="main_home wow fadeInUp" data-wow-duration="700ms">
-							<img src="https://yourunity.org/images/YU_001_White.svg" class="home-logo" alt="YourUnity">
+							<img src="{{ url('/images/YU_001_White.svg') }}" class="home-logo" alt="YourUnity">
 							<div class="separator"></div>
 							<h4 class="subtitle">Community, Everywhere</h4>
 							<div class="home_btn">
@@ -146,21 +146,21 @@
 				<div class="row">
 					<div class="col-sm-12 text-center">
 						<span class="head_title"><h1 class="margin-bottom-40">Community, for Volunteers.</h1></span>
-						<a href="https://itunes.apple.com/us/app/yourunity/id1291525611?ls=1&amp;mt=8"><img src="https://yourunity.org/images/AppleAppStore.png" class="appImage" alt="Get the App"></a>
-                        <a href="https://play.google.com/store/apps/details?id=org.yourunity.YourUnity&hl=en"><img src="https://yourunity.org/images/GooglePlayStore.png" class="appImage" alt="Get the App"></a>                    
+						<a href="https://itunes.apple.com/us/app/yourunity/id1291525611?ls=1&amp;mt=8"><img src="{{ url('/images/AppleAppStore.png') }}" class="appImage" alt="Get the App"></a>
+                        <a href="https://play.google.com/store/apps/details?id=org.yourunity.YourUnity&hl=en"><img src="{{ url('/images/GooglePlayStore.png') }}" class="appImage" alt="Get the App"></a>
                     </div>
 				</div>
 				<div class="row margin-top-40">
 					<div class="col-sm-4 margin-top-40">
-						<img src="https://yourunity.org/images/iphone_find_events.png" class="app_screenshot" alt="YourUnity iPhone app screenshot">
+						<img src="{{ url('/images/iphone_find_events.png') }}" class="app_screenshot" alt="YourUnity iPhone app screenshot">
 						<p class="text-center margin-top-40 line-height-2">Find events that interest you.</p>
 					</div>
 					<div class="col-sm-4 margin-top-40">
-						<img src="https://yourunity.org/images/iphone_register.png" class="app_screenshot" alt="YourUnity iPhone app screenshot">					
+						<img src="{{ url('/images/iphone_register.png') }}" class="app_screenshot" alt="YourUnity iPhone app screenshot">
 						<p class="text-center margin-top-40">Register from the palm of your hand.</p>
 					</div>
 					<div class="col-sm-4 margin-top-40">
-						<img src="https://yourunity.org/images/iphone_view_stats.png" class="app_screenshot" alt="YourUnity iPhone app screenshot">				
+						<img src="{{ url('/images/iphone_view_stats.png') }}" class="app_screenshot" alt="YourUnity iPhone app screenshot">
 						<p class="text-center margin-top-40">Track your progress with ease.</p>
 					</div>
 				</div>
@@ -179,7 +179,7 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="signle_service_left">
-											<img src="https://yourunity.org/images/post.png" alt="Post events">
+											<img src="{{ url('/images/post.png') }}" alt="Post events">
                                         </div>
                                     </div>
                                     <div class="col-sm-5 col-sm-push-1">
@@ -197,7 +197,7 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-sm-push-6">
                                         <div class="signle_service_left">
-											<img src="https://yourunity.org/images/analytics.png" alt="Track Events">
+											<img src="{{ url('/images/analytics.png') }}" alt="Track Events">
                                         </div>
                                     </div>
 
@@ -217,7 +217,7 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="signle_service_left">
-											<img src="https://yourunity.org/images/notifications.png" alt="Update Volunteers">
+											<img src="{{ url('/images/notifications.png') }}" alt="Update Volunteers">
                                         </div>
                                     </div>
                                     <div class="col-sm-5 col-sm-push-1">
@@ -251,7 +251,7 @@
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <div class="team">
-                                                <img class="img-circle" src="/images/benHeadshot.jpeg" alt="" />
+                                                <img class="img-circle" src="{{ url('/images/benHeadshot.jpeg') }}" alt="" />
                                                 <h4>Benjamin Gutierrez</h4>
                                                 <div class="separator"></div>
                                                 <p>co-founder</p>
@@ -259,7 +259,7 @@
                                         </div> <!-- End of col-sm-4 -->
                                         <div class="col-sm-4">
                                             <div class="team">
-                                                <img class="img-circle" src="/images/alexHeadshot.jpeg" alt="" />
+                                                <img class="img-circle" src="{{ url('/images/alexHeadshot.jpeg') }}" alt="" />
                                                 <h4>Alexander Pearson-Goulart</h4>
                                                 <div class="separator"></div>
                                                 <p>co-founder</p>
@@ -267,7 +267,7 @@
                                         </div> <!-- End of col-sm-4 -->
                                         <div class="col-sm-4">
                                             <div class="team">
-                                                <img class="img-circle" src="/images/nehaHeadshot.jpeg" alt="" />
+                                                <img class="img-circle" src="{{ url('/images/nehaHeadshot.jpeg') }}" alt="" />
                                                 <h4>Neha Nene</h4>
                                                 <div class="separator"></div>
                                                 <p>co-founder</p>
