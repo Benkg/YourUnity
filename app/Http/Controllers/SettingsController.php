@@ -52,7 +52,8 @@ class SettingsController extends Controller
         // validate
         // read more on validation at http://laravel.com/docs/validation
         $rules = array(
-            'name'       => 'required|string|max:255',
+            'fname'       => 'required|string|max:255',
+            'lname'       => 'required|string|max:255',
             'email'      => 'required|string|email|max:255|unique:users,email,' . Auth::user()->id
         );
         $validator = Validator::make(Input::all(), $rules);
@@ -65,7 +66,10 @@ class SettingsController extends Controller
         } else {
             // store
             $user = Auth::user();
-            $user->name = request('name');
+            $user->name_first = request('fname');
+            $user->name_last = request('lname');
+            
+            //We need to send a verification email to ensure the correct email.
             $user->email = request('email');
             $user->save();
 
