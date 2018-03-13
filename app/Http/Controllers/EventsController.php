@@ -221,6 +221,7 @@ class EventsController extends Controller
             'ends' => request('ends'),
             'event_description' => request('event_description'),
             'time_state' => 2,
+            'company' => auth()->user()->company,
             'user_id' => auth()->user()->id
         ]);
 
@@ -360,6 +361,7 @@ class EventsController extends Controller
             location_id = :location_id,
             event_description = :event_description,
             type_id = :type_id,
+            company = :company,
             user_id = :user_id
             where id = :id', [
                 'id' => $id,
@@ -369,6 +371,7 @@ class EventsController extends Controller
                 'location_id' => $location_id,
                 'event_description' => request('event_description'),
                 'type_id' => request('event_type'),
+                'company' => auth()->user()->company,
                 'user_id' => auth()->user()->id
         ]);
 
